@@ -5,6 +5,7 @@ import { useWindowSize } from './hooks/useWindowSize';
 import muiTheme from './muiTheme';
 import { HorizontalView } from './components/main-view/HorizontalView';
 import { MobileView } from './components/main-view/MobileView';
+import { IsScrollingProvider } from './hooks/useIsScrolling';
 
 export interface postion {
   x: number;
@@ -12,11 +13,13 @@ export interface postion {
 }
 
 function App() {
-  const {isMobile} = useWindowSize();
+  const { isMobile } = useWindowSize();
   return (
     <ThemeProvider theme={muiTheme}>
       <GlobalStyle color={muiTheme.palette.text.primary} />
-      {isMobile ? (<MobileView/>):(<HorizontalView/>)}
+      <IsScrollingProvider>
+        {isMobile ? <MobileView /> : <HorizontalView />}
+      </IsScrollingProvider>
     </ThemeProvider>
   );
 }

@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import { Paper, Typography } from '@mui/material';
 import { useEffectUnsafe } from '../../unsafeHooks';
 import Pen from './images/pen.svg';
+import { useIsScrolling } from '../../hooks/useIsScrolling';
 
 export type LanguagesProps = {};
 export const Languages = ({}: LanguagesProps) => {
@@ -25,6 +26,7 @@ export const Languages = ({}: LanguagesProps) => {
     undefined
   );
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
+  const {areTouchEventsAllowed} = useIsScrolling()
   useLayoutEffect(() => {
     setShuffledAnswerOrder(order =>
       order
@@ -40,6 +42,9 @@ export const Languages = ({}: LanguagesProps) => {
     );
   }, [onLanguageHover]);
   const onLanguageUp = () => {
+    if(!areTouchEventsAllowed){
+      return;
+    }
     if (selectedSentence !== undefined && isAnswerCorrect) {
       setCorrectSentenceOrder(correctSentences =>
         correctSentences.add(selectedSentence)
@@ -50,15 +55,20 @@ export const Languages = ({}: LanguagesProps) => {
     setIsAnswerCorrect(false);
   };
 
+  const onLanguageDown = (languagePosition: number) => {
+    if(!areTouchEventsAllowed){
+      return;
+    }
+    setOnLanguageHover(languagePosition);
+    setSelectedSentence(languagePosition);
+  };
+
   return (
     <MainWrapper>
       <CanvasWrapper>
         <Canvas
           languagesNumber={languages.length}
-          onLanguageDown={languagePosition => {
-            setOnLanguageHover(languagePosition);
-            setSelectedSentence(languagePosition);
-          }}
+          onLanguageDown={onLanguageDown}
           onLanguageUp={onLanguageUp}
           onLanguageHover={languagePosition => {
             setOnLanguageHover(languagePosition);

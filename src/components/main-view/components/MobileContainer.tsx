@@ -9,9 +9,9 @@ export type TilesContainerProps = {
 };
 
 export const MobileContainer = forwardRef<HTMLDivElement, TilesContainerProps>(
-  ({ children, tileName }: TilesContainerProps, ref) => {
+  ({ children, tileName }: TilesContainerProps) => {
     return (
-      <MainContainer>
+        <MainContainer >
         {tileName && (
           <TileNameWrapper>
             <TileName variant="h3">
