@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { useEffectUnsafe } from '../../unsafeHooks';
 import { useTheme } from '@mui/material';
-import { useIsScrolling } from '../../hooks/useIsScrolling';
 
 export type LanguagesProps = {
   onLanguageDown: (languagePosition: number) => void;
@@ -30,7 +29,6 @@ export const Canvas = ({
   const handleResize = () => {
     setConstraints(contextRef.current.getBoundingClientRect());
   };
-  const {areTouchEventsAllowed} = useIsScrolling()
 
   useEffectUnsafe(() => {
     window.addEventListener('resize', handleResize);
@@ -56,9 +54,6 @@ export const Canvas = ({
   }, []);
 
   const startDrawing = (event:any) => {
-    if(!areTouchEventsAllowed){
-      return;
-    }
     event.stopPropagation();
     document.body.style.overflow = "hidden"
     contextRef.current.strokeStyle = 'white';
@@ -84,9 +79,6 @@ export const Canvas = ({
     onLanguageDown(languagePos);
   };
   const finishDrawing = (event: any) => {
-    if(!areTouchEventsAllowed){
-      return;
-    }
     event.stopPropagation();
     document.body.style.overflow = "scroll"
     const { width, height } = canvasRef.current;
@@ -113,9 +105,6 @@ export const Canvas = ({
     }
   };
   const draw = (event: any) => {
-    if(!areTouchEventsAllowed || !isDrawing){
-      return;
-    }
     event.stopPropagation();
     const { width, height } = canvasRef.current;
     let { offsetX: x, offsetY: y } = event.nativeEvent;
