@@ -18,7 +18,6 @@ export const Canvas = ({
                          isAnswerCorrect
 }: LanguagesProps) => {
   const ratio = window.devicePixelRatio;
-  const [isDrawing, setIsDrawing] = useState(false);
   const canvasRef = useRef<any>(null);
   const contextRef = useRef<any>(null);
   const [constraints, setConstraints] = useState<any>();
@@ -70,7 +69,6 @@ export const Canvas = ({
     contextRef.current.lineWidth = lineWidth;
     contextRef.current.moveTo(x, y);
     lasImageRef.current.src = canvasRef.current.toDataURL();
-    setIsDrawing(true);
     linePoints.current = [];
     const { width } = canvasRef.current;
     const languagePos = Math.floor(
@@ -99,7 +97,6 @@ export const Canvas = ({
     } else {
       markWrongAnswer();
     }
-    setIsDrawing(false);
     if (languageHoverPosition.current !== undefined) {
       onLanguageUp();
     }

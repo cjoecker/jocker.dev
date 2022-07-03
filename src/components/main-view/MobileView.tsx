@@ -12,14 +12,12 @@ import { Languages } from '../languages/Languages';
 
 export type MobileViewProps = {};
 export const MobileView = ({}: MobileViewProps) => {
-
   useEffect(() => {
     document.documentElement.style.overflow = 'auto';
   }, []);
 
   return (
-    <MainContainer
-    >
+    <MainContainer>
       <MobileContainer>
         <Title />
       </MobileContainer>
