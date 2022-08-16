@@ -1,10 +1,11 @@
 import { ThemeProvider } from '@mui/material';
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import { useWindowSize } from './hooks/useWindowSize';
-import muiTheme from './muiTheme';
+
 import { HorizontalView } from './components/main-view/HorizontalView';
 import { MobileView } from './components/main-view/MobileView';
+import { useWindowSize } from './hooks/useWindowSize';
+import muiTheme from './muiTheme';
 
 export interface postion {
   x: number;
@@ -16,7 +17,7 @@ function App() {
   return (
     <ThemeProvider theme={muiTheme}>
       <GlobalStyle color={muiTheme.palette.text.primary} />
-        {isMobile ? <MobileView /> : <HorizontalView />}
+      {isMobile ? <MobileView /> : <HorizontalView />}
     </ThemeProvider>
   );
 }

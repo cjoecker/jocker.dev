@@ -15,13 +15,17 @@ export const Canvas = ({
   onLanguageUp,
   languagesNumber,
   onLanguageHover,
-                         isAnswerCorrect
+  isAnswerCorrect,
 }: LanguagesProps) => {
   const ratio = window.devicePixelRatio;
   const canvasRef = useRef<any>(null);
   const contextRef = useRef<any>(null);
+  const [isDrawing, setIsDrawing] = useState(false);
   const [constraints, setConstraints] = useState<any>();
   const lasImageRef = useRef<any>(new Image());
+  const wrongAnswerImageRef = useRef<any>(new Image());
+  const blinkInterval = useRef<any>();
+  const blinkCounter = useRef(0);
   const linePoints = useRef<{ x: number; y: number }[]>([]);
   const languageHoverPosition = useRef<number | undefined>(undefined);
   const style = useTheme();
@@ -52,9 +56,9 @@ export const Canvas = ({
     contextRef.current = canvasRef.current.getContext('2d');
   }, []);
 
-  const startDrawing = (event:any) => {
+  const startDrawing = (event: any) => {
     event.stopPropagation();
-    document.body.style.overflow = "hidden"
+    document.body.style.overflow = 'hidden';
     contextRef.current.strokeStyle = 'white';
     const { height } = canvasRef.current;
     let { offsetX: x, offsetY: y } = event.nativeEvent;
@@ -68,6 +72,7 @@ export const Canvas = ({
     contextRef.current.lineCap = lineCap;
     contextRef.current.lineWidth = lineWidth;
     contextRef.current.moveTo(x, y);
+    setIsDrawing(true);
     lasImageRef.current.src = canvasRef.current.toDataURL();
     linePoints.current = [];
     const { width } = canvasRef.current;
@@ -78,9 +83,10 @@ export const Canvas = ({
   };
   const finishDrawing = (event: any) => {
     event.stopPropagation();
-    document.body.style.overflow = "scroll"
+    document.body.style.overflow = 'scroll';
     const { width, height } = canvasRef.current;
     clearCanvas();
+    setIsDrawing(false);
     contextRef.current.drawImage(
       lasImageRef.current,
       0,
@@ -92,18 +98,17 @@ export const Canvas = ({
       width,
       height
     );
-    if (isAnswerCorrect) {
-      markRightAnswer();
-    } else {
-      markWrongAnswer();
-    }
+    markRightAnswer(isAnswerCorrect);
     if (languageHoverPosition.current !== undefined) {
       onLanguageUp();
     }
   };
   const draw = (event: any) => {
+    if (!isDrawing) {
+      return;
+    }
     event.stopPropagation();
-    const { width, height } = canvasRef.current;
+    const { width } = canvasRef.current;
     let { offsetX: x, offsetY: y } = event.nativeEvent;
     if (!x || !y) {
       const rect = event.target.getBoundingClientRect();
@@ -117,14 +122,17 @@ export const Canvas = ({
     const languagePos = Math.floor(
       (x * ratio) / ((width - 1) / languagesNumber)
     );
-    if (languagePos !== languageHoverPosition.current || languagePos === undefined) {
+    if (
+      languagePos !== languageHoverPosition.current ||
+      languagePos === undefined
+    ) {
       languageHoverPosition.current = languagePos;
       onLanguageHover(languagePos);
     }
   };
 
-  const markRightAnswer = () => {
-    contextRef.current.strokeStyle = style.palette.primary.main;
+  const markRightAnswer = (isAnswerRight:boolean) => {
+    contextRef.current.strokeStyle = isAnswerRight? style.palette.primary.main:'#e37171';
     contextRef.current.beginPath();
     contextRef.current.lineCap = lineCap;
     contextRef.current.lineWidth = lineWidth;
@@ -132,10 +140,6 @@ export const Canvas = ({
       contextRef.current.lineTo(point.x, point.y);
     });
     contextRef.current.stroke();
-    contextRef.current.closePath();
-  };
-
-  const markWrongAnswer = () => {
     contextRef.current.closePath();
   };
 
@@ -162,6 +166,5 @@ export const Canvas = ({
   );
 };
 
-
 const lineWidth = 4;
-const lineCap = 'round'
+const lineCap = 'round';
