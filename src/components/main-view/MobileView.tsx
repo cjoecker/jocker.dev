@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { locations } from '../../constants/locations';
 import { skills } from '../../constants/skills';
 import { Languages } from '../languages/Languages';
-import Locations from '../locations/Locations';
+import { Locations } from '../locations/Locations';
 import { OtherApps } from '../other-apps/OtherApps';
 import { Skills } from '../skills/Skills';
 import { Title } from '../title/Title';

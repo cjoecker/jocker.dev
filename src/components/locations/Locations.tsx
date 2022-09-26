@@ -13,8 +13,8 @@ import {
 import { useWindowSize } from '../../hooks/useWindowSize';
 import { useEffectUnsafe } from '../../unsafeHooks';
 
-import Footer from './components/Footer';
-import Header from './components/Header';
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
 import {
   getLastLocation,
   getPinImagePath,
@@ -28,7 +28,7 @@ interface locationEntriesProps {
 }
 
 //TODO move map access token to env
-export default function Locations({locationEntries}:locationEntriesProps) {
+export function Locations({locationEntries}:locationEntriesProps) {
   const lastLocation = locationEntries[0]
   const [location, setLocation] = useState(lastLocation);
   const {isMobile} = useWindowSize();

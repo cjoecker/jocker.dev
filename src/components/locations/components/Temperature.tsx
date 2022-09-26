@@ -7,7 +7,7 @@ interface TemperatureProps {
   isLoading: boolean;
 }
 
-export default function Temperature({ temperature, isLoading }: TemperatureProps) {
+export function Temperature({ temperature, isLoading }: TemperatureProps) {
     if(isLoading || !temperature){
         return (<CircularProgress />)
     }

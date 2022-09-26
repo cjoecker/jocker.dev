@@ -14,7 +14,7 @@ interface BallsProps {
 
 const WALLS_THICKNESS = 10;
 
-export default function Balls({ skills }: BallsProps) {
+export function Balls({ skills }: BallsProps) {
   const ratio = window.devicePixelRatio;
   const boxRef = useRef<any>(null);
   const canvasRef = useRef<any>(null);

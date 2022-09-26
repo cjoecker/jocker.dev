@@ -15,7 +15,7 @@ interface HeaderProps {
   onChangeYear: (year: number) => void;
 }
 
-export default function Header({
+export function Header({
   marks,
   onChangeYear,
 }: HeaderProps) {

@@ -1,4 +1,4 @@
-import * as queryString from 'querystring';
+import * as queryString from 'query-string';
 
 import { LocationsType } from './constants/locations';
 

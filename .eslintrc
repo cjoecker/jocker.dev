@@ -25,6 +25,7 @@
     "react-hooks",
     "unused-imports",
     "import",
+    "import",
     "jsx-a11y"
   ],
   "rules": {
@@ -52,6 +53,7 @@
     "no-empty-pattern": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
+    "import/no-default-export": "error",
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/no-var-requires": "off",

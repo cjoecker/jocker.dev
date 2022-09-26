@@ -5,14 +5,14 @@ import { createGlobalStyle } from 'styled-components';
 import { HorizontalView } from './components/main-view/HorizontalView';
 import { MobileView } from './components/main-view/MobileView';
 import { useWindowSize } from './hooks/useWindowSize';
-import muiTheme from './muiTheme';
+import { muiTheme } from './muiTheme';
 
 export interface postion {
   x: number;
   y: number;
 }
 
-function App() {
+export function App() {
   const { isMobile } = useWindowSize();
   return (
     <ThemeProvider theme={muiTheme}>
@@ -21,8 +21,6 @@ function App() {
     </ThemeProvider>
   );
 }
-
-export default App;
 
 export const GlobalStyle = createGlobalStyle<{ color?: string }>`
   html{

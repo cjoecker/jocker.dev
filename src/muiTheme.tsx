@@ -86,6 +86,4 @@ const muiThemeOptions: MuiThemeOptions = {
   }
 };
 
-const muiTheme = createTheme(muiThemeOptions);
-
-export default muiTheme;
+export const muiTheme = createTheme(muiThemeOptions);

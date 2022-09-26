@@ -8,7 +8,7 @@ import { skills } from '../../constants/skills';
 import { useWindowSize } from '../../hooks/useWindowSize';
 import { useEffectUnsafe } from '../../unsafeHooks';
 import { Languages } from '../languages/Languages';
-import Locations from '../locations/Locations';
+import { Locations } from '../locations/Locations';
 import { OtherApps } from '../other-apps/OtherApps';
 import { Skills } from '../skills/Skills';
 import { Title } from '../title/Title';

@@ -8,13 +8,13 @@ import { LocationsType } from '../../../constants/locations';
 import { weatherCodes } from '../../../constants/weatherCodes';
 import { getWeatherImagePath } from '../utils/locationUtils';
 
-import Temperature from './Temperature';
+import { Temperature } from './Temperature';
 
 interface FooterProps {
   location: LocationsType;
 }
 
-export default function Footer({ location }: FooterProps) {
+export function Footer({ location }: FooterProps) {
   const { data, isLoading } = useQuery(['weather', location.city], () =>
     fetchWeather(location)
   );
