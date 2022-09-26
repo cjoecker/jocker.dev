@@ -1,14 +1,16 @@
 import * as React from 'react';
 import { useEffect } from 'react';
 import styled from 'styled-components';
-import { Title } from '../title/Title';
+
 import { locations } from '../../constants/locations';
-import Locations from '../locations/Locations';
 import { skills } from '../../constants/skills';
-import { Skills } from '../skills/Skills';
-import { OtherApps } from '../other-apps/OtherApps';
-import { MobileContainer } from './components/MobileContainer';
 import { Languages } from '../languages/Languages';
+import Locations from '../locations/Locations';
+import { OtherApps } from '../other-apps/OtherApps';
+import { Skills } from '../skills/Skills';
+import { Title } from '../title/Title';
+
+import { MobileContainer } from './components/MobileContainer';
 
 export type MobileViewProps = {};
 export const MobileView = ({}: MobileViewProps) => {

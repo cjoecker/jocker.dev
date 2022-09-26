@@ -10,6 +10,7 @@ import {
   locationPinImages,
   LocationsType,
 } from '../../constants/locations';
+import { useWindowSize } from '../../hooks/useWindowSize';
 import { useEffectUnsafe } from '../../unsafeHooks';
 
 import Footer from './components/Footer';
@@ -19,7 +20,6 @@ import {
   getPinImagePath,
   locationUtils,
 } from './utils/locationUtils';
-import { useWindowSize } from '../../hooks/useWindowSize';
 
 const queryClient = new QueryClient();
 

@@ -1,18 +1,20 @@
 import * as React from 'react';
 import { useRef, useState } from 'react';
-import { DraggabableContainer } from './components/DraggabableContainer';
-import { Title } from '../title/Title';
-import Locations from '../locations/Locations';
-import { locations } from '../../constants/locations';
-import { Skills } from '../skills/Skills';
-import { skills } from '../../constants/skills';
-import { OtherApps } from '../other-apps/OtherApps';
-import { ZIndexProvider } from './components/ZIndexProvider';
-import { postion } from '../../App';
 import styled from 'styled-components';
+
+import { postion } from '../../App';
+import { locations } from '../../constants/locations';
+import { skills } from '../../constants/skills';
 import { useWindowSize } from '../../hooks/useWindowSize';
 import { useEffectUnsafe } from '../../unsafeHooks';
 import { Languages } from '../languages/Languages';
+import Locations from '../locations/Locations';
+import { OtherApps } from '../other-apps/OtherApps';
+import { Skills } from '../skills/Skills';
+import { Title } from '../title/Title';
+
+import { DraggabableContainer } from './components/DraggabableContainer';
+import { ZIndexProvider } from './components/ZIndexProvider';
 
 interface startPositions {
   title: postion;

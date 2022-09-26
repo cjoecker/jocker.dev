@@ -1,7 +1,8 @@
+import { useTheme } from '@mui/material';
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
+
 import { useEffectUnsafe } from '../../unsafeHooks';
-import { useTheme } from '@mui/material';
 
 export type LanguagesProps = {
   onLanguageDown: (languagePosition: number) => void;
@@ -23,9 +24,6 @@ export const Canvas = ({
   const [isDrawing, setIsDrawing] = useState(false);
   const [constraints, setConstraints] = useState<any>();
   const lasImageRef = useRef<any>(new Image());
-  const wrongAnswerImageRef = useRef<any>(new Image());
-  const blinkInterval = useRef<any>();
-  const blinkCounter = useRef(0);
   const linePoints = useRef<{ x: number; y: number }[]>([]);
   const languageHoverPosition = useRef<number | undefined>(undefined);
   const style = useTheme();
@@ -60,7 +58,6 @@ export const Canvas = ({
     event.stopPropagation();
     document.body.style.overflow = 'hidden';
     contextRef.current.strokeStyle = 'white';
-    const { height } = canvasRef.current;
     let { offsetX: x, offsetY: y } = event.nativeEvent;
     if (!x || !y) {
       const rect = event.target.getBoundingClientRect();

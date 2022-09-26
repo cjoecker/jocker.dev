@@ -3,9 +3,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { SkillsType } from '../../constants/skills';
+import { useWindowSize } from '../../hooks/useWindowSize';
 
 import Balls from './components/Balls';
-import { useWindowSize } from '../../hooks/useWindowSize';
 
 interface SkillsProps {
   skills: SkillsType[];

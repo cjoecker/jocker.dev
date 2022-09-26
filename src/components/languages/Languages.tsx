@@ -1,12 +1,13 @@
+import { Paper, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
 import * as React from 'react';
 import { useLayoutEffect, useState } from 'react';
+import styled from 'styled-components';
+
 import { languages } from '../../constants/languages';
+import { useEffectUnsafe } from '../../unsafeHooks';
 
 import { Canvas } from './Canvas';
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
-import { Paper, Typography } from '@mui/material';
-import { useEffectUnsafe } from '../../unsafeHooks';
 import Pen from './images/pen.svg';
 
 export type LanguagesProps = {};

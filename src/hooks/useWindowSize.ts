@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { useLayoutEffectUnsafe } from '../unsafeHooks';
 
 export function useWindowSize() {
