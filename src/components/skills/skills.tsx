@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { SkillsType } from '../../constants/skills';
 import { useWindowSize } from '../../hooks/useWindowSize';
 
-import { Balls } from './components/Balls';
+import { Balls } from './balls';
 
 interface SkillsProps {
   skills: SkillsType[];

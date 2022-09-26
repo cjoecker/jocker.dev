@@ -4,17 +4,17 @@ import * as React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import { ownApps } from '../../constants/ownApps';
+import { OWN_APPS } from '../../constants/own-apps';
 
-import { IconButton } from './components/IconButton';
+import { AppButton } from './app-button';
 
 export const OtherApps = () => {
-  const [items, setItems] = useState(() => ownApps.map(app => app.name));
+  const [apps, setApps] = useState(() => OWN_APPS.map(app => app.name));
   return (
     <ContainerWrapper>
-      <MenuContainer axis="x" values={items} onReorder={setItems}>
-        {items.map(item => (
-          <IconButton key={item} item={item} />
+      <MenuContainer axis="x" values={apps} onReorder={setApps}>
+        {apps.map(item => (
+          <AppButton key={item} item={item} />
         ))}
       </MenuContainer>
     </ContainerWrapper>

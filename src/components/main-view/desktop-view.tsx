@@ -3,18 +3,18 @@ import { useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import { postion } from '../../App';
-import { locations } from '../../constants/locations';
-import { skills } from '../../constants/skills';
+import { SKILLS } from '../../constants/skills';
 import { useWindowSize } from '../../hooks/useWindowSize';
 import { useEffectUnsafe } from '../../unsafeHooks';
-import { Languages } from '../languages/Languages';
-import { Locations } from '../locations/Locations';
-import { OtherApps } from '../other-apps/OtherApps';
-import { Skills } from '../skills/Skills';
-import { Title } from '../title/Title';
+import { Languages } from '../languages/languages';
+import { OtherApps } from '../other-apps/other-apps';
+import { Title } from '../title/title';
 
-import { DraggabableContainer } from './components/DraggabableContainer';
-import { ZIndexProvider } from './components/ZIndexProvider';
+import { DesktopContainer } from './desktop-container';
+import { ZIndexProvider } from './z-index-context';
+import { LOCATIONS } from '../../constants/locations';
+import { Locations } from '../locations/locations';
+import { Skills } from '../skills/skills';
 
 interface startPositions {
   title: postion;
@@ -26,7 +26,7 @@ interface startPositions {
 export type HorizontalViewProps = {
 
 };
-export const HorizontalView = ({}: HorizontalViewProps) => {
+export const DesktopView = ({}: HorizontalViewProps) => {
   const [positions, setPositions] = useState<undefined | startPositions>(
     undefined
   );
@@ -67,37 +67,37 @@ export const HorizontalView = ({}: HorizontalViewProps) => {
   return (
     <ZIndexProvider>
       <DragContainer>
-        <DraggabableContainer position={positions?.title} ref={titleRef}>
+        <DesktopContainer position={positions?.title} ref={titleRef}>
           <Title />
-        </DraggabableContainer>
-        <DraggabableContainer
+        </DesktopContainer>
+        <DesktopContainer
           position={positions?.locations}
           tileName={'Past locations'}
           ref={locationsRef}
         >
-          <Locations locationEntries={locations} />
-        </DraggabableContainer>
-        <DraggabableContainer
+          <Locations locationEntries={LOCATIONS} />
+        </DesktopContainer>
+        <DesktopContainer
           position={positions?.skills}
           tileName={'Skills'}
           ref={skillsRef}
         >
-          <Skills skills={skills} />
-        </DraggabableContainer>
-        <DraggabableContainer
+          <Skills skills={SKILLS} />
+        </DesktopContainer>
+        <DesktopContainer
           position={positions?.ownApps}
           tileName={'Own apps'}
           ref={ownAppsRef}
         >
           <OtherApps />
-        </DraggabableContainer>
-        <DraggabableContainer
+        </DesktopContainer>
+        <DesktopContainer
           position={positions?.languages}
           tileName={'Languages'}
           ref={languagesRef}
         >
           <Languages />
-        </DraggabableContainer>
+        </DesktopContainer>
       </DragContainer>
     </ZIndexProvider>
   );

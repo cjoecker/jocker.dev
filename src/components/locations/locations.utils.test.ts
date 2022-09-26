@@ -6,9 +6,9 @@ import {
   getLastLocation,
   getPinImagePath,
   getWeatherImagePath,
-  locationUtils,
+  locationsUtils,
   sortLocationsByYear,
-} from './locationUtils';
+} from './locations.utils';
 
 const FAKE_TODAY = new Date('2021-06-01');
 
@@ -49,7 +49,7 @@ describe('getLocationMarks', () => {
       { value: 2021, label: '' },
     ];
 
-    expect(locationUtils(Locations)).toEqual(LocationMockMarks);
+    expect(locationsUtils(Locations)).toEqual(LocationMockMarks);
   });
 });
 

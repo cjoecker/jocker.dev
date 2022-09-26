@@ -2,8 +2,8 @@ import { ThemeProvider } from '@mui/material';
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 
-import { HorizontalView } from './components/main-view/HorizontalView';
-import { MobileView } from './components/main-view/MobileView';
+import { DesktopView } from './components/main-view/desktop-view';
+import { MobileView } from './components/main-view/mobile-view';
 import { useWindowSize } from './hooks/useWindowSize';
 import { muiTheme } from './muiTheme';
 
@@ -17,7 +17,7 @@ export function App() {
   return (
     <ThemeProvider theme={muiTheme}>
       <GlobalStyle color={muiTheme.palette.text.primary} />
-      {isMobile ? <MobileView /> : <HorizontalView />}
+      {isMobile ? <MobileView /> : <DesktopView />}
     </ThemeProvider>
   );
 }

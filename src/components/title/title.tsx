@@ -2,7 +2,7 @@ import { Paper } from '@mui/material';
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { TitleText } from './TitleText';
+import { TitleText } from './title-text';
 
 export type TitleProps = {};
 export const Title = ({}: TitleProps) => {

@@ -4,9 +4,9 @@ import * as React from 'react';
 import { forwardRef, useContext, useRef } from 'react';
 import styled from 'styled-components';
 
-import { postion } from '../../../App';
+import { postion } from '../../App';
 
-import { ZIndexContext } from './ZIndexProvider';
+import { ZIndexContext } from './z-index-context';
 
 export type TilesContainerProps = {
   children: JSX.Element;
@@ -14,7 +14,7 @@ export type TilesContainerProps = {
   position: postion | undefined;
 };
 
-export const DraggabableContainer = forwardRef<HTMLDivElement, TilesContainerProps>(
+export const DesktopContainer = forwardRef<HTMLDivElement, TilesContainerProps>(
   ({ children, tileName, position }: TilesContainerProps, ref) => {
     const dragControls = useDragControls();
     const onStartDrag = (event: any) => {

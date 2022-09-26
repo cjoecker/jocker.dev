@@ -4,17 +4,17 @@ import * as React from 'react';
 import { useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { languages } from '../../constants/languages';
+import { LANGUAGES } from '../../constants/languages';
 import { useEffectUnsafe } from '../../unsafeHooks';
 
-import { Canvas } from './Canvas';
+import { Canvas } from './canvas';
 import Pen from './images/pen.svg';
 
 export type LanguagesProps = {};
 export const Languages = ({}: LanguagesProps) => {
   const images = require.context('./images', false);
   const [shuffledAnswerOrder, setShuffledAnswerOrder] = useState<number[]>(
-    languages.map((l, index) => index)
+    LANGUAGES.map((l, index) => index)
   );
   const [selectedSentence, setSelectedSentence] = useState<number | undefined>(
     undefined
@@ -60,7 +60,7 @@ export const Languages = ({}: LanguagesProps) => {
     <MainWrapper>
       <CanvasWrapper>
         <Canvas
-          languagesNumber={languages.length}
+          languagesNumber={LANGUAGES.length}
           onLanguageDown={onLanguageDown}
           onLanguageUp={onLanguageUp}
           onLanguageHover={languagePosition => {
@@ -71,7 +71,7 @@ export const Languages = ({}: LanguagesProps) => {
       </CanvasWrapper>
       <InfosContainer>
         <SentencesWrapper>
-          {languages.map(({ sentence }, index) => {
+          {LANGUAGES.map(({ sentence }, index) => {
             return (
               <SentenceWrapper
                 key={sentence}
@@ -92,9 +92,9 @@ export const Languages = ({}: LanguagesProps) => {
         </SentencesWrapper>
 
         <LanguagesContainer>
-          {languages.map((l, index) => {
+          {LANGUAGES.map((l, index) => {
             const unshuffledPosition = shuffledAnswerOrder[index];
-            const language = languages[unshuffledPosition].language;
+            const language = LANGUAGES[unshuffledPosition].language;
             return (
               <motion.div
                 animate={{

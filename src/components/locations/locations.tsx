@@ -13,13 +13,13 @@ import {
 import { useWindowSize } from '../../hooks/useWindowSize';
 import { useEffectUnsafe } from '../../unsafeHooks';
 
-import { Footer } from './components/Footer';
-import { Header } from './components/Header';
+import { Footer } from './footer';
+import { Header } from './header';
 import {
   getLastLocation,
   getPinImagePath,
-  locationUtils,
-} from './utils/locationUtils';
+  locationsUtils,
+} from './locations.utils';
 
 const queryClient = new QueryClient();
 
@@ -96,7 +96,7 @@ export function Locations({locationEntries}:locationEntriesProps) {
         <StyledDiv position={'top'}>
           <Margins>
             <Header
-              marks={locationUtils(locationEntries)}
+              marks={locationsUtils(locationEntries)}
               onChangeYear={handleYearChange}
             />
           </Margins>

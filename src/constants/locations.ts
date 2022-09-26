@@ -6,7 +6,7 @@ export interface LocationsType {
   longitude: number;
 }
 
-export const locations: LocationsType[] = [
+export const LOCATIONS: LocationsType[] = [
   {
     year: 1991,
     city: 'Bogotá',

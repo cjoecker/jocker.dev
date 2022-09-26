@@ -3,8 +3,8 @@ import { getYear } from 'date-fns';
 import {
   LocationPinImagesType,
   LocationsType,
-} from '../../../constants/locations';
-import { weatherCodes } from '../../../constants/weatherCodes';
+} from '../../constants/locations';
+import { WEATHER_CODES } from '../../constants/weather-codes';
 
 interface LocationMarkType {
   value: number;
@@ -13,7 +13,7 @@ interface LocationMarkType {
 
 export const THIS_YEAR = getYear(new Date());
 
-export function locationUtils(locations: LocationsType[]): LocationMarkType[] {
+export function locationsUtils(locations: LocationsType[]): LocationMarkType[] {
   const sortedLocations = sortLocationsByYear(locations);
   const locationsWithActualYear = addActualYearToLocations(sortedLocations);
 
@@ -94,10 +94,10 @@ export function getWeatherImagePath(
   isDay: boolean
 ): string {
   if (!weatherCode) {
-    return `${weatherCodes.get(1000)}Day.svg`;
+    return `${WEATHER_CODES.get(1000)}Day.svg`;
   }
   const dayOrNight = isDay ? 'Day' : 'Night';
-  return `${weatherCodes.get(weatherCode)}${dayOrNight}.svg`;
+  return `${WEATHER_CODES.get(weatherCode)}${dayOrNight}.svg`;
 }
 
 export function getPinImagePath(

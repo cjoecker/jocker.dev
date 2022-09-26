@@ -5,7 +5,7 @@ export interface OwnAppsType {
   icon: string;
 }
 
-export const ownApps: OwnAppsType[] = [
+export const OWN_APPS: OwnAppsType[] = [
   {
     name: 'd-cide',
     description: 'Rational decision making made easy.',

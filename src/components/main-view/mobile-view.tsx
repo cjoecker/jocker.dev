@@ -2,15 +2,15 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import styled from 'styled-components';
 
-import { locations } from '../../constants/locations';
-import { skills } from '../../constants/skills';
-import { Languages } from '../languages/Languages';
-import { Locations } from '../locations/Locations';
-import { OtherApps } from '../other-apps/OtherApps';
-import { Skills } from '../skills/Skills';
-import { Title } from '../title/Title';
+import { Languages } from '../languages/languages';
+import { Locations } from '../locations/locations';
+import { OtherApps } from '../other-apps/other-apps';
+import { Skills } from '../skills/skills';
+import { Title } from '../title/title';
 
-import { MobileContainer } from './components/MobileContainer';
+import { MobileContainer } from './mobile-container';
+import { LOCATIONS } from '../../constants/locations';
+import { SKILLS } from '../../constants/skills';
 
 export type MobileViewProps = {};
 export const MobileView = ({}: MobileViewProps) => {
@@ -24,10 +24,10 @@ export const MobileView = ({}: MobileViewProps) => {
         <Title />
       </MobileContainer>
       <MobileContainer tileName={'Past locations'}>
-        <Locations locationEntries={locations} />
+        <Locations locationEntries={LOCATIONS} />
       </MobileContainer>
       <MobileContainer tileName={'Skills'}>
-        <Skills skills={skills} />
+        <Skills skills={SKILLS} />
       </MobileContainer>
       <MobileContainer tileName={'Languages'}>
         <Languages />

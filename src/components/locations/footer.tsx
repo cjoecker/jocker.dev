@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import styled from 'styled-components';
 
-import { fetchWeather } from '../../../api';
-import { LocationsType } from '../../../constants/locations';
-import { weatherCodes } from '../../../constants/weatherCodes';
-import { getWeatherImagePath } from '../utils/locationUtils';
+import { fetchWeather } from '../../api';
+import { LocationsType } from '../../constants/locations';
+import { WEATHER_CODES } from '../../constants/weather-codes';
 
-import { Temperature } from './Temperature';
+import { getWeatherImagePath } from './locations.utils';
+import { Temperature } from './temperature';
 
 interface FooterProps {
   location: LocationsType;
@@ -29,7 +29,7 @@ export function Footer({ location }: FooterProps) {
         images(`./${getWeatherImagePath(weatherCode, data.current.is_day)}`)
       );
     }
-  }, [data, weatherCode,images]);
+  }, [data, weatherCode, images]);
 
   return (
     <Paper>
@@ -49,7 +49,7 @@ export function Footer({ location }: FooterProps) {
         {!isLoading && data && (
           <WeatherWrapper>
             <WeatherImageContainer>
-              <img alt={weatherCodes.get(weatherCode)} src={imgUrl} />
+              <img alt={WEATHER_CODES.get(weatherCode)} src={imgUrl} />
             </WeatherImageContainer>
           </WeatherWrapper>
         )}

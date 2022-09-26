@@ -4,7 +4,7 @@ export interface SkillsType {
   level: number;
 }
 
-export const skills: SkillsType[] = [
+export const SKILLS: SkillsType[] = [
   {skillName: "UX Design", type: 'ux', level: 7},
   {skillName: "UI Design", type: 'ux', level: 5},
   {skillName: "Adobe XD", type: 'ux', level: 5},
