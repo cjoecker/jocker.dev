@@ -2,6 +2,8 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import styled from 'styled-components';
 
+import { LOCATIONS } from '../../constants/locations';
+import { SKILLS } from '../../constants/skills';
 import { Languages } from '../languages/languages';
 import { Locations } from '../locations/locations';
 import { OtherApps } from '../other-apps/other-apps';
@@ -9,8 +11,6 @@ import { Skills } from '../skills/skills';
 import { Title } from '../title/title';
 
 import { MobileContainer } from './mobile-container';
-import { LOCATIONS } from '../../constants/locations';
-import { SKILLS } from '../../constants/skills';
 
 export type MobileViewProps = {};
 export const MobileView = ({}: MobileViewProps) => {

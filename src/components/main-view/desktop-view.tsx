@@ -3,18 +3,18 @@ import { useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import { postion } from '../../App';
+import { LOCATIONS } from '../../constants/locations';
 import { SKILLS } from '../../constants/skills';
 import { useWindowSize } from '../../hooks/useWindowSize';
 import { useEffectUnsafe } from '../../unsafeHooks';
 import { Languages } from '../languages/languages';
+import { Locations } from '../locations/locations';
 import { OtherApps } from '../other-apps/other-apps';
+import { Skills } from '../skills/skills';
 import { Title } from '../title/title';
 
 import { DesktopContainer } from './desktop-container';
 import { ZIndexProvider } from './z-index-context';
-import { LOCATIONS } from '../../constants/locations';
-import { Locations } from '../locations/locations';
-import { Skills } from '../skills/skills';
 
 interface startPositions {
   title: postion;

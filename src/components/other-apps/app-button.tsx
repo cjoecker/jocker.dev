@@ -3,6 +3,7 @@ import { motion, Reorder } from 'framer-motion';
 import * as React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
+
 import { OWN_APPS } from '../../constants/own-apps';
 
 export type IconButtonProps = {
@@ -10,7 +11,7 @@ export type IconButtonProps = {
 };
 export const AppButton = ({ item }: IconButtonProps) => {
   const appInfo = OWN_APPS.find(app => app.name === item);
-  const images = require.context('../images', false);
+  const images = require.context('./images', false);
   const imagePath = images(`./${appInfo?.icon}`);
   const [isDragging, setIsDragging] = useState(false);
   const onClick = () => {

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { useEffectUnsafe } from '../../unsafeHooks';
+
 import { THIS_YEAR } from './locations.utils';
 
 function valuetext(value: number) {
