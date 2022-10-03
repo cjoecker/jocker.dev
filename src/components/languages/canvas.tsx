@@ -23,7 +23,7 @@ export const Canvas = ({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const context = useRef<CanvasRenderingContext2D | null>(null);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [boundingClientRect, setBoundingClientRect] = useState<any>();
+  const [boundingClientRect, setBoundingClientRect] = useState<DOMRect>();
   const lastImage = useRef<HTMLImageElement>(new Image());
   const linePoints = useRef<{ x: number; y: number }[]>([]);
   const languageHoverPosition = useRef<number | undefined>(undefined);
@@ -55,26 +55,20 @@ export const Canvas = ({
 
   useEffectUnsafe(() => {
     invariant(canvasRef.current, 'no canvasRef defined')
-    invariant(context.current, 'no context defined')
     context.current = canvasRef.current.getContext('2d');
+    invariant(context.current, 'no context defined')
+    context.current.lineCap = LINE_CAP;
+    context.current.lineWidth = LINE_WIDTH;
   }, []);
 
-  const startDrawing = (event: any) => {
+  const startDrawing = (event: React.TouchEvent | React.MouseEvent) => {
     invariant(canvasRef.current, 'no canvasRef defined')
     invariant(context.current, 'no context defined')
     event.stopPropagation();
     document.body.style.overflow = 'hidden';
     context.current.strokeStyle = 'white';
-    let { offsetX: x, offsetY: y } = event.nativeEvent;
-    if (!x || !y) {
-      const rect = event.target.getBoundingClientRect();
-      const doc = document.documentElement;
-      x = event.targetTouches[0].pageX - (rect.left + doc.scrollLeft);
-      y = event.targetTouches[0].pageY - (rect.top + doc.scrollTop);
-    }
+    const {x,y} = getPoints(event)
     context.current.beginPath();
-    context.current.lineCap = lineCap;
-    context.current.lineWidth = lineWidth;
     context.current.moveTo(x, y);
     setIsDrawing(true);
     lastImage.current.src = canvasRef.current.toDataURL();
@@ -85,7 +79,32 @@ export const Canvas = ({
     );
     onLanguageDown(languagePos);
   };
-  const finishDrawing = (event: any) => {
+
+  const draw = (event: React.TouchEvent | React.MouseEvent) => {
+    invariant(canvasRef.current, 'no canvasRef defined')
+    invariant(context.current, 'no context defined')
+    if (!isDrawing) {
+      return;
+    }
+    event.stopPropagation();
+    const { width } = canvasRef.current;
+    const {x,y} = getPoints(event)
+    context.current.lineTo(x, y);
+    context.current.stroke();
+    linePoints.current.push({ x: x, y: y });
+    const languagePos = Math.floor(
+      (x * ratio) / ((width - 1) / languagesNumber)
+    );
+    if (
+      languagePos !== languageHoverPosition.current ||
+      languagePos === undefined
+    ) {
+      languageHoverPosition.current = languagePos;
+      onLanguageHover(languagePos);
+    }
+  };
+
+  const finishDrawing = (event: React.TouchEvent | React.MouseEvent) => {
     invariant(canvasRef.current, 'no canvasRef defined')
     invariant(context.current, 'no context defined')
     event.stopPropagation();
@@ -109,42 +128,11 @@ export const Canvas = ({
       onLanguageUp();
     }
   };
-  const draw = (event: any) => {
-    invariant(canvasRef.current, 'no canvasRef defined')
-    invariant(context.current, 'no context defined')
-    if (!isDrawing) {
-      return;
-    }
-    event.stopPropagation();
-    const { width } = canvasRef.current;
-    let { offsetX: x, offsetY: y } = event.nativeEvent;
-    if (!x || !y) {
-      const rect = event.target.getBoundingClientRect();
-      const doc = document.documentElement;
-      x = event.targetTouches[0].pageX - (rect.left + doc.scrollLeft);
-      y = event.targetTouches[0].pageY - (rect.top + doc.scrollTop);
-    }
-    context.current.lineTo(x, y);
-    context.current.stroke();
-    linePoints.current.push({ x: x, y: y });
-    const languagePos = Math.floor(
-      (x * ratio) / ((width - 1) / languagesNumber)
-    );
-    if (
-      languagePos !== languageHoverPosition.current ||
-      languagePos === undefined
-    ) {
-      languageHoverPosition.current = languagePos;
-      onLanguageHover(languagePos);
-    }
-  };
 
   const markRightAnswer = (isAnswerRight:boolean) => {
     invariant(context.current, 'no context defined')
     context.current.strokeStyle = isAnswerRight? style.palette.primary.main:'#e37171';
     context.current.beginPath();
-    context.current.lineCap = lineCap;
-    context.current.lineWidth = lineWidth;
     linePoints.current.forEach(point => {
       invariant(context.current, 'no context defined')
       context.current.lineTo(point.x, point.y);
@@ -156,8 +144,7 @@ export const Canvas = ({
   const clearCanvas = () => {
     invariant(canvasRef.current, 'no canvasRef defined')
     invariant(context.current, 'no context defined')
-    const canvas = canvasRef.current;
-    context.current.clearRect(0, 0, canvas.width, canvas.height);
+    context.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
   };
 
   return (
@@ -177,5 +164,16 @@ export const Canvas = ({
   );
 };
 
-const lineWidth = 4;
-const lineCap = 'round';
+const LINE_WIDTH = 4;
+const LINE_CAP = 'round';
+
+function getPoints(event: any){
+  let { offsetX: x, offsetY: y } = event.nativeEvent;
+  if (!x || !y) {
+    const rect = event.target.getBoundingClientRect();
+    const doc = document.documentElement;
+    x = event.targetTouches[0].pageX - (rect.left + doc.scrollLeft);
+    y = event.targetTouches[0].pageY - (rect.top + doc.scrollTop);
+  }
+  return {x,y}
+}
