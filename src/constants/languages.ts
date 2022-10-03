@@ -1,9 +1,9 @@
-export interface Languages {
+export interface Language {
   language: 'es' | 'de' | 'en' | 'pt';
   sentence: string;
 }
 
-export const LANGUAGES: Languages[] = [
+export const LANGUAGES: Language[] = [
   {
     language: "es",
     sentence: "Lo aprendí desde chiquito."

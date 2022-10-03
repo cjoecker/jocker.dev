@@ -57,14 +57,15 @@ export const Canvas = ({
     invariant(canvasRef.current, 'no canvasRef defined')
     context.current = canvasRef.current.getContext('2d');
     invariant(context.current, 'no context defined')
-    context.current.lineCap = LINE_CAP;
-    context.current.lineWidth = LINE_WIDTH;
+
   }, []);
 
   const startDrawing = (event: React.TouchEvent | React.MouseEvent) => {
     invariant(canvasRef.current, 'no canvasRef defined')
     invariant(context.current, 'no context defined')
     event.stopPropagation();
+    context.current.lineCap = LINE_CAP;
+    context.current.lineWidth = LINE_WIDTH;
     document.body.style.overflow = 'hidden';
     context.current.strokeStyle = 'white';
     const {x,y} = getPoints(event)
