@@ -4,9 +4,9 @@ import {
   abbreviateYear,
   addActualYearToLocations,
   getLastLocation,
+  getMarks,
   getPinImagePath,
   getWeatherImagePath,
-  locationsUtils,
   sortLocationsByYear,
 } from './locations.utils';
 
@@ -49,7 +49,7 @@ describe('getLocationMarks', () => {
       { value: 2021, label: '' },
     ];
 
-    expect(locationsUtils(Locations)).toEqual(LocationMockMarks);
+    expect(getMarks(Locations)).toEqual(LocationMockMarks);
   });
 });
 
@@ -98,7 +98,6 @@ describe('add last year', () => {
       { ...LocationMock, year: 2020 },
       { ...LocationMock, year: getYear(FAKE_TODAY) },
     ];
-
     expect(addActualYearToLocations(Locations)).toEqual(newLocations);
   });
 
@@ -114,7 +113,6 @@ describe('add last year', () => {
       { ...LocationMock, year: 2005 },
       { ...LocationMock, year: getYear(FAKE_TODAY) },
     ];
-
     expect(addActualYearToLocations(Locations)).toEqual(newLocations);
   });
 });

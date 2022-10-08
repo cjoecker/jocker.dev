@@ -1,5 +1,5 @@
 import { Paper, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { useMemo } from 'react';
 import { useQuery } from 'react-query';
 import styled from 'styled-components';
 
@@ -15,21 +15,12 @@ interface FooterProps {
 }
 
 export function Footer({ location }: FooterProps) {
-  const { data, isLoading } = useQuery(['weather', location.city], () =>
+  const { data:weather, isLoading } = useQuery(['weather', location.city], () =>
     fetchWeather(location)
   );
-
-  const [imgUrl, setImgUrl] = useState('');
-  const weatherCode = data?.current?.condition?.code;
-  const images = require.context('./images/weather', false);
-
-  useEffect(() => {
-    if (images && weatherCode) {
-      setImgUrl(
-        images(`./${getWeatherImagePath(weatherCode, data.current.is_day)}`)
-      );
-    }
-  }, [data, weatherCode, images]);
+  const weatherCode = useMemo(() =>  weather?.current?.condition?.code, [weather]);
+  const images = useMemo(() =>  require.context('./images/weather', false), []);
+  const imageUrl = useMemo(() =>  images(`./${getWeatherImagePath(weatherCode, weather?.current?.is_day)}`), [weather]);
 
   return (
     <Paper>
@@ -42,14 +33,14 @@ export function Footer({ location }: FooterProps) {
         </LocationWrapper>
         <TemperatureWrapper>
           <Temperature
-            temperature={data ? data.current.temp_c : null}
+            temperature={weather ? weather?.current?.temp_c : null}
             isLoading={isLoading}
           />
         </TemperatureWrapper>
-        {!isLoading && data && (
+        {!isLoading && weather && (
           <WeatherWrapper>
             <WeatherImageContainer>
-              <img alt={WEATHER_CODES.get(weatherCode)} src={imgUrl} />
+              <img alt={WEATHER_CODES.get(weatherCode)} src={imageUrl} />
             </WeatherImageContainer>
           </WeatherWrapper>
         )}

@@ -13,7 +13,7 @@ interface LocationMarkType {
 
 export const THIS_YEAR = getYear(new Date());
 
-export function locationsUtils(locations: LocationsType[]): LocationMarkType[] {
+export function getMarks(locations: LocationsType[]): LocationMarkType[] {
   const sortedLocations = sortLocationsByYear(locations);
   const locationsWithActualYear = addActualYearToLocations(sortedLocations);
 
@@ -22,28 +22,22 @@ export function locationsUtils(locations: LocationsType[]): LocationMarkType[] {
       sortedLocations[0].year) *
     0.075;
 
-  let formattedMarks: LocationMarkType[] = [];
+  const formattedMarks: LocationMarkType[] = [];
   locationsWithActualYear.forEach(location => {
     const marksOfLastYears = formattedMarks.filter(
       mark => mark.value + MAX_LOCATION_DIFFERENCE >= location.year
     );
 
     if (marksOfLastYears.some(mark => mark.label !== '')) {
-      formattedMarks = [
-        ...formattedMarks,
-        {
-          value: location.year,
-          label: '',
-        },
-      ];
+      formattedMarks.push({
+        value: location.year,
+        label: '',
+      })
     } else {
-      formattedMarks = [
-        ...formattedMarks,
-        {
-          value: location.year,
-          label: abbreviateYear(location.year),
-        },
-      ];
+      formattedMarks.push({
+        value: location.year,
+        label: abbreviateYear(location.year),
+      })
     }
   });
 
@@ -64,19 +58,11 @@ export function addActualYearToLocations(
   sortedLocations: LocationsType[]
 ): LocationsType[] {
   const lastLocation = sortedLocations[sortedLocations.length - 1];
-
-  if (lastLocation.year < THIS_YEAR) {
-    return [...sortedLocations, { ...lastLocation, year: THIS_YEAR }];
-  } else {
-    return sortedLocations.map((location, index) =>
-      index === sortedLocations.length - 1
-        ? {
-            ...location,
-            year: THIS_YEAR,
-          }
-        : location
-    );
+  if (lastLocation.year === getYear(new Date())) {
+    return sortedLocations
   }
+  console.log("getYear(new Date())", getYear(new Date()));
+  return [...sortedLocations, { ...lastLocation, year: getYear(new Date()) }];
 }
 
 export function getLastLocation(

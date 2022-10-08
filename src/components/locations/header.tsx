@@ -1,5 +1,4 @@
 import { Mark, Paper, Slider, Typography } from '@mui/material';
-import { getYear } from 'date-fns';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -20,7 +19,7 @@ export function Header({
   marks,
   onChangeYear,
 }: HeaderProps) {
-  const [year, setYear] = useState<number | number[]>(getYear(new Date()))
+  const [year, setYear] = useState<number | number[]>(THIS_YEAR)
   const handleChange = (event: any, newValue: number | number[]) => {
     setYear(newValue);
   };
@@ -35,7 +34,6 @@ export function Header({
       clearTimeout(debounceTimer);
     };
   }, [year]);
-  //TODO add slider min max automatically
   return (
     <Paper>
       <TitleWrapper>
