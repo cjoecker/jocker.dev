@@ -8,13 +8,13 @@ import { useEffectUnsafe } from '../../unsafeHooks';
 
 import { getCircleBody, getWorldWalls } from './skills.utils';
 
-interface BallsProps {
+interface Props {
   skills: SkillsType[];
 }
 
 const WALLS_THICKNESS = 10;
 
-export function Balls({ skills }: BallsProps) {
+export function Balls({ skills }: Props) {
   const ratio = window.devicePixelRatio;
   const boxRef = useRef<any>(null);
   const canvasRef = useRef<any>(null);

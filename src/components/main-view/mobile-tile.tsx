@@ -3,13 +3,13 @@ import * as React from 'react';
 import { forwardRef } from 'react';
 import styled from 'styled-components';
 
-export type TilesContainerProps = {
-  children: JSX.Element;
+export type Props = {
+  children: React.ReactNode | React.ReactNode[];
   tileName?: string;
 };
 
-export const MobileContainer = forwardRef<HTMLDivElement, TilesContainerProps>(
-  ({ children, tileName }: TilesContainerProps) => {
+export const MobileTile = forwardRef<HTMLDivElement, Props>(
+  ({ children, tileName }: Props) => {
     return (
         <MainContainer >
         {tileName && (

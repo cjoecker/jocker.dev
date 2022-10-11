@@ -8,14 +8,14 @@ import { postion } from '../../App';
 
 import { useZIndex } from './z-index-context';
 
-export type TilesContainerProps = {
-  children: JSX.Element;
+export type Props = {
+  children: React.ReactNode | React.ReactNode[];
   tileName?: string;
   position: postion | undefined;
 };
 
-export const DesktopContainer = forwardRef<HTMLDivElement, TilesContainerProps>(
-  ({ children, tileName, position }: TilesContainerProps, ref) => {
+export const DesktopTile = forwardRef<HTMLDivElement, Props>(
+  ({ children, tileName, position }: Props, ref) => {
     const dragControls = useDragControls();
     const onStartDrag = (event: any) => {
       dragControls.start(event, { snapToCursor: false });
@@ -23,7 +23,6 @@ export const DesktopContainer = forwardRef<HTMLDivElement, TilesContainerProps>(
     const [zIndex, setZIndex] = useState(0);
     const {maxZIndex, updateMaxZIndex} = useZIndex()
     const onDragStart = () => {
-      console.log("gggh", maxZIndex);
       setZIndex(maxZIndex)
       updateMaxZIndex()
     };

@@ -2,12 +2,12 @@ import { CircularProgress, Typography } from '@mui/material';
 import React from 'react';
 import styled from 'styled-components';
 
-interface TemperatureProps {
+interface Props {
   temperature: number | null;
   isLoading: boolean;
 }
 
-export function Temperature({ temperature, isLoading }: TemperatureProps) {
+export function Temperature({ temperature, isLoading }: Props) {
     if(isLoading || !temperature){
         return (<CircularProgress />)
     }

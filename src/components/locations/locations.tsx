@@ -19,12 +19,12 @@ import { getLastLocation, getMarks, getPinImagePath } from './locations.utils';
 
 const queryClient = new QueryClient();
 
-interface locationEntriesProps {
+interface Props {
   locationEntries: LocationsType[];
 }
 
 //TODO move map access token to env
-export function Locations({ locationEntries }: locationEntriesProps) {
+export function Locations({ locationEntries }: Props) {
   const lastLocation = useMemo(() => locationEntries[0], [locationEntries]);
   const [location, setLocation] = useState(lastLocation);
   const { isMobile } = useWindowSize();

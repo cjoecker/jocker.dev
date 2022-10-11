@@ -5,7 +5,7 @@ import invariant from 'tiny-invariant';
 
 import { useEffectUnsafe } from '../../unsafeHooks';
 
-export type LanguagesProps = {
+export type Props = {
   onLanguageDown: (languagePosition: number) => void;
   onLanguageUp: () => void;
   onLanguageHover: (languagePosition: number) => void;
@@ -18,7 +18,7 @@ export const Canvas = ({
   languagesNumber,
   onLanguageHover,
   isAnswerCorrect,
-}: LanguagesProps) => {
+}: Props) => {
   const ratio = window.devicePixelRatio;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const context = useRef<CanvasRenderingContext2D | null>(null);

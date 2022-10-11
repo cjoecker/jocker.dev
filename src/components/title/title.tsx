@@ -4,12 +4,14 @@ import styled from 'styled-components';
 
 import { TitleText } from './title-text';
 
-export type TitleProps = {};
-export const Title = ({}: TitleProps) => {
+export const Title = () => {
   return (
     <TextContainer>
-      <TitleText type={'title'} text='Christian Jöcker'/>
-      <TitleText type={'subtitle'} text='Frontend Developer and UX/UI Designer'/>
+      <TitleText type={'title'} text="Christian Jöcker" />
+      <TitleText
+        type={'subtitle'}
+        text="Frontend Developer and UX/UI Designer"
+      />
     </TextContainer>
   );
 };

@@ -10,7 +10,7 @@ function valuetext(value: number) {
   return `Year ${value}`;
 }
 
-interface HeaderProps {
+interface Props {
   marks: Mark[];
   onChangeYear: (year: number) => void;
 }
@@ -18,7 +18,7 @@ interface HeaderProps {
 export function Header({
   marks,
   onChangeYear,
-}: HeaderProps) {
+}: Props) {
   const [year, setYear] = useState<number | number[]>(THIS_YEAR)
   const handleChange = (event: any, newValue: number | number[]) => {
     setYear(newValue);

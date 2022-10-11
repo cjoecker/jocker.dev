@@ -10,31 +10,30 @@ import { OtherApps } from '../other-apps/other-apps';
 import { Skills } from '../skills/skills';
 import { Title } from '../title/title';
 
-import { MobileContainer } from './mobile-container';
+import { MobileTile } from './mobile-tile';
 
-export type MobileViewProps = {};
-export const MobileView = ({}: MobileViewProps) => {
+export const MobileView = () => {
   useEffect(() => {
     document.documentElement.style.overflow = 'auto';
   }, []);
 
   return (
     <MainContainer>
-      <MobileContainer>
+      <MobileTile>
         <Title />
-      </MobileContainer>
-      <MobileContainer tileName={'Past locations'}>
+      </MobileTile>
+      <MobileTile tileName={'Past locations'}>
         <Locations locationEntries={LOCATIONS} />
-      </MobileContainer>
-      <MobileContainer tileName={'Skills'}>
+      </MobileTile>
+      <MobileTile tileName={'Skills'}>
         <Skills skills={SKILLS} />
-      </MobileContainer>
-      <MobileContainer tileName={'Languages'}>
+      </MobileTile>
+      <MobileTile tileName={'Languages'}>
         <Languages />
-      </MobileContainer>
-      <MobileContainer tileName={'Own apps'}>
+      </MobileTile>
+      <MobileTile tileName={'Own apps'}>
         <OtherApps />
-      </MobileContainer>
+      </MobileTile>
     </MainContainer>
   );
 };

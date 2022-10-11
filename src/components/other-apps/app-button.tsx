@@ -6,10 +6,10 @@ import styled from 'styled-components';
 
 import { OWN_APPS } from '../../constants/own-apps';
 
-export type IconButtonProps = {
+export type Props = {
   item: string;
 };
-export const AppButton = ({ item }: IconButtonProps) => {
+export const AppButton = ({ item }: Props) => {
   const appInfo = OWN_APPS.find(app => app.name === item);
   const images = require.context('./images', false);
   const imagePath = images(`./${appInfo?.icon}`);

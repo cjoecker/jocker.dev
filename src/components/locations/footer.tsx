@@ -10,11 +10,11 @@ import { WEATHER_CODES } from '../../constants/weather-codes';
 import { getWeatherImagePath } from './locations.utils';
 import { Temperature } from './temperature';
 
-interface FooterProps {
+interface Props {
   location: LocationsType;
 }
 
-export function Footer({ location }: FooterProps) {
+export function Footer({ location }: Props) {
   const { data:weather, isLoading } = useQuery(['weather', location.city], () =>
     fetchWeather(location)
   );

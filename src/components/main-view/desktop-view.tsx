@@ -13,7 +13,7 @@ import { OtherApps } from '../other-apps/other-apps';
 import { Skills } from '../skills/skills';
 import { Title } from '../title/title';
 
-import { DesktopContainer } from './desktop-container';
+import { DesktopTile } from './desktop-tile';
 import { ZIndex } from './z-index-context';
 
 interface startPositions {
@@ -23,10 +23,8 @@ interface startPositions {
   ownApps: postion;
   languages: postion;
 }
-export type HorizontalViewProps = {
 
-};
-export const DesktopView = ({}: HorizontalViewProps) => {
+export const DesktopView = () => {
   const [positions, setPositions] = useState<undefined | startPositions>(
     undefined
   );
@@ -67,37 +65,37 @@ export const DesktopView = ({}: HorizontalViewProps) => {
   return (
     <ZIndex>
       <DragContainer>
-        <DesktopContainer position={positions?.title} ref={titleRef}>
+        <DesktopTile position={positions?.title} ref={titleRef}>
           <Title />
-        </DesktopContainer>
-        <DesktopContainer
+        </DesktopTile>
+        <DesktopTile
           position={positions?.locations}
           tileName={'Past locations'}
           ref={locationsRef}
         >
           <Locations locationEntries={LOCATIONS} />
-        </DesktopContainer>
-        <DesktopContainer
+        </DesktopTile>
+        <DesktopTile
           position={positions?.skills}
           tileName={'Skills'}
           ref={skillsRef}
         >
           <Skills skills={SKILLS} />
-        </DesktopContainer>
-        <DesktopContainer
+        </DesktopTile>
+        <DesktopTile
           position={positions?.ownApps}
           tileName={'Own apps'}
           ref={ownAppsRef}
         >
           <OtherApps />
-        </DesktopContainer>
-        <DesktopContainer
+        </DesktopTile>
+        <DesktopTile
           position={positions?.languages}
           tileName={'Languages'}
           ref={languagesRef}
         >
           <Languages />
-        </DesktopContainer>
+        </DesktopTile>
       </DragContainer>
     </ZIndex>
   );

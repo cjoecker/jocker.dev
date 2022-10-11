@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { LANGUAGES } from '../../constants/languages';
 
-export type LanguagesProps = {
+export type Props = {
   selectedSentence: number | undefined;
   correctAnswers: Set<number>;
   hoveringLanguage: number | undefined;
@@ -16,7 +16,7 @@ export const LanguageLabels = ({
   correctAnswers,
   hoveringLanguage,
   shuffledSentences,
-}: LanguagesProps) => {
+}: Props) => {
   const flagImages = require.context('./images', false);
   return (
     <MainContainer>

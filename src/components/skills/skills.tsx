@@ -7,11 +7,11 @@ import { useWindowSize } from '../../hooks/useWindowSize';
 
 import { Balls } from './balls';
 
-interface SkillsProps {
+interface Props {
   skills: SkillsType[];
 }
 
-export function Skills({ skills }: SkillsProps) {
+export function Skills({ skills }: Props) {
   const { isMobile } = useWindowSize();
   return (
     <MainWrapper isMobile={isMobile}>
