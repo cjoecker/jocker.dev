@@ -1,12 +1,12 @@
 import { Typography } from '@mui/material';
 import { motion, useDragControls } from 'framer-motion';
 import * as React from 'react';
-import { forwardRef, useContext, useRef } from 'react';
+import { forwardRef, useState } from 'react';
 import styled from 'styled-components';
 
 import { postion } from '../../App';
 
-import { ZIndexContext } from './z-index-context';
+import { useZIndex } from './z-index-context';
 
 export type TilesContainerProps = {
   children: JSX.Element;
@@ -20,16 +20,16 @@ export const DesktopContainer = forwardRef<HTMLDivElement, TilesContainerProps>(
     const onStartDrag = (event: any) => {
       dragControls.start(event, { snapToCursor: false });
     };
-    const zIndex = useRef(0);
-    const {maxZIndex, setMaxZIndex} = useContext(ZIndexContext);
+    const [zIndex, setZIndex] = useState(0);
+    const {maxZIndex, updateMaxZIndex} = useZIndex()
     const onDragStart = () => {
-      const newZIndex = maxZIndex;
-      zIndex.current = newZIndex;
-      setMaxZIndex(newZIndex + 1);
+      console.log("gggh", maxZIndex);
+      setZIndex(maxZIndex)
+      updateMaxZIndex()
     };
     return (
       <MainContainer
-        zIndex={zIndex.current}
+        zIndex={zIndex}
         style={{ left: `${position?.x}px`, top: `${position?.y}px` }}
         ref={ref}
         drag

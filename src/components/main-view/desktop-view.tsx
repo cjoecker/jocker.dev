@@ -14,7 +14,7 @@ import { Skills } from '../skills/skills';
 import { Title } from '../title/title';
 
 import { DesktopContainer } from './desktop-container';
-import { ZIndexProvider } from './z-index-context';
+import { ZIndex } from './z-index-context';
 
 interface startPositions {
   title: postion;
@@ -65,7 +65,7 @@ export const DesktopView = ({}: HorizontalViewProps) => {
     });
   }, [browserWidth, browserHeight]);
   return (
-    <ZIndexProvider>
+    <ZIndex>
       <DragContainer>
         <DesktopContainer position={positions?.title} ref={titleRef}>
           <Title />
@@ -99,7 +99,7 @@ export const DesktopView = ({}: HorizontalViewProps) => {
           <Languages />
         </DesktopContainer>
       </DragContainer>
-    </ZIndexProvider>
+    </ZIndex>
   );
 };
 
