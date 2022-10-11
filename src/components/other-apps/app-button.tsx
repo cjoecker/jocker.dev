@@ -28,7 +28,7 @@ export const AppButton = ({ item }: Props) => {
       onDragStart={() => setIsDragging(true)}
       onMouseDown={() => setIsDragging(false)}
     >
-        <div>
+      <div>
         <motion.div
           whileHover={{
             opacity: Array(5).fill(0.9),
@@ -42,8 +42,8 @@ export const AppButton = ({ item }: Props) => {
         >
           <Button disableTouchRipple background={imagePath} onClick={onClick} />
         </motion.div>
-      <ButtonText variant={'caption'}>{appInfo?.name}</ButtonText>
-        </div>
+        <ButtonText variant={'caption'}>{appInfo?.name}</ButtonText>
+      </div>
     </ButtonWrapper>
   );
 };
