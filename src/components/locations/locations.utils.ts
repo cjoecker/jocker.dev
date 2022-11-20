@@ -32,12 +32,12 @@ export function getMarks(locations: LocationsType[]): LocationMarkType[] {
       formattedMarks.push({
         value: location.year,
         label: '',
-      })
+      });
     } else {
       formattedMarks.push({
         value: location.year,
         label: abbreviateYear(location.year),
-      })
+      });
     }
   });
 
@@ -59,7 +59,7 @@ export function addActualYearToLocations(
 ): LocationsType[] {
   const lastLocation = sortedLocations[sortedLocations.length - 1];
   if (lastLocation.year === getYear(new Date())) {
-    return sortedLocations
+    return sortedLocations;
   }
   return [...sortedLocations, { ...lastLocation, year: getYear(new Date()) }];
 }

@@ -29,13 +29,13 @@ export const Canvas = ({
   const languageHoverPosition = useRef<number | undefined>(undefined);
   const style = useTheme();
   const handleResize = () => {
-    invariant(context.current, 'no context defined')
+    invariant(context.current, 'no context defined');
     setBoundingClientRect((context.current as any).getBoundingClientRect());
   };
 
   useEffectUnsafe(() => {
     window.addEventListener('resize', handleResize);
-    invariant(canvasRef.current, 'no canvasRef defined')
+    invariant(canvasRef.current, 'no canvasRef defined');
     setBoundingClientRect(canvasRef.current.getBoundingClientRect());
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -54,21 +54,20 @@ export const Canvas = ({
   }, [boundingClientRect, ratio, canvasRef]);
 
   useEffectUnsafe(() => {
-    invariant(canvasRef.current, 'no canvasRef defined')
+    invariant(canvasRef.current, 'no canvasRef defined');
     context.current = canvasRef.current.getContext('2d');
-    invariant(context.current, 'no context defined')
-
+    invariant(context.current, 'no context defined');
   }, []);
 
   const startDrawing = (event: React.TouchEvent | React.MouseEvent) => {
-    invariant(canvasRef.current, 'no canvasRef defined')
-    invariant(context.current, 'no context defined')
+    invariant(canvasRef.current, 'no canvasRef defined');
+    invariant(context.current, 'no context defined');
     event.stopPropagation();
     context.current.lineCap = LINE_CAP;
     context.current.lineWidth = LINE_WIDTH;
     document.body.style.overflow = 'hidden';
     context.current.strokeStyle = 'white';
-    const {x,y} = getPoints(event)
+    const { x, y } = getPoints(event);
     context.current.beginPath();
     context.current.moveTo(x, y);
     setIsDrawing(true);
@@ -82,14 +81,14 @@ export const Canvas = ({
   };
 
   const draw = (event: React.TouchEvent | React.MouseEvent) => {
-    invariant(canvasRef.current, 'no canvasRef defined')
-    invariant(context.current, 'no context defined')
+    invariant(canvasRef.current, 'no canvasRef defined');
+    invariant(context.current, 'no context defined');
     if (!isDrawing) {
       return;
     }
     event.stopPropagation();
     const { width } = canvasRef.current;
-    const {x,y} = getPoints(event)
+    const { x, y } = getPoints(event);
     context.current.lineTo(x, y);
     context.current.stroke();
     linePoints.current.push({ x: x, y: y });
@@ -106,8 +105,8 @@ export const Canvas = ({
   };
 
   const finishDrawing = (event: React.TouchEvent | React.MouseEvent) => {
-    invariant(canvasRef.current, 'no canvasRef defined')
-    invariant(context.current, 'no context defined')
+    invariant(canvasRef.current, 'no canvasRef defined');
+    invariant(context.current, 'no context defined');
     event.stopPropagation();
     document.body.style.overflow = 'scroll';
     const { width, height } = canvasRef.current;
@@ -130,12 +129,14 @@ export const Canvas = ({
     }
   };
 
-  const markRightAnswer = (isAnswerRight:boolean) => {
-    invariant(context.current, 'no context defined')
-    context.current.strokeStyle = isAnswerRight? style.palette.primary.main:'#e37171';
+  const markRightAnswer = (isAnswerRight: boolean) => {
+    invariant(context.current, 'no context defined');
+    context.current.strokeStyle = isAnswerRight
+      ? style.palette.primary.main
+      : '#e37171';
     context.current.beginPath();
     linePoints.current.forEach(point => {
-      invariant(context.current, 'no context defined')
+      invariant(context.current, 'no context defined');
       context.current.lineTo(point.x, point.y);
     });
     context.current.stroke();
@@ -143,9 +144,14 @@ export const Canvas = ({
   };
 
   const clearCanvas = () => {
-    invariant(canvasRef.current, 'no canvasRef defined')
-    invariant(context.current, 'no context defined')
-    context.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+    invariant(canvasRef.current, 'no canvasRef defined');
+    invariant(context.current, 'no context defined');
+    context.current.clearRect(
+      0,
+      0,
+      canvasRef.current.width,
+      canvasRef.current.height
+    );
   };
 
   return (
@@ -168,7 +174,7 @@ export const Canvas = ({
 const LINE_WIDTH = 4;
 const LINE_CAP = 'round';
 
-function getPoints(event: any){
+function getPoints(event: any) {
   let { offsetX: x, offsetY: y } = event.nativeEvent;
   if (!x || !y) {
     const rect = event.target.getBoundingClientRect();
@@ -176,5 +182,5 @@ function getPoints(event: any){
     x = event.targetTouches[0].pageX - (rect.left + doc.scrollLeft);
     y = event.targetTouches[0].pageY - (rect.top + doc.scrollTop);
   }
-  return {x,y}
+  return { x, y };
 }

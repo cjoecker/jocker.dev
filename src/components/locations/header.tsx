@@ -20,11 +20,8 @@ interface Props {
   onChangeYear: (year: number) => void;
 }
 
-export function Header({
-  marks,
-  onChangeYear,
-}: Props) {
-  const [year, setYear] = useState<number | number[]>(THIS_YEAR)
+export function Header({ marks, onChangeYear }: Props) {
+  const [year, setYear] = useState<number | number[]>(THIS_YEAR);
   const handleChange = (event: any, newValue: number | number[]) => {
     setYear(newValue);
   };

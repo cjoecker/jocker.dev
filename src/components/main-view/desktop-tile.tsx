@@ -21,10 +21,10 @@ export const DesktopTile = forwardRef<HTMLDivElement, Props>(
       dragControls.start(event, { snapToCursor: false });
     };
     const [zIndex, setZIndex] = useState(0);
-    const {maxZIndex, updateMaxZIndex} = useZIndex()
+    const { maxZIndex, updateMaxZIndex } = useZIndex();
     const onDragStart = () => {
-      setZIndex(maxZIndex)
-      updateMaxZIndex()
+      setZIndex(maxZIndex);
+      updateMaxZIndex();
     };
     return (
       <MainContainer

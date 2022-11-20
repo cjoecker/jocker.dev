@@ -42,11 +42,7 @@
     "no-console": [
       "error",
       {
-        "allow": [
-          "error",
-          "warn",
-          "info"
-        ]
+        "allow": ["error", "warn", "info"]
       }
     ],
     "no-undef": "off",
@@ -64,19 +60,30 @@
     "react/no-unescaped-entities": "off",
     "react/prop-types": "off",
     "react/display-name": "off",
-    "prefer-const": ["error", {
-      "destructuring": "all"
-    }],
+    "prefer-const": [
+      "error",
+      {
+        "destructuring": "all"
+      }
+    ],
     "@typescript-eslint/no-unused-vars": "off",
     "unused-imports/no-unused-imports-ts": "warn",
     "unused-imports/no-unused-vars-ts": [
       "warn",
-      { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
     ],
     "curly": "warn",
-    "jsx-a11y/no-autofocus": ["error", {
-      "ignoreNonDOM": true
-    }]
+    "jsx-a11y/no-autofocus": [
+      "error",
+      {
+        "ignoreNonDOM": true
+      }
+    ]
   },
   "env": {
     "browser": true,

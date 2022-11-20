@@ -11,4 +11,3 @@ export const reportWebVitals = (onPerfEntry?: ReportHandler) => {
     });
   }
 };
-

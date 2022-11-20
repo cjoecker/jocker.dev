@@ -15,21 +15,27 @@ interface Props {
 }
 
 export function Footer({ location }: Props) {
-  const { data:weather, isLoading } = useQuery(['weather', location.city], () =>
-    fetchWeather(location)
+  const { data: weather, isLoading } = useQuery(
+    ['weather', location.city],
+    () => fetchWeather(location)
   );
-  const weatherCode = useMemo(() =>  weather?.current?.condition?.code, [weather]);
-  const images = useMemo(() =>  require.context('./images/weather', false), []);
-  const imageUrl = useMemo(() =>  images(`./${getWeatherImagePath(weatherCode, weather?.current?.is_day)}`), [weather]);
+  const weatherCode = useMemo(
+    () => weather?.current?.condition?.code,
+    [weather]
+  );
+  const images = useMemo(() => require.context('./images/weather', false), []);
+  const imageUrl = useMemo(
+    () =>
+      images(`./${getWeatherImagePath(weatherCode, weather?.current?.is_day)}`),
+    [images, weather, weatherCode]
+  );
 
   return (
     <Paper>
       <FlexBox>
         <LocationWrapper>
           <Typography variant="h4">{location.city}</Typography>
-          <Typography variant="h5">
-            {location.country}
-          </Typography>
+          <Typography variant="h5">{location.country}</Typography>
         </LocationWrapper>
         <TemperatureWrapper>
           <Temperature

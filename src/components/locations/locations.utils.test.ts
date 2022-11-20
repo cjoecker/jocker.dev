@@ -118,32 +118,32 @@ describe('add last year', () => {
 });
 
 describe('getLastLocation', () => {
-  it('should get last location if year doesn\'t exists', () => {
-    const year = 1994
+  it("should get last location if year doesn't exists", () => {
+    const year = 1994;
     const Locations = [
       { ...LocationMock, year: 1991 },
       { ...LocationMock, year: 1992 },
       { ...LocationMock, year: 1995 },
     ];
-    const lastLocation = { ...LocationMock, year: 1992 }
-    expect(getLastLocation(year,Locations)).toEqual(lastLocation);
+    const lastLocation = { ...LocationMock, year: 1992 };
+    expect(getLastLocation(year, Locations)).toEqual(lastLocation);
   });
   it('should get last location if year exists', () => {
-    const year = 1992
+    const year = 1992;
     const Locations = [
       { ...LocationMock, year: 1991 },
       { ...LocationMock, year: 1992 },
       { ...LocationMock, year: 1995 },
     ];
-    const lastLocation = { ...LocationMock, year: 1992 }
-    expect(getLastLocation(year,Locations)).toEqual(lastLocation);
+    const lastLocation = { ...LocationMock, year: 1992 };
+    expect(getLastLocation(year, Locations)).toEqual(lastLocation);
   });
 });
 
 describe('getWeatherImagePath', () => {
   it('should return right weather image', () => {
-    expect(getWeatherImagePath(1000,true)).toEqual("clearDay.svg");
-    expect(getWeatherImagePath(1003,false)).toEqual("partlyCloudyNight.svg");
+    expect(getWeatherImagePath(1000, true)).toEqual('clearDay.svg');
+    expect(getWeatherImagePath(1003, false)).toEqual('partlyCloudyNight.svg');
   });
 });
 
@@ -152,25 +152,31 @@ describe('getPinImagePath', () => {
     const locationPinImages = [
       {
         fromAge: 0,
-        imageName: "baby"
+        imageName: 'baby',
       },
       {
         fromAge: 5,
-        imageName: "kid"
+        imageName: 'kid',
       },
       {
         fromAge: 15,
-        imageName: "adultWithHair"
+        imageName: 'adultWithHair',
       },
       {
         fromAge: 25,
-        imageName: "adultWithoutHair"
-      }
-    ]
-    expect(getPinImagePath(2008,1991,locationPinImages)).toEqual("adultWithHair")
-    expect(getPinImagePath(1996,1991,locationPinImages)).toEqual("kid")
-    expect(getPinImagePath(1991,1991,locationPinImages)).toEqual("baby")
-    expect(getPinImagePath(2016,1991,locationPinImages)).toEqual("adultWithoutHair")
-    expect(getPinImagePath(2017,1991,locationPinImages)).toEqual("adultWithoutHair")
-  })
-})
+        imageName: 'adultWithoutHair',
+      },
+    ];
+    expect(getPinImagePath(2008, 1991, locationPinImages)).toEqual(
+      'adultWithHair'
+    );
+    expect(getPinImagePath(1996, 1991, locationPinImages)).toEqual('kid');
+    expect(getPinImagePath(1991, 1991, locationPinImages)).toEqual('baby');
+    expect(getPinImagePath(2016, 1991, locationPinImages)).toEqual(
+      'adultWithoutHair'
+    );
+    expect(getPinImagePath(2017, 1991, locationPinImages)).toEqual(
+      'adultWithoutHair'
+    );
+  });
+});

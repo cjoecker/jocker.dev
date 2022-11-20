@@ -8,7 +8,7 @@ export type TitleProps = {
   type: 'title' | 'subtitle';
 };
 export const TitleText = ({ text, type }: TitleProps) => {
-  const variant = type === 'title' ? 'h1' : 'h2'
+  const variant = type === 'title' ? 'h1' : 'h2';
   return (
     <TitleWrapper
       variant={variant}
@@ -48,9 +48,14 @@ const LetterSpan = styled(motion.span)`
 const WordWrapper = styled.div<{ isLastWord: boolean; variant: 'h1' | 'h2' }>`
   display: flex;
   margin-right: ${p => {
-    if (p.isLastWord) {return undefined;}
-    if (p.variant === 'h1') {return '10px';}
-    else {return '7px';}
+    if (p.isLastWord) {
+      return undefined;
+    }
+    if (p.variant === 'h1') {
+      return '10px';
+    } else {
+      return '7px';
+    }
   }};
 `;
 

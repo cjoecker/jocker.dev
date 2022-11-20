@@ -8,17 +8,13 @@ interface Props {
 }
 
 export function Temperature({ temperature, isLoading }: Props) {
-    if(isLoading || !temperature){
-        return (<CircularProgress />)
-    }
-    return (
+  if (isLoading || !temperature) {
+    return <CircularProgress />;
+  }
+  return (
     <TemperatureWrapper>
-      <NumberTypography variant="body1">
-        {temperature}
-      </NumberTypography>
-      <UnitTypography variant="body1">
-        {'°C'}
-      </UnitTypography>
+      <NumberTypography variant="body1">{temperature}</NumberTypography>
+      <UnitTypography variant="body1">{'°C'}</UnitTypography>
     </TemperatureWrapper>
   );
 }
@@ -41,4 +37,3 @@ const UnitTypography = styled(Typography)`
     margin-top: 0px;
   }
 `;
-

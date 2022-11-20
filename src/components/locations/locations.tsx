@@ -72,9 +72,8 @@ export function Locations({ locationEntries }: Props) {
   }, [location]);
 
   useEffect(() => {
-    setTransitionDuration(TRANSITION_DURATION)
+    setTransitionDuration(TRANSITION_DURATION);
   }, []);
-
 
   return (
     <LocationBox isMobile={isMobile}>

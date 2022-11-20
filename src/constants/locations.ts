@@ -68,18 +68,18 @@ export const bornYear = 1991;
 export const locationPinImages: LocationPinImagesType[] = [
   {
     fromAge: 0,
-    imageName: "baby"
+    imageName: 'baby',
   },
   {
     fromAge: 5,
-    imageName: "kid"
+    imageName: 'kid',
   },
   {
     fromAge: 15,
-    imageName: "adultWithHair"
+    imageName: 'adultWithHair',
   },
   {
     fromAge: 25,
-    imageName: "adultWithoutHair"
-  }
-]
+    imageName: 'adultWithoutHair',
+  },
+];

@@ -2,12 +2,12 @@ import { useTheme } from '@mui/material';
 import Matter, { Constraint, Mouse, MouseConstraint } from 'matter-js';
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
+import invariant from 'tiny-invariant';
 
 import { SkillsType } from '../../constants/skills';
 import { useEffectUnsafe } from '../../unsafeHooks';
 
 import { getBallsBody, getWorldWalls } from './skills.utils';
-import invariant from 'tiny-invariant';
 
 const WALLS_THICKNESS = 10;
 
@@ -33,8 +33,8 @@ export function Balls({ skills }: Props) {
     const Runner = Matter.Runner;
     const World = Matter.World;
     const engine = Engine.create();
-    invariant(boxRef.current, 'no boxRef defined')
-    invariant(canvasRef.current, 'no canvasRef defined')
+    invariant(boxRef.current, 'no boxRef defined');
+    invariant(canvasRef.current, 'no canvasRef defined');
     const render = Render.create({
       element: boxRef.current,
       engine: engine,
@@ -47,20 +47,23 @@ export function Balls({ skills }: Props) {
 
     World.add(
       engine.world,
-      getWorldWalls((boxRef.current as any).getBoundingClientRect(), WALLS_THICKNESS)
+      getWorldWalls(
+        (boxRef.current as any).getBoundingClientRect(),
+        WALLS_THICKNESS
+      )
     );
 
     const mouse = Mouse.create(render.canvas),
-        mouseConstraint = MouseConstraint.create(engine, {
-          mouse: mouse,
-          constraint: {
-            render: {
-              visible: false
-            }
-          } as Constraint
-        });
+      mouseConstraint = MouseConstraint.create(engine, {
+        mouse: mouse,
+        constraint: {
+          render: {
+            visible: false,
+          },
+        } as Constraint,
+      });
 
-    mouse.pixelRatio = pixelRatio
+    mouse.pixelRatio = pixelRatio;
     World.add(engine.world, mouseConstraint);
 
     Runner.run(engine);
@@ -85,9 +88,9 @@ export function Balls({ skills }: Props) {
 
       canvasRef.current.width = width * pixelRatio;
       canvasRef.current.height = height * pixelRatio;
-      canvasRef.current.style.width = `${width}px`
+      canvasRef.current.style.width = `${width}px`;
       canvasRef.current.style.height = `${height}px`;
-      canvasRef.current.getContext("2d")?.scale(pixelRatio, pixelRatio);
+      canvasRef.current.getContext('2d')?.scale(pixelRatio, pixelRatio);
 
       const topWall = (render as any).engine.world.bodies[0];
       Matter.Body.setPosition(topWall, {
@@ -137,18 +140,20 @@ export function Balls({ skills }: Props) {
         { x: 0, y: height },
       ]);
     }
-
   }, [constraints]);
   useEffectUnsafe(() => {
     const timeouts: Array<NodeJS.Timeout> = [];
     if (render && skills) {
       skills.forEach(skill => {
-        const color = skill.type === 'web' ? style.palette.primary.main : style.palette.secondary.main
+        const color =
+          skill.type === 'web'
+            ? style.palette.primary.main
+            : style.palette.secondary.main;
         timeouts.push(
           setTimeout(() => {
             Matter.World.add(
               (render as any).engine.world,
-              getBallsBody(constraints,skill, color,pixelRatio),
+              getBallsBody(constraints, skill, color, pixelRatio)
             );
           }, Math.random() * (500 - 50))
         );
@@ -162,20 +167,19 @@ export function Balls({ skills }: Props) {
   }, [skills, render]);
 
   return (
-      <CanvasWrapper
-        ref={boxRef}
-        style={{
-          width: '100%',
-          height: '100%',
-        }}
-      >
-        <canvas ref={canvasRef}/>
-      </CanvasWrapper>
-
+    <CanvasWrapper
+      ref={boxRef}
+      style={{
+        width: '100%',
+        height: '100%',
+      }}
+    >
+      <canvas ref={canvasRef} />
+    </CanvasWrapper>
   );
 }
 
 const CanvasWrapper = styled.div`
   width: 100%;
   height: 100%;
-`
+`;

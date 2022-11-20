@@ -17,5 +17,5 @@ export const Title = () => {
 };
 
 const TextContainer = styled(Paper)`
-padding: var(--margin-m);
-`
+  padding: var(--margin-m);
+`;

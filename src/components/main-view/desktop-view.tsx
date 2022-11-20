@@ -42,7 +42,7 @@ export const DesktopView = () => {
       ownApps: getPosition(window, ownAppsRef, -0.1, -0.9),
       languages: getPosition(window, languagesRef, 0, 0),
     });
-  }, [browserWidth, browserHeight,locationsRef.current?.offsetWidth]);
+  }, [browserWidth, browserHeight, locationsRef.current?.offsetWidth]);
   return (
     <ZIndex>
       <DragContainer>
@@ -95,7 +95,6 @@ function getPosition(
   xOffsetAsFraction: number,
   yOffsetAsFraction: number
 ) {
-
   const screenXCenter = window.innerWidth * 0.5;
   const screenYCenter = window.innerHeight * 0.5;
   const elementXCenter = (elementRef.current?.offsetWidth ?? 0) / 2;

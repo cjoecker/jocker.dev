@@ -22,7 +22,7 @@ const muiThemeOptions: MuiThemeOptions = {
     },
     h2: {
       fontWeight: 300,
-      fontSize: 22
+      fontSize: 22,
     },
     h3: {
       fontWeight: 300,
@@ -43,7 +43,7 @@ const muiThemeOptions: MuiThemeOptions = {
     body1: {
       fontWeight: 300,
       fontSize: 16,
-      lineHeight: 1
+      lineHeight: 1,
     },
     body2: {
       fontWeight: 100,
@@ -75,15 +75,15 @@ const muiThemeOptions: MuiThemeOptions = {
     },
   },
   components: {
-    MuiPaper:{
-      styleOverrides:{
+    MuiPaper: {
+      styleOverrides: {
         root: {
-          backdropFilter: "blur(8px) brightness(70%)",
-          backgroundColor: "transparent",
+          backdropFilter: 'blur(8px) brightness(70%)',
+          backgroundColor: 'transparent',
         },
-      }
+      },
     },
-  }
+  },
 };
 
 export const muiTheme = createTheme(muiThemeOptions);

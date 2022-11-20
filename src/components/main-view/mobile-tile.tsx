@@ -11,12 +11,10 @@ export type Props = {
 export const MobileTile = forwardRef<HTMLDivElement, Props>(
   ({ children, tileName }: Props) => {
     return (
-        <MainContainer >
+      <MainContainer>
         {tileName && (
           <TileNameWrapper>
-            <TileName variant="h3">
-              {tileName}
-            </TileName>
+            <TileName variant="h3">{tileName}</TileName>
           </TileNameWrapper>
         )}
         <ChildrenContainer>{children}</ChildrenContainer>
