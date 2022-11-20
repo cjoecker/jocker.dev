@@ -24,4 +24,10 @@ export const OWN_APPS: OwnAppsType[] = [
     link: 'https://cjoecker.github.io/3-point-estimator/',
     icon: '3-point-estimator.svg',
   },
+  {
+    name: 'Curriculum Generator',
+    description: 'Generate your CV in neumorphic style',
+    link: 'https://github.com/cjoecker/curriculum-generator',
+    icon: 'curriculum-generator.svg',
+  },
 ];
