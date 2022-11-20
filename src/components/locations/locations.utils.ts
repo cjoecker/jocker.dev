@@ -61,7 +61,6 @@ export function addActualYearToLocations(
   if (lastLocation.year === getYear(new Date())) {
     return sortedLocations
   }
-  console.log("getYear(new Date())", getYear(new Date()));
   return [...sortedLocations, { ...lastLocation, year: getYear(new Date()) }];
 }
 

@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import { postion } from '../../App';
 import { LOCATIONS } from '../../constants/locations';
 import { SKILLS } from '../../constants/skills';
 import { useWindowSize } from '../../hooks/useWindowSize';
-import { useEffectUnsafe } from '../../unsafeHooks';
 import { Languages } from '../languages/languages';
 import { Locations } from '../locations/locations';
 import { OtherApps } from '../other-apps/other-apps';
@@ -33,35 +32,17 @@ export const DesktopView = () => {
   const skillsRef = useRef<HTMLDivElement>(null);
   const ownAppsRef = useRef<HTMLDivElement>(null);
   const languagesRef = useRef<HTMLDivElement>(null);
-  const {browserWidth, browserHeight} = useWindowSize();
+  const { browserWidth, browserHeight } = useWindowSize();
 
-  useEffectUnsafe(() => {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+  useEffect(() => {
     setPositions({
-      title: {
-        x: getWidthCenter(width, titleRef),
-        y: getHeightCenter(height, titleRef) - 300
-      },
-      locations: {
-        x: getWidthCenter(width, locationsRef) + 570,
-        y: getHeightCenter(height, locationsRef) - 100
-      },
-      skills: {
-        x: getWidthCenter(width, skillsRef) - 500,
-        y: getHeightCenter(height, skillsRef) -30
-
-      },
-      ownApps: {
-        x: getWidthCenter(width, ownAppsRef) + 130,
-        y: getHeightCenter(height, ownAppsRef) + 120
-      },
-      languages: {
-        x: getWidthCenter(width, languagesRef) - 20,
-        y: getHeightCenter(height, languagesRef) - 100
-      },
+      title: getPosition(window, titleRef, 0, 0.9),
+      locations: getPosition(window, locationsRef, -0.9, 0.1),
+      skills: getPosition(window, skillsRef, 0.9, -0.1),
+      ownApps: getPosition(window, ownAppsRef, -0.1, -0.9),
+      languages: getPosition(window, languagesRef, 0, 0),
     });
-  }, [browserWidth, browserHeight]);
+  }, [browserWidth, browserHeight,locationsRef.current?.offsetWidth]);
   return (
     <ZIndex>
       <DragContainer>
@@ -101,7 +82,6 @@ export const DesktopView = () => {
   );
 };
 
-
 const DragContainer = styled.div`
   position: fixed;
   width: 100%;
@@ -109,10 +89,21 @@ const DragContainer = styled.div`
   overflow: hidden;
 `;
 
-function getHeightCenter(windowHeight: number, elementRef: React.RefObject<HTMLElement>) {
-  return windowHeight * 0.5 - (elementRef.current?.offsetHeight ?? 0) / 2
-}
+function getPosition(
+  window: Window,
+  elementRef: React.RefObject<HTMLElement>,
+  xOffsetAsFraction: number,
+  yOffsetAsFraction: number
+) {
 
-function getWidthCenter(windowWidth: number, elementRef: React.RefObject<HTMLElement>) {
-  return windowWidth * 0.5 - (elementRef.current?.offsetWidth ?? 0) / 2
+  const screenXCenter = window.innerWidth * 0.5;
+  const screenYCenter = window.innerHeight * 0.5;
+  const elementXCenter = (elementRef.current?.offsetWidth ?? 0) / 2;
+  const elementYCenter = (elementRef.current?.offsetHeight ?? 0) / 2;
+  const elementX = elementXCenter - screenXCenter;
+  const elementY = elementYCenter - screenYCenter;
+  return {
+    x: elementX * xOffsetAsFraction + screenXCenter - elementXCenter,
+    y: elementY * yOffsetAsFraction + screenYCenter - elementYCenter,
+  };
 }
