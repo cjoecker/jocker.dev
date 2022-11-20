@@ -26,10 +26,10 @@ export function Footer({ location }: Props) {
     <Paper>
       <FlexBox>
         <LocationWrapper>
-          <LocationTypography variant="h4">{location.city}</LocationTypography>
-          <LocationTypography variant="h5">
+          <Typography variant="h4">{location.city}</Typography>
+          <Typography variant="h5">
             {location.country}
-          </LocationTypography>
+          </Typography>
         </LocationWrapper>
         <TemperatureWrapper>
           <Temperature
@@ -58,8 +58,6 @@ const LocationWrapper = styled.div`
   flex: 1 1 100%;
   margin: var(--margin-m) 0 var(--margin-s) var(--margin-m);
 `;
-
-const LocationTypography = styled(Typography)``;
 
 const TemperatureWrapper = styled.div`
   flex: 0 0 30px;

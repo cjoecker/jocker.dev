@@ -1,5 +1,5 @@
 import { easeSinInOut } from 'd3-ease';
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import ReactMapGL, { FlyToInterpolator, Marker } from 'react-map-gl';
 import { ViewportProps } from 'react-map-gl/dist/es5/utils/map-state';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -23,10 +23,13 @@ interface Props {
   locationEntries: LocationsType[];
 }
 
+const TRANSITION_DURATION = 2000;
+
 //TODO move map access token to env
 export function Locations({ locationEntries }: Props) {
   const lastLocation = useMemo(() => locationEntries[0], [locationEntries]);
   const [location, setLocation] = useState(lastLocation);
+  const [transitionDuration, setTransitionDuration] = useState(0);
   const { isMobile } = useWindowSize();
 
   const [viewport, setViewport] = useState<ViewportProps>({
@@ -68,6 +71,11 @@ export function Locations({ locationEntries }: Props) {
     });
   }, [location]);
 
+  useEffect(() => {
+    setTransitionDuration(TRANSITION_DURATION)
+  }, []);
+
+
   return (
     <LocationBox isMobile={isMobile}>
       <ReactMapGL
@@ -77,6 +85,7 @@ export function Locations({ locationEntries }: Props) {
         mapStyle="mapbox://styles/cjoecker/ckmpee9hy024v17o553pu11hv"
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
         onViewportChange={(viewport: ViewportProps) => setViewport(viewport)}
+        transitionDuration={transitionDuration}
       >
         <Marker
           latitude={markerPos.latitude}
