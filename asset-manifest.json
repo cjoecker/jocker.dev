@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/personal-website/static/css/main.4c29120f.css",
-    "main.js": "/personal-website/static/js/main.5bca7a22.js",
-    "static/js/651.273f4b3e.chunk.js": "/personal-website/static/js/651.273f4b3e.chunk.js",
+    "main.js": "/personal-website/static/js/main.d0023817.js",
+    "static/js/42.c5f55929.chunk.js": "/personal-website/static/js/42.c5f55929.chunk.js",
     "static/media/core-values-finder.svg": "/personal-website/static/media/core-values-finder.a3c40180b6157df7ca01.svg",
     "static/media/yantramanav-latin-900.woff": "/personal-website/static/media/yantramanav-latin-900.ef9440d24f69e4247fc5.woff",
     "static/media/yantramanav-latin-700.woff": "/personal-website/static/media/yantramanav-latin-700.f24afe05def8396d770e.woff",
@@ -23,6 +23,7 @@
     "static/media/yantramanav-latin-300.woff2": "/personal-website/static/media/yantramanav-latin-300.375226de943261c5b056.woff2",
     "static/media/yantramanav-v6-latin-300.woff2": "/personal-website/static/media/yantramanav-v6-latin-300.375226de943261c5b056.woff2",
     "static/media/kid.svg": "/personal-website/static/media/kid.a86f3294c5a0ca96ba1d.svg",
+    "static/media/curriculum-generator.svg": "/personal-website/static/media/curriculum-generator.732827ea172d8eb08a41.svg",
     "static/media/adultWithHair.svg": "/personal-website/static/media/adultWithHair.b72f2f5b1533e241c69c.svg",
     "static/media/d-cide.svg": "/personal-website/static/media/d-cide.cd02f0e0cda24e3c4e66.svg",
     "static/media/baby.svg": "/personal-website/static/media/baby.71c0fa4b16707d582762.svg",
@@ -45,11 +46,11 @@
     "static/media/pt.svg": "/personal-website/static/media/pt.a200ca6eb1492976c51e.svg",
     "static/media/de.svg": "/personal-website/static/media/de.c8e11cd99401b4894283.svg",
     "main.4c29120f.css.map": "/personal-website/static/css/main.4c29120f.css.map",
-    "main.5bca7a22.js.map": "/personal-website/static/js/main.5bca7a22.js.map",
-    "651.273f4b3e.chunk.js.map": "/personal-website/static/js/651.273f4b3e.chunk.js.map"
+    "main.d0023817.js.map": "/personal-website/static/js/main.d0023817.js.map",
+    "42.c5f55929.chunk.js.map": "/personal-website/static/js/42.c5f55929.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4c29120f.css",
-    "static/js/main.5bca7a22.js"
+    "static/js/main.d0023817.js"
   ]
 }
