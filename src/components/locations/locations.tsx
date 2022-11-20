@@ -41,7 +41,7 @@ export function Locations({ locationEntries }: Props) {
       images(
         `./${getPinImagePath(location.year, bornYear, locationPinImages)}.svg`
       ),
-    [images]
+    [images, location.year]
   );
 
   const [markerPos, setMarkerPos] = useState({
