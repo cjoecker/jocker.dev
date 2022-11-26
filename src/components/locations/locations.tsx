@@ -1,7 +1,5 @@
-import { easeSinInOut } from 'd3-ease';
-import React, { useEffect, useMemo, useState } from 'react';
-import ReactMapGL, { FlyToInterpolator, Marker } from 'react-map-gl';
-import { ViewportProps } from 'react-map-gl/dist/es5/utils/map-state';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import Map, { Marker } from 'react-map-gl';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import styled from 'styled-components';
 
@@ -11,7 +9,6 @@ import {
   LocationsType,
 } from '../../constants/locations';
 import { useWindowSize } from '../../hooks/useWindowSize';
-import { useEffectUnsafe } from '../../unsafeHooks';
 
 import { Footer } from './footer';
 import { Header } from './header';
@@ -24,19 +21,18 @@ interface Props {
 }
 
 const TRANSITION_DURATION = 2000;
+const ZOOM = 10;
 
 //TODO move map access token to env
 export function Locations({ locationEntries }: Props) {
-  const lastLocation = useMemo(() => locationEntries[0], [locationEntries]);
-  const [location, setLocation] = useState(lastLocation);
-  const [transitionDuration, setTransitionDuration] = useState(0);
-  const { isMobile } = useWindowSize();
+  const mapRef = useRef<any>();
 
-  const [viewport, setViewport] = useState<ViewportProps>({
-    latitude: lastLocation.latitude,
-    longitude: lastLocation.longitude,
-    zoom: 15,
-  });
+  const lastLocation = useMemo(
+    () => locationEntries[locationEntries.length - 1],
+    [locationEntries]
+  );
+  const [location, setLocation] = useState(lastLocation);
+  const { isMobile } = useWindowSize();
 
   const images = useMemo(() => require.context('./images/pin', false), []);
   const pinImgUrl = useMemo(
@@ -56,14 +52,12 @@ export function Locations({ locationEntries }: Props) {
     setLocation(getLastLocation(year, locationEntries));
   };
 
-  useEffectUnsafe(() => {
-    setViewport({
-      ...viewport,
-      latitude: location.latitude,
-      longitude: location.longitude,
-      transitionInterpolator: new FlyToInterpolator(),
-      transitionDuration: 2000,
-      transitionEasing: easeSinInOut,
+  useEffect(() => {
+    if (!mapRef.current) return;
+    mapRef.current?.flyTo({
+      center: [location.longitude, location.latitude],
+      duration: TRANSITION_DURATION,
+      zoom: ZOOM,
     });
     setMarkerPos({
       latitude: location.latitude,
@@ -71,26 +65,24 @@ export function Locations({ locationEntries }: Props) {
     });
   }, [location]);
 
-  useEffect(() => {
-    setTransitionDuration(TRANSITION_DURATION);
-  }, []);
-
   return (
     <LocationBox isMobile={isMobile}>
-      <ReactMapGL
-        {...viewport}
-        width="100%"
-        height="100%"
+      <Map
+        initialViewState={{
+          longitude: lastLocation.longitude,
+          latitude: lastLocation.latitude,
+          zoom: ZOOM
+        }}
+        ref={mapRef}
         mapStyle="mapbox://styles/cjoecker/ckmpee9hy024v17o553pu11hv"
-        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
-        onViewportChange={(viewport: ViewportProps) => setViewport(viewport)}
-        transitionDuration={transitionDuration}
+        mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
+        attributionControl={false}
       >
         <Marker
           latitude={markerPos.latitude}
           longitude={markerPos.longitude}
-          offsetLeft={-20}
-          offsetTop={-10}
+          anchor="center"
+          offset={[0, -500]}
         >
           <img
             src={pinImgUrl}
@@ -99,7 +91,7 @@ export function Locations({ locationEntries }: Props) {
             alt={"christian's face"}
           />
         </Marker>
-      </ReactMapGL>
+      </Map>
       <StyledDiv position={'top'}>
         <Margins>
           <Header
