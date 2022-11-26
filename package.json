@@ -1,7 +1,6 @@
 {
-  "name": "personal-website",
-  "version": "0.1.0",
-  "homepage": "https://cjoecker.github.io/personal-website/",
+  "name": "jocker.dev",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "ESLINT_NO_DEV_ERRORS=true react-scripts start",
@@ -25,8 +24,6 @@
     "@mui/styled-engine-sc": "^5.10.14",
     "@types/string-hash": "^1.1.1",
     "babel-loader": "9.1.0",
-    "d3": "^7.6.1",
-    "d3-ease": "^3.0.1",
     "date-fns": "^2.29.3",
     "framer-motion": "^7.6.12",
     "mapbox-gl": "^2.11.0",
@@ -52,29 +49,6 @@
     "*.+(js|jsx|ts|tsx)": [
       "yarn lint:fix",
       "yarn format"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn check-types && yarn lint-staged"
-    }
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
     ]
   },
   "devDependencies": {
@@ -110,5 +84,17 @@
   "resolutions": {
     "babel-loader": "8.1.0",
     "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

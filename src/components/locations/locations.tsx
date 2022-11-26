@@ -53,7 +53,7 @@ export function Locations({ locationEntries }: Props) {
   };
 
   useEffect(() => {
-    if (!mapRef.current) return;
+    if (!mapRef.current) {return;}
     mapRef.current?.flyTo({
       center: [location.longitude, location.latitude],
       duration: TRANSITION_DURATION,
