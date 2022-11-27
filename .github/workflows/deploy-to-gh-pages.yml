@@ -8,9 +8,7 @@ jobs:
     strategy:
       matrix:
         node-version: [15]
-
     steps:
-      - name: Checkout 🛎
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
         with:
@@ -20,10 +18,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      - name: Build 🔨
-        run: |
-          pnpm install
-          CI=false pnpm run build
+      - name: Install dependencies
+        run: pnpm install
         env:
           REACT_APP_MAPBOX_ACCESS_TOKEN: ${{ secrets.REACT_APP_MAPBOX_ACCESS_TOKEN }}
           REACT_APP_WEATHER_API_KEY: ${{ secrets.REACT_APP_WEATHER_API_KEY }}
