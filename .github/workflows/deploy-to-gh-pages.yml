@@ -3,7 +3,7 @@ name: build and deploy
 on: workflow_dispatch
 
 jobs:
-  build and deploy:
+  build:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
