@@ -6,6 +6,7 @@ import { DesktopView } from './components/main-view/desktop-view';
 import { MobileView } from './components/main-view/mobile-view';
 import { useWindowSize } from './hooks/useWindowSize';
 import { muiTheme } from './muiTheme';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 export interface postion {
   x: number;

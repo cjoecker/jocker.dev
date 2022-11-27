@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Map, { Marker } from 'react-map-gl';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import styled from 'styled-components';
-import 'mapbox-gl/dist/mapbox-gl.css';
 
 import {
   bornYear,
