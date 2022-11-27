@@ -18,9 +18,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      - name: Install dependencies
+      - name: Install dependencies 💿
         run: pnpm install
-      - name: Build
+      - name: Build 🔨
         run: pnpm run build
         env:
           REACT_APP_MAPBOX_ACCESS_TOKEN: ${{ secrets.REACT_APP_MAPBOX_ACCESS_TOKEN }}
