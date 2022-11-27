@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Map, { Marker } from 'react-map-gl';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import styled from 'styled-components';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 import {
   bornYear,
@@ -77,12 +78,12 @@ export function Locations({ locationEntries }: Props) {
         mapStyle="mapbox://styles/cjoecker/ckmpee9hy024v17o553pu11hv"
         mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
         attributionControl={false}
+        style={{width: '100%', height: '100%'}}
       >
         <Marker
           latitude={markerPos.latitude}
           longitude={markerPos.longitude}
           anchor="center"
-          offset={[0, -500]}
         >
           <img
             src={pinImgUrl}
