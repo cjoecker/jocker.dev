@@ -9,11 +9,12 @@
     "eject": "react-scripts eject",
     "check-types": "tsc --noemit -p tsconfig.json",
     "lint": "eslint --max-warnings=0",
-    "lint:fix": "yarn lint --fix",
-    "lint:all": "yarn lint .",
-    "lint:fix:all": "yarn lint:fix .",
-    "format:all": "yarn format .",
-    "format": "prettier --write"
+    "lint:fix": "pnpm lint --fix",
+    "lint:all": "pnpm lint .",
+    "lint:fix:all": "pnpm lint:fix .",
+    "format:all": "pnpm format .",
+    "format": "prettier --write",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -42,11 +43,11 @@
   },
   "lint-staged": {
     "*.+(json|yml|yaml|css|less|scss|html)": [
-      "yarn format"
+      "pnpm format"
     ],
     "*.+(js|jsx|ts|tsx)": [
-      "yarn lint:fix",
-      "yarn format"
+      "pnpm lint:fix",
+      "pnpm format"
     ]
   },
   "devDependencies": {
