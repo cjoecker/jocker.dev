@@ -78,10 +78,6 @@
     "pinst": "^3.0.0",
     "prettier": "2.8.0"
   },
-  "resolutions": {
-    "babel-loader": "8.1.0",
-    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
-  },
   "browserslist": {
     "production": [
       "defaults",
