@@ -40,7 +40,12 @@ export const AppButton = ({ item }: Props) => {
             },
           }}
         >
-          <Button disableTouchRipple background={imagePath} onClick={onClick} />
+          <Button
+            style={{ borderRadius: '10px' }}
+            disableTouchRipple
+            background={imagePath}
+            onClick={onClick}
+          />
         </motion.div>
         <ButtonText variant={'caption'}>{appInfo?.name}</ButtonText>
       </div>
@@ -64,5 +69,5 @@ const ButtonText = styled(Typography)`
   max-width: 60px;
   display: block;
   text-align: center;
-  line-height: 1.2;
+  line-height: 1.2 !important;
 `;
