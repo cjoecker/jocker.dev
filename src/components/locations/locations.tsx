@@ -24,7 +24,6 @@ interface Props {
 const TRANSITION_DURATION = 2000;
 const ZOOM = 10;
 
-//TODO move map access token to env
 export function Locations({ locationEntries }: Props) {
   const mapRef = useRef<any>();
 
@@ -76,7 +75,6 @@ export function Locations({ locationEntries }: Props) {
         }}
         ref={mapRef}
         mapStyle="mapbox://styles/cjoecker/ckmpee9hy024v17o553pu11hv"
-        mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
         attributionControl={false}
         style={{width: '100%', height: '100%'}}
       >
