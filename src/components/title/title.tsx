@@ -1,21 +1,14 @@
-import { Paper } from '@mui/material';
-import * as React from 'react';
-import styled from 'styled-components';
-
 import { TitleText } from './title-text';
+import { TransparentBox } from '../shared/TransparentBox';
 
 export const Title = () => {
   return (
-    <TextContainer>
+    <TransparentBox>
       <TitleText type={'title'} text="Christian Jöcker" />
       <TitleText
         type={'subtitle'}
         text="Frontend Developer and UX/UI Designer"
       />
-    </TextContainer>
+    </TransparentBox>
   );
 };
-
-const TextContainer = styled(Paper)`
-  padding: var(--margin-m);
-`;

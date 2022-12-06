@@ -1,7 +1,5 @@
-import { Paper, Typography } from '@mui/material';
 import React, { useMemo } from 'react';
 import { useQuery } from 'react-query';
-import styled from 'styled-components';
 
 import { fetchWeather } from '../../api';
 import { LocationsType } from '../../constants/locations';
@@ -31,54 +29,27 @@ export function Footer({ location }: Props) {
   );
 
   return (
-    <Paper>
-      <FlexBox>
-        <LocationWrapper>
-          <Typography variant="h4">{location.city}</Typography>
-          <Typography variant="h5">{location.country}</Typography>
-        </LocationWrapper>
-        <TemperatureWrapper>
+    <div>
+      <div className="flex flex-row flex-grow-0">
+        <div className='flex-1 m-4'>
+          <h4>{location.city}</h4>
+          <h5>{location.country}</h5>
+        </div>
+        <div className="flex flex-col justify-center w-12">
           <Temperature
             temperature={weather ? weather?.current?.temp_c : null}
             isLoading={isLoading}
           />
-        </TemperatureWrapper>
+        </div>
         {!isLoading && weather && (
-          <WeatherWrapper>
-            <WeatherImageContainer>
+          <div className="flex flex-col justify-center w-24">
+            <div className="w-4">
               <img alt={WEATHER_CODES.get(weatherCode)} src={imageUrl} />
-            </WeatherImageContainer>
-          </WeatherWrapper>
+            </div>
+          </div>
         )}
-      </FlexBox>
-    </Paper>
+      </div>
+    </div>
   );
 }
 
-const FlexBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-grow: 0;
-`;
-const LocationWrapper = styled.div`
-  flex: 1 1 100%;
-  margin: var(--margin-m) 0 var(--margin-s) var(--margin-m);
-`;
-
-const TemperatureWrapper = styled.div`
-  flex: 0 0 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-const WeatherWrapper = styled.div`
-  flex: 0 0 65px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-const WeatherImageContainer = styled.div`
-  margin: var(--margin-m);
-`;

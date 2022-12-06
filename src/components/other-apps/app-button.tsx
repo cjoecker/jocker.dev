@@ -1,8 +1,6 @@
-import { ButtonBase, Typography } from '@mui/material';
+import { ButtonUnstyled } from '@mui/base';
 import { motion, Reorder } from 'framer-motion';
-import * as React from 'react';
 import { useState } from 'react';
-import styled from 'styled-components';
 
 import { OWN_APPS } from '../../constants/own-apps';
 
@@ -20,7 +18,7 @@ export const AppButton = ({ item }: Props) => {
     }
   };
   return (
-    <ButtonWrapper
+    <Reorder.Item
       id={item}
       value={item}
       whileDrag={{ scale: 1.1 }}
@@ -40,34 +38,15 @@ export const AppButton = ({ item }: Props) => {
             },
           }}
         >
-          <Button
-            style={{ borderRadius: '10px' }}
-            disableTouchRipple
-            background={imagePath}
+          <ButtonUnstyled
+            className="w-16 h-16 mb-1"
+            // disableTouchRipple
+            // background={imagePath}
             onClick={onClick}
           />
         </motion.div>
-        <ButtonText variant={'caption'}>{appInfo?.name}</ButtonText>
+        <div className="block text-center">{appInfo?.name}</div>
       </div>
-    </ButtonWrapper>
+    </Reorder.Item>
   );
 };
-
-const ButtonWrapper = styled(Reorder.Item)`
-  margin: 10px 10px 0 10px;
-`;
-
-const Button = styled(ButtonBase)<{ background: string }>`
-  width: 60px;
-  height: 60px;
-  background-image: url('${p => p.background}');
-  border-radius: 10px;
-  margin-bottom: 6px;
-`;
-
-const ButtonText = styled(Typography)`
-  max-width: 60px;
-  display: block;
-  text-align: center;
-  line-height: 1.2 !important;
-`;

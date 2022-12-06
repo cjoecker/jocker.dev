@@ -1,6 +1,4 @@
-import * as React from 'react';
 import { useEffect } from 'react';
-import styled from 'styled-components';
 
 import { LOCATIONS } from '../../constants/locations';
 import { SKILLS } from '../../constants/skills';
@@ -18,7 +16,7 @@ export const MobileView = () => {
   }, []);
 
   return (
-    <MainContainer>
+    <div className="flex flex-col pt-2 overflow-auto">
       <MobileTile>
         <Title />
       </MobileTile>
@@ -34,13 +32,6 @@ export const MobileView = () => {
       <MobileTile tileName={'Own apps'}>
         <OtherApps />
       </MobileTile>
-    </MainContainer>
+    </div>
   );
 };
-
-const MainContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-top: 10px;
-  overflow: auto;
-`;

@@ -1,7 +1,4 @@
-import { Typography } from '@mui/material';
 import { motion } from 'framer-motion';
-import * as React from 'react';
-import styled from 'styled-components';
 
 export type TitleProps = {
   text: string;
@@ -9,20 +6,34 @@ export type TitleProps = {
 };
 export const TitleText = ({ text, type }: TitleProps) => {
   const variant = type === 'title' ? 'h1' : 'h2';
+  const TitleTag = variant as keyof JSX.IntrinsicElements;;
+
+  const getMargin = (variant: 'h1' | 'h2', istLastWord: boolean) => {
+    if (istLastWord) {
+      return 'mr-0';
+    }
+    if (variant === 'h1') {
+      return 'mr-3';
+    } else {
+      return 'mr-2';
+    }
+  };
   return (
-    <TitleWrapper
-      variant={variant}
-      color={type === 'title' ? undefined : 'primary'}
+    <TitleTag
+      className={`flex m-0 flex-wrap justify-center font-light mb-1 last:mb-0 ${type === 'title' ? 'white text-4xl' : 'text-sky-400 text-2xl'}`}
     >
       {text.split(' ').map((word, wordIdx) => (
-        <WordWrapper
-          variant={variant}
-          isLastWord={wordIdx === text.split(' ').length}
+        <div
+          className={`flex ${getMargin(
+            variant,
+            wordIdx === text.split(' ').length
+          )}`}
           key={`${word}${wordIdx}`}
         >
           {word.split('').map((letter, index) => (
-            <LetterSpan
+            <motion.span
               key={index}
+              style={{ cursor: 'grab' }}
               drag
               dragMomentum={false}
               whileHover={{
@@ -32,35 +43,10 @@ export const TitleText = ({ text, type }: TitleProps) => {
               }}
             >
               {letter}
-            </LetterSpan>
+            </motion.span>
           ))}
-        </WordWrapper>
+        </div>
       ))}
-    </TitleWrapper>
+    </TitleTag>
   );
 };
-
-const LetterSpan = styled(motion.span)`
-  display: inline-block;
-  cursor: grab;
-`;
-
-const WordWrapper = styled.div<{ isLastWord: boolean; variant: 'h1' | 'h2' }>`
-  display: flex;
-  margin-right: ${p => {
-    if (p.isLastWord) {
-      return undefined;
-    }
-    if (p.variant === 'h1') {
-      return '10px';
-    } else {
-      return '7px';
-    }
-  }};
-`;
-
-const TitleWrapper = styled(Typography)`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-`;

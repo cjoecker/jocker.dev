@@ -1,7 +1,4 @@
-import { Paper } from '@mui/material';
-import * as React from 'react';
 import { useEffect, useMemo, useState } from 'react';
-import styled from 'styled-components';
 
 import { Language, LANGUAGES } from '../../constants/languages';
 
@@ -43,8 +40,8 @@ export const Languages = () => {
   };
 
   return (
-    <MainContainer>
-      <CanvasWrapper>
+    <div className="h-48 relative w-72">
+      <div className="w-full h-full">
         <Canvas
           languagesNumber={LANGUAGES.length}
           onLanguageDown={onLanguageDown}
@@ -54,43 +51,19 @@ export const Languages = () => {
           }}
           isAnswerCorrect={isAnswerCorrect}
         />
-      </CanvasWrapper>
+      </div>
       <LanguageLabels
         selectedSentence={selectedSentence}
         correctAnswers={correctAnswers}
         hoveringLanguage={hoveringLanguage}
         shuffledSentences={shuffledSentences}
       />
-      <BackgroundContainer>
+      <div className="flex justify-center items-center flex-col h-full w-full absolute top-0 left-0 pointer-events-none">
         <img height={65} width={130} alt={'pen drawing a line'} src={Pen} />
-      </BackgroundContainer>
-    </MainContainer>
+      </div>
+    </div>
   );
 };
-
-const MainContainer = styled(Paper)`
-  width: 600px;
-  height: 200px;
-  position: relative;
-`;
-const CanvasWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  flex: 1;
-`;
-
-const BackgroundContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-`;
 
 function getShuffledSentences(languages: Language[]) {
   return languages

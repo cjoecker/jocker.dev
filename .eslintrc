@@ -60,6 +60,7 @@
     "react/no-unescaped-entities": "off",
     "react/prop-types": "off",
     "react/display-name": "off",
+    "react/react-in-jsx-scope": "off",
     "prefer-const": [
       "error",
       {
