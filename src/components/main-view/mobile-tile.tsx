@@ -1,6 +1,4 @@
-import { Typography } from '@mui/material';
-import * as React from 'react';
-import styled from 'styled-components';
+
 
 export type Props = {
   children: React.ReactNode | React.ReactNode[];
@@ -9,34 +7,13 @@ export type Props = {
 
 export const MobileTile = ({ children, tileName }: Props) => {
   return (
-    <MainContainer>
+    <div className="flex justify-center flex-col p-2 mb-2">
       {tileName && (
-        <TileNameWrapper>
-          <TileName variant="h3">{tileName}</TileName>
-        </TileNameWrapper>
+        <div className="flex mb-2">
+          <h3 className="select-none">{tileName}</h3>
+        </div>
       )}
-      <ChildrenContainer>{children}</ChildrenContainer>
-    </MainContainer>
+      <div className="flex justify-center">{children}</div>
+    </div>
   );
 };
-
-const MainContainer = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 10px;
-  margin-bottom: 10px;
-`;
-const ChildrenContainer = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-`;
-const TileName = styled(Typography)`
-  user-select: none;
-`;
-const TileNameWrapper = styled.div`
-  display: flex;
-  margin-bottom: 10px;
-`;

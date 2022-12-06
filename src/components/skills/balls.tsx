@@ -1,7 +1,5 @@
-import { useTheme } from '@mui/material';
 import Matter, { Constraint, Mouse, MouseConstraint } from 'matter-js';
 import React, { useRef, useState } from 'react';
-import styled from 'styled-components';
 import invariant from 'tiny-invariant';
 
 import { SkillsType } from '../../constants/skills';
@@ -21,7 +19,6 @@ export function Balls({ skills }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [constraints, setConstraints] = useState<DOMRect>();
   const [render, setRender] = useState<Matter.Render>();
-  const style = useTheme();
 
   const handleResize = () => {
     setConstraints((boxRef.current as any).getBoundingClientRect());
@@ -147,8 +144,8 @@ export function Balls({ skills }: Props) {
       skills.forEach(skill => {
         const color =
           skill.type === 'web'
-            ? style.palette.primary.main
-            : style.palette.secondary.main;
+            ? 'blue'
+            : 'yellow';
         timeouts.push(
           setTimeout(() => {
             Matter.World.add(
@@ -167,7 +164,7 @@ export function Balls({ skills }: Props) {
   }, [skills, render]);
 
   return (
-    <CanvasWrapper
+    <div className="w-full h-full"
       ref={boxRef}
       style={{
         width: '100%',
@@ -175,11 +172,7 @@ export function Balls({ skills }: Props) {
       }}
     >
       <canvas ref={canvasRef} />
-    </CanvasWrapper>
+    </div>
   );
 }
 
-const CanvasWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-`;

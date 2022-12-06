@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Map, { Marker } from 'react-map-gl';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import styled from 'styled-components';
 
 import {
   bornYear,
@@ -65,7 +64,7 @@ export function Locations({ locationEntries }: Props) {
   }, [location]);
 
   return (
-    <LocationBox isMobile={isMobile}>
+    <div className={`flex-1 relative ${isMobile ? 'w-[500px] h-[350px]' : 'w-[300px] h-[500px]'}`}>
       <Map
         initialViewState={{
           longitude: lastLocation.longitude,
@@ -90,38 +89,21 @@ export function Locations({ locationEntries }: Props) {
           />
         </Marker>
       </Map>
-      <StyledDiv position={'top'}>
-        <Margins>
+      <div className="w-full absolute z-10 top-0">
+        <div className="m-2">
           <Header
             marks={getMarks(locationEntries)}
             onChangeYear={handleYearChange}
           />
-        </Margins>
-      </StyledDiv>
-      <StyledDiv position={'bottom'}>
-        <Margins>
+        </div>
+      </div>
+      <div className="w-full absolute z-10 bottom-0">
+        <div className="w-full absolute z-10 bottom-0">
           <QueryClientProvider client={queryClient}>
             <Footer location={location} />
           </QueryClientProvider>
-        </Margins>
-      </StyledDiv>
-    </LocationBox>
+        </div>
+      </div>
+    </div>
   );
 }
-
-const LocationBox = styled.div<{ isMobile: boolean }>`
-  flex: 1;
-  width: ${p => (p.isMobile ? '500px' : '300px')};
-  height: ${p => (p.isMobile ? '350px' : '500px')};
-  position: relative;
-`;
-
-const StyledDiv = styled.div<{ position: 'top' | 'bottom' }>`
-  position: absolute;
-  ${p => (p.position === 'top' ? 'top:0' : 'bottom:0')};
-  width: 100%;
-  z-index: 5;
-`;
-const Margins = styled.div`
-  margin: var(--margin-s);
-`;

@@ -1,6 +1,5 @@
-import { Paper, Slider, Typography } from '@mui/material';
+import { SliderUnstyled } from '@mui/base';
 import React, { useState } from 'react';
-import styled from 'styled-components';
 
 import { useEffectUnsafe } from '../../unsafeHooks';
 
@@ -37,12 +36,12 @@ export function Header({ marks, onChangeYear }: Props) {
     };
   }, [year]);
   return (
-    <Paper>
-      <TitleWrapper>
-        <StyledTypography variant="h4">Year</StyledTypography>
-      </TitleWrapper>
-      <SliderWrapper>
-        <Slider
+    <div>
+      <div className="flex flex-col justify-center items-center">
+        <h4 className="pt-6">Year</h4>
+      </div>
+      <div className="p-3">
+        <SliderUnstyled
           track={false}
           value={year}
           onChange={handleChange}
@@ -56,21 +55,7 @@ export function Header({ marks, onChangeYear }: Props) {
           marks={marks}
           valueLabelFormat={year => (year === THIS_YEAR ? 'Today' : year)}
         />
-      </SliderWrapper>
-    </Paper>
+      </div>
+    </div>
   );
 }
-const TitleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const StyledTypography = styled(Typography)`
-  padding-top: var(--margin-l);
-`;
-
-const SliderWrapper = styled.div`
-  padding: 0 var(--margin-l) var(--margin-s);
-`;

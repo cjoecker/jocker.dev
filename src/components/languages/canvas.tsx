@@ -1,5 +1,3 @@
-import { useTheme } from '@mui/material';
-import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import invariant from 'tiny-invariant';
 
@@ -27,7 +25,6 @@ export const Canvas = ({
   const lastImage = useRef<HTMLImageElement>(new Image());
   const linePoints = useRef<{ x: number; y: number }[]>([]);
   const languageHoverPosition = useRef<number | undefined>(undefined);
-  const style = useTheme();
   const handleResize = () => {
     invariant(context.current, 'no context defined');
     setBoundingClientRect((context.current as any).getBoundingClientRect());
@@ -132,7 +129,7 @@ export const Canvas = ({
   const markRightAnswer = (isAnswerRight: boolean) => {
     invariant(context.current, 'no context defined');
     context.current.strokeStyle = isAnswerRight
-      ? style.palette.primary.main
+      ? 'blue'
       : '#e37171';
     context.current.beginPath();
     linePoints.current.forEach(point => {
