@@ -4,6 +4,7 @@ import { forwardRef, useState } from 'react';
 import { postion } from '../../App';
 
 import { useZIndex } from './z-index-context';
+import { TransparentBox } from '../shared/TransparentBox';
 
 export type Props = {
   children: React.ReactNode | React.ReactNode[];
@@ -34,23 +35,26 @@ export const DesktopTile = forwardRef<HTMLDivElement, Props>(
         dragListener={!tileName}
         dragControls={dragControls}
       >
-        {tileName && (
-          <div className="flex">
-            <h3
-              onPointerDown={onStartDrag}
-              className="inline text-left relative select-none pr-5 pointer-events-auto"
-            >
-              {tileName}
-            </h3>
+
+          {tileName && (
+            <div className="flex">
+              <h3
+                onPointerDown={onStartDrag}
+                className="inline text-left relative select-none pr-5 pointer-events-auto font-light"
+              >
+                {tileName}
+              </h3>
+            </div>
+          )}
+        <TransparentBox>
+          <div
+            className={`relative pointer-events-auto ${
+              !tileName ? 'cursor-grab' : 'cursor-auto'
+            }`}
+          >
+            {children}
           </div>
-        )}
-        <div
-          className={`relative pointer-events-auto ${
-            !tileName ? 'cursor-grab' : 'cursor-auto'
-          }`}
-        >
-          {children}
-        </div>
+        </TransparentBox>
       </motion.div>
     );
   }
