@@ -7,6 +7,7 @@ import { WEATHER_CODES } from '../../constants/weather-codes';
 
 import { getWeatherImagePath } from './locations.utils';
 import { Temperature } from './temperature';
+import { TransparentBox } from '../shared/TransparentBox';
 
 interface Props {
   location: LocationsType;
@@ -29,27 +30,25 @@ export function Footer({ location }: Props) {
   );
 
   return (
-    <div>
-      <div className="flex flex-row flex-grow-0">
-        <div className='flex-1 m-4'>
-          <h4>{location.city}</h4>
-          <h5>{location.country}</h5>
+    <TransparentBox className="m-2 flex flex-row flex-grow-0">
+        <div className='flex-1 my-auto'>
+          <h4 className="m-0 text-xl font-light -mb-1">{location.city}</h4>
+          <h5 className="m-0 text-base font-light">{location.country}</h5>
         </div>
-        <div className="flex flex-col justify-center w-12">
+        <div className="flex flex-col justify-center mx-2">
           <Temperature
             temperature={weather ? weather?.current?.temp_c : null}
             isLoading={isLoading}
           />
         </div>
         {!isLoading && weather && (
-          <div className="flex flex-col justify-center w-24">
-            <div className="w-4">
+          <div className="flex flex-col justify-center">
+            <div className="w-12 my-auto">
               <img alt={WEATHER_CODES.get(weatherCode)} src={imageUrl} />
             </div>
           </div>
         )}
-      </div>
-    </div>
+    </TransparentBox>
   );
 }
 
