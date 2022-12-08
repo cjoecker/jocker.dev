@@ -55,3 +55,7 @@ body {
 .mapboxgl-ctrl-logo {
   display: none !important;
 }
+
+.MuiSlider-valueLabelOpen{
+  display: inline;
+}

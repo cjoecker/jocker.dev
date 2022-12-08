@@ -31,7 +31,7 @@ export function Locations({ locationEntries }: Props) {
   );
   const [location, setLocation] = useState(lastLocation);
   const { isMobile } = useWindowSize();
-
+  console.log('isMobile', isMobile);
   const images = useMemo(() => require.context('./images/pin', false), []);
   const pinImgUrl = useMemo(
     () =>
@@ -51,7 +51,9 @@ export function Locations({ locationEntries }: Props) {
   };
 
   useEffect(() => {
-    if (!mapRef.current) {return;}
+    if (!mapRef.current) {
+      return;
+    }
     mapRef.current?.flyTo({
       center: [location.longitude, location.latitude],
       duration: TRANSITION_DURATION,
@@ -64,31 +66,38 @@ export function Locations({ locationEntries }: Props) {
   }, [location]);
 
   return (
-    <div className={`flex-1 relative ${isMobile ? 'w-[500px] h-[350px]' : 'w-[300px] h-[500px]'}`}>
-      <Map
-        initialViewState={{
-          longitude: lastLocation.longitude,
-          latitude: lastLocation.latitude,
-          zoom: ZOOM
-        }}
-        ref={mapRef}
-        mapStyle="mapbox://styles/cjoecker/ckmpee9hy024v17o553pu11hv"
-        attributionControl={false}
-        style={{width: '100%', height: '100%'}}
-      >
-        <Marker
-          latitude={markerPos.latitude}
-          longitude={markerPos.longitude}
-          anchor="center"
+    <div
+      className={`flex-1 relative w-[300px] h-[500px]`}
+    >
+      <div className="w-[300px] h-[500px]">
+        <Map
+          initialViewState={{
+            longitude: lastLocation.longitude,
+            latitude: lastLocation.latitude,
+            zoom: ZOOM,
+          }}
+          ref={mapRef}
+          mapStyle="mapbox://styles/cjoecker/ckmpee9hy024v17o553pu11hv"
+          attributionControl={false}
+          style={{
+            borderRadius: '0.5rem',
+            position: 'absolute',
+          }}
         >
-          <img
-            src={pinImgUrl}
-            width={25}
-            height={25}
-            alt={"christian's face"}
-          />
-        </Marker>
-      </Map>
+          <Marker
+            latitude={markerPos.latitude}
+            longitude={markerPos.longitude}
+            anchor="center"
+          >
+            <img
+              src={pinImgUrl}
+              width={25}
+              height={25}
+              alt={"christian's face"}
+            />
+          </Marker>
+        </Map>
+      </div>
       <div className="w-full absolute z-10 top-0">
         <div className="m-2">
           <Header
@@ -97,13 +106,11 @@ export function Locations({ locationEntries }: Props) {
           />
         </div>
       </div>
-      <div className="w-full absolute z-10 bottom-0">
         <div className="w-full absolute z-10 bottom-0">
           <QueryClientProvider client={queryClient}>
             <Footer location={location} />
           </QueryClientProvider>
         </div>
-      </div>
     </div>
   );
 }
