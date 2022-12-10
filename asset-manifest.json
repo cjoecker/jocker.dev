@@ -1,27 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.d3e702c0.css",
-    "main.js": "/static/js/main.20c051cd.js",
+    "main.css": "/static/css/main.1eb8d741.css",
+    "main.js": "/static/js/main.65b4c183.js",
     "static/js/261.5de4893a.chunk.js": "/static/js/261.5de4893a.chunk.js",
     "static/js/495.6882722a.chunk.js": "/static/js/495.6882722a.chunk.js",
     "static/media/core-values-finder.svg": "/static/media/core-values-finder.a3c40180b6157df7ca01.svg",
-    "static/media/yantramanav-latin-900.woff": "/static/media/yantramanav-latin-900.ef9440d24f69e4247fc5.woff",
-    "static/media/yantramanav-latin-700.woff": "/static/media/yantramanav-latin-700.f24afe05def8396d770e.woff",
-    "static/media/yantramanav-latin-500.woff": "/static/media/yantramanav-latin-500.4cb7a06ba5576b4d51f1.woff",
-    "static/media/yantramanav-latin-400.woff": "/static/media/yantramanav-latin-400.aa2c266087ddab20a1ee.woff",
     "static/media/yantramanav-v6-latin-regular.woff": "/static/media/yantramanav-v6-latin-regular.aa2c266087ddab20a1ee.woff",
-    "static/media/yantramanav-latin-100.woff": "/static/media/yantramanav-latin-100.507a6c33bd2e7b4e23cf.woff",
     "static/media/yantramanav-v6-latin-100.woff": "/static/media/yantramanav-v6-latin-100.507a6c33bd2e7b4e23cf.woff",
-    "static/media/yantramanav-latin-300.woff": "/static/media/yantramanav-latin-300.cafcc2c0b705c513a0f8.woff",
     "static/media/yantramanav-v6-latin-300.woff": "/static/media/yantramanav-v6-latin-300.cafcc2c0b705c513a0f8.woff",
-    "static/media/yantramanav-latin-900.woff2": "/static/media/yantramanav-latin-900.7d990f219d7a59900b4d.woff2",
-    "static/media/yantramanav-latin-700.woff2": "/static/media/yantramanav-latin-700.f116c7e47f59c3b0c180.woff2",
-    "static/media/yantramanav-latin-500.woff2": "/static/media/yantramanav-latin-500.30c366bd70c564cbd986.woff2",
-    "static/media/yantramanav-latin-400.woff2": "/static/media/yantramanav-latin-400.2b457b8a41134b6089cc.woff2",
     "static/media/yantramanav-v6-latin-regular.woff2": "/static/media/yantramanav-v6-latin-regular.2b457b8a41134b6089cc.woff2",
-    "static/media/yantramanav-latin-100.woff2": "/static/media/yantramanav-latin-100.1e1e06987f7b68af32d9.woff2",
     "static/media/yantramanav-v6-latin-100.woff2": "/static/media/yantramanav-v6-latin-100.1e1e06987f7b68af32d9.woff2",
-    "static/media/yantramanav-latin-300.woff2": "/static/media/yantramanav-latin-300.375226de943261c5b056.woff2",
     "static/media/yantramanav-v6-latin-300.woff2": "/static/media/yantramanav-v6-latin-300.375226de943261c5b056.woff2",
     "static/media/kid.svg": "/static/media/kid.a86f3294c5a0ca96ba1d.svg",
     "static/media/curriculum-generator.svg": "/static/media/curriculum-generator.732827ea172d8eb08a41.svg",
@@ -43,16 +31,17 @@
     "static/media/3-point-estimator.svg": "/static/media/3-point-estimator.19db691503f32744d4c2.svg",
     "index.html": "/index.html",
     "static/media/en.svg": "/static/media/en.a88a30de723b99630dc3.svg",
+    "static/media/drag-icon.svg": "/static/media/drag-icon.bb5e66382a247ffe8e827b7ea9778644.svg",
     "static/media/clearDay.svg": "/static/media/clearDay.337755414b1fa471ea90.svg",
     "static/media/pt.svg": "/static/media/pt.a200ca6eb1492976c51e.svg",
     "static/media/de.svg": "/static/media/de.c8e11cd99401b4894283.svg",
-    "main.d3e702c0.css.map": "/static/css/main.d3e702c0.css.map",
-    "main.20c051cd.js.map": "/static/js/main.20c051cd.js.map",
+    "main.1eb8d741.css.map": "/static/css/main.1eb8d741.css.map",
+    "main.65b4c183.js.map": "/static/js/main.65b4c183.js.map",
     "261.5de4893a.chunk.js.map": "/static/js/261.5de4893a.chunk.js.map",
     "495.6882722a.chunk.js.map": "/static/js/495.6882722a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d3e702c0.css",
-    "static/js/main.20c051cd.js"
+    "static/css/main.1eb8d741.css",
+    "static/js/main.65b4c183.js"
   ]
 }
