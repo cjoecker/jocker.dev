@@ -73,7 +73,7 @@ export function getWorldWalls(constraints: unknown, wallsThickness: number) {
   const options = {
     isStatic: true,
     render: {
-      fillStyle: 'blue',
+      fillStyle: 'transparent',
     },
   };
 

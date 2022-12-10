@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 export type TitleProps = {
   text: string;
@@ -6,7 +7,8 @@ export type TitleProps = {
 };
 export const TitleText = ({ text, type }: TitleProps) => {
   const variant = type === 'title' ? 'h1' : 'h2';
-  const TitleTag = variant as keyof JSX.IntrinsicElements;;
+  const TitleTag = variant as keyof JSX.IntrinsicElements;
+  const [isDragging, setIsDragging] = useState(false);
 
   const getMargin = (variant: 'h1' | 'h2', istLastWord: boolean) => {
     if (istLastWord) {
@@ -32,8 +34,10 @@ export const TitleText = ({ text, type }: TitleProps) => {
         >
           {word.split('').map((letter, index) => (
             <motion.span
+              className={`${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+              onDragEnd={()=>setIsDragging(false)}
+              onDragStart={()=>setIsDragging(true)}
               key={index}
-              style={{ cursor: 'grab' }}
               drag
               dragMomentum={false}
               whileHover={{
