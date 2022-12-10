@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import invariant from 'tiny-invariant';
 import colors from 'tailwindcss/colors';
+import invariant from 'tiny-invariant';
 
 import { useEffectUnsafe } from '../../unsafeHooks';
 
@@ -76,7 +76,7 @@ export const Canvas = ({
       (x * ratio) / ((width - 1) / languagesNumber)
     );
     onLanguageDown(languagePos);
-    document.body.style.overflow = "hidden"
+    document.body.style.overflow = 'hidden';
   };
 
   const draw = (event: React.TouchEvent | React.MouseEvent) => {
@@ -126,7 +126,7 @@ export const Canvas = ({
     if (languageHoverPosition.current !== undefined) {
       onLanguageUp();
     }
-    document.body.style.overflow = "auto"
+    document.body.style.overflow = 'auto';
   };
 
   const markRightAnswer = (isAnswerRight: boolean) => {

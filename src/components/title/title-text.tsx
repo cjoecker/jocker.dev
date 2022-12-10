@@ -22,7 +22,9 @@ export const TitleText = ({ text, type }: TitleProps) => {
   };
   return (
     <TitleTag
-      className={`flex m-0 flex-wrap justify-center font-light mb-1 last:mb-0 ${type === 'title' ? 'white text-4xl' : 'text-sky-400 text-2xl'}`}
+      className={`flex m-0 flex-wrap justify-center font-light mb-1 last:mb-0 ${
+        type === 'title' ? 'white text-4xl' : 'text-sky-400 text-2xl'
+      }`}
     >
       {text.split(' ').map((word, wordIdx) => (
         <div
@@ -35,8 +37,8 @@ export const TitleText = ({ text, type }: TitleProps) => {
           {word.split('').map((letter, index) => (
             <motion.span
               className={`${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
-              onDragEnd={()=>setIsDragging(false)}
-              onDragStart={()=>setIsDragging(true)}
+              onDragEnd={() => setIsDragging(false)}
+              onDragStart={() => setIsDragging(true)}
               key={index}
               drag
               dragMomentum={false}

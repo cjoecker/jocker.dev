@@ -2,9 +2,9 @@ import { SliderUnstyled } from '@mui/base';
 import React, { useState } from 'react';
 
 import { useEffectUnsafe } from '../../unsafeHooks';
+import { TransparentBox } from '../shared/TransparentBox';
 
 import { THIS_YEAR } from './locations.utils';
-import { TransparentBox } from '../shared/TransparentBox';
 
 export interface Mark {
   value: number;
@@ -25,7 +25,6 @@ export function Header({ marks, onChangeYear }: Props) {
   const handleChange = (event: any, newValue: number | number[]) => {
     setYear(newValue);
   };
-  const [isHoveringThumb, setIsHoveringThumb] = useState(false);
   useEffectUnsafe(() => {
     const debounceTimer = setTimeout(() => {
       if (!Array.isArray(year)) {
@@ -60,8 +59,6 @@ export function Header({ marks, onChangeYear }: Props) {
             thumb: {
               className:
                 'w-4 h-4 -mt-1.5 bg-sky-400 rounded-full shadow absolute',
-              onPointerEnter: () => setIsHoveringThumb(true),
-              onPointerLeave: () => setIsHoveringThumb(false),
             },
             root: {
               className: 'w-full relative inline-block h-2 cursor-pointer',
@@ -74,7 +71,8 @@ export function Header({ marks, onChangeYear }: Props) {
               className: 'bg-sky-400 h-1 w-1 absolute top-0 rounded-full',
             },
             valueLabel: {
-              className: 'relative -top-7 -left-full bg-gray-800 rounded px-2 py-1 backdrop-blur bg-opacity-90 hidden',
+              className:
+                'relative -top-7 -left-full bg-gray-800 rounded px-2 py-1 backdrop-blur bg-opacity-90 hidden',
             },
             markLabel: {
               className: 'absolute top-2 -ml-2.5',

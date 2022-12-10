@@ -21,9 +21,7 @@ const LocationMock = {
 };
 
 describe('getLocationMarks', () => {
-  beforeEach(() =>
-    jest.useFakeTimers().setSystemTime(FAKE_TODAY.getTime())
-  );
+  beforeEach(() => jest.useFakeTimers().setSystemTime(FAKE_TODAY.getTime()));
   it('should return location marks', () => {
     const Locations = [
       { ...LocationMock, year: 1991 },
@@ -81,9 +79,7 @@ describe('abbreviateYear', () => {
 });
 
 describe('add last year', () => {
-  beforeEach(() =>
-    jest.useFakeTimers().setSystemTime(FAKE_TODAY.getTime())
-  );
+  beforeEach(() => jest.useFakeTimers().setSystemTime(FAKE_TODAY.getTime()));
 
   it("should add actual year if it doesn't exist", () => {
     const Locations = [
