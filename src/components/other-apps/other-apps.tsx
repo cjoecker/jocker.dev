@@ -4,13 +4,15 @@ import { useState } from 'react';
 import { OWN_APPS } from '../../constants/own-apps';
 
 import { AppButton } from './app-button';
+import { TransparentBox } from '../shared/TransparentBox';
 
 export const OtherApps = () => {
   const [apps, setApps] = useState(() => OWN_APPS.map(app => app.name));
   return (
-    <div className="justify-center flex flex-1">
+    <TransparentBox className="justify-center flex flex-1">
       <Reorder.Group
-        className="p-2 flex list-none m-0"
+        as={'div'}
+        className="p-0 flex list-none m-0"
         axis="x"
         values={apps}
         onReorder={setApps}
@@ -19,7 +21,7 @@ export const OtherApps = () => {
           <AppButton key={item} item={item} />
         ))}
       </Reorder.Group>
-    </div>
+    </TransparentBox>
   );
 };
 
