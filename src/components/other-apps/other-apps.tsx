@@ -12,7 +12,7 @@ export const OtherApps = () => {
     <TransparentBox className="justify-center flex flex-1">
       <Reorder.Group
         as={'div'}
-        className="p-0 flex list-none m-0"
+        className="px-0 py-2 flex list-none m-0"
         axis="x"
         values={apps}
         onReorder={setApps}
