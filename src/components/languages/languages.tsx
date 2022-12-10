@@ -5,6 +5,7 @@ import { Language, LANGUAGES } from '../../constants/languages';
 import { Canvas } from './canvas';
 import Pen from './images/pen.svg';
 import { LanguageLabels } from './language-labels';
+import { TransparentBox } from '../shared/TransparentBox';
 
 export const Languages = () => {
   const shuffledSentences = useMemo(() => getShuffledSentences(LANGUAGES), []);
@@ -40,7 +41,7 @@ export const Languages = () => {
   };
 
   return (
-    <div className="h-48 relative w-72">
+    <TransparentBox className="h-[200px] relative w-[500px]">
       <div className="w-full h-full">
         <Canvas
           languagesNumber={LANGUAGES.length}
@@ -61,7 +62,7 @@ export const Languages = () => {
       <div className="flex justify-center items-center flex-col h-full w-full absolute top-0 left-0 pointer-events-none">
         <img height={65} width={130} alt={'pen drawing a line'} src={Pen} />
       </div>
-    </div>
+    </TransparentBox>
   );
 };
 
