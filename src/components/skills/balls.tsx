@@ -1,6 +1,7 @@
 import Matter, { Constraint, Mouse, MouseConstraint } from 'matter-js';
 import React, { useRef, useState } from 'react';
 import invariant from 'tiny-invariant';
+import colors from 'tailwindcss/colors';
 
 import { SkillsType } from '../../constants/skills';
 import { useEffectUnsafe } from '../../unsafeHooks';
@@ -143,9 +144,7 @@ export function Balls({ skills }: Props) {
     if (render && skills) {
       skills.forEach(skill => {
         const color =
-          skill.type === 'web'
-            ? 'blue'
-            : 'yellow';
+          skill.type === 'web' ? colors.sky[400] : colors.yellow[400];
         timeouts.push(
           setTimeout(() => {
             Matter.World.add(
@@ -164,7 +163,8 @@ export function Balls({ skills }: Props) {
   }, [skills, render]);
 
   return (
-    <div className="w-full h-full"
+    <div
+      className="w-full h-full"
       ref={boxRef}
       style={{
         width: '100%',
@@ -175,4 +175,3 @@ export function Balls({ skills }: Props) {
     </div>
   );
 }
-

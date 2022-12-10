@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import invariant from 'tiny-invariant';
+import colors from 'tailwindcss/colors';
 
 import { useEffectUnsafe } from '../../unsafeHooks';
 
@@ -129,8 +130,8 @@ export const Canvas = ({
   const markRightAnswer = (isAnswerRight: boolean) => {
     invariant(context.current, 'no context defined');
     context.current.strokeStyle = isAnswerRight
-      ? 'blue'
-      : '#e37171';
+      ? colors.green[400]
+      : colors.red[400];
     context.current.beginPath();
     linePoints.current.forEach(point => {
       invariant(context.current, 'no context defined');
