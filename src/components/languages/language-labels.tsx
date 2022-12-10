@@ -16,7 +16,7 @@ export const LanguageLabels = ({
 }: Props) => {
   const flagImages = require.context('./images', false);
   return (
-    <div className="flex flex-col select-none absolute pointer-events-none top-0 left-0 justify-between w-full h-full">
+    <div className="flex flex-col select-none absolute pointer-events-none top-0 left-0 justify-between w-full h-full p-2">
       <div className="flex flex-row justify-around gap-1">
         {LANGUAGES.map(({ sentence }, index) => {
           return (
@@ -29,7 +29,7 @@ export const LanguageLabels = ({
               }}
             >
               <div
-                className={`flex-1 ${
+                className={`flex-1  ${
                   correctAnswers.has(index) ? 'opacity-50' : 'opacity-100'
                 }`}
               >
@@ -52,7 +52,7 @@ export const LanguageLabels = ({
               }}
               key={language}
             >
-              <img className={`p-3 w-12 h-12 ${
+              <img className={`p-4 w-12 h-12 ${
                 correctAnswers.has(index) ? 'opacity-50' : 'opacity-100'
               }`}
                 alt={`${language} language flag`}
