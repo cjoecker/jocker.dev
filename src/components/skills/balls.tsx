@@ -9,6 +9,7 @@ import { useEffectUnsafe } from '../../unsafeHooks';
 import { getBallsBody, getWorldWalls } from './skills.utils';
 
 const WALLS_THICKNESS = 10;
+const WALL_MARGIN = 10;
 
 interface Props {
   skills: SkillsType[];
@@ -104,7 +105,7 @@ export function Balls({ skills }: Props) {
 
       const rightWall = (render as any).engine.world.bodies[1];
       Matter.Body.setPosition(rightWall, {
-        x: width + WALLS_THICKNESS / 2,
+        x: width + WALLS_THICKNESS / 2 - WALL_MARGIN,
         y: height / 2,
       });
       Matter.Body.setVertices(rightWall, [
@@ -117,7 +118,7 @@ export function Balls({ skills }: Props) {
       const bottomWall = (render as any).engine.world.bodies[2];
       Matter.Body.setPosition(bottomWall, {
         x: width / 2,
-        y: height + WALLS_THICKNESS / 2,
+        y: height + WALLS_THICKNESS / 2 - WALL_MARGIN,
       });
       Matter.Body.setVertices(bottomWall, [
         { x: 0, y: 0 },
@@ -128,7 +129,7 @@ export function Balls({ skills }: Props) {
 
       const leftWall = (render as any).engine.world.bodies[3];
       Matter.Body.setPosition(leftWall, {
-        x: -WALLS_THICKNESS / 2,
+        x: -WALLS_THICKNESS / 2 + WALL_MARGIN,
         y: height / 2,
       });
       Matter.Body.setVertices(leftWall, [
@@ -163,15 +164,14 @@ export function Balls({ skills }: Props) {
   }, [skills, render]);
 
   return (
-    <div
-      className="w-full h-full"
-      ref={boxRef}
-      style={{
-        width: '100%',
-        height: '100%',
-      }}
-    >
-      <canvas ref={canvasRef} />
+    <div className="w-full h-full" ref={boxRef}>
+      <canvas
+        style={{
+          width: '100%',
+          height: '100%',
+        }}
+        ref={canvasRef}
+      />
     </div>
   );
 }
