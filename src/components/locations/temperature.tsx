@@ -12,7 +12,7 @@ export function Temperature({ temperature, isLoading }: Props) {
   return (
     <div className="flex flex-row justify-start">
       <div  className="text-4xl leading-none">{temperature}</div>
-      <div className="ml-2 mt-0">{'°C'}</div>
+      <div className="ml-1 -mt-0.5 text-lg">{'°C'}</div>
     </div>
   );
 }

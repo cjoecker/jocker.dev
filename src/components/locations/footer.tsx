@@ -35,7 +35,7 @@ export function Footer({ location }: Props) {
           <h4 className="m-0 text-xl font-light -mb-1">{location.city}</h4>
           <h5 className="m-0 text-base font-light">{location.country}</h5>
         </div>
-        <div className="flex flex-col justify-center mx-2">
+        <div className="flex flex-col justify-center mx-3">
           <Temperature
             temperature={weather ? weather?.current?.temp_c : null}
             isLoading={isLoading}

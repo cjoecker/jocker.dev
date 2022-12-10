@@ -16,8 +16,8 @@ export const LanguageLabels = ({
 }: Props) => {
   const flagImages = require.context('./images', false);
   return (
-    <div className="flex flex-col select-none absolute pointer-events-none top-0 left-0 justify-between w-full h-full p-2">
-      <div className="flex flex-row justify-around gap-1">
+    <div className="flex flex-col select-none absolute pointer-events-none top-0 left-0 justify-between w-full h-full">
+      <div className="flex flex-row justify-around gap-1 m-2">
         {LANGUAGES.map(({ sentence }, index) => {
           return (
             <motion.div
@@ -29,7 +29,7 @@ export const LanguageLabels = ({
               }}
             >
               <div
-                className={`flex-1  ${
+                className={`flex-1 break-words ${
                   correctAnswers.has(index) ? 'opacity-50' : 'opacity-100'
                 }`}
               >
