@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
 
 import { Language, LANGUAGES } from '../../constants/languages';
+import { TransparentBox } from '../shared/TransparentBox';
 
 import { Canvas } from './canvas';
 import Pen from './images/pen.svg';
 import { LanguageLabels } from './language-labels';
-import { TransparentBox } from '../shared/TransparentBox';
 
 export const Languages = () => {
   const shuffledSentences = useMemo(() => getShuffledSentences(LANGUAGES), []);

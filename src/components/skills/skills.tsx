@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { SkillsType } from '../../constants/skills';
+import { TransparentBox } from '../shared/TransparentBox';
 
 import { Balls } from './balls';
-import { TransparentBox } from '../shared/TransparentBox';
 
 const HeaderItem = ({
   children,

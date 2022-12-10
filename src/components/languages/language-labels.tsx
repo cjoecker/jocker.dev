@@ -52,9 +52,10 @@ export const LanguageLabels = ({
               }}
               key={language}
             >
-              <img className={`p-4 w-12 h-12 ${
-                correctAnswers.has(index) ? 'opacity-50' : 'opacity-100'
-              }`}
+              <img
+                className={`p-4 w-12 h-12 ${
+                  correctAnswers.has(index) ? 'opacity-50' : 'opacity-100'
+                }`}
                 alt={`${language} language flag`}
                 src={flagImages(`./${language}.svg`)}
               />

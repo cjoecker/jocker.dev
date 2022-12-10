@@ -28,24 +28,24 @@ export const AppButton = ({ item }: Props) => {
       onDragStart={() => setIsDragging(true)}
       onMouseDown={() => setIsDragging(false)}
     >
-        <motion.div
-          whileHover={{
-            opacity: Array(5).fill(0.9),
-            rotate: [0, -3, 0, 3, 0],
-            transition: {
-              duration: 0.5,
-              times: [0, 0.25, 0.5, 0.75, 1],
-              repeat: Number.POSITIVE_INFINITY,
-            },
-          }}
-        >
-          <ButtonUnstyled
-            style={{backgroundImage: `url(${imagePath})`}}
-            className="w-16 h-16 mb-1 rounded-xl border-none cursor-pointer"
-            onClick={onClick}
-          />
-        </motion.div>
-        <div className="block text-center whitespace-normal">{appInfo?.name}</div>
+      <motion.div
+        whileHover={{
+          opacity: Array(5).fill(0.9),
+          rotate: [0, -3, 0, 3, 0],
+          transition: {
+            duration: 0.5,
+            times: [0, 0.25, 0.5, 0.75, 1],
+            repeat: Number.POSITIVE_INFINITY,
+          },
+        }}
+      >
+        <ButtonUnstyled
+          style={{ backgroundImage: `url(${imagePath})` }}
+          className="w-16 h-16 mb-1 rounded-xl border-none cursor-pointer"
+          onClick={onClick}
+        />
+      </motion.div>
+      <div className="block text-center whitespace-normal">{appInfo?.name}</div>
     </Reorder.Item>
   );
 };

@@ -2,9 +2,9 @@ import { Reorder } from 'framer-motion';
 import { useState } from 'react';
 
 import { OWN_APPS } from '../../constants/own-apps';
+import { TransparentBox } from '../shared/TransparentBox';
 
 import { AppButton } from './app-button';
-import { TransparentBox } from '../shared/TransparentBox';
 
 export const OtherApps = () => {
   const [apps, setApps] = useState(() => OWN_APPS.map(app => app.name));
@@ -24,4 +24,3 @@ export const OtherApps = () => {
     </TransparentBox>
   );
 };
-

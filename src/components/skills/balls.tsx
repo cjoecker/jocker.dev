@@ -1,7 +1,7 @@
 import Matter, { Constraint, Mouse, MouseConstraint } from 'matter-js';
 import React, { useRef, useState } from 'react';
-import invariant from 'tiny-invariant';
 import colors from 'tailwindcss/colors';
+import invariant from 'tiny-invariant';
 
 import { SkillsType } from '../../constants/skills';
 import { useEffectUnsafe } from '../../unsafeHooks';

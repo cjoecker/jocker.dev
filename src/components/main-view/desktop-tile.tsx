@@ -1,9 +1,9 @@
 import { motion, useDragControls } from 'framer-motion';
 import { forwardRef, useState } from 'react';
-import DragIcon from './images/drag-icon.svg';
 
 import { postion } from '../../App';
 
+import DragIcon from './images/drag-icon.svg';
 import { useZIndex } from './z-index-context';
 
 export type Props = {
@@ -18,7 +18,7 @@ export const DesktopTile = forwardRef<HTMLDivElement, Props>(
     const [isDragging, setIsDragging] = useState(false);
     const onStartDrag = (event: any) => {
       dragControls.start(event, { snapToCursor: false });
-      setIsDragging(true)
+      setIsDragging(true);
     };
     const [zIndex, setZIndex] = useState(0);
     const { maxZIndex, updateMaxZIndex } = useZIndex();
@@ -33,14 +33,17 @@ export const DesktopTile = forwardRef<HTMLDivElement, Props>(
         ref={ref}
         drag
         onMouseDown={onDragStart}
-        onDragEnd={()=>setIsDragging(false)}
-        onDragStart={()=>setIsDragging(true)}
+        onDragEnd={() => setIsDragging(false)}
+        onDragStart={() => setIsDragging(true)}
         dragMomentum={false}
         dragListener={!tileName}
         dragControls={dragControls}
       >
         {tileName && (
-          <div onPointerDown={onStartDrag} className={`flex ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}>
+          <div
+            onPointerDown={onStartDrag}
+            className={`flex ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+          >
             <img
               className="my-auto pointer-events-auto w-[17px] h-[17px]"
               width="17px"
@@ -48,9 +51,7 @@ export const DesktopTile = forwardRef<HTMLDivElement, Props>(
               alt="drag icon"
               src={DragIcon}
             />
-            <h3
-              className="my-1 text-base inline text-left relative select-none pr-5 pointer-events-auto font-light"
-            >
+            <h3 className="my-1 text-base inline text-left relative select-none pr-5 pointer-events-auto font-light">
               {tileName}
             </h3>
           </div>

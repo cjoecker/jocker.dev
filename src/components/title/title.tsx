@@ -1,5 +1,6 @@
-import { TitleText } from './title-text';
 import { TransparentBox } from '../shared/TransparentBox';
+
+import { TitleText } from './title-text';
 
 export const Title = () => {
   return (

@@ -7,7 +7,6 @@ import {
   locationPinImages,
   LocationsType,
 } from '../../constants/locations';
-import { useWindowSize } from '../../hooks/useWindowSize';
 
 import { Footer } from './footer';
 import { Header } from './header';
@@ -30,8 +29,6 @@ export function Locations({ locationEntries }: Props) {
     [locationEntries]
   );
   const [location, setLocation] = useState(lastLocation);
-  const { isMobile } = useWindowSize();
-  console.log('isMobile', isMobile);
   const images = useMemo(() => require.context('./images/pin', false), []);
   const pinImgUrl = useMemo(
     () =>
@@ -66,9 +63,7 @@ export function Locations({ locationEntries }: Props) {
   }, [location]);
 
   return (
-    <div
-      className={`flex-1 relative w-[300px] h-[500px]`}
-    >
+    <div className={`flex-1 relative w-[300px] h-[500px]`}>
       <div className="w-[300px] h-[500px]">
         <Map
           initialViewState={{
@@ -106,11 +101,11 @@ export function Locations({ locationEntries }: Props) {
           />
         </div>
       </div>
-        <div className="w-full absolute z-10 bottom-0">
-          <QueryClientProvider client={queryClient}>
-            <Footer location={location} />
-          </QueryClientProvider>
-        </div>
+      <div className="w-full absolute z-10 bottom-0">
+        <QueryClientProvider client={queryClient}>
+          <Footer location={location} />
+        </QueryClientProvider>
+      </div>
     </div>
   );
 }

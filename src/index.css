@@ -50,13 +50,13 @@ body {
   min-height: 100%;
   overflow: auto;
   padding: 0;
-  color:white;
+  color: white;
 }
 
 .mapboxgl-ctrl-logo {
   display: none !important;
 }
 
-.MuiSlider-valueLabelOpen{
+.MuiSlider-valueLabelOpen {
   display: inline;
 }
