@@ -76,6 +76,7 @@ export const Canvas = ({
       (x * ratio) / ((width - 1) / languagesNumber)
     );
     onLanguageDown(languagePos);
+    document.body.style.overflow = "hidden"
   };
 
   const draw = (event: React.TouchEvent | React.MouseEvent) => {
@@ -125,6 +126,7 @@ export const Canvas = ({
     if (languageHoverPosition.current !== undefined) {
       onLanguageUp();
     }
+    document.body.style.overflow = "auto"
   };
 
   const markRightAnswer = (isAnswerRight: boolean) => {
