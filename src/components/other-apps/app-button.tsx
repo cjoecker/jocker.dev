@@ -19,6 +19,8 @@ export const AppButton = ({ item }: Props) => {
   };
   return (
     <Reorder.Item
+      as={'div'}
+      className="flex-1 cursor-pointer"
       id={item}
       value={item}
       whileDrag={{ scale: 1.1 }}
@@ -26,7 +28,6 @@ export const AppButton = ({ item }: Props) => {
       onDragStart={() => setIsDragging(true)}
       onMouseDown={() => setIsDragging(false)}
     >
-      <div>
         <motion.div
           whileHover={{
             opacity: Array(5).fill(0.9),
@@ -39,14 +40,12 @@ export const AppButton = ({ item }: Props) => {
           }}
         >
           <ButtonUnstyled
-            className="w-16 h-16 mb-1"
-            // disableTouchRipple
-            // background={imagePath}
+            style={{backgroundImage: `url(${imagePath})`}}
+            className="w-16 h-16 mb-1 rounded-xl border-none cursor-pointer"
             onClick={onClick}
           />
         </motion.div>
-        <div className="block text-center">{appInfo?.name}</div>
-      </div>
+        <div className="block text-center whitespace-normal">{appInfo?.name}</div>
     </Reorder.Item>
   );
 };
