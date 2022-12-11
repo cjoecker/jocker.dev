@@ -12,7 +12,7 @@ export const AppButton = ({ item }: Props) => {
   const images = require.context('./images', false);
   const imagePath = images(`./${appInfo?.icon}`);
   const [isDragging, setIsDragging] = useState(false);
-  const onClick = () => {
+  const handleClick = () => {
     if (!isDragging) {
       window.open(appInfo?.link, '_blank');
     }
@@ -42,7 +42,7 @@ export const AppButton = ({ item }: Props) => {
         <ButtonUnstyled
           style={{ backgroundImage: `url(${imagePath})` }}
           className="w-16 h-16 mb-1 rounded-xl border-none cursor-pointer"
-          onClick={onClick}
+          onClick={handleClick}
         />
       </motion.div>
       <div className="block text-center whitespace-normal">{appInfo?.name}</div>
