@@ -16,13 +16,14 @@ export const DesktopTile = forwardRef<HTMLDivElement, Props>(
   ({ children, tileName, position }: Props, ref) => {
     const dragControls = useDragControls();
     const [isDragging, setIsDragging] = useState(false);
-    const onStartDrag = (event: any) => {
+    const handleStartDrag = (event: any) => {
       dragControls.start(event, { snapToCursor: false });
       setIsDragging(true);
     };
     const [zIndex, setZIndex] = useState(0);
     const { maxZIndex, updateMaxZIndex } = useZIndex();
-    const onDragStart = () => {
+    const handleZIndexUpdate = () => {
+      console.log("aaa", zIndex);
       setZIndex(maxZIndex);
       updateMaxZIndex();
     };
@@ -32,7 +33,7 @@ export const DesktopTile = forwardRef<HTMLDivElement, Props>(
         style={{ left: `${position?.x}px`, top: `${position?.y}px`, zIndex }}
         ref={ref}
         drag
-        onMouseDown={onDragStart}
+        onPointerDown={handleZIndexUpdate}
         onDragEnd={() => setIsDragging(false)}
         onDragStart={() => setIsDragging(true)}
         dragMomentum={false}
@@ -41,7 +42,7 @@ export const DesktopTile = forwardRef<HTMLDivElement, Props>(
       >
         {tileName && (
           <div
-            onPointerDown={onStartDrag}
+            onPointerDown={handleStartDrag}
             className={`flex ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
           >
             <img
