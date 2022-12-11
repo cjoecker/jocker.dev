@@ -46,10 +46,11 @@ export const DesktopTile = forwardRef<HTMLDivElement, Props>(
           >
             <img
               className="my-auto pointer-events-auto w-[17px] h-[17px]"
-              width="17px"
-              height="17px"
+              width={17}
+              height={17}
               alt="drag icon"
               src={DragIcon}
+              draggable="false"
             />
             <h3 className="my-1 text-base inline text-left relative select-none pr-5 pointer-events-auto font-light">
               {tileName}

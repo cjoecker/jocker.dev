@@ -32,7 +32,7 @@ export const Canvas = ({
   };
 
   useEffectUnsafe(() => {
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize,{ passive: true });
     invariant(canvasRef.current, 'no canvasRef defined');
     setBoundingClientRect(canvasRef.current.getBoundingClientRect());
     return () => {

@@ -56,6 +56,8 @@ export const LanguageLabels = ({
                 className={`p-4 w-12 h-12 ${
                   correctAnswers.has(index) ? 'opacity-50' : 'opacity-100'
                 }`}
+                width={48}
+                height={48}
                 alt={`${language} language flag`}
                 src={flagImages(`./${language}.svg`)}
               />
