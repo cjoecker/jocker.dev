@@ -27,7 +27,6 @@ export const AppButton = ({ item }: Props) => {
     <Reorder.Item
       as={'div'}
       className="flex-1 cursor-pointer"
-      id={item}
       value={item}
       whileDrag={{ scale: 1.1 }}
       whileTap={{ scale: 0.9, opacity: 0.6 }}
@@ -47,12 +46,14 @@ export const AppButton = ({ item }: Props) => {
         }}
       >
         <ButtonUnstyled
+          aria-label={appInfo?.name}
+          aria-labelledby={appInfo?.name}
           style={{ backgroundImage: `url(${imagePath})` }}
           className="w-16 h-16 mb-1 rounded-xl border-none cursor-pointer"
           onClick={handleClick}
         />
       </motion.div>
-      <div className="block text-center whitespace-normal">{appInfo?.name}</div>
+      <div id={appInfo?.name} className="block text-center whitespace-normal">{appInfo?.name}</div>
     </Reorder.Item>
   );
 };

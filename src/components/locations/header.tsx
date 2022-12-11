@@ -39,10 +39,13 @@ export function Header({ marks, onChangeYear }: Props) {
   return (
     <TransparentBox>
       <div className="flex flex-col justify-center items-center">
-        <h4 className="pt-1 m-0">Year</h4>
+        <h4 id="year" className="pt-1 m-0">
+          Year
+        </h4>
       </div>
       <div className="p-3">
         <SliderUnstyled
+          aria-labelledby="year"
           valueLabelDisplay={'auto'}
           track={false}
           value={year}
@@ -51,7 +54,6 @@ export function Header({ marks, onChangeYear }: Props) {
           min={marks[0].value}
           max={marks[marks.length - 1].value}
           getAriaValueText={valuetext}
-          aria-labelledby="discrete-slider-custom"
           step={1}
           marks={marks}
           valueLabelFormat={year => (year === THIS_YEAR ? 'Today' : year)}
