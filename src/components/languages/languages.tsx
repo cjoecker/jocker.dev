@@ -24,7 +24,7 @@ export const Languages = () => {
         shuffledSentences[hoveringLanguage] === selectedSentence
     );
   }, [hoveringLanguage, selectedSentence, shuffledSentences]);
-  const onLanguageUp = () => {
+  const handleLanguageUp = () => {
     if (selectedSentence !== undefined && isAnswerCorrect) {
       setCorrectAnswers(correctSentences =>
         correctSentences.add(selectedSentence)
@@ -35,7 +35,7 @@ export const Languages = () => {
     setIsAnswerCorrect(false);
   };
 
-  const onLanguageDown = (languagePosition: number) => {
+  const handleLanguageDown = (languagePosition: number) => {
     setHoveringLanguage(languagePosition);
     setSelectedSentence(languagePosition);
   };
@@ -45,8 +45,8 @@ export const Languages = () => {
       <div className="w-full h-full">
         <Canvas
           languagesNumber={LANGUAGES.length}
-          onLanguageDown={onLanguageDown}
-          onLanguageUp={onLanguageUp}
+          onLanguageDown={handleLanguageDown}
+          onLanguageUp={handleLanguageUp}
           onLanguageHover={languagePosition => {
             setHoveringLanguage(languagePosition);
           }}
