@@ -40,6 +40,7 @@ specifiers:
   query-string: ^7.1.1
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-ga4: ^1.4.1
   react-map-gl: ^7.0.19
   react-query: ^3.39.2
   react-scripts: 5.0.1
@@ -62,6 +63,7 @@ dependencies:
   query-string: 7.1.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-ga4: 1.4.1
   react-map-gl: 7.0.19_wncmjf7gwcz6cg7gkzeel3s2iq
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_eetduzquwu67aqoq5644t6dxzu
@@ -12251,6 +12253,13 @@ packages:
     resolution:
       {
         integrity: sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==,
+      }
+    dev: false
+
+  /react-ga4/1.4.1:
+    resolution:
+      {
+        integrity: sha512-ioBMEIxd4ePw4YtaloTUgqhQGqz5ebDdC4slEpLgy2sLx1LuZBC9iYCwDymTXzcntw6K1dHX183ulP32nNdG7w==,
       }
     dev: false
 

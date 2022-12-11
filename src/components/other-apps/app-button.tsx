@@ -53,7 +53,9 @@ export const AppButton = ({ item }: Props) => {
           onClick={handleClick}
         />
       </motion.div>
-      <div id={appInfo?.name} className="block text-center whitespace-normal">{appInfo?.name}</div>
+      <div id={appInfo?.name} className="block text-center whitespace-normal">
+        {appInfo?.name}
+      </div>
     </Reorder.Item>
   );
 };
