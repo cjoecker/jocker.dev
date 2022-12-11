@@ -1,22 +1,20 @@
 import Matter, { Constraint, Mouse, MouseConstraint } from 'matter-js';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import colors from 'tailwindcss/colors';
 import invariant from 'tiny-invariant';
 
 import { SkillsType } from '../../constants/skills';
-import { useEffectUnsafe } from '../../unsafeHooks';
 
 import { getBallsBody, getWorldWalls } from './skills.utils';
 
 const WALLS_THICKNESS = 10;
 const WALL_MARGIN = 10;
+const pixelRatio = window.devicePixelRatio;
 
 interface Props {
   skills: SkillsType[];
 }
-
 export function Balls({ skills }: Props) {
-  const pixelRatio = window.devicePixelRatio;
   const boxRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [constraints, setConstraints] = useState<DOMRect>();
@@ -26,7 +24,7 @@ export function Balls({ skills }: Props) {
     setConstraints((boxRef.current as any).getBoundingClientRect());
   };
 
-  useEffectUnsafe(() => {
+  useLayoutEffect(() => {
     const Engine = Matter.Engine;
     const Render = Matter.Render;
     const Runner = Matter.Runner;
@@ -69,13 +67,13 @@ export function Balls({ skills }: Props) {
     Render.run(render);
     setConstraints(boxRef.current.getBoundingClientRect());
     setRender(render);
-    window.addEventListener('resize', handleResize,{ passive: true });
+    window.addEventListener('resize', handleResize, { passive: true });
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
-  useEffectUnsafe(() => {
+  useLayoutEffect(() => {
     if (constraints && canvasRef.current && render) {
       const { width, height } = constraints;
       render.bounds.max.x = width;
@@ -139,8 +137,8 @@ export function Balls({ skills }: Props) {
         { x: 0, y: height },
       ]);
     }
-  }, [constraints]);
-  useEffectUnsafe(() => {
+  }, [constraints, render]);
+  useEffect(() => {
     const timeouts: Array<NodeJS.Timeout> = [];
     if (render && skills) {
       skills.forEach(skill => {
@@ -161,7 +159,7 @@ export function Balls({ skills }: Props) {
         timeouts.forEach(t => clearTimeout(t));
       }
     };
-  }, [skills, render]);
+  }, [skills, render, constraints]);
 
   return (
     <div className="w-full h-full" ref={boxRef}>

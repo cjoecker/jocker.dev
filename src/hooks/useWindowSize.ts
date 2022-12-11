@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 import { useLayoutEffectUnsafe } from '../unsafeHooks';
 
@@ -13,7 +13,8 @@ export function useWindowSize() {
     updateSize();
     return () => window.removeEventListener('resize', updateSize);
   }, []);
-  useEffect(() => {
+
+  useLayoutEffect(() => {
     const browserWidth = size[0];
     const mobileMaxWidth = 500;
     if (browserWidth <= mobileMaxWidth && !isMobile) {

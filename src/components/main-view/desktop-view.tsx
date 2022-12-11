@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 
 import { postion } from '../../App';
 import { LOCATIONS } from '../../constants/locations';
@@ -32,7 +32,7 @@ export const DesktopView = () => {
   const languagesRef = useRef<HTMLDivElement>(null);
   const { browserWidth, browserHeight } = useWindowSize();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setPositions({
       title: getPosition(window, titleRef, 0, 0.9),
       locations: getPosition(window, locationsRef, -0.9, 0.1),
@@ -40,7 +40,7 @@ export const DesktopView = () => {
       ownApps: getPosition(window, ownAppsRef, -0.1, -0.9),
       languages: getPosition(window, languagesRef, 0, 0),
     });
-  }, [browserWidth, browserHeight, locationsRef.current?.offsetWidth]);
+  }, [browserWidth, browserHeight]);
   return (
     <ZIndex>
       <div className="fixed w-full h-full overflow-hidden">

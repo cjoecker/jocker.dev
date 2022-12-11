@@ -23,12 +23,12 @@ export const DesktopTile = forwardRef<HTMLDivElement, Props>(
     const [zIndex, setZIndex] = useState(0);
     const { maxZIndex, updateMaxZIndex } = useZIndex();
     const handleZIndexUpdate = () => {
-      console.log("aaa", zIndex);
       setZIndex(maxZIndex);
       updateMaxZIndex();
     };
     return (
       <motion.div
+        initial={false}
         className="absolute select-none flex flex-col pointer-events-none max-w-[500px]"
         style={{ left: `${position?.x}px`, top: `${position?.y}px`, zIndex }}
         ref={ref}
