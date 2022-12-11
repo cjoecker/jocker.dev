@@ -44,7 +44,12 @@ export function Footer({ location }: Props) {
       {!isLoading && weather && (
         <div className="flex flex-col justify-center">
           <div className="w-12 my-auto">
-            <img width={48} height={48} alt={WEATHER_CODES.get(weatherCode)} src={imageUrl} />
+            <img
+              width={48}
+              height={48}
+              alt={WEATHER_CODES.get(weatherCode)}
+              src={imageUrl}
+            />
           </div>
         </div>
       )}

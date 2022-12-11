@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import colors from 'tailwindcss/colors';
 import invariant from 'tiny-invariant';
 
@@ -31,8 +31,8 @@ export const Canvas = ({
     setBoundingClientRect((context.current as any).getBoundingClientRect());
   };
 
-  useEffectUnsafe(() => {
-    window.addEventListener('resize', handleResize,{ passive: true });
+  useLayoutEffect(() => {
+    window.addEventListener('resize', handleResize, { passive: true });
     invariant(canvasRef.current, 'no canvasRef defined');
     setBoundingClientRect(canvasRef.current.getBoundingClientRect());
     return () => {
@@ -40,7 +40,7 @@ export const Canvas = ({
     };
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (boundingClientRect && canvasRef.current) {
       const { width, height } = boundingClientRect;
       canvasRef.current.width = width * ratio;
@@ -49,12 +49,11 @@ export const Canvas = ({
       canvasRef.current.style.height = `${height}px`;
       canvasRef.current.getContext('2d')?.scale(ratio, ratio);
     }
-  }, [boundingClientRect, ratio, canvasRef]);
+  }, [boundingClientRect, ratio]);
 
   useEffectUnsafe(() => {
     invariant(canvasRef.current, 'no canvasRef defined');
     context.current = canvasRef.current.getContext('2d');
-    invariant(context.current, 'no context defined');
   }, []);
 
   const startDrawing = (event: React.TouchEvent | React.MouseEvent) => {

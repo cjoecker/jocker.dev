@@ -1,6 +1,6 @@
 import { ButtonUnstyled } from '@mui/base';
 import { motion, Reorder } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { OWN_APPS } from '../../constants/own-apps';
 
@@ -12,6 +12,12 @@ export const AppButton = ({ item }: Props) => {
   const images = require.context('./images', false);
   const imagePath = images(`./${appInfo?.icon}`);
   const [isDragging, setIsDragging] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    // avoids initial animation when the component is first mounted
+    setIsMounted(true);
+  }, []);
+
   const handleClick = () => {
     if (!isDragging) {
       window.open(appInfo?.link, '_blank');
@@ -27,6 +33,7 @@ export const AppButton = ({ item }: Props) => {
       whileTap={{ scale: 0.9, opacity: 0.6 }}
       onDragStart={() => setIsDragging(true)}
       onMouseDown={() => setIsDragging(false)}
+      transition={{ delay: isMounted ? 0 : 1 }}
     >
       <motion.div
         whileHover={{
