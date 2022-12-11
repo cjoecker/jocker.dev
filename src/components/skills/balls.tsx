@@ -69,7 +69,7 @@ export function Balls({ skills }: Props) {
     Render.run(render);
     setConstraints(boxRef.current.getBoundingClientRect());
     setRender(render);
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize,{ passive: true });
     return () => {
       window.removeEventListener('resize', handleResize);
     };
