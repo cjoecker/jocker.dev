@@ -159,6 +159,7 @@ export function Balls({ skills }: Props) {
         timeouts.forEach(t => clearTimeout(t));
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [skills, render]);
 
   return (
