@@ -159,7 +159,7 @@ export function Balls({ skills }: Props) {
         timeouts.forEach(t => clearTimeout(t));
       }
     };
-  }, [skills, render, constraints]);
+  }, [skills, render]);
 
   return (
     <div className="w-full h-full" ref={boxRef}>
