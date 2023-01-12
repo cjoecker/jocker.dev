@@ -2,61 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-/* yantramanav-100 - latin */
+/* quicksand-regular - latin */
 @font-face {
-  font-family: 'Yantramanav';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100;
-  src: local(''), url('./fonts/yantramanav-v6-latin-100.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('./fonts/yantramanav-v6-latin-100.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* yantramanav-300 - latin */
-@font-face {
-  font-family: 'Yantramanav';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 300;
-  src: local(''), url('./fonts/yantramanav-v6-latin-300.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('./fonts/yantramanav-v6-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* yantramanav-regular - latin */
-@font-face {
-  font-family: 'Yantramanav';
+  font-family: 'Quicksand';
   font-style: normal;
   font-display: swap;
   font-weight: 400;
   src: local(''),
-    url('./fonts/yantramanav-v6-latin-regular.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('./fonts/yantramanav-v6-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  url('./fonts/quicksand-v30-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('./fonts/quicksand-v30-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+/* quicksand-500 - latin */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: local(''),
+  url('./fonts/quicksand-v30-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('./fonts/quicksand-v30-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+#reset-this-root {
+  all: unset;
+}
+
 html {
   height: 100%;
-  background-color: #161616;
+  background-color: #cfcfe0;
   overflow: unset !important;
 }
 body {
   margin: 0;
-  font-family: Yantramanav, sans-serif;
+  font-family: Quicksand, sans-serif;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color-scheme: dark;
-  background: linear-gradient(0deg, #2b2e34, #161616);
+  color-scheme: light;
+  background: linear-gradient(145deg, #cfcfe0, #babaca);
   text-align: center;
   min-height: 100%;
   overflow: auto;
   padding: 0;
-  color: white;
+  color: #3d3d3d;
 }
 
-.mapboxgl-ctrl-logo {
-  display: none !important;
-}
-
-.MuiSlider-valueLabelOpen {
-  display: inline;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-block: 0;
 }

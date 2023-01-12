@@ -3,7 +3,7 @@ export interface Language {
   sentence: string;
 }
 
-export const LANGUAGES: Language[] = [
+export const Content: Language[] = [
   {
     language: 'es',
     sentence: 'Lo aprendí desde chiquito.',
