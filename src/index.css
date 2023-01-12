@@ -56,6 +56,10 @@ h6,p{
   margin-block: 0;
 }
 
+button{
+border: unset;
+}
+
 .bg-fact {
   background: linear-gradient(145deg, #c5c5d9, #d7d7e5);
   box-shadow: 5px 5px 12px rgb(181, 181, 199), -5px -5px 12px rgba(229, 229, 245, 0.6);
