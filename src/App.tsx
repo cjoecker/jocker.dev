@@ -2,6 +2,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { Facts } from './components/facts';
 import { Title } from './components/title';
 import { Skills } from './components/skills';
+import { Contact } from './components/contact';
 
 export function App() {
   return (
@@ -10,6 +11,7 @@ export function App() {
         <Title />
         <Facts />
         <Skills />
+        <Contact />
       </div>
     </div>
   );

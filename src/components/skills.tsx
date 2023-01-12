@@ -2,7 +2,7 @@ import { DevSkills, UxSkills } from '../constants/content';
 
 export const Skills = () => {
   return (
-    <div className="h-screen w-full flex flex-col mt-48">
+    <div className="w-full flex flex-col mt-48">
       <h2 className="text-primary text-4xl font-normal text-left">Skills</h2>
       <div className="flex">
         <Tags skills={DevSkills} title="Web Development" />
