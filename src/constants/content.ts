@@ -1,23 +1,24 @@
-export interface Language {
-  language: 'es' | 'de' | 'en' | 'pt';
-  sentence: string;
-}
-
-export const Content: Language[] = [
-  {
-    language: 'es',
-    sentence: 'Lo aprendí desde chiquito.',
-  },
-  {
-    language: 'de',
-    sentence: 'Das kann ich doch auch.',
-  },
-  {
-    language: 'en',
-    sentence: "I couldn't program without this language.",
-  },
-  {
-    language: 'pt',
-    sentence: 'Fico confuso com a minha língua materna.',
-  },
+export const DevSkills: string[] = [
+  'React',
+  'Angular',
+  'TypeScript',
+  'Javascript',
+  'Remix',
+  'Material-UI',
+  'Jest',
+  'Cypress',
+  'Zustand',
+  'Tailwind',
+  'Azure',
+  'Scrum',
+];
+export const UxSkills: string[] = [
+  'Figma',
+  'user tests',
+  'user journey map',
+  'personas',
+  'accessibility',
+  'red routes',
+  'card sorting',
+  'ideation workshops',
 ];
