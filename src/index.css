@@ -9,8 +9,9 @@
   font-display: swap;
   font-weight: 400;
   src: local(''),
-  url('./fonts/quicksand-v30-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('./fonts/quicksand-v30-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('./fonts/quicksand-v30-latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./fonts/quicksand-v30-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* quicksand-500 - latin */
 @font-face {
@@ -18,9 +19,9 @@
   font-style: normal;
   font-display: swap;
   font-weight: 500;
-  src: local(''),
-  url('./fonts/quicksand-v30-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('./fonts/quicksand-v30-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(''), url('./fonts/quicksand-v30-latin-500.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./fonts/quicksand-v30-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 #reset-this-root {
@@ -52,22 +53,25 @@ h2,
 h3,
 h4,
 h5,
-h6,p{
+h6,
+p {
   margin-block: 0;
 }
 
-button{
-border: unset;
+button {
+  border: unset;
 }
 
 .bg-fact {
   background: linear-gradient(145deg, #c5c5d9, #d7d7e5);
-  box-shadow: 5px 5px 12px rgb(181, 181, 199), -5px -5px 12px rgba(229, 229, 245, 0.6);
+  box-shadow: 5px 5px 12px rgb(181, 181, 199),
+    -5px -5px 12px rgba(229, 229, 245, 0.6);
 }
 
 .bg-tag {
   background: linear-gradient(145deg, #c5c5d9, #d7d7e5);
-  box-shadow: 3px 3px 5px rgb(181, 181, 199), -3px -3px 5px rgba(229, 229, 245, 0.5);
+  box-shadow: 3px 3px 5px rgb(181, 181, 199),
+    -3px -3px 5px rgba(229, 229, 245, 0.5);
   -webkit-print-color-adjust: exact;
   -webkit-filter: opacity(1);
 }

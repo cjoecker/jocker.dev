@@ -1,4 +1,3 @@
-import 'mapbox-gl/dist/mapbox-gl.css';
 import { Facts } from './components/facts';
 import { Title } from './components/title';
 import { Skills } from './components/skills';
