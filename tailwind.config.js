@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     colors: {
       primary: colors.primary,
-      secondary: colors.secondary
+      secondary: colors.secondary,
     },
     fontFamily: {
       body: ['"Quicksand"', 'Arial'],

@@ -15,9 +15,9 @@ export const Facts = () => {
         </p>
       </div>
       <div className="flex gap-32 justify-between mx-auto">
-        <Fact number={8} label={"Years of experience"}/>
-        <Fact number={23} label={"Developed apps"}/>
-        <Fact number={13} label={"Happy customers"}/>
+        <Fact number={8} label={'Years of experience'} />
+        <Fact number={23} label={'Developed apps'} />
+        <Fact number={13} label={'Happy customers'} />
       </div>
     </div>
   );

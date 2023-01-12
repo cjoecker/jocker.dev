@@ -45,5 +45,5 @@ export const ContactInformation: ContactInformationType[] = [
     icon: 'linkedin',
     text: 'christianjoecker',
     href: 'https://www.linkedin.com/in/christianjoecker/',
-  }
-]
+  },
+];
