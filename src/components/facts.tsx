@@ -1,6 +1,6 @@
 export const Facts = () => {
   return (
-    <div className="h-screen w-full flex flex-col">
+    <div className="w-full flex flex-col">
       <div className="my-24 text-xl">
         <p>
           I’m passionate about creating{' '}
@@ -14,7 +14,7 @@ export const Facts = () => {
           priority.
         </p>
       </div>
-      <div className="flex gap-8 justify-around mx-16">
+      <div className="flex gap-32 justify-between mx-auto">
         <Fact number={8} label={"Years of experience"}/>
         <Fact number={23} label={"Developed apps"}/>
         <Fact number={13} label={"Happy customers"}/>
