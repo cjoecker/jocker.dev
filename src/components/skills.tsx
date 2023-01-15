@@ -23,15 +23,19 @@ export const Tags = ({
   return (
     <div className="mt-4 flex-1">
       <h3 className="text-xl text-left mb-4">{title}</h3>
-      <div className="flex gap-4 text-left flex-wrap">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        exit="hidden"
+        viewport={{ amount: 0.9 }}
+        transition={{
+          staggerChildren: 0.1,
+        }}
+        className="flex gap-4 text-left flex-wrap"
+      >
         {skills.map((skill, index) => {
           return (
             <motion.div
-              initial="hidden"
-              whileInView="visible"
-              exit="hidden"
-              viewport={{ amount: 0.9 }}
-              transition={{ delay: index * 0.1 }}
               variants={{
                 visible: { scale: 1 },
                 hidden: { scale: 0 },
@@ -42,7 +46,7 @@ export const Tags = ({
             </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 };
