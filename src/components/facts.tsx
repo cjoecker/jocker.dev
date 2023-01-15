@@ -6,24 +6,20 @@ function useParallax(value: MotionValue<number>, distance: number) {
 }
 
 export const Facts = () => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref });
-  const opacity = useTransform(
-    scrollYProgress,
-    [0.9, 0.8, 0.1, 0],
-    [0, 1, 1, 0]
-  );
-  const y = useTransform(
-    scrollYProgress,
-    [0.9, 0.8, 0.1, 0],
-    [100, 0, 0, -100]
-  );
-
-  // useTransform(y, value => console.log(value))
-
   return (
     <div className="w-full flex flex-col">
-      <motion.div ref={ref} className="my-24 text-xl" style={{ opacity, y }}>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        exit="hidden"
+        viewport={{ amount: 0.9 }}
+        transition={{ duration: 0.5 }}
+        variants={{
+          visible: { opacity: 1, y: 0 },
+          hidden: { opacity: 0, y: 50 },
+        }}
+        className="my-24 text-xl"
+      >
         <p>
           I’m passionate about creating{' '}
           <TextHighlight>great experiences</TextHighlight> with{' '}
@@ -49,19 +45,15 @@ const TextHighlight = ({ children }: { children: React.ReactNode }) => (
   <span className="text-primary font-medium">{children}</span>
 );
 
-const Fact = ({ number, label }: { number: number; label: string }) => (
-  <div className="bg-fact flex flex-col min-w-[220px] p-4 rounded-lg">
-    <Counter number={number} />
-    <div className="text-2xl mt-2">{label}</div>
-  </div>
-);
-
-function Counter({ number }: { number: number }) {
+const Fact = ({ number, label }: { number: number; label: string }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref });
   const content = useTransform(scrollYProgress, [0.9, 0.7], [0, number + 1]);
 
   useEffect(() => {
+    if (ref.current) {
+      ref.current.textContent = '0';
+    }
     content.onChange(val => {
       if (!ref.current) {
         return;
@@ -74,5 +66,10 @@ function Counter({ number }: { number: number }) {
     });
   }, []);
 
-  return <div ref={ref} className="text-9xl text-primary" />;
-}
+  return (
+    <div className="bg-fact flex flex-col min-w-[220px] p-4 rounded-lg">
+      <div ref={ref} className="text-9xl text-primary" />;
+      <div className="text-2xl mt-2">{label}</div>
+    </div>
+  );
+};
