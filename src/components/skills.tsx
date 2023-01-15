@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { DevSkills, UxSkills } from '../constants/content';
 
 export const Skills = () => {
@@ -23,11 +24,22 @@ export const Tags = ({
     <div className="mt-4 flex-1">
       <h3 className="text-xl text-left mb-4">{title}</h3>
       <div className="flex gap-4 text-left flex-wrap">
-        {skills.map(skill => {
+        {skills.map((skill, index) => {
           return (
-            <div className="bg-tag inline-block rounded-full px-3 text-lg capitalize">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              exit="hidden"
+              viewport={{ amount: 0.9 }}
+              transition={{ delay: index * 0.1 }}
+              variants={{
+                visible: { scale: 1 },
+                hidden: { scale: 0 },
+              }}
+              className="bg-tag inline-block rounded-full px-3 text-lg capitalize"
+            >
               {skill}
-            </div>
+            </motion.div>
           );
         })}
       </div>

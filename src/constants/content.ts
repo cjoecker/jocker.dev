@@ -32,9 +32,9 @@ export const ContactInformation: ContactInformationType[] = [
     href: 'mailto:c.jocker@hotmail.com',
   },
   {
-    icon: 'github',
-    text: 'cjoecker',
-    href: 'https://github.com/cjoecker',
+    icon: 'linkedin',
+    text: 'christianjoecker',
+    href: 'https://www.linkedin.com/in/christianjoecker/',
   },
   {
     icon: 'twitter',
@@ -42,8 +42,8 @@ export const ContactInformation: ContactInformationType[] = [
     href: 'https://twitter.com/JockerDev',
   },
   {
-    icon: 'linkedin',
-    text: 'christianjoecker',
-    href: 'https://www.linkedin.com/in/christianjoecker/',
-  },
+    icon: 'github',
+    text: 'cjoecker',
+    href: 'https://github.com/cjoecker',
+  }
 ];
