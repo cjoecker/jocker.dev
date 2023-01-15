@@ -1,10 +1,29 @@
 import { useEffect, useRef } from 'react';
-import { animate } from 'framer-motion';
+import { motion, MotionValue, useScroll, useTransform } from 'framer-motion';
+
+function useParallax(value: MotionValue<number>, distance: number) {
+  return useTransform(value, [0, 1], [-distance, distance]);
+}
 
 export const Facts = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref });
+  const opacity = useTransform(
+    scrollYProgress,
+    [0.9, 0.8, 0.1, 0],
+    [0, 1, 1, 0]
+  );
+  const y = useTransform(
+    scrollYProgress,
+    [0.9, 0.8, 0.1, 0],
+    [100, 0, 0, -100]
+  );
+
+  // useTransform(y, value => console.log(value))
+
   return (
     <div className="w-full flex flex-col">
-      <div className="my-24 text-xl">
+      <motion.div ref={ref} className="my-24 text-xl" style={{ opacity, y }}>
         <p>
           I’m passionate about creating{' '}
           <TextHighlight>great experiences</TextHighlight> with{' '}
@@ -16,7 +35,7 @@ export const Facts = () => {
           <TextHighlight>sustainable architectures</TextHighlight> are my
           priority.
         </p>
-      </div>
+      </motion.div>
       <div className="flex gap-32 justify-between mx-auto">
         <Fact number={8} label={'Years of experience'} />
         <Fact number={23} label={'Developed apps'} />
@@ -39,22 +58,21 @@ const Fact = ({ number, label }: { number: number; label: string }) => (
 
 function Counter({ number }: { number: number }) {
   const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref });
+  const content = useTransform(scrollYProgress, [0.9, 0.7], [0, number + 1]);
+
   useEffect(() => {
-    const controls = animate(0, number + 1, {
-      duration: number / 8,
-      onUpdate(value) {
-        if (!ref.current) {
-          return;
-        }
-        if (value >= number) {
-          ref.current.textContent = `${number}+`;
-        } else {
-          ref.current.textContent = value.toFixed(0);
-        }
-      },
+    content.onChange(val => {
+      if (!ref.current) {
+        return;
+      }
+      if (val >= number + 1) {
+        ref.current.textContent = `${number}+`;
+      } else {
+        ref.current.textContent = val.toFixed(0);
+      }
     });
-    return () => controls.stop();
-  }, [number]);
+  }, []);
 
   return <div ref={ref} className="text-9xl text-primary" />;
 }
