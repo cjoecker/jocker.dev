@@ -6,19 +6,20 @@ export const Contact = () => {
   return (
     <div className="w-full flex flex-col mt-48">
       <h2 className="text-primary text-4xl font-normal">Contact me!</h2>
-      <div className="flex gap-12 mt-8 mx-auto mb-8">
-        {ContactInformation.map((info, index) => {
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        exit="hidden"
+        viewport={{ amount: 0.9 }}
+        transition={{
+          staggerChildren: 0.1,
+        }}
+        className="flex gap-12 mt-8 mx-auto mb-8"
+      >
+        {ContactInformation.map(info => {
           return (
             <motion.button
-              initial="hidden"
-              whileInView="visible"
-              exit="hidden"
-              viewport={{ amount: 0.9 }}
-              transition={{
-                delay: index * 0.1,
-                type: 'spring',
-                stiffness: 300,
-              }}
+              key={info.text}
               variants={{
                 visible: { scale: 1 },
                 hidden: { scale: 0 },
@@ -40,7 +41,7 @@ export const Contact = () => {
             </motion.button>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 };
