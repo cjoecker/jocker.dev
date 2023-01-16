@@ -2,6 +2,7 @@ import { Facts } from './components/facts';
 import { Title } from './components/title';
 import { Skills } from './components/skills';
 import { Contact } from './components/contact';
+import { CoursesAndConferences } from './components/courses-and-conferences';
 
 export function App() {
   return (
@@ -10,6 +11,7 @@ export function App() {
         <Title />
         <Facts />
         <Skills />
+        <CoursesAndConferences />
         <Contact />
       </div>
     </div>
