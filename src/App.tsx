@@ -7,7 +7,7 @@ import { CoursesAndConferences } from './components/courses-and-conferences';
 export function App() {
   return (
     <div className="text-base font-normal">
-      <div className="max-w-[1140px] flex flex-col mx-auto">
+      <div className="max-w-[1140px] flex flex-col mx-auto p-6">
         <Title />
         <Facts />
         <Skills />

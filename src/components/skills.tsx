@@ -4,8 +4,8 @@ import { DevSkills, UxSkills } from '../constants/content';
 export const Skills = () => {
   return (
     <div className="w-full flex flex-col mt-48">
-      <h2 className="text-primary text-4xl font-normal text-left">Skills</h2>
-      <div className="flex">
+      <h2 className="text-primary text-4xl font-normal">Skills</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
         <Tags skills={DevSkills} title="Web Development" />
         <Tags skills={UxSkills} title="UX/UI Design" />
       </div>
@@ -21,7 +21,7 @@ export const Tags = ({
   title: string;
 }) => {
   return (
-    <div className="mt-4 flex-1">
+    <div className="mt-4 col-span-1">
       <h3 className="text-xl text-left mb-4">{title}</h3>
       <motion.div
         initial="hidden"
