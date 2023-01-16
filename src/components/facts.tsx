@@ -1,9 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { motion, MotionValue, useScroll, useTransform } from 'framer-motion';
-
-function useParallax(value: MotionValue<number>, distance: number) {
-  return useTransform(value, [0, 1], [-distance, distance]);
-}
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 export const Facts = () => {
   return (
@@ -32,7 +28,7 @@ export const Facts = () => {
           priority.
         </p>
       </motion.div>
-      <div className="flex gap-32 justify-between mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-8 justify-between mx-auto flex-wrap">
         <Fact number={8} label={'Years of experience'} />
         <Fact number={23} label={'Developed apps'} />
         <Fact number={13} label={'Happy customers'} />
@@ -67,7 +63,7 @@ const Fact = ({ number, label }: { number: number; label: string }) => {
   }, []);
 
   return (
-    <div className="bg-fact flex flex-col min-w-[220px] p-4 rounded-lg">
+    <div className="col-span-1 bg-fact flex flex-col min-w-[220px] p-4 rounded-lg">
       <div ref={ref} className="text-9xl text-primary" />;
       <div className="text-2xl mt-2">{label}</div>
     </div>
