@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 export const Facts = () => {
   return (
@@ -60,7 +60,10 @@ const Fact = ({ number, label }: { number: number; label: string }) => {
         ref.current.textContent = val.toFixed(0);
       }
     });
-  }, []);
+    return () => {
+      content.destroy()
+    }
+  }, [content,number]);
 
   return (
     <div className="col-span-1 bg-fact flex flex-col min-w-[220px] p-4 rounded-lg">

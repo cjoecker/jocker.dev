@@ -1,10 +1,11 @@
-import { motion } from 'framer-motion';
-import { Conferences, Courses } from '../constants/content';
 import { format } from 'date-fns';
-import courseImg from '../images/course.svg';
-import conferenceImg from '../images/conference.svg';
-import { ConferenceType, CourseType } from '../constants/content.models';
+import { motion } from 'framer-motion';
 import { useWindowSize } from 'react-use';
+
+import { Conferences, Courses } from '../constants/content';
+import { ConferenceType, CourseType } from '../constants/content.models';
+import conferenceImg from '../images/conference.svg';
+import courseImg from '../images/course.svg';
 
 const NARROW_WIDTH = 675;
 const NARROW_COURSES_COUNT = 15
@@ -34,6 +35,7 @@ export const CoursesAndConferences = () => {
           {reducedCourses.map(course => {
             return (
               <motion.div
+                key={course.name}
                 variants={{
                   visible: { opacity: 1 },
                   hidden: { opacity: 0 },

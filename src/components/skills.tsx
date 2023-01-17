@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+
 import { DevSkills, UxSkills } from '../constants/content';
 
 export const Skills = () => {
@@ -36,6 +37,7 @@ export const Tags = ({
         {skills.map((skill) => {
           return (
             <motion.div
+              key={skill}
               variants={{
                 visible: { scale: 1 },
                 hidden: { scale: 0 },

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+
 import { ContactInformation } from '../constants/content';
 
 export const Contact = () => {
