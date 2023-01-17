@@ -7,55 +7,58 @@ import { ConferenceType, CourseType } from '../constants/content.models';
 import conferenceImg from '../images/conference.svg';
 import courseImg from '../images/course.svg';
 
+import { Section } from './section';
+
 const NARROW_WIDTH = 675;
-const NARROW_COURSES_COUNT = 15
+const NARROW_COURSES_COUNT = 15;
 export const CoursesAndConferences = () => {
-  const {width} = useWindowSize();
-  const isNarrowView = width < NARROW_WIDTH
-  const sortedCourses = [...Courses, ...Conferences].sort(
+  const { width } = useWindowSize();
+  const isNarrowView = width < NARROW_WIDTH;
+  const sortedCoursesAndConferences = [...Courses, ...Conferences].sort(
     (a, b) => b.date.getTime() - a.date.getTime()
-  )
-  const reducedCourses = isNarrowView ? sortedCourses.slice(0,NARROW_COURSES_COUNT) : sortedCourses
+  );
+  const reducedCoursesAndConferences = isNarrowView
+    ? sortedCoursesAndConferences.slice(0, NARROW_COURSES_COUNT)
+    : sortedCoursesAndConferences;
   return (
-    <div className="w-full flex flex-col mt-36">
-      <h2 className="text-primary text-4xl font-normal mb-2">
-        Last Attended Courses and Conferences
-      </h2>
-      <div className="flex mt-6">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          exit="hidden"
-          viewport={{ amount: 'some' }}
-          transition={{
-            staggerChildren: 0.1,
-          }}
-          className="flex gap-4 text-left flex-wrap"
-        >
-          {reducedCourses.map(course => {
-            return (
-              <motion.div
-                key={course.name}
-                variants={{
-                  visible: { opacity: 1 },
-                  hidden: { opacity: 0 },
-                }}
-                className="flex flex-1 min-w-[300px]"
-              >
-                {'instructor' in course ? (
-                  <CourseItem course={course as CourseType} />
-                ) : (
-                  <ConferenceItem conference={course} />
-                )}
-              </motion.div>
-            );
-          })}
-        </motion.div>
+    <Section title="Last Attended Courses and Conferences">
+      <div className="w-full flex flex-col">
+        <div className="flex mt-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            exit="hidden"
+            viewport={{ amount: 'some' }}
+            transition={{
+              staggerChildren: 0.1,
+            }}
+            className="flex gap-4 text-left flex-wrap"
+          >
+            {reducedCoursesAndConferences.map(course => {
+              return (
+                <motion.div
+                  key={course.name}
+                  variants={{
+                    visible: { opacity: 1 },
+                    hidden: { opacity: 0 },
+                  }}
+                  className="flex flex-1 min-w-[300px]"
+                >
+                  {'instructor' in course ? (
+                    <CourseItem course={course as CourseType} />
+                  ) : (
+                    <ConferenceItem conference={course} />
+                  )}
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </Section>
   );
 };
-const DATE_FORMAT = 'MMM, y'
+const DATE_FORMAT = 'MMM, y';
 const CourseItem = ({ course }: { course: CourseType }) => {
   return (
     <>
