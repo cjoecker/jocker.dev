@@ -2,15 +2,18 @@ import { motion } from 'framer-motion';
 
 import { DevSkills, UxSkills } from '../constants/content';
 
+import { Section } from './section';
+
 export const Skills = () => {
   return (
-    <div className="w-full flex flex-col mt-36">
-      <h2 className="text-primary text-4xl font-normal mb-2">Skills</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
-        <Tags skills={DevSkills} title="Web Development" />
-        <Tags skills={UxSkills} title="UX/UI Design" />
+    <Section title="Skills">
+      <div className="w-full flex flex-col">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
+          <Tags skills={DevSkills} title="Web Development" />
+          <Tags skills={UxSkills} title="UX/UI Design" />
+        </div>
       </div>
-    </div>
+    </Section>
   );
 };
 
@@ -34,7 +37,7 @@ export const Tags = ({
         }}
         className="flex gap-4 text-left flex-wrap"
       >
-        {skills.map((skill) => {
+        {skills.map(skill => {
           return (
             <motion.div
               key={skill}

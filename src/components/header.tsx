@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export const Title = () => {
+export const Header = () => {
   return (
     <div className="h-screen w-full flex">
       <div className="m-auto">
