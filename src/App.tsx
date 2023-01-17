@@ -1,8 +1,8 @@
-import { Facts } from './components/facts';
-import { Title } from './components/title';
-import { Skills } from './components/skills';
 import { Contact } from './components/contact';
 import { CoursesAndConferences } from './components/courses-and-conferences';
+import { Facts } from './components/facts';
+import { Skills } from './components/skills';
+import { Title } from './components/title';
 
 export function App() {
   return (
