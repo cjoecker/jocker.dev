@@ -3,8 +3,8 @@ import { DevSkills, UxSkills } from '../constants/content';
 
 export const Skills = () => {
   return (
-    <div className="w-full flex flex-col mt-48">
-      <h2 className="text-primary text-4xl font-normal">Skills</h2>
+    <div className="w-full flex flex-col mt-36">
+      <h2 className="text-primary text-4xl font-normal mb-2">Skills</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
         <Tags skills={DevSkills} title="Web Development" />
         <Tags skills={UxSkills} title="UX/UI Design" />
@@ -33,7 +33,7 @@ export const Tags = ({
         }}
         className="flex gap-4 text-left flex-wrap"
       >
-        {skills.map((skill, index) => {
+        {skills.map((skill) => {
           return (
             <motion.div
               variants={{

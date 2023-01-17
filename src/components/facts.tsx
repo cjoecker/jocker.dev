@@ -8,13 +8,13 @@ export const Facts = () => {
         initial="hidden"
         whileInView="visible"
         exit="hidden"
-        viewport={{ amount: 0.9 }}
-        transition={{ duration: 0.5 }}
+        viewport={{ amount: 'some' }}
+        transition={{ duration: 0.7 }}
         variants={{
           visible: { opacity: 1, y: 0 },
-          hidden: { opacity: 0, y: 50 },
+          hidden: { opacity: 0, y: 100 },
         }}
-        className="my-24 text-xl"
+        className="mb-24 mt-2 text-xl"
       >
         <p>
           I’m passionate about creating{' '}
