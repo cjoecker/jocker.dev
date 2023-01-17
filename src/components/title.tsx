@@ -8,7 +8,7 @@ export const Title = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
-          className="text-6xl font-normal text-primary"
+          className="text-5xl font-normal text-primary"
         >
           Christian Jöcker
         </motion.h1>
@@ -16,7 +16,7 @@ export const Title = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 3, delay: 0.5 }}
-          className="font-normal mt-1"
+          className="font-normal text-2xl mt-2"
         >
           Frontend Developer & UX/UI Designer
         </motion.h2>

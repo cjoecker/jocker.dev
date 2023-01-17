@@ -4,15 +4,21 @@ import { format } from 'date-fns';
 import courseImg from '../images/course.svg';
 import conferenceImg from '../images/conference.svg';
 import { ConferenceType, CourseType } from '../constants/content.models';
+import { useWindowSize } from 'react-use';
 
+const NARROW_WIDTH = 675;
+const NARROW_COURSES_COUNT = 15
 export const CoursesAndConferences = () => {
+  const {width} = useWindowSize();
+  const isNarrowView = width < NARROW_WIDTH
   const sortedCourses = [...Courses, ...Conferences].sort(
     (a, b) => b.date.getTime() - a.date.getTime()
-  );
+  )
+  const reducedCourses = isNarrowView ? sortedCourses.slice(0,NARROW_COURSES_COUNT) : sortedCourses
   return (
-    <div className="w-full flex flex-col mt-48">
-      <h2 className="text-primary text-4xl font-normal">
-        Last Courses and Conferences Attended
+    <div className="w-full flex flex-col mt-36">
+      <h2 className="text-primary text-4xl font-normal mb-2">
+        Last Attended Courses and Conferences
       </h2>
       <div className="flex mt-6">
         <motion.div
@@ -25,7 +31,7 @@ export const CoursesAndConferences = () => {
           }}
           className="flex gap-4 text-left flex-wrap"
         >
-          {sortedCourses.map(course => {
+          {reducedCourses.map(course => {
             return (
               <motion.div
                 variants={{
