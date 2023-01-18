@@ -3,6 +3,7 @@ import { CoursesAndConferences } from './components/courses-and-conferences';
 import { Facts } from './components/facts';
 import { Header } from './components/header';
 import { Skills } from './components/skills';
+import { CoreValues } from './components/core-values';
 
 export function App() {
   return (
@@ -11,6 +12,7 @@ export function App() {
         <Header />
         <Facts />
         <Skills />
+        <CoreValues />
         <CoursesAndConferences />
         <Contact />
       </div>
