@@ -14,3 +14,8 @@ export type ConferenceType = {
   name: string;
   date: Date;
 };
+
+export type CoreValuesType = {
+  coreValue: string;
+  explanation: string;
+};
