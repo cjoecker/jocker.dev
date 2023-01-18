@@ -11,7 +11,7 @@ import { Section } from './section';
 
 const NARROW_VIEW_ITEMS_COUNT = 15;
 export const CoursesAndConferences = () => {
-  const isNarrowView = useNarrowView();
+  const { isNarrowView } = useNarrowView();
   const sortedCoursesAndConferences = [...Courses, ...Conferences].sort(
     (a, b) => b.date.getTime() - a.date.getTime()
   );
