@@ -3,15 +3,15 @@ import { motion } from 'framer-motion';
 
 import { Conferences, Courses } from '../constants/content';
 import { ConferenceType, CourseType } from '../constants/content.models';
+import { useNarrowView } from '../hooks/useNarrowView';
 import conferenceImg from '../images/conference.svg';
 import courseImg from '../images/course.svg';
 
 import { Section } from './section';
-import { useNarrowView } from '../hooks/useNarrowView';
 
 const NARROW_VIEW_ITEMS_COUNT = 15;
 export const CoursesAndConferences = () => {
-  const isNarrowView = useNarrowView()
+  const isNarrowView = useNarrowView();
   const sortedCoursesAndConferences = [...Courses, ...Conferences].sort(
     (a, b) => b.date.getTime() - a.date.getTime()
   );
