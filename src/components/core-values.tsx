@@ -2,22 +2,40 @@ import meditatingImage from '../images/meditating.png';
 import { Section } from './section';
 import { CoreValuesType } from '../constants/content.models';
 import { CoreValuesData } from '../constants/content';
+import { motion } from 'framer-motion';
 
 export const CoreValues = () => {
   return (
     <Section title="Core Values">
-      <div className="flex relative">
-        <CoreValue coreValue={CoreValuesData[0]} x={-130} y={10} />
-        <CoreValue coreValue={CoreValuesData[2]} x={-180} y={150} />
-        <CoreValue coreValue={CoreValuesData[1]} x={110} y={10} />
-        <CoreValue coreValue={CoreValuesData[3]} x={170} y={150} />
-        <div className="m-auto">
-          <img
-            className="mx-12"
-            width="350"
-            height="350"
+      <div className="flex relative flex-col">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          exit="hidden"
+          viewport={{ amount: 'some' }}
+          transition={{
+            staggerChildren: 0.3,
+          }}
+          className="grid grid-cols-1 sm:grid-cols-2 mx-auto gap-y-6 gap-x-16"
+        >
+          {CoreValuesData.map(value => {
+            return <CoreValue key={value.coreValue} coreValue={value} />;
+          })}
+        </motion.div>
+        <div className="m-auto px-2">
+          <motion.img
+            className="w-full max-w-[350px] h-auto mt-6 sm:-mt-4"
             src={meditatingImage}
             alt="avatar of myself meditating"
+            initial="hidden"
+            whileInView="visible"
+            exit="hidden"
+            viewport={{ amount: 'some' }}
+            transition={{ duration: 2 }}
+            variants={{
+              visible: { opacity: 1, y: 0 },
+              hidden: { opacity: 0, y: 100 },
+            }}
           />
         </div>
       </div>
@@ -25,22 +43,17 @@ export const CoreValues = () => {
   );
 };
 
-export const CoreValue = ({
-  coreValue,
-  x,
-  y,
-}: {
-  coreValue: CoreValuesType;
-  x: number;
-  y: number;
-}) => {
+const CoreValue = ({ coreValue }: { coreValue: CoreValuesType }) => {
   return (
-    <div
-      style={{ transform: `translate(${x}px,${y}px)` }}
-      className="flex flex-col absolute max-w-[190px] m-auto left-0 right-0 top-0 left-0"
+    <motion.div
+      variants={{
+        visible: { opacity: 1},
+        hidden: { opacity: 0 },
+      }}
+      className="flex flex-col align-top max-w-[190px] col-span-1"
     >
       <h3>{coreValue.coreValue}</h3>
       <p>{coreValue.explanation}</p>
-    </div>
+    </motion.div>
   );
 };

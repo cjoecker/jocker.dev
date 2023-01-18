@@ -1,6 +1,5 @@
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
-import { useWindowSize } from 'react-use';
 
 import { Conferences, Courses } from '../constants/content';
 import { ConferenceType, CourseType } from '../constants/content.models';
@@ -8,17 +7,16 @@ import conferenceImg from '../images/conference.svg';
 import courseImg from '../images/course.svg';
 
 import { Section } from './section';
+import { useNarrowView } from '../hooks/useNarrowView';
 
-const NARROW_WIDTH = 675;
-const NARROW_COURSES_COUNT = 15;
+const NARROW_VIEW_ITEMS_COUNT = 15;
 export const CoursesAndConferences = () => {
-  const { width } = useWindowSize();
-  const isNarrowView = width < NARROW_WIDTH;
+  const isNarrowView = useNarrowView()
   const sortedCoursesAndConferences = [...Courses, ...Conferences].sort(
     (a, b) => b.date.getTime() - a.date.getTime()
   );
   const reducedCoursesAndConferences = isNarrowView
-    ? sortedCoursesAndConferences.slice(0, NARROW_COURSES_COUNT)
+    ? sortedCoursesAndConferences.slice(0, NARROW_VIEW_ITEMS_COUNT)
     : sortedCoursesAndConferences;
   return (
     <Section title="Last Attended Courses and Conferences">

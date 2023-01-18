@@ -3,52 +3,64 @@ import { motion } from 'framer-motion';
 import { ContactInformation } from '../constants/content';
 
 import { Section } from './section';
+import { ContactInformationType } from '../constants/content.models';
 
 export const Contact = () => {
-  const icons = require.context('../images/', false);
   return (
     <Section title="Contact me!">
-      <div className="w-full flex flex-col">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          exit="hidden"
-          viewport={{ amount: 0.9 }}
-          transition={{
-            staggerChildren: 0.1,
-          }}
-          className="flex gap-8 flex-wrap mt-8 mx-auto mb-8"
-        >
-          {ContactInformation.map(info => {
-            return (
-              <motion.div
-                key={info.text}
-                variants={{
-                  visible: { scale: 1 },
-                  hidden: { scale: 0 },
-                }}
-              >
-                <motion.button
-                  whileTap={{ scale: 1 }}
-                  whileHover={{ scale: 1.2 }}
-                  onClick={() => {
-                    window.location.href = info.href;
-                  }}
-                  className=" bg-tag rounded-full w-16 h-16 flex cursor-pointer p-3"
-                >
-                  <img
-                    width="84"
-                    height="84"
-                    alt={info.text}
-                    src={icons(`./${info.icon}.svg`)}
-                    className="m-auto w-full h-full"
-                  />
-                </motion.button>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        exit="hidden"
+        viewport={{ amount: 0.9 }}
+        transition={{
+          staggerChildren: 0.1,
+        }}
+        className="flex gap-8 flex-wrap mx-auto justify-center"
+      >
+        <div className="flex gap-8 flex-wrap justify-center">
+          <ContactButton contactInformation={ContactInformation[0]} />
+          <ContactButton contactInformation={ContactInformation[1]} />
+        </div>
+        <div className="flex gap-8 flex-wrap justify-center">
+          <ContactButton contactInformation={ContactInformation[2]} />
+          <ContactButton contactInformation={ContactInformation[3]} />
+        </div>
+      </motion.div>
     </Section>
+  );
+};
+
+export const ContactButton = ({
+  contactInformation,
+}: {
+  contactInformation: ContactInformationType;
+}) => {
+  const icons = require.context('../images/', false);
+  return (
+    <motion.div
+      key={contactInformation.text}
+      variants={{
+        visible: { scale: 1 },
+        hidden: { scale: 0 },
+      }}
+    >
+      <motion.button
+        whileTap={{ scale: 1 }}
+        whileHover={{ scale: 1.2 }}
+        onClick={() => {
+          window.location.href = contactInformation.href;
+        }}
+        className=" bg-tag rounded-full w-16 h-16 flex cursor-pointer p-3"
+      >
+        <img
+          width="84"
+          height="84"
+          alt={contactInformation.text}
+          src={icons(`./${contactInformation.icon}.svg`)}
+          className="m-auto w-full h-full"
+        />
+      </motion.button>
+    </motion.div>
   );
 };
