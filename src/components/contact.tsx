@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 
 import { ContactInformation } from '../constants/content';
+import { ContactInformationType } from '../constants/content.models';
 
 import { Section } from './section';
-import { ContactInformationType } from '../constants/content.models';
 
 export const Contact = () => {
   return (

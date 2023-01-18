@@ -1,8 +1,10 @@
-import meditatingImage from '../images/meditating.png';
-import { Section } from './section';
-import { CoreValuesType } from '../constants/content.models';
-import { CoreValuesData } from '../constants/content';
 import { motion } from 'framer-motion';
+
+import { CoreValuesData } from '../constants/content';
+import { CoreValuesType } from '../constants/content.models';
+import meditatingImage from '../images/meditating.png';
+
+import { Section } from './section';
 
 export const CoreValues = () => {
   return (
@@ -47,7 +49,7 @@ const CoreValue = ({ coreValue }: { coreValue: CoreValuesType }) => {
   return (
     <motion.div
       variants={{
-        visible: { opacity: 1},
+        visible: { opacity: 1 },
         hidden: { opacity: 0 },
       }}
       className="flex flex-col align-top max-w-[190px] col-span-1"
