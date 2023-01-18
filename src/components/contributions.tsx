@@ -9,8 +9,8 @@ export const Contributions = () => {
   const icons = require.context('../images/', false);
   return (
     <Section title="Community Contributions">
-      <div className="flex flex-wrap">
-        <div className="flex flex-1 relative flex-col">
+      <div className="flex flex-wrap gap-x-4 gap-y-16">
+        <div className="flex flex-1 relative flex-col min-w-[300px]">
           <h3 className="text-xl mb-4">My Apps</h3>
           <div className="flex">
             <motion.div
@@ -51,7 +51,7 @@ export const Contributions = () => {
             </motion.div>
           </div>
         </div>
-        <div className="flex flex-1 relative flex-col">
+        <div className="flex flex-1 relative flex-col min-w-[300px]">
           <h3 className="text-xl mb-4">Open Source Contributions</h3>
           <motion.div
             initial="hidden"
