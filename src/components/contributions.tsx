@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { OpenSourceContributions, OwnApps } from '../constants/content';
 
 import { Section } from './section';
+import { Tooltip } from './tooltip';
 
 export const Contributions = () => {
   const icons = require.context('../images/', false);
@@ -32,15 +33,17 @@ export const Contributions = () => {
                       hidden: { opacity: 0 },
                     }}
                   >
-                    <motion.button
-                      whileTap={{ scale: 1 }}
-                      whileHover={{ scale: 1.1 }}
-                      className="w-16 h-16 rounded-xl hover:cursor-pointer mx-auto"
-                      onClick={() => window.open(app.link, '_blank')}
-                      style={{
-                        backgroundImage: `url(${icons(`./${app.icon}`)})`,
-                      }}
-                    />
+                    <Tooltip text={app.description}>
+                      <motion.button
+                        whileTap={{ scale: 1 }}
+                        whileHover={{ scale: 1.1 }}
+                        className="w-16 h-16 rounded-xl hover:cursor-pointer mx-auto"
+                        onClick={() => window.open(app.link, '_blank')}
+                        style={{
+                          backgroundImage: `url(${icons(`./${app.icon}`)})`,
+                        }}
+                      />
+                    </Tooltip>
                     <p className="max-w-[100px]">{app.name}</p>
                   </motion.div>
                 );

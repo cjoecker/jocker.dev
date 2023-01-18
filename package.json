@@ -17,6 +17,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@mui/base": "5.0.0-alpha.114",
     "babel-loader": "9.1.0",
     "date-fns": "^2.29.3",
     "framer-motion": "^7.6.12",
