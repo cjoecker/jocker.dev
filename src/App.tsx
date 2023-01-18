@@ -4,6 +4,7 @@ import { CoursesAndConferences } from './components/courses-and-conferences';
 import { Facts } from './components/facts';
 import { Header } from './components/header';
 import { Skills } from './components/skills';
+import { Contributions } from './components/contributions';
 
 export function App() {
   return (
@@ -14,6 +15,7 @@ export function App() {
         <Skills />
         <CoreValues />
         <CoursesAndConferences />
+        <Contributions />
         <Contact />
       </div>
     </div>
