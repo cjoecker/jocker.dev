@@ -18,7 +18,7 @@ export const Header = () => {
           transition={{ duration: 3, delay: 0.5 }}
           className="font-normal text-2xl mt-2"
         >
-          Frontend Developer & UX/UI Designer
+          Freelance Frontend Developer & UX/UI Designer
         </motion.h2>
       </div>
     </div>
