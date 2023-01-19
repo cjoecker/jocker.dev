@@ -1,7 +1,7 @@
-import type { ReactNode } from 'react';
-import { cloneElement, useEffect, useRef, useState } from 'react';
 import { PopperUnstyled } from '@mui/base';
 import { AnimatePresence, motion } from 'framer-motion';
+import type { ReactNode } from 'react';
+import { cloneElement, useRef, useState } from 'react';
 
 export type Props = {
   text: string;
@@ -10,11 +10,6 @@ export type Props = {
 export const Tooltip = ({ children, text }: Props) => {
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef(null);
-  useEffect(() => {
-    console.log("isVisible", isVisible);
-  }, [isVisible]);
-
-
   return (
     <>
       {cloneElement(<div>{children}</div>, {

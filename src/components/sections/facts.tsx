@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
-import { Section } from './section';
+import { Section } from '../shared/section';
 
 export const Facts = () => {
   return (

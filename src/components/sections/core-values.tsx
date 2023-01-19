@@ -1,10 +1,8 @@
 import { motion } from 'framer-motion';
 
-import { CoreValuesData } from '../constants/content';
-import { CoreValuesType } from '../constants/content.models';
-import meditatingImage from '../images/meditating.png';
-
-import { Section } from './section';
+import { CoreValuesData, CoreValuesType } from '../../constants/core-values';
+import meditatingImage from '../../images/meditating.png';
+import { Section } from '../shared/section';
 
 export const CoreValues = () => {
   return (

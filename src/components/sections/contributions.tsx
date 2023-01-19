@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 
-import { OpenSourceContributions, OwnApps } from '../constants/content';
-
-import { Section } from './section';
-import { Tooltip } from './tooltip';
+import {
+  OpenSourceContributions,
+  OwnApps,
+} from '../../constants/contributions';
+import { Section } from '../shared/section';
+import { Tooltip } from '../shared/tooltip';
 
 export const Contributions = () => {
   const icons = require.context('../images/', false);
@@ -75,6 +77,7 @@ export const Contributions = () => {
                   onClick={() => window.open(contribution.link, '_blank')}
                 >
                   <img
+                    alt={`${contribution.name} logo`}
                     width="50"
                     height="50"
                     className="max-h-[100px] w-auto"

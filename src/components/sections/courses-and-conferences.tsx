@@ -1,13 +1,16 @@
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
 
-import { Conferences, Courses } from '../constants/content';
-import { ConferenceType, CourseType } from '../constants/content.models';
-import { useNarrowView } from '../hooks/useNarrowView';
-import conferenceImg from '../images/conference.svg';
-import courseImg from '../images/course.svg';
-
-import { Section } from './section';
+import {
+  Conferences,
+  ConferenceType,
+  Courses,
+  CourseType,
+} from '../../constants/courses-and-conferences';
+import { useNarrowView } from '../../hooks/useNarrowView';
+import conferenceImg from '../../images/conference.svg';
+import courseImg from '../../images/course.svg';
+import { Section } from '../shared/section';
 
 const NARROW_VIEW_ITEMS_COUNT = 15;
 export const CoursesAndConferences = () => {

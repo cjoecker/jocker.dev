@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 
-import { DevSkills, UxSkills } from '../constants/content';
-
-import { Section } from './section';
+import { DevSkills, UxSkills } from '../../constants/skills';
+import { Section } from '../shared/section';
 
 export const Skills = () => {
   return (

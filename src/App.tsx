@@ -1,10 +1,10 @@
-import { Contact } from './components/contact';
-import { CoreValues } from './components/core-values';
-import { CoursesAndConferences } from './components/courses-and-conferences';
-import { Facts } from './components/facts';
-import { Header } from './components/header';
-import { Skills } from './components/skills';
-import { Contributions } from './components/contributions';
+import { Contact } from './components/sections/contact';
+import { Contributions } from './components/sections/contributions';
+import { CoreValues } from './components/sections/core-values';
+import { CoursesAndConferences } from './components/sections/courses-and-conferences';
+import { Facts } from './components/sections/facts';
+import { Header } from './components/sections/header';
+import { Skills } from './components/sections/skills';
 
 export function App() {
   return (
