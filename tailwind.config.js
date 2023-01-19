@@ -11,7 +11,7 @@ module.exports = {
     colors: {
       primary: colors.primary,
       secondary: colors.secondary,
-      "light-grey": colors.lightGrey,
+      'light-grey': colors.lightGrey,
     },
     fontFamily: {
       body: ['"Quicksand"', 'Arial'],

@@ -1,120 +1,3 @@
-import {
-  ConferenceType,
-  ContactInformationType,
-  CoreValuesType,
-  CourseType,
-  OpenSourceContributionsType,
-  OwnAppsType,
-} from './content.models';
-
-export const DevSkills: string[] = [
-  'React',
-  'Angular',
-  'TypeScript',
-  'Javascript',
-  'Remix',
-  'Material-UI',
-  'Jest',
-  'Cypress',
-  'Zustand',
-  'Tailwind',
-  'Azure',
-  'Scrum',
-];
-export const UxSkills: string[] = [
-  'Figma',
-  'user tests',
-  'user journey map',
-  'personas',
-  'accessibility',
-  'red routes',
-  'card sorting',
-  'ideation workshops',
-];
-
-export const ContactInformation: ContactInformationType[] = [
-  {
-    icon: 'email',
-    text: 'test@email.com',
-    href: 'mailto:test@email.com',
-  },
-  {
-    icon: 'linkedin',
-    text: 'christianjoecker',
-    href: 'https://www.linkedin.com/in/christianjoecker/',
-  },
-  {
-    icon: 'twitter',
-    text: '@JockerDev',
-    href: 'https://twitter.com/JockerDev',
-  },
-  {
-    icon: 'github',
-    text: 'cjoecker',
-    href: 'https://github.com/cjoecker',
-  },
-];
-
-export const OpenSourceContributions: OpenSourceContributionsType[] = [
-  {
-    name: 'MUI (Material-UI)',
-    link: 'https://mui.com/',
-    icon: 'mui.svg',
-  },
-  {
-    name: 'Framer Motion',
-    link: 'https://www.framer.com/motion/',
-    icon: 'framer-motion.svg',
-  },
-];
-
-export const OwnApps: OwnAppsType[] = [
-  {
-    name: 'd-cide',
-    description: 'Rational decision making made easy.',
-    link: 'https://d-cide.me/',
-    icon: 'd-cide.svg',
-  },
-  {
-    name: 'Core Values Finder',
-    description: 'Give a name to your core values.',
-    link: 'https://cjoecker.github.io/core-values-finder/',
-    icon: 'core-values-finder.svg',
-  },
-  {
-    name: '3 Point Estimator',
-    description: 'Make effort estimations in a safe and easy way.',
-    link: 'https://cjoecker.github.io/3-point-estimator/',
-    icon: '3-point-estimator.svg',
-  },
-  {
-    name: 'Curriculum Generator',
-    description: 'Generate your CV in neumorphic style',
-    link: 'https://github.com/cjoecker/curriculum-generator',
-    icon: 'curriculum-generator.svg',
-  },
-];
-
-export const CoreValuesData: CoreValuesType[] = [
-  {
-    coreValue: 'Excellence',
-    explanation:
-      'Sustainable architecture, clean code, and great UX are my mantras.',
-  },
-  {
-    coreValue: 'Accountable',
-    explanation: 'I stand for my decisions, achievements and mistakes.',
-  },
-  {
-    coreValue: 'Passion',
-    explanation: 'I love what I do and you will notice it!',
-  },
-  {
-    coreValue: 'Kindness',
-    explanation: 'Always eager to help and understand the other side.',
-  },
-];
-
 export const Courses: CourseType[] = [
   {
     name: 'Affinity Designer',
@@ -267,3 +150,14 @@ export const Conferences: ConferenceType[] = [
     date: new Date('2020-05'),
   },
 ];
+
+export type CourseType = {
+  name: string;
+  instructor: string;
+  date: Date;
+};
+
+export type ConferenceType = {
+  name: string;
+  date: Date;
+};
