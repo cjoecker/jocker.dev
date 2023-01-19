@@ -8,10 +8,10 @@ import { Section } from '../shared/section';
 import { Tooltip } from '../shared/tooltip';
 
 export const Contributions = () => {
-  const icons = require.context('../images/', false);
+  const icons = require.context('../../images/', false);
   return (
     <Section title="Community Contributions">
-      <div className="flex flex-wrap gap-x-4 gap-y-16">
+      <div className="flex flex-wrap gap-x-4 gap-y-16 max-w-[750px] mx-auto">
         <div className="flex flex-1 relative flex-col min-w-[300px]">
           <h3 className="text-xl mb-4">My Apps</h3>
           <div className="flex">

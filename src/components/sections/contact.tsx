@@ -37,7 +37,7 @@ export const ContactButton = ({
 }: {
   contactInformation: ContactInformationType;
 }) => {
-  const icons = require.context('../images/', false);
+  const icons = require.context('../../images/', false);
   return (
     <motion.div
       key={contactInformation.text}
