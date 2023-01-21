@@ -1,3 +1,11 @@
+export const StackOverflowDefaults: StackOverflowDefaults = {
+  reputation: 4453,
+  goldBadge: 1,
+  silverBadge: 34,
+  bronzeBadge: 40,
+  profileUrl: 'https://stackoverflow.com/users/4934446',
+};
+
 export const OpenSourceContributions: OpenSourceContributionsType[] = [
   {
     name: 'MUI (Material-UI)',
@@ -37,6 +45,14 @@ export const OwnApps: OwnAppsType[] = [
     icon: 'curriculum-generator.svg',
   },
 ];
+
+export interface StackOverflowDefaults {
+  reputation: number;
+  goldBadge: number;
+  silverBadge: number;
+  bronzeBadge: number;
+  profileUrl: string;
+}
 
 export interface OwnAppsType {
   name: string;

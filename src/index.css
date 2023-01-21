@@ -70,6 +70,11 @@ button {
     -5px -5px 12px rgba(229, 229, 245, 0.6);
 }
 
+.bg-stack-overflow {
+  background: #e0e0e0;
+  box-shadow: inset 5px 5px 11px #cacaca, inset -5px -5px 11px #f6f6f6;
+}
+
 .bg-tag {
   background: linear-gradient(145deg, #c5c5d9, #d7d7e5);
   box-shadow: 3px 3px 5px rgb(181, 181, 199),
