@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 import { CoreValuesData, CoreValuesType } from '../../constants/core-values';
-import meditatingImage from '../../images/meditating.png';
+import meditatingImage from '../../images/meditating.webp';
 import { Section } from '../shared/section';
 
 export const CoreValues = () => {
