@@ -5,6 +5,7 @@ import { CoursesAndConferences } from './components/sections/courses-and-confere
 import { Facts } from './components/sections/facts';
 import { Header } from './components/sections/header';
 import { Skills } from './components/sections/skills';
+import { AboutMe } from './components/sections/about-me';
 
 export function App() {
   return (
@@ -16,6 +17,7 @@ export function App() {
         <CoreValues />
         <CoursesAndConferences />
         <Contributions />
+        <AboutMe />
         <Contact />
       </div>
     </div>
