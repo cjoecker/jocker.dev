@@ -1,5 +1,9 @@
 import { Section } from '../shared/section';
-import { LanguagesData, WorkExperienceData } from '../../constants/about-me';
+import {
+  funFacts,
+  LanguagesData,
+  WorkExperienceData,
+} from '../../constants/about-me';
 import { differenceInMonths, format } from 'date-fns';
 
 export const AboutMe = () => {
@@ -7,7 +11,25 @@ export const AboutMe = () => {
     <Section title="More About me!">
       <WorkExperience />
       <Languages />
+      <FunFacts />
     </Section>
+  );
+};
+
+export const FunFacts = () => {
+  return (
+    <div className="max-w-[250px]">
+      <h3 className="text-xl mb-4">Fun Facts</h3>
+      <div className="flex flex-col gap-4">
+        {funFacts.map(fact => {
+          return (
+            <div className="text-left">
+              {fact}
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 
