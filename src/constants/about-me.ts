@@ -1,13 +1,27 @@
-type WorkExperienceType = {
-  logo: string;
-  link: string;
-  position: string;
-  location: string;
-  startDate: Date;
-  endDate: Date | 'today';
-};
+export const LanguagesData: LanguagesType[] = [
+  {
+    language: 'English',
+    level: 'Fluent',
+    icon:'hamburguer.svg'
+  },
+  {
+    language: 'German',
+    level: 'Fluent',
+    icon:'pretzel.svg'
+  },
+  {
+    language: 'Spanish',
+    level: 'Fluent',
+    icon:'paella.svg'
+  },
+  {
+    language: 'Portuguese',
+    level: 'Good command',
+    icon:'feijoada.svg'
+  }
+]
 
-export const WorkExperience: WorkExperienceType[] = [
+export const WorkExperienceData: WorkExperienceType[] = [
   {
     logo: 'me-with-macbook.webp',
     link: 'https://www.linkedin.com/in/christianjoecker/',
@@ -41,3 +55,18 @@ export const WorkExperience: WorkExperienceType[] = [
     location: 'Augsburg, Germany'
   },
 ];
+
+export type LanguagesType = {
+  language: string;
+  level: string;
+  icon: string;
+};
+
+type WorkExperienceType = {
+  logo: string;
+  link: string;
+  position: string;
+  location: string;
+  startDate: Date;
+  endDate: Date | 'today';
+};
