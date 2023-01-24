@@ -8,7 +8,7 @@ import { differenceInMonths, format } from 'date-fns';
 
 export const AboutMe = () => {
   return (
-    <Section title="More About Me">
+    <Section title="About Me">
       <div className="flex gap-20 mx-auto justify-center">
         <WorkExperience />
         <Languages />

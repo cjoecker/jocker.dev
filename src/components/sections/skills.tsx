@@ -29,8 +29,7 @@ export const Tags = ({
       <motion.div
         initial="hidden"
         whileInView="visible"
-        exit="hidden"
-        viewport={{ amount: 0.9 }}
+        viewport={{ amount: 0.9, once: true }}
         transition={{
           staggerChildren: 0.1,
         }}

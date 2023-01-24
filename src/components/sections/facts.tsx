@@ -10,8 +10,7 @@ export const Facts = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          exit="hidden"
-          viewport={{ amount: 'some' }}
+          viewport={{ amount: 0.9, once: true }}
           transition={{ duration: 0.7 }}
           variants={{
             visible: { opacity: 1, y: 0 },

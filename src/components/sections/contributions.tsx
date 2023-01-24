@@ -48,10 +48,9 @@ const StackOverflow = () => {
           visible: { opacity: 1 },
           hidden: { opacity: 0 },
         }}
-        viewport={{ amount: 0.9 }}
+        viewport={{ amount: 0.9, once: true }}
         initial="hidden"
         whileInView="visible"
-        exit="hidden"
         aria-label="stack overflow profile"
         onClick={() => window.open(StackOverflowDefaults.profileUrl, '_blank')}
         className="flex flex-col max-w-fit bg-stack-overflow py-2 px-4 rounded-xl hover:cursor-pointer mx-auto text-secondary"
@@ -118,8 +117,7 @@ const OpenSource = () => {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        exit="hidden"
-        viewport={{ amount: 0.9 }}
+        viewport={{ amount: 0.9, once: true }}
         transition={{
           staggerChildren: 0.3,
         }}
@@ -163,8 +161,7 @@ const MyApps = () => {
           className="grid grid-cols-2 m-auto gap-4"
           initial="hidden"
           whileInView="visible"
-          exit="hidden"
-          viewport={{ amount: 0.9 }}
+          viewport={{ amount: 0.9, once: true }}
           transition={{
             staggerChildren: 0.3,
           }}
