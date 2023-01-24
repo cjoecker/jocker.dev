@@ -1,7 +1,6 @@
 import { Section } from '../shared/section';
 import {
   education,
-  funFacts,
   LanguagesData,
   WorkExperienceData,
 } from '../../constants/about-me';
@@ -9,11 +8,12 @@ import { differenceInMonths, format } from 'date-fns';
 
 export const AboutMe = () => {
   return (
-    <Section title="More About me!">
-      <WorkExperience />
-      <Languages />
-      <Education />
-      <FunFacts />
+    <Section title="More About Me">
+      <div className="flex gap-20 mx-auto justify-center">
+        <WorkExperience />
+        <Languages />
+        <Education />
+      </div>
     </Section>
   );
 };
@@ -53,19 +53,6 @@ const Education = () => {
   );
 };
 
-export const FunFacts = () => {
-  return (
-    <div className="max-w-[250px]">
-      <h3 className="text-xl mb-4">Fun Facts</h3>
-      <div className="flex flex-col gap-4">
-        {funFacts.map(fact => {
-          return <div className="text-left">{fact}</div>;
-        })}
-      </div>
-    </div>
-  );
-};
-
 export const Languages = () => {
   const icons = require.context('../../images/', false);
   return (
@@ -89,7 +76,7 @@ export const Languages = () => {
 const WorkExperience = () => {
   const icons = require.context('../../images/', false);
   return (
-    <div className="max-w-[300px]">
+    <div className="max-w-[400px]">
       <h3 className="text-xl mb-4">Work Experience</h3>
       <div className="flex gap-2 flex-col">
         {WorkExperienceData.map((experience, index) => {
