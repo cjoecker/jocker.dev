@@ -1,31 +1,46 @@
+export const education: StudiesType[] = [
+  {
+    logo: 'scmt.svg',
+    degree: 'Master of Business Engineering (MBE®)',
+    location: 'Filderstadt, Germany',
+    timePeriod: '2016-2018',
+  },
+  {
+    logo: 'th-wildau.svg',
+    degree: 'Mechanical Engineering (B. Eng.)',
+    location: 'Wildau, Germany',
+    timePeriod: '2011-2014',
+  },
+];
+
 export const funFacts: string[] = [
-  "I learned to program when I was 9 when my father gave away my dog. I made a website full of pictures of my dog",
-  "My friends from school always called me \"Joker\" and they still do it.",
-  "I have a YouTube video with 1.2 million views that I did when I was 12",
-]
+  'I learned to program when I was 9 when my father gave away my dog. I made a website full of pictures of my dog',
+  'My friends from school always called me "Joker" and they still do it.',
+  'I have a YouTube video with 1.2 million views that I did when I was 12',
+];
 
 export const LanguagesData: LanguagesType[] = [
   {
     language: 'English',
     level: 'Fluent',
-    icon:'hamburguer.svg'
+    icon: 'hamburguer.svg',
   },
   {
     language: 'German',
     level: 'Fluent',
-    icon:'pretzel.svg'
+    icon: 'pretzel.svg',
   },
   {
     language: 'Spanish',
     level: 'Fluent',
-    icon:'paella.svg'
+    icon: 'paella.svg',
   },
   {
     language: 'Portuguese',
     level: 'Good command',
-    icon:'feijoada.svg'
-  }
-]
+    icon: 'feijoada.svg',
+  },
+];
 
 export const WorkExperienceData: WorkExperienceType[] = [
   {
@@ -34,7 +49,7 @@ export const WorkExperienceData: WorkExperienceType[] = [
     position: 'Freelance Frontend Engineer and UX/UI Designer',
     startDate: new Date('2023-02'),
     endDate: 'today',
-    location: 'Valencia, Spain'
+    location: 'Valencia, Spain',
   },
   {
     logo: 'maibornwolff.svg',
@@ -42,7 +57,7 @@ export const WorkExperienceData: WorkExperienceType[] = [
     position: 'Senior Software Engineer',
     startDate: new Date('2019-06'),
     endDate: new Date('2023-02'),
-    location: 'Munich, Germany'
+    location: 'Munich, Germany',
   },
   {
     logo: 'kuka.svg',
@@ -50,7 +65,7 @@ export const WorkExperienceData: WorkExperienceType[] = [
     position: 'Area Manager - Virtual Commissioning',
     startDate: new Date('2018-04'),
     endDate: new Date('2019-05'),
-    location: 'Augsburg, Germany'
+    location: 'Augsburg, Germany',
   },
   {
     logo: 'kuka.svg',
@@ -58,9 +73,16 @@ export const WorkExperienceData: WorkExperienceType[] = [
     position: 'Software Engineer - Virtual Commissioning',
     startDate: new Date('2015-02'),
     endDate: new Date('2018-03'),
-    location: 'Augsburg, Germany'
+    location: 'Augsburg, Germany',
   },
 ];
+
+export type StudiesType = {
+  logo: string;
+  degree: string;
+  location: string;
+  timePeriod: string;
+};
 
 export type LanguagesType = {
   language: string;

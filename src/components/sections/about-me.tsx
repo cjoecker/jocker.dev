@@ -1,5 +1,6 @@
 import { Section } from '../shared/section';
 import {
+  education,
   funFacts,
   LanguagesData,
   WorkExperienceData,
@@ -11,8 +12,44 @@ export const AboutMe = () => {
     <Section title="More About me!">
       <WorkExperience />
       <Languages />
+      <Education />
       <FunFacts />
     </Section>
+  );
+};
+
+const Education = () => {
+  const icons = require.context('../../images/', false);
+  return (
+    <div className="max-w-[350px]">
+      <h3 className="text-xl mb-4">Education</h3>
+      <div className="flex gap-2 flex-col">
+        {education.map(educationItem => {
+          return (
+            <div className="text-left flex" key={educationItem.degree}>
+              <div className="flex flex-col w-10 min-w-[50px]">
+                <img
+                  alt={educationItem.degree}
+                  src={icons(`./${educationItem.logo}`)}
+                  className="w-full object-contain hover:cursor-pointer mt-1"
+                />
+              </div>
+              <div className="ml-3 mb-2">
+                <div style={{ lineHeight: '1.1rem' }}>
+                  {educationItem.degree}
+                </div>
+                <div className="text-sm opacity-80">
+                  {educationItem.location}
+                </div>
+                <div className="text-sm opacity-80 -mt-1">
+                  {educationItem.timePeriod}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 
@@ -22,11 +59,7 @@ export const FunFacts = () => {
       <h3 className="text-xl mb-4">Fun Facts</h3>
       <div className="flex flex-col gap-4">
         {funFacts.map(fact => {
-          return (
-            <div className="text-left">
-              {fact}
-            </div>
-          );
+          return <div className="text-left">{fact}</div>;
         })}
       </div>
     </div>
