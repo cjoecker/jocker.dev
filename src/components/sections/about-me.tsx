@@ -21,7 +21,7 @@ export const AboutMe = () => {
 const Education = () => {
   const icons = require.context('../../images/', false);
   return (
-    <div className="max-w-[300px] ml-2">
+    <div className="max-w-[350px] ml-2">
       <h3 className="text-xl mb-4">Education</h3>
       <div className="flex gap-2 flex-col">
         {education.map(educationItem => {
@@ -76,7 +76,7 @@ export const Languages = () => {
 const WorkExperience = () => {
   const icons = require.context('../../images/', false);
   return (
-    <div className="max-w-[400px]">
+    <div className="max-w-[350px]">
       <h3 className="text-xl mb-4">Work Experience</h3>
       <div className="flex gap-2 flex-col">
         {WorkExperienceData.map((experience, index) => {
