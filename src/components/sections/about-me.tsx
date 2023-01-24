@@ -1,10 +1,11 @@
-import { Section } from '../shared/section';
+import { differenceInMonths, format } from 'date-fns';
+
 import {
   education,
   LanguagesData,
   WorkExperienceData,
 } from '../../constants/about-me';
-import { differenceInMonths, format } from 'date-fns';
+import { Section } from '../shared/section';
 
 export const AboutMe = () => {
   return (
@@ -61,8 +62,13 @@ export const Languages = () => {
       <div className="grid grid-cols-2">
         {LanguagesData.map(language => {
           return (
-            <div className="col-span-1">
-              <img width="40" height="40" src={icons(`./${language.icon}`)} />
+            <div className="col-span-1" key={language.language}>
+              <img
+                width="40"
+                height="40"
+                alt={getAltTextFromFileName(language.icon)}
+                src={icons(`./${language.icon}`)}
+              />
               <div className="font-bold">{language.language}</div>
               <div className="-mt-1">{language.level}</div>
             </div>
@@ -86,14 +92,21 @@ const WorkExperience = () => {
           const hasNextItemLogo =
             experience.logo !== WorkExperienceData?.[index + 1]?.logo;
           return (
-            <div className="text-left flex">
+            <div
+              className="text-left flex"
+              key={`${experience.position}${experience.logo}`}
+            >
               <div className="flex flex-col w-14 min-w-[60px]">
                 {isLogoVisible ? (
-                  <img
-                    src={icons(`./${experience.logo}`)}
-                    className="w-full object-contain hover:cursor-pointer mt-1"
+                  <button
                     onClick={() => window.open(experience.link, '_blank')}
-                  />
+                  >
+                    <img
+                      alt={getAltTextFromFileName(experience.logo)}
+                      src={icons(`./${experience.logo}`)}
+                      className="w-full object-contain hover:cursor-pointer mt-1"
+                    />
+                  </button>
                 ) : (
                   <div className="rounded-full min-h-[7px] min-w-[7px] bg-primary mx-auto mt-3 mb-2" />
                 )}
@@ -124,11 +137,11 @@ const WorkExperience = () => {
   );
 };
 
-export function formatDate(date: Date, showDay = false) {
+function formatDate(date: Date, showDay = false) {
   return showDay ? format(date, 'MMM dd, yyyy') : format(date, 'MMM, yyyy');
 }
 
-export function formatTimePeriod(startDate: Date, endDate: Date | 'today') {
+function formatTimePeriod(startDate: Date, endDate: Date | 'today') {
   const newEndDate = endDate === 'today' ? new Date() : endDate;
 
   const distanceInYears = (differenceInMonths(newEndDate, startDate) + 1) / 12;
@@ -140,4 +153,8 @@ export function formatTimePeriod(startDate: Date, endDate: Date | 'today') {
   return endDate === 'today'
     ? `${formatDate(startDate)} - Present  (${distance})`
     : `${formatDate(startDate)} - ${formatDate(endDate)}  (${distance})`;
+}
+
+function getAltTextFromFileName(filename: string) {
+  return filename.replace('.svg', '').replace('-', ' ');
 }
