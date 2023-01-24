@@ -1,58 +1,39 @@
-import { motion, MotionValue, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
 import { Section } from '../shared/section';
 
 export const Facts = () => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const { scrollYProgress } = useScroll({ target: ref });
   return (
     <Section>
-      <div ref={ref} className="min-h-[200vh]">
-        <div className="w-full flex flex-col sticky top-20">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 0.9, once: true }}
-            transition={{ duration: 0.7 }}
-            variants={{
-              visible: { opacity: 1, y: 0 },
-              hidden: { opacity: 0, y: 100 },
-            }}
-            className="mb-24 mt-2 text-xl"
-          >
-            <p>
-              I’m passionate about creating{' '}
-              <TextHighlight>great experiences</TextHighlight> with{' '}
-              <TextHighlight>beautiful web applications</TextHighlight>.
-            </p>
-            <p className="mt-4">
-              <TextHighlight>Happy customers</TextHighlight>,{' '}
-              <TextHighlight>clean code</TextHighlight> and{' '}
-              <TextHighlight>sustainable architectures</TextHighlight> are my
-              priority.
-            </p>
-          </motion.div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-8 justify-between mx-auto flex-wrap">
-            <Fact
-              scrollYProgress={scrollYProgress}
-              number={8}
-              label={'Years of experience'}
-              icon="strong"
-            />
-            <Fact
-              scrollYProgress={scrollYProgress}
-              number={23}
-              label={'Developed apps'}
-              icon="smartphone"
-            />
-            <Fact
-              scrollYProgress={scrollYProgress}
-              number={13}
-              label={'Happy customers'}
-              icon="happy"
-            />
-          </div>
+      <div className="w-full flex flex-col sticky top-20">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.9, once: true }}
+          transition={{ duration: 0.7 }}
+          variants={{
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: 100 },
+          }}
+          className="mb-24 mt-2 text-xl"
+        >
+          <p>
+            I’m passionate about creating{' '}
+            <TextHighlight>great experiences</TextHighlight> with{' '}
+            <TextHighlight>beautiful web applications</TextHighlight>.
+          </p>
+          <p className="mt-4">
+            <TextHighlight>Happy customers</TextHighlight>,{' '}
+            <TextHighlight>clean code</TextHighlight> and{' '}
+            <TextHighlight>sustainable architectures</TextHighlight> are my
+            priority.
+          </p>
+        </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-8 justify-between mx-auto flex-wrap">
+          <Fact number={8} label={'Years of experience'} icon="strong" />
+          <Fact number={23} label={'Developed apps'} icon="smartphone" />
+          <Fact number={13} label={'Happy customers'} icon="happy" />
         </div>
       </div>
     </Section>
@@ -66,15 +47,14 @@ const Fact = ({
   number,
   label,
   icon,
-  scrollYProgress
 }: {
   number: number;
   label: string;
   icon: string;
-  scrollYProgress: MotionValue<number>
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
-  const content = useTransform(scrollYProgress, [0.1, 0.9], [0, number + 1]);
+  const { scrollYProgress } = useScroll({ target: ref });
+  const content = useTransform(scrollYProgress, [0.9, 0.5], [0, number + 1]);
   const icons = require.context('../../images/', false);
 
   useEffect(() => {
