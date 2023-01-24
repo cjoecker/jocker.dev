@@ -11,8 +11,7 @@ export const CoreValues = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          exit="hidden"
-          viewport={{ amount: 'some' }}
+          viewport={{ amount: 0.9, once: true }}
           transition={{
             staggerChildren: 0.3,
           }}
@@ -29,8 +28,7 @@ export const CoreValues = () => {
             alt="avatar of myself meditating"
             initial="hidden"
             whileInView="visible"
-            exit="hidden"
-            viewport={{ amount: 'some' }}
+            viewport={{ amount: 0.9, once: true }}
             transition={{ duration: 2 }}
             variants={{
               visible: { opacity: 1, y: 0 },
