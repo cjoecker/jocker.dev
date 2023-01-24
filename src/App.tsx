@@ -1,3 +1,4 @@
+import { AboutMe } from './components/sections/about-me';
 import { Contact } from './components/sections/contact';
 import { Contributions } from './components/sections/contributions';
 import { CoreValues } from './components/sections/core-values';
@@ -5,7 +6,6 @@ import { CoursesAndConferences } from './components/sections/courses-and-confere
 import { Facts } from './components/sections/facts';
 import { Header } from './components/sections/header';
 import { Skills } from './components/sections/skills';
-import { AboutMe } from './components/sections/about-me';
 
 export function App() {
   return (
