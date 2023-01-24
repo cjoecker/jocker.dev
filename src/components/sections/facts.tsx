@@ -31,9 +31,9 @@ export const Facts = () => {
           </p>
         </motion.div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-8 justify-between mx-auto flex-wrap">
-          <Fact number={8} label={'Years of experience'} />
-          <Fact number={23} label={'Developed apps'} />
-          <Fact number={13} label={'Happy customers'} />
+          <Fact number={8} label={'Years of experience'} icon="strong" />
+          <Fact number={23} label={'Developed apps'} icon="smartphone" />
+          <Fact number={13} label={'Happy customers'} icon="happy" />
         </div>
       </div>
     </Section>
@@ -44,10 +44,19 @@ const TextHighlight = ({ children }: { children: React.ReactNode }) => (
   <span className="text-primary font-medium">{children}</span>
 );
 
-const Fact = ({ number, label }: { number: number; label: string }) => {
+const Fact = ({
+  number,
+  label,
+  icon,
+}: {
+  number: number;
+  label: string;
+  icon: string;
+}) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref });
-  const content = useTransform(scrollYProgress, [0.9, 0.7], [0, number + 1]);
+  const content = useTransform(scrollYProgress, [0.9, 0.5], [0, number + 1]);
+  const icons = require.context('../../images/', false);
 
   useEffect(() => {
     if (ref.current) {
@@ -69,9 +78,16 @@ const Fact = ({ number, label }: { number: number; label: string }) => {
   }, [content, number]);
 
   return (
-    <div className="col-span-1 bg-fact flex flex-col min-w-[220px] p-4 rounded-lg">
-      <div ref={ref} className="text-9xl text-primary" />;
-      <div className="text-2xl mt-2">{label}</div>
+    <div className="col-span-1 flex flex-col min-w-[220px] p-4 rounded-lg">
+      <img
+        className="mx-auto"
+        alt={icon}
+        width="150"
+        height="150"
+        src={icons(`./${icon}.svg`)}
+      />
+      <div ref={ref} className="text-7xl mt-3 text-primary" />
+      <div className="text-2xl opacity-80">{label}</div>
     </div>
   );
 };
