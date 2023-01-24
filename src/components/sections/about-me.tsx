@@ -9,7 +9,7 @@ import { differenceInMonths, format } from 'date-fns';
 export const AboutMe = () => {
   return (
     <Section title="About Me">
-      <div className="flex gap-20 mx-auto justify-center">
+      <div className="flex gap-20 mx-auto justify-center flex-wrap">
         <WorkExperience />
         <Languages />
         <Education />
@@ -21,7 +21,7 @@ export const AboutMe = () => {
 const Education = () => {
   const icons = require.context('../../images/', false);
   return (
-    <div className="max-w-[350px]">
+    <div className="max-w-[300px] ml-2">
       <h3 className="text-xl mb-4">Education</h3>
       <div className="flex gap-2 flex-col">
         {education.map(educationItem => {
