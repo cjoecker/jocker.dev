@@ -8,7 +8,7 @@ import { Section } from '../shared/section';
 
 export const Contact = () => {
   return (
-    <Section title="Contact me!">
+    <Section title="Contact Me!">
       <motion.div
         initial="hidden"
         whileInView="visible"
