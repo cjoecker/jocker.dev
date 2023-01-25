@@ -1,22 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.6f88fe3e.css",
-    "main.js": "/static/js/main.53e570e6.js",
+    "main.css": "/static/css/main.395137f9.css",
+    "main.js": "/static/js/main.bf6ac97a.js",
     "static/js/495.ffc228f5.chunk.js": "/static/js/495.ffc228f5.chunk.js",
     "static/media/pretzel.svg": "/static/media/pretzel.cf53d66f183383fea5e1.svg",
     "static/media/meditating.webp": "/static/media/meditating.bdf05b25667acf27c655.webp",
+    "static/media/conference.svg": "/static/media/conference.0bd2ff3ac4b8d214f10caddeb831413a.svg",
     "static/media/core-values-finder.svg": "/static/media/core-values-finder.a3c40180b6157df7ca01.svg",
     "static/media/feijoada.svg": "/static/media/feijoada.e9c54d55bde4087c09a2.svg",
     "static/media/th-wildau.svg": "/static/media/th-wildau.9bbf9292b144cc3ebb76.svg",
     "static/media/paella.svg": "/static/media/paella.8af0be8826b7669f3534.svg",
+    "static/media/smartphone.svg": "/static/media/smartphone.5f2fb034879f6bcd5798.svg",
     "static/media/hamburguer.svg": "/static/media/hamburguer.2d9ac6681bcb6bed3c10.svg",
     "static/media/quicksand-v30-latin-500.woff": "/static/media/quicksand-v30-latin-500.e6347d1809f29c56e9c8.woff",
     "static/media/quicksand-v30-latin-regular.woff": "/static/media/quicksand-v30-latin-regular.93407d2bd8362bcdd29f.woff",
+    "static/media/strong.svg": "/static/media/strong.1730460d5a628129fc55.svg",
     "static/media/quicksand-v30-latin-500.woff2": "/static/media/quicksand-v30-latin-500.2325761279c985580f3c.woff2",
     "static/media/quicksand-v30-latin-regular.woff2": "/static/media/quicksand-v30-latin-regular.cef2e5802d843cf31dba.woff2",
     "static/media/curriculum-generator.svg": "/static/media/curriculum-generator.732827ea172d8eb08a41.svg",
+    "static/media/course.svg": "/static/media/course.affc1dfcd700073c83974cd0426b72d4.svg",
     "static/media/d-cide.svg": "/static/media/d-cide.cd02f0e0cda24e3c4e66.svg",
     "static/media/maibornwolff.svg": "/static/media/maibornwolff.874d334c6c7e9c49bb2e.svg",
+    "static/media/happy.svg": "/static/media/happy.f588d76a6a4c5e89c6cc.svg",
     "static/media/me-with-macbook.webp": "/static/media/me-with-macbook.c2a50035e35cba031b80.webp",
     "static/media/framer-motion.svg": "/static/media/framer-motion.03e1dcb8923818f268e1.svg",
     "static/media/kuka.svg": "/static/media/kuka.a48b14e51f7930824767.svg",
@@ -25,18 +30,16 @@
     "index.html": "/index.html",
     "static/media/3-point-estimator.svg": "/static/media/3-point-estimator.19db691503f32744d4c2.svg",
     "static/media/github.svg": "/static/media/github.f1b5402ae5945bdb33fc.svg",
-    "static/media/conference.svg": "/static/media/conference.0ab3190eeeabdbd9b72e6e8103a36d82.svg",
     "static/media/twitter.svg": "/static/media/twitter.8a4e6f67201fad0faeed.svg",
     "static/media/stack-overflow.svg": "/static/media/stack-overflow.324f529c3cc03b384475.svg",
     "static/media/linkedin.svg": "/static/media/linkedin.6792d1c6c230b4c04ce2.svg",
-    "static/media/course.svg": "/static/media/course.48e9fb694544ba179a7f4db2966650bf.svg",
     "static/media/email.svg": "/static/media/email.557223c2b8fe471bdc3e.svg",
-    "main.6f88fe3e.css.map": "/static/css/main.6f88fe3e.css.map",
-    "main.53e570e6.js.map": "/static/js/main.53e570e6.js.map",
+    "main.395137f9.css.map": "/static/css/main.395137f9.css.map",
+    "main.bf6ac97a.js.map": "/static/js/main.bf6ac97a.js.map",
     "495.ffc228f5.chunk.js.map": "/static/js/495.ffc228f5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6f88fe3e.css",
-    "static/js/main.53e570e6.js"
+    "static/css/main.395137f9.css",
+    "static/js/main.bf6ac97a.js"
   ]
 }
