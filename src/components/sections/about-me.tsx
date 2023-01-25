@@ -2,24 +2,95 @@ import { differenceInMonths, format } from 'date-fns';
 
 import {
   education,
+  EducationType,
   LanguagesData,
   WorkExperienceData,
+  WorkExperienceType,
 } from '../../constants/about-me';
 import { Section } from '../shared/section';
+import colors from '../../constants/colors';
 
 export const AboutMe = () => {
   return (
-    <Section title="About Me">
-      <div className="flex gap-20 mx-auto justify-center flex-wrap">
-        <WorkExperience />
-        <Languages />
-        <Education />
-      </div>
+    <Section title="Education and Work Experience">
+      <Education />
+      {/*<div className="flex gap-20 mx-auto justify-center flex-wrap">*/}
+      {/*<WorkExperience />*/}
+      {/*<Languages />*/}
+      {/*<Education />*/}
+      {/*</div>*/}
     </Section>
   );
 };
 
 const Education = () => {
+  const icons = require.context('../../images/', false);
+  return (
+    <div className="flex">
+      <h3 className="text-xl mb-4 flex-0 mr-3">Education</h3>
+      <div className="flex-1 relative">
+        {education.map((educationItem, index) => {
+          const isOdd = index % 2 === 0;
+          return (
+            <div
+              className="absolute min-h-[100px]"
+              style={{
+                width: getTimePercent(educationItem),
+                marginLeft: getStartOffsetPercent(educationItem),
+              }}
+            >
+              <div className="relative min-h-[180px]">
+                <div className="flex flex-col h-full absolute bottom-0 -left-[30px]">
+                  <div
+                    style={{
+                      borderColor: isOdd ? colors.primary : colors.secondary,
+                    }}
+                    className={`rounded-full bg-light-grey w-fit p-3 border-solid border-2 flex-0`}
+                  >
+                    <img
+                      width="40"
+                      height="40"
+                      alt={getAltTextFromFileName(educationItem.logo)}
+                      src={icons(`./${educationItem.logo}`)}
+                      className="w-full object-contain hover:cursor-pointer mt-1"
+                    />
+                  </div>
+                  <div className="h-full w-full flex-1 flex pb-2" >
+                    <div className={`w-[2px] h-full mx-auto ${
+                      isOdd ? 'bg-primary' : 'bg-secondary'
+                    }`}/>
+                  </div>
+                </div>
+                <div className="absolute bottom-0">
+                  <div className="max-w-[170px] mx-auto mb-1">
+                    {educationItem.degree}
+                  </div>
+                  <div
+                    className="arrow-up m-auto"
+                    style={{
+                      borderBottomColor: isOdd
+                        ? colors.primary
+                        : colors.secondary,
+                    }}
+                  />
+                  <div
+                    className={`rounded-full h-6 w-full text-light-grey leading-tight font-bold ${
+                      isOdd ? 'bg-primary' : 'bg-secondary'
+                    }`}
+                  >
+                    {getTimeDistance(educationItem)}
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+const Education2 = () => {
   const icons = require.context('../../images/', false);
   return (
     <div className="max-w-[350px] ml-2">
@@ -137,8 +208,34 @@ const WorkExperience = () => {
   );
 };
 
+const TIME_LINE_END_DATE = new Date('2023-07-01');
+const TIME_LINE_START_DATE = new Date('2011-09-01');
+const TIME_SPAN = TIME_LINE_END_DATE.getTime() - TIME_LINE_START_DATE.getTime();
+function getTimePercent(item: EducationType | WorkExperienceType) {
+  const endDate = item.endDate === 'today' ? TIME_LINE_END_DATE : item.endDate;
+  return `${
+    ((endDate.getTime() - item.startDate.getTime()) / TIME_SPAN) * 100
+  }%`;
+}
+
+function getStartOffsetPercent(item: EducationType | WorkExperienceType) {
+  const offset = item.startDate.getTime() - TIME_LINE_START_DATE.getTime();
+  console.log('offset', offset);
+  console.log('item.startDate', item.startDate);
+  return `${(offset / TIME_SPAN) * 100}%`;
+}
+
 function formatDate(date: Date, showDay = false) {
   return showDay ? format(date, 'MMM dd, yyyy') : format(date, 'MMM, yyyy');
+}
+
+function getTimeDistance(item: EducationType | WorkExperienceType) {
+  const endDate = item.endDate === 'today' ? TIME_LINE_END_DATE : item.endDate;
+  const distanceInYears =
+    (differenceInMonths(endDate, item.startDate) + 1) / 12;
+  return distanceInYears > 1
+    ? `${distanceInYears.toFixed(1).replace('.0', '')}y`
+    : `${differenceInMonths(endDate, item.startDate)}m`;
 }
 
 function formatTimePeriod(startDate: Date, endDate: Date | 'today') {
