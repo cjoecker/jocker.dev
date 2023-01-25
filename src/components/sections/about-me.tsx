@@ -96,7 +96,7 @@ const WorkExperience = () => {
               className="text-left flex"
               key={`${experience.position}${experience.logo}`}
             >
-              <div className="flex flex-col w-14 min-w-[60px]">
+              <div className="flex flex-col max-w-[80px] min-w-[80px]">
                 {isLogoVisible ? (
                   <button
                     onClick={() => window.open(experience.link, '_blank')}
@@ -108,11 +108,11 @@ const WorkExperience = () => {
                     />
                   </button>
                 ) : (
-                  <div className="rounded-full min-h-[7px] min-w-[7px] bg-primary mx-auto mt-3 mb-2" />
+                  <div className="rounded-full min-h-[7px] min-w-[7px] bg-primary mx-auto mt-3 mb-1" />
                 )}
                 {!isLastItem && (
                   <div
-                    className={`w-[1px] h-full bg-primary mx-auto mt-2 rounded-full ${
+                    className={`w-[1px] h-full bg-primary mx-auto mt-1 rounded-full ${
                       hasNextItemLogo ? '' : '-mb-3'
                     }`}
                   />

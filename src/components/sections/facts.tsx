@@ -30,11 +30,19 @@ export const Facts = () => {
             priority.
           </p>
         </motion.div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-8 justify-between mx-auto flex-wrap">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.9, once: true }}
+          transition={{
+            staggerChildren: 0.2,
+          }}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-8 justify-between mx-auto flex-wrap"
+        >
           <Fact number={8} label={'Years of experience'} icon="strong" />
           <Fact number={23} label={'Developed apps'} icon="smartphone" />
           <Fact number={13} label={'Happy customers'} icon="happy" />
-        </div>
+        </motion.div>
       </div>
     </Section>
   );
@@ -61,7 +69,6 @@ const Fact = ({
     if (ref.current) {
       ref.current.textContent = '0';
     }
-    scrollYProgress.onChange(val=> console.log("val", val))
     content.onChange(val => {
       if (!ref.current) {
         return;
@@ -79,12 +86,16 @@ const Fact = ({
 
   return (
     <div className="col-span-1 flex flex-col min-w-[220px] p-4 rounded-lg">
-      <img
+      <motion.img
         className="mx-auto"
         alt={icon}
         width="150"
         height="150"
         src={icons(`./${icon}.svg`)}
+        variants={{
+          visible: { opacity: 1, y: 0 },
+          hidden: { opacity: 0, y: -200 },
+        }}
       />
       <div ref={ref} className="text-7xl mt-3 text-primary" />
       <div className="text-2xl opacity-80">{label}</div>
