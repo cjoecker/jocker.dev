@@ -1,16 +1,21 @@
-export const education: StudiesType[] = [
-  {
-    logo: 'scmt.svg',
-    degree: 'Master of Business Engineering (MBE®)',
-    location: 'Filderstadt, Germany',
-    timePeriod: '2016-2018',
-  },
+export const education: EducationType[] = [
   {
     logo: 'th-wildau.svg',
     degree: 'Mechanical Engineering (B. Eng.)',
     location: 'Wildau, Germany',
     timePeriod: '2011-2014',
+    startDate: new Date('2011-09'),
+    endDate: new Date('2014-08'),
+
   },
+  {
+    logo: 'scmt.svg',
+    degree: 'Master of Business Engineering (MBE®)',
+    location: 'Filderstadt, Germany',
+    timePeriod: '2016-2018',
+    startDate: new Date('2016-02'),
+    endDate: new Date('2018-04'),
+  }
 ];
 
 export const funFacts: string[] = [
@@ -77,11 +82,13 @@ export const WorkExperienceData: WorkExperienceType[] = [
   },
 ];
 
-export type StudiesType = {
+export type EducationType = {
   logo: string;
   degree: string;
   location: string;
   timePeriod: string;
+  startDate: Date;
+  endDate: Date | 'today';
 };
 
 export type LanguagesType = {
@@ -90,7 +97,7 @@ export type LanguagesType = {
   icon: string;
 };
 
-type WorkExperienceType = {
+export type WorkExperienceType = {
   logo: string;
   link: string;
   position: string;

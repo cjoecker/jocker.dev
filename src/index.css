@@ -82,3 +82,11 @@ button {
   -webkit-print-color-adjust: exact;
   -webkit-filter: opacity(1);
 }
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid;
+}
