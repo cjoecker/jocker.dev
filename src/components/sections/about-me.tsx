@@ -58,7 +58,6 @@ const WorkExperience = () => {
               </div>
               <div
                 className="bg-contain flex p-3 bg-timeline-circle rounded-full"
-                // style={{ backgroundImage: `url(${icons(`./circle.svg`)})` }}
               >
                 <img
                   width="40"
@@ -105,7 +104,7 @@ const ExperienceItem = ({
   return (
     <div
       className={`flex my-5 ${
-        isOdd ? 'text-left justify-start ml-4' : 'text-right justify-end mr-4'
+        isOdd ? 'text-left justify-start ml-6' : 'text-right justify-end mr-6'
       }`}
     >
       <div className="mb-2">
