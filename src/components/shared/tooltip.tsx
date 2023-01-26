@@ -31,7 +31,7 @@ export const Tooltip = ({ children, text }: Props) => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0 }}
               transition={{ ease: 'easeInOut', duration: 0.2 }}
-              className={`w-full rounded-xl max-w-[150px] shadow-md m-2 bg-light-grey px-2 py-1`}
+              className={`w-full rounded-xl max-w-[150px] shadow-md m-3 bg-light-grey px-3 py-2`}
             >
               {text}
             </motion.div>
