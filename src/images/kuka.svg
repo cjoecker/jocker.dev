@@ -1,7 +1,9 @@
-<svg width="100%" height="100%" viewBox="0 0 100 35" version="1.1" xmlns="http://www.w3.org/2000/svg"
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 100 18" version="1.1" xmlns="http://www.w3.org/2000/svg"
      xml:space="preserve"
      style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <g transform="matrix(0.0986591,0,0,0.0986591,-0.513445,8.42333)">
+    <g transform="matrix(0.0986591,0,0,0.0986591,-0.564103,-0.450996)">
         <g>
             <g id="polygon3986" transform="matrix(1,0,0,1,-174.111,-168.577)">
                 <path d="M409.832,344.333L304.684,257.703L409.832,173.84L332.993,173.84L234.018,257.703L234.018,173.84L179.316,173.84L179.316,344.333L234.018,344.333L234.018,257.703L332.993,344.333L409.832,344.333Z" style="fill:url(#_Linear1);fill-rule:nonzero;"/>
