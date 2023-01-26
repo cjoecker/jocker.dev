@@ -11,11 +11,11 @@ export const CoreValues = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ amount: 0.9, once: true }}
+          viewport={{ amount: 0.2, once: true }}
           transition={{
             staggerChildren: 0.3,
           }}
-          className="grid grid-cols-1 sm:grid-cols-2 mx-auto gap-y-6 gap-x-16"
+          className="grid grid-cols-1 sm:grid-cols-2 mx-auto gap-y-12 gap-x-16"
         >
           {CoreValuesData.map(value => {
             return <CoreValue key={value.coreValue} coreValue={value} />;
@@ -23,12 +23,12 @@ export const CoreValues = () => {
         </motion.div>
         <div className="m-auto px-2">
           <motion.img
-            className="w-full max-w-[350px] h-auto mt-6 sm:-mt-5"
+            className="w-full max-w-[350px] h-auto mt-12 sm:-mt-5"
             src={meditatingImage}
             alt="avatar of myself meditating"
             initial="hidden"
             whileInView="visible"
-            viewport={{ amount: 0.9, once: true }}
+            viewport={{ amount: 0.5, once: true }}
             transition={{ duration: 2 }}
             variants={{
               visible: { opacity: 1, y: 0 },

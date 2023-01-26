@@ -28,7 +28,7 @@ export const CoursesAndConferences = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ amount: 0.9, once: true }}
+            viewport={{ amount: 0.2, once: true }}
             transition={{
               staggerChildren: 0.1,
             }}
