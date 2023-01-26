@@ -51,7 +51,7 @@ export const ContactButton = ({
         onClick={() => {
           window.location.href = contactInformation.href;
         }}
-        className=" bg-tag rounded-full w-16 h-16 flex cursor-pointer p-3"
+        className="bg-contact rounded-full w-16 h-16 flex cursor-pointer p-3"
       >
         <img
           width="84"
