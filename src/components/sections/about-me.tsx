@@ -14,6 +14,8 @@ export const AboutMe = () => {
   return (
     <Section title="Education and Work Experience">
       <Education />
+      <WorkExperience />
+
       {/*<div className="flex gap-20 mx-auto justify-center flex-wrap">*/}
       {/*<WorkExperience />*/}
       {/*<Languages />*/}
@@ -27,19 +29,19 @@ const Education = () => {
   const icons = require.context('../../images/', false);
   return (
     <div className="flex">
-      <h3 className="text-xl mb-4 flex-0 mr-3">Education</h3>
-      <div className="flex-1 relative">
+      {/*<h3 className="text-xl mb-4 flex-0 mr-3">Education</h3>*/}
+      <div className="flex-1 relative h-[180px]">
         {education.map((educationItem, index) => {
           const isOdd = index % 2 === 0;
           return (
             <div
-              className="absolute min-h-[100px]"
+              className="absolute h-full"
               style={{
                 width: getTimePercent(educationItem),
                 marginLeft: getStartOffsetPercent(educationItem),
               }}
             >
-              <div className="relative min-h-[180px]">
+              <div className="relative min-h-full">
                 <div className="flex flex-col h-full absolute bottom-0 -left-[30px]">
                   <div
                     style={{
@@ -52,16 +54,18 @@ const Education = () => {
                       height="40"
                       alt={getAltTextFromFileName(educationItem.logo)}
                       src={icons(`./${educationItem.logo}`)}
-                      className="w-full object-contain hover:cursor-pointer mt-1"
+                      className="w-full object-contain hover:cursor-pointer"
                     />
                   </div>
-                  <div className="h-full w-full flex-1 flex pb-2" >
-                    <div className={`w-[2px] h-full mx-auto ${
-                      isOdd ? 'bg-primary' : 'bg-secondary'
-                    }`}/>
+                  <div className="h-full w-full flex-1 flex pb-2">
+                    <div
+                      className={`w-[2px] h-full mx-auto ${
+                        isOdd ? 'bg-primary' : 'bg-secondary'
+                      }`}
+                    />
                   </div>
                 </div>
-                <div className="absolute bottom-0">
+                <div className="absolute bottom-0 w-full">
                   <div className="max-w-[170px] mx-auto mb-1">
                     {educationItem.degree}
                   </div>
@@ -79,6 +83,84 @@ const Education = () => {
                     }`}
                   >
                     {getTimeDistance(educationItem)}
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+const background: Record<string, string> = {
+  'kuka.svg': 'bg-primary',
+  'maibornwolff.svg': 'bg-secondary',
+  'me-with-macbook.webp': 'bg-primary',
+};
+
+const WorkExperience = () => {
+  const icons = require.context('../../images/', false);
+  return (
+    <div className="flex">
+      {/*<h3 className="text-xl mb-4 flex-0 mr-3">Education</h3>*/}
+      <div className="flex-1 relative h-[180px]">
+        {WorkExperienceData.map((experienceItem, index) => {
+          const isOdd = index % 2 === 0;
+          return (
+            <div
+              className="absolute h-full mt-6"
+              style={{
+                width: getTimePercent(experienceItem),
+                marginLeft: getStartOffsetPercent(experienceItem),
+              }}
+            >
+              <div className="relative min-h-full">
+                <div className="flex flex-col h-full absolute bottom-0 -left-[30px]">
+                  <div className="h-full w-full flex-1 flex pt-2">
+                    <div
+                      className={`w-[2px] h-full mx-auto ${
+                        isOdd ? 'bg-primary' : 'bg-secondary'
+                      }`}
+                    />
+                  </div>
+                  <div
+                    style={{
+                      borderColor: isOdd ? colors.primary : colors.secondary,
+                    }}
+                    className={`rounded-full bg-light-grey p-3 border-solid border-2 flex-0`}
+                  >
+                    <img
+                      width="40"
+                      height="40"
+                      alt={getAltTextFromFileName(experienceItem.logo)}
+                      src={icons(`./${experienceItem.logo}`)}
+                      className="w-[40px] h-[40px] object-contain hover:cursor-pointer"
+                    />
+                  </div>
+                </div>
+                <div className="absolute top-0 w-full">
+                  <div className="h-6 w-full flex">
+                    <div
+                      className={`h-6 w-full text-light-grey leading-tight font-bold  ${
+                        index === 0 ? 'rounded-l-full' : ''
+                      } ${background[experienceItem.logo]}`}
+                    >
+                      {getTimeDistance(experienceItem)}
+                    </div>
+                    <div className="h-full w-1"/>
+                  </div>
+                  <div
+                    className="arrow-down m-auto"
+                    style={{
+                      borderBottomColor: isOdd
+                        ? colors.primary
+                        : colors.secondary,
+                    }}
+                  />
+                  <div className="max-w-[170px] mx-auto mb-1">
+                    {experienceItem.position}
                   </div>
                 </div>
               </div>
@@ -150,7 +232,7 @@ export const Languages = () => {
   );
 };
 
-const WorkExperience = () => {
+const WorkExperience2 = () => {
   const icons = require.context('../../images/', false);
   return (
     <div className="max-w-[350px]">
@@ -208,21 +290,20 @@ const WorkExperience = () => {
   );
 };
 
-const TIME_LINE_END_DATE = new Date('2023-07-01');
-const TIME_LINE_START_DATE = new Date('2011-09-01');
-const TIME_SPAN = TIME_LINE_END_DATE.getTime() - TIME_LINE_START_DATE.getTime();
+const TIMELINE_END_DATE = new Date('2023-07-01');
+const TIMELINE_START_DATE = new Date('2011-09-01');
+const TIME_SPAN = TIMELINE_END_DATE.getTime() - TIMELINE_START_DATE.getTime();
 function getTimePercent(item: EducationType | WorkExperienceType) {
-  const endDate = item.endDate === 'today' ? TIME_LINE_END_DATE : item.endDate;
-  return `${
-    ((endDate.getTime() - item.startDate.getTime()) / TIME_SPAN) * 100
-  }%`;
+  const endDate = item.endDate === 'today' ? TIMELINE_END_DATE : item.endDate;
+  const percent =
+    ((endDate.getTime() - item.startDate.getTime()) / TIME_SPAN) * 100;
+  return `${percent.toFixed(2)}%`;
 }
 
 function getStartOffsetPercent(item: EducationType | WorkExperienceType) {
-  const offset = item.startDate.getTime() - TIME_LINE_START_DATE.getTime();
-  console.log('offset', offset);
-  console.log('item.startDate', item.startDate);
-  return `${(offset / TIME_SPAN) * 100}%`;
+  const offset = item.startDate.getTime() - TIMELINE_START_DATE.getTime();
+  const percent = (offset / TIME_SPAN) * 100;
+  return `${percent.toFixed(2)}%`;
 }
 
 function formatDate(date: Date, showDay = false) {
@@ -230,7 +311,7 @@ function formatDate(date: Date, showDay = false) {
 }
 
 function getTimeDistance(item: EducationType | WorkExperienceType) {
-  const endDate = item.endDate === 'today' ? TIME_LINE_END_DATE : item.endDate;
+  const endDate = item.endDate === 'today' ? TIMELINE_END_DATE : item.endDate;
   const distanceInYears =
     (differenceInMonths(endDate, item.startDate) + 1) / 12;
   return distanceInYears > 1
