@@ -3,30 +3,20 @@ import { differenceInMonths, format } from 'date-fns';
 import {
   education,
   EducationType,
-  LanguagesData,
   WorkExperienceData,
   WorkExperienceType,
-} from '../../constants/about-me';
+} from '../../constants/experience-and-education';
 import { Section } from '../shared/section';
+import { getAltTextFromFileName } from '../shared/utils';
 
-export const AboutMe = () => {
+export const ExperienceAndEducation = () => {
   return (
     <Section title="Education and Work Experience">
       <WorkExperience />
-      {/*<div className="flex gap-20 mx-auto justify-center flex-wrap">*/}
-      {/*<WorkExperience />*/}
-      {/*<Languages />*/}
-      {/*<Education />*/}
-      {/*</div>*/}
     </Section>
   );
 };
 // TODO rename course icon
-const background: Record<string, string> = {
-  'kuka.svg': 'bg-primary',
-  'maibornwolff.svg': 'bg-secondary',
-  'me-with-macbook.webp': 'bg-primary',
-};
 
 const WorkExperience = () => {
   const icons = require.context('../../images/', false);
@@ -132,32 +122,6 @@ const ExperienceItem = ({
   );
 };
 
-
-export const Languages = () => {
-  const icons = require.context('../../images/', false);
-  return (
-    <div className="max-w-[250px]">
-      <h3 className="text-xl mb-4">Languages</h3>
-      <div className="grid grid-cols-2">
-        {LanguagesData.map(language => {
-          return (
-            <div className="col-span-1" key={language.language}>
-              <img
-                width="40"
-                height="40"
-                alt={getAltTextFromFileName(language.icon)}
-                src={icons(`./${language.icon}`)}
-              />
-              <div className="font-bold">{language.language}</div>
-              <div className="-mt-1">{language.level}</div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-};
-
 function formatDate(date: Date, showDay = false) {
   return showDay ? format(date, 'MMM dd, yyyy') : format(date, 'MMM, yyyy');
 }
@@ -174,8 +138,4 @@ function formatTimePeriod(startDate: Date, endDate: Date | 'today') {
   return endDate === 'today'
     ? `${formatDate(startDate)} - Present  (${distance})`
     : `${formatDate(startDate)} - ${formatDate(endDate)}  (${distance})`;
-}
-
-function getAltTextFromFileName(filename: string) {
-  return filename.replace('.svg', '').replace('-', ' ');
 }

@@ -13,7 +13,7 @@ export const Contributions = () => {
   return (
     <Section title="Community Contributions">
       <div className="flex">
-        <div className="flex flex-wrap gap-x-12 justify-center gap-y-16 mx-auto">
+        <div className="flex flex-wrap gap-x-24 justify-center gap-y-16 mx-auto">
           <div className="flex relative flex-col min-w-[250px]">
             <MyApps />
           </div>
@@ -155,10 +155,10 @@ const MyApps = () => {
   const icons = require.context('../../images/', false);
   return (
     <>
-      <h3 className="text-xl mb-4">My Apps</h3>
+      <h3 className="text-xl mb-6">My Apps</h3>
       <div className="flex">
         <motion.div
-          className="grid grid-cols-2 m-auto gap-4"
+          className="grid grid-cols-2 m-auto gap-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ amount: 0.9, once: true }}

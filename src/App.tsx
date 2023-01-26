@@ -1,4 +1,4 @@
-import { AboutMe } from './components/sections/about-me';
+import { ExperienceAndEducation } from './components/sections/experience-and-education';
 import { Contact } from './components/sections/contact';
 import { Contributions } from './components/sections/contributions';
 import { CoreValues } from './components/sections/core-values';
@@ -6,6 +6,7 @@ import { CoursesAndConferences } from './components/sections/courses-and-confere
 import { Facts } from './components/sections/facts';
 import { Header } from './components/sections/header';
 import { Skills } from './components/sections/skills';
+import { Languages } from './components/sections/languages';
 
 export function App() {
   return (
@@ -15,9 +16,10 @@ export function App() {
         <Facts />
         <Skills />
         <CoreValues />
+        <ExperienceAndEducation />
+        <Languages />
         <CoursesAndConferences />
         <Contributions />
-        <AboutMe />
         <Contact />
       </div>
     </div>

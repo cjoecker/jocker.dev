@@ -6,7 +6,7 @@ import { Section } from '../shared/section';
 export const Facts = () => {
   return (
     <Section>
-      <div className="w-full flex flex-col sticky top-20">
+      <div className="w-full flex flex-col">
         <motion.div
           initial="hidden"
           whileInView="visible"
