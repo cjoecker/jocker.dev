@@ -1,4 +1,5 @@
 import { differenceInMonths, format } from 'date-fns';
+import { motion } from 'framer-motion';
 
 import {
   education,
@@ -46,7 +47,14 @@ const WorkExperience = () => {
                   ? 'bg-gradient-to-t from-secondary to-transparent'
                   : 'bg-secondary'}`} />
               </div>
-              <div
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ amount: 'all', once: true }}
+                variants={{
+                  visible: {  scale: 1 },
+                  hidden: { scale:0 },
+                }}
                 className="bg-contain flex p-3 bg-timeline-circle rounded-full"
               >
                 <img
@@ -55,7 +63,7 @@ const WorkExperience = () => {
                   alt={isWork ? 'office' : 'course'}
                   src={icons(`./${isWork ? 'office' : 'course'}.svg`)}
                 />
-              </div>
+              </motion.div>
               <div className="flex-1 pt-2">
                 <span
                   className={`w-[3px] h-full flex mx-auto rounded-t-full opacity-60 ${
@@ -92,7 +100,15 @@ const ExperienceItem = ({
 }) => {
   const icons = require.context('../../images/', false);
   return (
-    <div
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.2, once: true }}
+      transition={{ duration: 1, delay: 0.7, ease: 'easeOut' }}
+      variants={{
+        visible: { opacity: 1, x: 0 },
+        hidden: { opacity: 0, x: isOdd ? 100 : -100 },
+      }}
       className={`flex my-5 ${
         isOdd ? 'text-left justify-start ml-6' : 'text-right justify-end mr-6'
       }`}
@@ -118,7 +134,7 @@ const ExperienceItem = ({
         </div>
         <div className="opacity-80 leading-tight mt-1">{item.location}</div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

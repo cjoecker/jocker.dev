@@ -13,7 +13,7 @@ export const Contributions = () => {
   return (
     <Section title="Community Contributions">
       <div className="flex">
-        <div className="flex flex-wrap gap-x-24 justify-center gap-y-16 mx-auto">
+        <div className="flex flex-wrap gap-x-24 justify-center gap-y-36 mx-auto">
           <div className="flex relative flex-col min-w-[250px]">
             <MyApps />
           </div>
@@ -161,7 +161,7 @@ const MyApps = () => {
           className="grid grid-cols-2 m-auto gap-8"
           initial="hidden"
           whileInView="visible"
-          viewport={{ amount: 0.9, once: true }}
+          viewport={{ amount: 0.2, once: true }}
           transition={{
             staggerChildren: 0.3,
           }}

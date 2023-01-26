@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { LanguagesData } from '../../constants/experience-and-education';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
@@ -6,11 +7,19 @@ export const Languages = () => {
   const icons = require.context('../../images/', false);
   return (
     <Section title="Languages">
-      <div className="grid grid-cols-1 md:grid-cols-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-y-20">
         {LanguagesData.map(language => {
           return (
             <div className="col-span-1" key={language.language}>
-              <img
+              <motion.img
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ amount: 0.1, once: true }}
+                transition={{ duration: 0.7 }}
+                variants={{
+                  visible: { opacity: 1, y: 0 },
+                  hidden: { opacity: 0, y: 100 },
+                }}
                 width="130"
                 height="130"
                 alt={getAltTextFromFileName(language.icon)}

@@ -30,19 +30,11 @@ export const Facts = () => {
             priority.
           </p>
         </motion.div>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ amount: 0.9, once: true }}
-          transition={{
-            staggerChildren: 0.2,
-          }}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-8 justify-between mx-auto flex-wrap"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-8 justify-between mx-auto flex-wrap">
           <Fact number={8} label={'Years of experience'} icon="strong" />
           <Fact number={23} label={'Developed apps'} icon="smartphone" />
           <Fact number={13} label={'Happy customers'} icon="happy" />
-        </motion.div>
+        </div>
       </div>
     </Section>
   );
@@ -92,9 +84,13 @@ const Fact = ({
         width="150"
         height="150"
         src={icons(`./${icon}.svg`)}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ amount: 0.9, once: true }}
+        transition={{ duration: 0.7 }}
         variants={{
           visible: { opacity: 1, y: 0 },
-          hidden: { opacity: 0, y: -200 },
+          hidden: { opacity: 0, y: 100 },
         }}
       />
       <div ref={ref} className="text-7xl mt-3 text-primary" />

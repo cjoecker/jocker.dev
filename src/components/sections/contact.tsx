@@ -12,7 +12,7 @@ export const Contact = () => {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ amount: 0.9, once: true }}
+        viewport={{ amount: 0.5, once: true }}
         transition={{
           staggerChildren: 0.1,
         }}
