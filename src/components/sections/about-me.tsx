@@ -52,13 +52,13 @@ const WorkExperience = () => {
             </div>
             <div className="flex-grow-0 flex-shrink-0 flex flex-col">
               <div className="flex-1 pb-2">
-                <span className={`w-[2px] h-full flex mx-auto rounded-b-full opacity-50 ${isFirst
+                <span className={`w-[3px] h-full flex mx-auto rounded-b-full opacity-60 ${isFirst
                   ? 'bg-gradient-to-t from-secondary to-transparent'
                   : 'bg-secondary'}`} />
               </div>
               <div
-                className="bg-contain flex p-2"
-                style={{ backgroundImage: `url(${icons(`./circle.svg`)})` }}
+                className="bg-contain flex p-3 bg-timeline-circle rounded-full"
+                // style={{ backgroundImage: `url(${icons(`./circle.svg`)})` }}
               >
                 <img
                   width="40"
@@ -69,7 +69,7 @@ const WorkExperience = () => {
               </div>
               <div className="flex-1 pt-2">
                 <span
-                  className={`w-[2px] h-full flex mx-auto rounded-t-full opacity-50 ${
+                  className={`w-[3px] h-full flex mx-auto rounded-t-full opacity-60 ${
                     isLast
                       ? 'bg-gradient-to-b from-secondary to-transparent'
                       : 'bg-secondary'

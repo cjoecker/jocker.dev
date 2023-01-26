@@ -65,24 +65,30 @@ button {
   padding: unset;
 }
 
-.bg-fact {
-  background: linear-gradient(145deg, #c5c5d9, #d7d7e5);
-  box-shadow: 5px 5px 12px rgb(181, 181, 199),
-    -5px -5px 12px rgba(229, 229, 245, 0.6);
-}
-
 .bg-stack-overflow {
-  background: #e0e0e0;
-  box-shadow: inset 5px 5px 11px #cacaca, inset -5px -5px 11px #f6f6f6;
+  background: #e3e3ec;
+  box-shadow: inset 4px 4px 6px #a1a1af,
+  inset -4px -4px 6px #f3f3fc;
 }
 
 .bg-tag {
-  background: linear-gradient(145deg, #c5c5d9, #d7d7e5);
-  box-shadow: 3px 3px 5px rgb(181, 181, 199),
-    -3px -3px 5px rgba(229, 229, 245, 0.5);
-  -webkit-print-color-adjust: exact;
-  -webkit-filter: opacity(1);
+  background: #c9c9dc;
+  box-shadow: inset 1px 1px 3px #9494a2,
+  inset -1px -1px 3px #e8e8f5;
 }
+
+.bg-contact {
+  background: linear-gradient(145deg, #cbcbdf, #ababbb);
+  box-shadow:  5px 5px 11px #90909f,
+  -5px -5px 11px #d6d6e7;
+}
+
+.bg-timeline-circle{
+  background: #bebed0;
+  box-shadow: inset 4px 4px 6px #9797a6,
+  inset -4px -4px 6px #d7d7eb;
+}
+
 
 .arrow-up {
   width: 0;
