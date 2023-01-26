@@ -67,28 +67,23 @@ button {
 
 .bg-stack-overflow {
   background: #e3e3ec;
-  box-shadow: inset 4px 4px 6px #a1a1af,
-  inset -4px -4px 6px #f3f3fc;
+  box-shadow: inset 4px 4px 6px #a1a1af, inset -4px -4px 6px #f3f3fc;
 }
 
 .bg-tag {
   background: #c9c9dc;
-  box-shadow: inset 1px 1px 3px #9494a2,
-  inset -1px -1px 3px #e8e8f5;
+  box-shadow: inset 1px 1px 3px #9494a2, inset -1px -1px 3px #e8e8f5;
 }
 
 .bg-contact {
   background: linear-gradient(145deg, #cbcbdf, #ababbb);
-  box-shadow:  5px 5px 11px #90909f,
-  -5px -5px 11px #d6d6e7;
+  box-shadow: 5px 5px 11px #90909f, -5px -5px 11px #d6d6e7;
 }
 
-.bg-timeline-circle{
+.bg-timeline-circle {
   background: #bebed0;
-  box-shadow: inset 4px 4px 6px #9797a6,
-  inset -4px -4px 6px #d7d7eb;
+  box-shadow: inset 4px 4px 6px #9797a6, inset -4px -4px 6px #d7d7eb;
 }
-
 
 .arrow-up {
   width: 0;

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+
 import { LanguagesData } from '../../constants/experience-and-education';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
@@ -34,4 +35,3 @@ export const Languages = () => {
     </Section>
   );
 };
-

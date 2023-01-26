@@ -6,7 +6,6 @@ export const education: EducationType[] = [
     location: 'Wildau, Germany',
     startDate: new Date('2011-09'),
     endDate: new Date('2014-08'),
-
   },
   {
     logo: 'scmt.svg',
@@ -15,7 +14,7 @@ export const education: EducationType[] = [
     location: 'Filderstadt, Germany',
     startDate: new Date('2016-02'),
     endDate: new Date('2018-04'),
-  }
+  },
 ];
 
 export const funFacts: string[] = [

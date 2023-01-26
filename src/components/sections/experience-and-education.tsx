@@ -29,31 +29,33 @@ const WorkExperience = () => {
       {workAndEducation.map((experienceItem, index) => {
         const isOdd = index % 2 === 0;
         const isWork = 'link' in experienceItem;
-        const isFirst = index === 0
-        const isLast = index === workAndEducation.length - 1
+        const isFirst = index === 0;
+        const isLast = index === workAndEducation.length - 1;
         return (
-          <div className="flex">
+          <div
+            className="flex"
+            key={`${experienceItem.title}${experienceItem.logo}`}
+          >
             <div className="flex-1 min-w-0">
-              {!isOdd && (
-                <ExperienceItem
-                  isOdd={isOdd}
-                  item={experienceItem}
-                />
-              )}
+              {!isOdd && <ExperienceItem isOdd={isOdd} item={experienceItem} />}
             </div>
             <div className="flex-grow-0 flex-shrink-0 flex flex-col">
               <div className="flex-1 pb-2">
-                <span className={`w-[3px] h-full flex mx-auto rounded-b-full opacity-60 ${isFirst
-                  ? 'bg-gradient-to-t from-secondary to-transparent'
-                  : 'bg-secondary'}`} />
+                <span
+                  className={`w-[3px] h-full flex mx-auto rounded-b-full opacity-60 ${
+                    isFirst
+                      ? 'bg-gradient-to-t from-secondary to-transparent'
+                      : 'bg-secondary'
+                  }`}
+                />
               </div>
               <motion.div
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ amount: 'all', once: true }}
                 variants={{
-                  visible: {  scale: 1 },
-                  hidden: { scale:0 },
+                  visible: { scale: 1 },
+                  hidden: { scale: 0 },
                 }}
                 className="bg-contain flex p-3 bg-timeline-circle rounded-full"
               >
@@ -75,12 +77,7 @@ const WorkExperience = () => {
               </div>
             </div>
             <div className="flex-1 min-w-0">
-              {isOdd && (
-                <ExperienceItem
-                  isOdd={isOdd}
-                  item={experienceItem}
-                />
-              )}
+              {isOdd && <ExperienceItem isOdd={isOdd} item={experienceItem} />}
             </div>
           </div>
         );
@@ -128,7 +125,9 @@ const ExperienceItem = ({
             className="w-full object-contain hover:cursor-pointer"
           />
         </button>
-        <div className="text-lg mt-1" style={{ lineHeight: '1.1rem' }}>{item.title}</div>
+        <div className="text-lg mt-1" style={{ lineHeight: '1.1rem' }}>
+          {item.title}
+        </div>
         <div className="opacity-80 leading-tight mt-2">
           {formatTimePeriod(item.startDate, item.endDate)}
         </div>
