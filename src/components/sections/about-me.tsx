@@ -42,7 +42,7 @@ const WorkExperience = () => {
         const isLast = index === workAndEducation.length - 1
         return (
           <div className="flex">
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               {!isOdd && (
                 <ExperienceItem
                   isOdd={isOdd}
@@ -77,7 +77,7 @@ const WorkExperience = () => {
                 />
               </div>
             </div>
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               {isOdd && (
                 <ExperienceItem
                   isOdd={isOdd}
@@ -104,10 +104,9 @@ const ExperienceItem = ({
   const icons = require.context('../../images/', false);
   return (
     <div
-      className={`flex my-5 mx-4 ${
-        isOdd ? 'text-left justify-start' : 'text-right justify-end'
+      className={`flex my-5 ${
+        isOdd ? 'text-left justify-start ml-4' : 'text-right justify-end mr-4'
       }`}
-      key={`${item.title}${item.logo}`}
     >
       <div className="mb-2">
         <button
@@ -124,11 +123,11 @@ const ExperienceItem = ({
             className="w-full object-contain hover:cursor-pointer"
           />
         </button>
-        <div className="text-lg" style={{ lineHeight: '1.1rem' }}>{item.title}</div>
-        <div className="opacity-80">
+        <div className="text-lg mt-1" style={{ lineHeight: '1.1rem' }}>{item.title}</div>
+        <div className="opacity-80 leading-tight mt-2">
           {formatTimePeriod(item.startDate, item.endDate)}
         </div>
-        <div className="opacity-80 -mt-1">{item.location}</div>
+        <div className="opacity-80 leading-tight mt-1">{item.location}</div>
       </div>
     </div>
   );
