@@ -8,89 +8,17 @@ import {
   WorkExperienceType,
 } from '../../constants/about-me';
 import { Section } from '../shared/section';
-import colors from '../../constants/colors';
 
 export const AboutMe = () => {
   return (
     <Section title="Education and Work Experience">
-      <Education />
       <WorkExperience />
-
       {/*<div className="flex gap-20 mx-auto justify-center flex-wrap">*/}
       {/*<WorkExperience />*/}
       {/*<Languages />*/}
       {/*<Education />*/}
       {/*</div>*/}
     </Section>
-  );
-};
-
-const Education = () => {
-  const icons = require.context('../../images/', false);
-  return (
-    <div className="flex">
-      {/*<h3 className="text-xl mb-4 flex-0 mr-3">Education</h3>*/}
-      <div className="flex-1 relative h-[180px]">
-        {education.map((educationItem, index) => {
-          const isOdd = index % 2 === 0;
-          return (
-            <div
-              className="absolute h-full"
-              style={{
-                width: getTimePercent(educationItem),
-                marginLeft: getStartOffsetPercent(educationItem),
-              }}
-            >
-              <div className="relative min-h-full">
-                <div className="flex flex-col h-full absolute bottom-0 -left-[30px]">
-                  <div
-                    style={{
-                      borderColor: isOdd ? colors.primary : colors.secondary,
-                    }}
-                    className={`rounded-full bg-light-grey w-fit p-3 border-solid border-2 flex-0`}
-                  >
-                    <img
-                      width="40"
-                      height="40"
-                      alt={getAltTextFromFileName(educationItem.logo)}
-                      src={icons(`./${educationItem.logo}`)}
-                      className="w-full object-contain hover:cursor-pointer"
-                    />
-                  </div>
-                  <div className="h-full w-full flex-1 flex pb-2">
-                    <div
-                      className={`w-[2px] h-full mx-auto ${
-                        isOdd ? 'bg-primary' : 'bg-secondary'
-                      }`}
-                    />
-                  </div>
-                </div>
-                <div className="absolute bottom-0 w-full">
-                  <div className="max-w-[170px] mx-auto mb-1">
-                    {educationItem.degree}
-                  </div>
-                  <div
-                    className="arrow-up m-auto"
-                    style={{
-                      borderBottomColor: isOdd
-                        ? colors.primary
-                        : colors.secondary,
-                    }}
-                  />
-                  <div
-                    className={`rounded-full h-6 w-full text-light-grey leading-tight font-bold ${
-                      isOdd ? 'bg-primary' : 'bg-secondary'
-                    }`}
-                  >
-                    {getTimeDistance(educationItem)}
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
   );
 };
 
@@ -103,70 +31,91 @@ const background: Record<string, string> = {
 const WorkExperience = () => {
   const icons = require.context('../../images/', false);
   return (
-    <div className="flex">
-      {/*<h3 className="text-xl mb-4 flex-0 mr-3">Education</h3>*/}
-      <div className="flex-1 relative h-[180px]">
-        {WorkExperienceData.map((experienceItem, index) => {
-          const isOdd = index % 2 === 0;
-          return (
-            <div
-              className="absolute h-full mt-6"
-              style={{
-                width: getTimePercent(experienceItem),
-                marginLeft: getStartOffsetPercent(experienceItem),
-              }}
-            >
-              <div className="relative min-h-full">
-                <div className="flex flex-col h-full absolute bottom-0 -left-[30px]">
-                  <div className="h-full w-full flex-1 flex pt-2">
-                    <div
-                      className={`w-[2px] h-full mx-auto ${
-                        isOdd ? 'bg-primary' : 'bg-secondary'
-                      }`}
-                    />
-                  </div>
-                  <div
-                    style={{
-                      borderColor: isOdd ? colors.primary : colors.secondary,
-                    }}
-                    className={`rounded-full bg-light-grey p-3 border-solid border-2 flex-0`}
-                  >
-                    <img
-                      width="40"
-                      height="40"
-                      alt={getAltTextFromFileName(experienceItem.logo)}
-                      src={icons(`./${experienceItem.logo}`)}
-                      className="w-[40px] h-[40px] object-contain hover:cursor-pointer"
-                    />
-                  </div>
-                </div>
-                <div className="absolute top-0 w-full">
-                  <div className="h-6 w-full flex">
-                    <div
-                      className={`h-6 w-full text-light-grey leading-tight font-bold  ${
-                        index === 0 ? 'rounded-l-full' : ''
-                      } ${background[experienceItem.logo]}`}
-                    >
-                      {getTimeDistance(experienceItem)}
-                    </div>
-                    <div className="h-full w-1"/>
-                  </div>
-                  <div
-                    className="arrow-down m-auto"
-                    style={{
-                      borderBottomColor: isOdd
-                        ? colors.primary
-                        : colors.secondary,
-                    }}
-                  />
-                  <div className="max-w-[170px] mx-auto mb-1">
-                    {experienceItem.position}
-                  </div>
-                </div>
+    <div className="flex w-full flex-col">
+      {WorkExperienceData.map((experienceItem, index) => {
+        const isOdd = index % 2 === 0;
+        return (
+          <div className="flex">
+            <div className="flex-1">
+              {!isOdd && (
+                <ExperienceItem
+                  isOdd={isOdd}
+                  item={experienceItem}
+                  isLogoVisible={true}
+                />
+              )}
+            </div>
+            <div className="flex-grow-0 flex-shrink-0 flex flex-col">
+              <div className="flex-1 pb-2">
+                <span className="w-[1px] h-full bg-secondary flex mx-auto" />
+              </div>
+              <div
+                className="bg-contain flex p-2"
+                style={{ backgroundImage: `url(${icons(`./circle.svg`)})` }}
+              >
+                <img
+                  width="40"
+                  height="40"
+                  alt={'university'}
+                  src={icons(`./course.svg`)}
+                />
+              </div>
+              <div className="flex-1 pt-2">
+                <span className="w-[1px] h-full bg-secondary flex mx-auto" />
               </div>
             </div>
-          );
-        })}
+            <div className="flex-1">
+              {isOdd && (
+                <ExperienceItem
+                  isOdd={isOdd}
+                  item={experienceItem}
+                  isLogoVisible={true}
+                />
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+// TODO make connection line a separate container
+
+const ExperienceItem = ({
+  item,
+  isLogoVisible,
+  isOdd,
+}: {
+  item: WorkExperienceType;
+  isLogoVisible: boolean;
+  isOdd: boolean;
+}) => {
+  const icons = require.context('../../images/', false);
+
+  return (
+    <div
+      className={`flex my-6 mx-3 ${
+        isOdd ? 'text-left justify-start' : 'text-right justify-end'
+      }`}
+      key={`${item.position}${item.logo}`}
+    >
+      <div className="mb-2">
+        <button
+          className="max-w-[100px]"
+          onClick={() => window.open(item.link, '_blank')}
+        >
+          <img
+            alt={getAltTextFromFileName(item.logo)}
+            src={icons(`./${item.logo}`)}
+            className="w-full object-contain hover:cursor-pointer mt-1"
+          />
+        </button>
+        <div style={{ lineHeight: '1.1rem' }}>{item.position}</div>
+        <div className="text-sm opacity-80">
+          {formatTimePeriod(item.startDate, item.endDate)}
+        </div>
+        <div className="text-sm opacity-80 -mt-1">{item.location}</div>
       </div>
     </div>
   );
