@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.395137f9.css",
-    "main.js": "/static/js/main.bf6ac97a.js",
+    "main.css": "/static/css/main.a0562d81.css",
+    "main.js": "/static/js/main.4f508eda.js",
     "static/js/495.ffc228f5.chunk.js": "/static/js/495.ffc228f5.chunk.js",
     "static/media/pretzel.svg": "/static/media/pretzel.cf53d66f183383fea5e1.svg",
     "static/media/meditating.webp": "/static/media/meditating.bdf05b25667acf27c655.webp",
     "static/media/conference.svg": "/static/media/conference.0bd2ff3ac4b8d214f10caddeb831413a.svg",
+    "static/media/office.svg": "/static/media/office.d01fa3d8c63506e8af41.svg",
     "static/media/core-values-finder.svg": "/static/media/core-values-finder.a3c40180b6157df7ca01.svg",
     "static/media/feijoada.svg": "/static/media/feijoada.e9c54d55bde4087c09a2.svg",
-    "static/media/th-wildau.svg": "/static/media/th-wildau.9bbf9292b144cc3ebb76.svg",
+    "static/media/th-wildau.svg": "/static/media/th-wildau.e362da6112dec06f578b.svg",
     "static/media/paella.svg": "/static/media/paella.8af0be8826b7669f3534.svg",
     "static/media/smartphone.svg": "/static/media/smartphone.5f2fb034879f6bcd5798.svg",
     "static/media/hamburguer.svg": "/static/media/hamburguer.2d9ac6681bcb6bed3c10.svg",
@@ -20,12 +21,12 @@
     "static/media/curriculum-generator.svg": "/static/media/curriculum-generator.732827ea172d8eb08a41.svg",
     "static/media/course.svg": "/static/media/course.affc1dfcd700073c83974cd0426b72d4.svg",
     "static/media/d-cide.svg": "/static/media/d-cide.cd02f0e0cda24e3c4e66.svg",
-    "static/media/maibornwolff.svg": "/static/media/maibornwolff.874d334c6c7e9c49bb2e.svg",
+    "static/media/maibornwolff.svg": "/static/media/maibornwolff.399992c2e0d5e4236bb1.svg",
     "static/media/happy.svg": "/static/media/happy.f588d76a6a4c5e89c6cc.svg",
-    "static/media/me-with-macbook.webp": "/static/media/me-with-macbook.c2a50035e35cba031b80.webp",
+    "static/media/me-with-macbook.webp": "/static/media/me-with-macbook.60c45f751ada60eebbb5.webp",
     "static/media/framer-motion.svg": "/static/media/framer-motion.03e1dcb8923818f268e1.svg",
-    "static/media/kuka.svg": "/static/media/kuka.a48b14e51f7930824767.svg",
-    "static/media/scmt.svg": "/static/media/scmt.48db35955feae5f89f87.svg",
+    "static/media/scmt.svg": "/static/media/scmt.159b9a9451d39b3bd4a9.svg",
+    "static/media/kuka.svg": "/static/media/kuka.33277b2d2e25f6043149.svg",
     "static/media/mui.svg": "/static/media/mui.f7a34300ff2294adf930.svg",
     "index.html": "/index.html",
     "static/media/3-point-estimator.svg": "/static/media/3-point-estimator.19db691503f32744d4c2.svg",
@@ -34,12 +35,12 @@
     "static/media/stack-overflow.svg": "/static/media/stack-overflow.324f529c3cc03b384475.svg",
     "static/media/linkedin.svg": "/static/media/linkedin.6792d1c6c230b4c04ce2.svg",
     "static/media/email.svg": "/static/media/email.557223c2b8fe471bdc3e.svg",
-    "main.395137f9.css.map": "/static/css/main.395137f9.css.map",
-    "main.bf6ac97a.js.map": "/static/js/main.bf6ac97a.js.map",
+    "main.a0562d81.css.map": "/static/css/main.a0562d81.css.map",
+    "main.4f508eda.js.map": "/static/js/main.4f508eda.js.map",
     "495.ffc228f5.chunk.js.map": "/static/js/495.ffc228f5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.395137f9.css",
-    "static/js/main.bf6ac97a.js"
+    "static/css/main.a0562d81.css",
+    "static/js/main.4f508eda.js"
   ]
 }
