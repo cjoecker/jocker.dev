@@ -79,6 +79,7 @@ const Fact = ({
   return (
     <div className="col-span-1 flex flex-col min-w-[220px] p-4 rounded-lg">
       <motion.img
+        loading="lazy"
         className="mx-auto"
         alt={icon}
         width="150"

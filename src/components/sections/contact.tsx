@@ -54,6 +54,7 @@ export const ContactButton = ({
         className="bg-contact rounded-full w-16 h-16 flex cursor-pointer p-3"
       >
         <img
+          loading="lazy"
           width="84"
           height="84"
           alt={contactInformation.text}

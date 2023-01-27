@@ -63,6 +63,7 @@ const CourseItem = ({ course }: { course: CourseType }) => {
   return (
     <>
       <img
+        loading="lazy"
         className="mt-1 mr-1"
         alt="course"
         src={courseImg}
@@ -83,6 +84,7 @@ const ConferenceItem = ({ conference }: { conference: ConferenceType }) => {
   return (
     <>
       <img
+        loading="lazy"
         className="mt-1 mr-1"
         alt="conference"
         src={conferenceImg}
