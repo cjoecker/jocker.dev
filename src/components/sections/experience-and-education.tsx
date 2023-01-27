@@ -7,6 +7,7 @@ import {
   WorkExperienceData,
   WorkExperienceType,
 } from '../../constants/experience-and-education';
+import { useNarrowView } from '../../hooks/useNarrowView';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
 
@@ -97,18 +98,22 @@ const ExperienceItem = ({
   isOdd: boolean;
 }) => {
   const icons = require.context('../../images/', false);
+  const { isNarrowView } = useNarrowView();
+
   return (
     <motion.div
       initial="hidden"
       whileInView="visible"
       viewport={{ amount: 0.2, once: true }}
-      transition={{ duration: 1, delay: 0.7, ease: 'easeOut' }}
+      transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
       variants={{
         visible: { opacity: 1, x: 0 },
-        hidden: { opacity: 0, x: isOdd ? 100 : -100 },
+        hidden: { opacity: 0, x: xAnimationStartPos(isNarrowView, isOdd) },
       }}
-      className={`flex my-5 ${
-        isOdd ? 'text-left justify-start ml-6' : 'text-right justify-end mr-6'
+      className={`flex my-5 overflow-hidden max-w-fit ${
+        isOdd
+          ? 'text-left justify-start ml-3 md:ml-6'
+          : 'text-right justify-end mr-3 md:mr-6'
       }`}
     >
       <div className="mb-2">
@@ -127,17 +132,29 @@ const ExperienceItem = ({
             className="w-full object-contain hover:cursor-pointer"
           />
         </button>
-        <div className="text-lg mt-1" style={{ lineHeight: '1.1rem' }}>
+        <div
+          className="text-base md:text-lg mt-1 break-words"
+          style={{ lineHeight: '1.1rem' }}
+        >
           {item.title}
         </div>
-        <div className="opacity-80 leading-tight mt-2">
+        <div className="opacity-80 leading-tight mt-2 text-sm md:text-base">
           {formatTimePeriod(item.startDate, item.endDate)}
         </div>
-        <div className="opacity-80 leading-tight mt-1">{item.location}</div>
+        <div className="opacity-80 leading-tight mt-1 text-sm md:text-base">
+          {item.location}
+        </div>
       </div>
     </motion.div>
   );
 };
+
+function xAnimationStartPos(isNarrowView: boolean, isOdd: boolean) {
+  if (isNarrowView) {
+    return 0;
+  }
+  return isOdd ? 100 : -100;
+}
 
 function formatDate(date: Date, showDay = false) {
   return showDay ? format(date, 'MMM dd, yyyy') : format(date, 'MMM, yyyy');
