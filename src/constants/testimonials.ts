@@ -1,6 +1,6 @@
-export const testimonials: TestimonialsType[] = [
+const testimonialsShort: TestimonialsType[] = [
   {
-    testimonial: `Christian is a very creative person with attention to details. 
+    testimonial: `aaaChristian is a very creative person with attention to details. 
     He really puts effort in developing what makes sense for the end user. 
     He is also a fan of clean code and good architecture.`,
     person: 'David Forino',
@@ -28,7 +28,10 @@ export const testimonials: TestimonialsType[] = [
     title: 'CTO and co-founder',
   },
 ];
-
+export const testimonials: TestimonialsType[] = [
+  ...testimonialsShort,
+  ...testimonialsShort,
+];
 export type TestimonialsType = {
   testimonial: string;
   person: string;
