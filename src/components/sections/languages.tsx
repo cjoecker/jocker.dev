@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 
-import { LanguagesData } from '../../constants/experience-and-education';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
+import { LanguagesData } from '../../constants/languages';
 
 export const Languages = () => {
   const icons = require.context('../../images/', false);
