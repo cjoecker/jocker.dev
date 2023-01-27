@@ -7,7 +7,6 @@ import { Facts } from './components/sections/facts';
 import { Header } from './components/sections/header';
 import { Languages } from './components/sections/languages';
 import { Skills } from './components/sections/skills';
-import { Testimonials } from './components/sections/testimonials';
 
 export function App() {
   return (
@@ -19,7 +18,6 @@ export function App() {
         <CoreValues />
         <ExperienceAndEducation />
         <Languages />
-        <Testimonials />
         <CoursesAndConferences />
         <Contributions />
         <Contact />
