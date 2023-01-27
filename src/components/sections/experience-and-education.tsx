@@ -60,6 +60,7 @@ const WorkExperience = () => {
                 className="bg-contain flex p-3 bg-timeline-circle rounded-full"
               >
                 <img
+                  loading="lazy"
                   width="40"
                   height="40"
                   alt={isWork ? 'office' : 'course'}
@@ -118,6 +119,7 @@ const ExperienceItem = ({
           }
         >
           <img
+            loading="lazy"
             width="100"
             height={item.logoHeight}
             alt={getAltTextFromFileName(item.logo)}

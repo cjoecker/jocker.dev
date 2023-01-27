@@ -57,6 +57,7 @@ const StackOverflow = () => {
       >
         <div className="flex text-left">
           <img
+            loading="lazy"
             className="my-auto mr-4"
             height="45"
             width="38"
@@ -136,6 +137,7 @@ const OpenSource = () => {
               onClick={() => window.open(contribution.link, '_blank')}
             >
               <img
+                loading="lazy"
                 alt={`${contribution.name} logo`}
                 width="50"
                 height="50"

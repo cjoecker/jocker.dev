@@ -13,6 +13,7 @@ export const Languages = () => {
           return (
             <div className="col-span-1" key={language.language}>
               <motion.img
+                loading="lazy"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ amount: 0.1, once: true }}

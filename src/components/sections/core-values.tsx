@@ -23,6 +23,9 @@ export const CoreValues = () => {
         </motion.div>
         <div className="m-auto px-2">
           <motion.img
+            loading="lazy"
+            width="350"
+            height="260"
             className="w-full max-w-[350px] h-auto mt-12 sm:-mt-5"
             src={meditatingImage}
             alt="avatar of myself meditating"
