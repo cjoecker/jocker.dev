@@ -65,6 +65,14 @@ button {
   padding: unset;
 }
 
+hr {
+  width: 50px;
+  border: none;
+  height: 1px;
+  background: theme('colors.secondary');
+  opacity: 40%;
+}
+
 .bg-stack-overflow {
   background: #e3e3ec;
   box-shadow: inset 4px 4px 6px #a1a1af, inset -4px -4px 6px #f3f3fc;
@@ -83,6 +91,45 @@ button {
 .bg-timeline-circle {
   background: #bebed0;
   box-shadow: inset 4px 4px 6px #9797a6, inset -4px -4px 6px #d7d7eb;
+}
+
+.bg-pagination {
+  background: linear-gradient(145deg, theme('colors.primary'), #babaca);
+  box-shadow: 3px 3px 6px #74747d, -3px -3px 6px #dee5e8;
+}
+
+.mask-swiper {
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+}
+
+.mask-swiper-narrow {
+  -webkit-mask-image: linear-gradient(
+          90deg,
+          transparent 0%,
+          black 5%,
+          black 95%,
+          transparent 100%
+  );
+  mask-image: linear-gradient(
+          90deg,
+          transparent 0%,
+          black 5%,
+          black 95%,
+          transparent 100%
+  );
 }
 
 .arrow-up {
