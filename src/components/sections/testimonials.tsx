@@ -57,6 +57,7 @@ export function Testimonials() {
                   }`}
                 >
                   <img
+                    loading="lazy"
                     width="150"
                     height={testimonial.companyHeight}
                     className="mx-auto object-contain mt-2"
@@ -64,6 +65,7 @@ export function Testimonials() {
                     src={images(`./${testimonial.companyLogo}`)}
                   />
                   <img
+                    loading="lazy"
                     width="20"
                     height="20"
                     className="ml-2 mb-2 mt-4"
@@ -73,6 +75,7 @@ export function Testimonials() {
                   <div>{testimonial?.testimonial}</div>
                   <div className="flex mx-auto justify-end text-left mt-12">
                     <img
+                      loading="lazy"
                       width="80"
                       height="80"
                       className="my-auto"
@@ -123,7 +126,6 @@ export const PaginationButtons = ({ index, isSelected }: Props) => {
       className="hover:cursor-pointer p-8 md:p-2"
       onClick={() => {
         swiper.slideTo(index);
-        console.log("index", index);
       }}
     >
       <div
