@@ -12,8 +12,8 @@ import { Testimonials } from './components/sections/testimonials';
 export function App() {
   return (
     <div className="text-base font-normal">
+      <Header />
       <div className="max-w-[1140px] flex flex-col mx-auto p-6">
-        <Header />
         <Facts />
         <Skills />
         <CoreValues />
