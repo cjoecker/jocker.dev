@@ -110,6 +110,13 @@ hr {
   box-shadow: 3px 3px 6px #74747d, -3px -3px 6px #dee5e8;
 }
 
+.header-light-bulb {
+  object-fit: none; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  height: 100px;
+  width: 100px;
+}
+
 .mask-swiper {
   -webkit-mask-image: linear-gradient(
     90deg,
