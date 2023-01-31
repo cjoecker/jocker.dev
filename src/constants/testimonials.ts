@@ -11,7 +11,7 @@ export const testimonials: TestimonialsType[] = [
     title: 'CTO and co-founder',
   },
   {
-    testimonial: `He perfectly embodies the role of a skilled Front-End developer, 
+    testimonial: `He perfectly embodies the role of a skilled developer, 
     who not only masters his technologies but also has amazing UX know-how. 
     Both his creativity and entrepreneurial mindset bring his projects and the company forward.`,
     person: 'Paula Montesa Rausell',
