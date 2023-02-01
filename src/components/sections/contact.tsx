@@ -46,6 +46,7 @@ export const ContactButton = ({
       }}
     >
       <motion.button
+        aria-label={contactInformation.text}
         whileTap={{ scale: 1 }}
         whileHover={{ scale: 1.2 }}
         onClick={() => {

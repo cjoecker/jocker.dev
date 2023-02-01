@@ -118,6 +118,7 @@ const ExperienceItem = ({
     >
       <div className="mb-2 max-w-[300px]">
         <button
+          aria-label={getAltTextFromFileName(item.logo)}
           className="max-w-[100px] "
           onClick={() =>
             'link' in item ? window.open(item.link, '_blank') : null
