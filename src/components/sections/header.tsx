@@ -54,7 +54,7 @@ export const Header = () => {
       <div
         className={`${
           isNarrowView ? 'mx-12 mb-12' : 'ml-24 mb-20'
-        } text-left z-10`}
+        } text-left z-10 pb-ios`}
       >
         <motion.h1 style={{ y: titleY }} className="text-5xl font-normal">
           Christian Jöcker
