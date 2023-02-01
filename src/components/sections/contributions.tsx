@@ -17,7 +17,7 @@ export const Contributions = () => {
           <div className="flex relative flex-col min-w-[250px]">
             <MyApps />
           </div>
-          <div className="flex relative flex-col min-w-[300px]">
+          <div className="flex relative flex-col min-w-[270px]">
             <OpenSource />
           </div>
           <div className="flex relative flex-col min-w-[200px]">

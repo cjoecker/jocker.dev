@@ -42,7 +42,7 @@ export const CoursesAndConferences = () => {
                     visible: { opacity: 1 },
                     hidden: { opacity: 0 },
                   }}
-                  className="flex flex-1 min-w-[300px]"
+                  className="flex flex-1 min-w-[270px]"
                 >
                   {'instructor' in course ? (
                     <CourseItem course={course as CourseType} />
