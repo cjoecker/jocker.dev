@@ -16,7 +16,7 @@ export const Facts = () => {
             visible: { opacity: 1, y: 0 },
             hidden: { opacity: 0, y: 100 },
           }}
-          className="mb-24 mt-2 text-xl"
+          className="mb-24 mt-24 text-xl"
         >
           <p>
             I’m passionate about creating{' '}

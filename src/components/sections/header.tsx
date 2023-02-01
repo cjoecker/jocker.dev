@@ -1,14 +1,27 @@
-import { motion, MotionValue, useScroll, useTransform, useViewportScroll } from "framer-motion";
+import { animate, motion, MotionValue, useScroll, useTransform, useViewportScroll } from "framer-motion";
 import LightBulb from '../../images/light-bulb.svg';
 import { useRef } from "react";
 
 export const Header = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({ target: ref });
-  const titleY = useParallax(scrollY,-2)
-  const subtitleY = useParallax(scrollY,-4)
-  const buttonY = useParallax(scrollY,-6)
+  const titleY = useParallax(scrollY,-0.25)
+  const subtitleY = useParallax(scrollY,-0.5)
+  const buttonY = useParallax(scrollY,-1)
   const imageOpacity = useTransform(scrollY, value => Math.max(1-value/300,0));
+  const onDiscoverMoreClick = () => {
+    if (ref.current) {
+      const targetTop = ref.current.offsetTop + ref.current.offsetHeight
+      animate(window.scrollY, targetTop, {
+        duration: 2.5,
+        onUpdate(value) {
+          window.scrollTo(0, value);
+        },
+        ease:'easeInOut'
+      });
+    }
+  }
+
   return (
     <div className="h-screen w-full flex items-end relative" ref={ref}>
       <div className="overflow-hidden absolute w-full h-full top-0 left-0 flex justify-end select-none pointer-events-none">
@@ -41,6 +54,7 @@ export const Header = () => {
           style={{ y:buttonY }}
           whileTap={{ scale: 1 }}
           whileHover={{ scale: 1.2 }}
+          onClick={onDiscoverMoreClick}
           className="bg-button-header rounded-full py-2 px-4 text-xl mt-12 text-light-grey hover:cursor-pointer"
         >
           Discover More
@@ -53,3 +67,5 @@ export const Header = () => {
 function useParallax(scrollY: MotionValue<number>, multiplicator: number) {
   return useTransform(scrollY, value => value * multiplicator);
 }
+
+
