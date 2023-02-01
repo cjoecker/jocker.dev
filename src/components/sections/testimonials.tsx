@@ -28,11 +28,12 @@ export function Testimonials() {
         effect={'coverflow'}
         centeredSlides
         grabCursor
+        speed={2000}
         shortSwipes={false}
         slidesPerView={isNarrowView ? 1.1 : 2.2}
         slideToClickedSlide
         autoplay={{
-          delay: 2500,
+          delay: 4000,
           disableOnInteraction: true,
         }}
         loop
@@ -52,7 +53,7 @@ export function Testimonials() {
               {({ isActive }) => (
                 <div
                   style={{ filter: isActive ? '' : 'blur(1px)' }}
-                  className={`flex-1 select-none flex bg-light-grey shadow-md p-5 flex-col rounded-xl ${
+                  className={`flex-1 select-none flex bg-light-grey shadow-lg p-5 flex-col rounded-xl ${
                     isActive ? '' : 'opacity-70'
                   }`}
                 >
