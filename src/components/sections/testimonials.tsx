@@ -122,6 +122,7 @@ export const PaginationButtons = ({ index, isSelected }: Props) => {
   const swiper = useSwiper();
   return (
     <motion.button
+      aria-label={`testimonial ${index}`}
       whileHover={{ scale: 1.3 }}
       whileTap={{ scale: 1 }}
       className="hover:cursor-pointer p-6 md:p-2"

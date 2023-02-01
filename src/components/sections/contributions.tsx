@@ -180,6 +180,7 @@ const MyApps = () => {
               >
                 <Tooltip text={app.description}>
                   <motion.button
+                    aria-label={app.name}
                     whileTap={{ scale: 1 }}
                     whileHover={{ scale: 1.1 }}
                     className="w-16 h-16 rounded-xl hover:cursor-pointer mx-auto"
