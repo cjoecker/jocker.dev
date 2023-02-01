@@ -124,7 +124,7 @@ export const PaginationButtons = ({ index, isSelected }: Props) => {
     <motion.button
       whileHover={{ scale: 1.3 }}
       whileTap={{ scale: 1 }}
-      className="hover:cursor-pointer p-8 md:p-2"
+      className="hover:cursor-pointer p-6 md:p-2"
       onClick={() => {
         swiper.slideTo(index);
       }}
