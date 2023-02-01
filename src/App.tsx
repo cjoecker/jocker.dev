@@ -8,7 +8,6 @@ import { Header } from './components/sections/header';
 import { Languages } from './components/sections/languages';
 import { Skills } from './components/sections/skills';
 import { Testimonials } from './components/sections/testimonials';
-import { useRef } from "react";
 
 export function App() {
   return (
