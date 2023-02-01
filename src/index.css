@@ -29,7 +29,7 @@
 }
 
 html {
-  height: 100%;
+  height: -webkit-fill-available;
   background-color: #cfcfe0;
   overflow: unset !important;
 }
@@ -42,10 +42,11 @@ body {
   color-scheme: light;
   background: linear-gradient(145deg, #cfcfe0, #babaca);
   text-align: center;
-  min-height: 100%;
   overflow: auto;
   padding: 0;
   color: #3d3d3d;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
 h1,
@@ -168,5 +169,6 @@ hr {
 }
 
 .pb-ios {
-  padding-bottom: env(safe-area-inset-bottom);
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
