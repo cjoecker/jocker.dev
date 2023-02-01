@@ -1,22 +1,22 @@
-import { testimonials } from '../../constants/testimonials';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { useState } from 'react';
 import { Autoplay, EffectCoverflow } from 'swiper';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+
+// eslint-disable-next-line import/order
+import { testimonials } from '../../constants/testimonials';
+
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 
+import { useNarrowView } from '../../hooks/useNarrowView';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
-import { useNarrowView } from '../../hooks/useNarrowView';
 
 export function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { isNarrowView } = useNarrowView();
-  useEffect(() => {
-    console.log('currentIndex', currentIndex);
-  }, [currentIndex]);
 
   return (
     <Section title="Testimonials">

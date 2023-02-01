@@ -4,11 +4,11 @@ import {
   MotionValue,
   useScroll,
   useTransform,
-  useViewportScroll,
 } from 'framer-motion';
-import LightBulb from '../../images/light-bulb.svg';
 import { useRef } from 'react';
-import { useNarrowView } from "../../hooks/useNarrowView";
+
+import { useNarrowView } from '../../hooks/useNarrowView';
+import LightBulb from '../../images/light-bulb.svg';
 
 export const Header = () => {
   const { isNarrowView } = useNarrowView();
@@ -36,18 +36,26 @@ export const Header = () => {
   return (
     <div className="h-screen w-full flex items-end relative" ref={ref}>
       <div className="overflow-hidden absolute w-full h-full top-0 left-0 flex justify-end select-none pointer-events-none">
-        <div className={`${isNarrowView ? "translate-x-[40%]" : "translate-x-1/2 my-12"}`}>
+        <div
+          className={`${
+            isNarrowView ? 'translate-x-[40%]' : 'translate-x-1/2 my-12'
+          }`}
+        >
           <motion.img
             className={isNarrowView ? 'mt-4' : ''}
             style={{ opacity: imageOpacity }}
             src={LightBulb}
             alt="light bulb shining"
-            width={isNarrowView ? "120%" : "100%"}
-            height={isNarrowView ? "auto" : "100%"}
+            width={isNarrowView ? '120%' : '100%'}
+            height={isNarrowView ? 'auto' : '100%'}
           />
         </div>
       </div>
-      <div className={`${isNarrowView ? 'mx-12 mb-12' : 'ml-24 mb-20'} text-left z-10`}>
+      <div
+        className={`${
+          isNarrowView ? 'mx-12 mb-12' : 'ml-24 mb-20'
+        } text-left z-10`}
+      >
         <motion.h1 style={{ y: titleY }} className="text-5xl font-normal">
           Christian Jöcker
         </motion.h1>
