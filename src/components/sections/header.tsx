@@ -36,7 +36,12 @@ export const Header = () => {
   };
 
   return (
-    <div className={`w-full flex items-end relative ${isIphone ? 'h-ios-screen' : 'h-screen'}`} ref={ref}>
+    <div
+      className={`w-full flex items-end relative ${
+        isIphone ? 'h-ios-screen' : 'h-screen'
+      }`}
+      ref={ref}
+    >
       <div className="overflow-hidden absolute w-full h-full top-0 left-0 flex justify-end select-none pointer-events-none">
         <div
           className={`${
