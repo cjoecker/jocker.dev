@@ -168,7 +168,7 @@ hr {
   border-top: 7px solid;
 }
 
-.pb-ios {
+.h-ios-screen {
   min-height: 100vh;
   min-height: -webkit-fill-available;
 }
