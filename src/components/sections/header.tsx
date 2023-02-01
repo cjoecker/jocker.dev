@@ -34,7 +34,7 @@ export const Header = () => {
   };
 
   return (
-    <div className="h-screen w-full flex items-end relative" ref={ref}>
+    <div className="pb-ios w-full flex items-end relative" ref={ref}>
       <div className="overflow-hidden absolute w-full h-full top-0 left-0 flex justify-end select-none pointer-events-none">
         <div
           className={`${
@@ -54,7 +54,7 @@ export const Header = () => {
       <div
         className={`${
           isNarrowView ? 'mx-12 mb-12' : 'ml-24 mb-20'
-        } text-left z-10 pb-ios`}
+        } text-left z-10`}
       >
         <motion.h1 style={{ y: titleY }} className="text-5xl font-normal">
           Christian Jöcker
