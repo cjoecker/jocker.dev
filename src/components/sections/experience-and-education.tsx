@@ -113,10 +113,10 @@ const ExperienceItem = ({
       className={`flex my-5 overflow-hidden max-w-fit ${
         isOdd
           ? 'text-left justify-start ml-3 md:ml-6'
-          : 'text-right justify-end mr-3 md:mr-6'
+          : 'text-right justify-end ml-auto mr-3 md:mr-6'
       }`}
     >
-      <div className="mb-2">
+      <div className="mb-2 max-w-[300px]">
         <button
           className="max-w-[100px] "
           onClick={() =>
@@ -134,14 +134,14 @@ const ExperienceItem = ({
         </button>
         <div
           className="text-base md:text-lg mt-1 break-words"
-          style={{ lineHeight: '1.1rem' }}
+          style={{ lineHeight: '1.3rem' }}
         >
           {item.title}
         </div>
         <div className="opacity-80 leading-tight mt-2 text-sm md:text-base">
           {formatTimePeriod(item.startDate, item.endDate)}
         </div>
-        <div className="opacity-80 leading-tight mt-1 text-sm md:text-base">
+        <div className="opacity-80 leading-tight text-sm md:text-base">
           {item.location}
         </div>
       </div>
