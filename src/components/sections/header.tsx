@@ -17,6 +17,8 @@ export const Header = () => {
   const titleY = useParallax(scrollY, -0.25);
   const subtitleY = useParallax(scrollY, -0.5);
   const buttonY = useParallax(scrollY, -1);
+  // there is a bug in chromium that is not showing -webkit-fill-available correctly
+  const isIphone = window.navigator.userAgent.includes('iPhone');
   const imageOpacity = useTransform(scrollY, value =>
     Math.max(1 - value / 300, 0)
   );
@@ -34,7 +36,7 @@ export const Header = () => {
   };
 
   return (
-    <div className="pb-ios w-full flex items-end relative" ref={ref}>
+    <div className={`w-full flex items-end relative ${isIphone ? 'h-ios-screen' : 'h-screen'}`} ref={ref}>
       <div className="overflow-hidden absolute w-full h-full top-0 left-0 flex justify-end select-none pointer-events-none">
         <div
           className={`${
