@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.34f2f2f0.css",
-    "main.js": "/static/js/main.da5378e2.js",
+    "main.css": "/static/css/main.a17e2fac.css",
+    "main.js": "/static/js/main.3cb0bda5.js",
     "static/js/495.ffc228f5.chunk.js": "/static/js/495.ffc228f5.chunk.js",
     "static/media/meditating.webp": "/static/media/meditating.bdf05b25667acf27c655.webp",
     "static/media/pretzel.svg": "/static/media/pretzel.287ecc97b800c652925b.svg",
@@ -18,10 +18,14 @@
     "static/media/quicksand-v30-latin-500.woff2": "/static/media/quicksand-v30-latin-500.2325761279c985580f3c.woff2",
     "static/media/quicksand-v30-latin-regular.woff2": "/static/media/quicksand-v30-latin-regular.cef2e5802d843cf31dba.woff2",
     "static/media/strong.svg": "/static/media/strong.e6592001f5203ef28448.svg",
+    "static/media/paula.webp": "/static/media/paula.55a82aff6896178359c6.webp",
     "static/media/curriculum-generator.svg": "/static/media/curriculum-generator.274dfb7da3b39f592b08.svg",
+    "static/media/slected-me.svg": "/static/media/slected-me.0698b9da555ce4b3c041.svg",
+    "static/media/david.webp": "/static/media/david.a46a413df04ca8ca130b.webp",
     "static/media/d-cide.svg": "/static/media/d-cide.97e671d351c6cebf15ca.svg",
     "static/media/course.svg": "/static/media/course.7f1752c3692ac67ddf27e121019d0ec8.svg",
     "static/media/happy.svg": "/static/media/happy.c9fac9bc41f20c72da0b.svg",
+    "static/media/light-bulb.svg": "/static/media/light-bulb.37b3e6004e5ddaa91de326f71abee55e.svg",
     "static/media/me-with-macbook.webp": "/static/media/me-with-macbook.60c45f751ada60eebbb5.webp",
     "static/media/maibornwolff.svg": "/static/media/maibornwolff.d3711431af624e852dd3.svg",
     "static/media/kuka.svg": "/static/media/kuka.2250850e95d9d1df73f5.svg",
@@ -29,18 +33,19 @@
     "static/media/scmt.svg": "/static/media/scmt.d6e0c905c3f07502d866.svg",
     "index.html": "/index.html",
     "static/media/mui.svg": "/static/media/mui.a112cdd07b48271294a5.svg",
+    "static/media/double-quotes.svg": "/static/media/double-quotes.00d0a108ecf9015b21e6.svg",
     "static/media/github.svg": "/static/media/github.3b378c356585885ae2e4.svg",
     "static/media/3-point-estimator.svg": "/static/media/3-point-estimator.3508a41fc99287d94459.svg",
     "static/media/linkedin.svg": "/static/media/linkedin.ea2dce5fb2c3e04b3b54.svg",
     "static/media/stack-overflow.svg": "/static/media/stack-overflow.177c7332c8861632eef0.svg",
     "static/media/twitter.svg": "/static/media/twitter.78b2f008c49406fca0f5.svg",
     "static/media/email.svg": "/static/media/email.3e9588f63732c7d5b880.svg",
-    "main.34f2f2f0.css.map": "/static/css/main.34f2f2f0.css.map",
-    "main.da5378e2.js.map": "/static/js/main.da5378e2.js.map",
+    "main.a17e2fac.css.map": "/static/css/main.a17e2fac.css.map",
+    "main.3cb0bda5.js.map": "/static/js/main.3cb0bda5.js.map",
     "495.ffc228f5.chunk.js.map": "/static/js/495.ffc228f5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.34f2f2f0.css",
-    "static/js/main.da5378e2.js"
+    "static/css/main.a17e2fac.css",
+    "static/js/main.3cb0bda5.js"
   ]
 }
