@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.6ac1ae82.css",
-    "main.js": "/static/js/main.cef732de.js",
+    "main.js": "/static/js/main.1d275a09.js",
     "static/js/495.ffc228f5.chunk.js": "/static/js/495.ffc228f5.chunk.js",
     "static/media/meditating.webp": "/static/media/meditating.bdf05b25667acf27c655.webp",
     "static/media/pretzel.svg": "/static/media/pretzel.287ecc97b800c652925b.svg",
@@ -25,8 +25,8 @@
     "static/media/d-cide.svg": "/static/media/d-cide.97e671d351c6cebf15ca.svg",
     "static/media/course.svg": "/static/media/course.7f1752c3692ac67ddf27e121019d0ec8.svg",
     "static/media/happy.svg": "/static/media/happy.c9fac9bc41f20c72da0b.svg",
-    "static/media/light-bulb.svg": "/static/media/light-bulb.37b3e6004e5ddaa91de326f71abee55e.svg",
     "static/media/me-with-macbook.webp": "/static/media/me-with-macbook.60c45f751ada60eebbb5.webp",
+    "static/media/light-bulb.svg": "/static/media/light-bulb.b120e353b12335b5f05017db4cdffc18.svg",
     "static/media/maibornwolff.svg": "/static/media/maibornwolff.d3711431af624e852dd3.svg",
     "static/media/kuka.svg": "/static/media/kuka.2250850e95d9d1df73f5.svg",
     "static/media/framer-motion.svg": "/static/media/framer-motion.53ad38af3511f5bb8e91.svg",
@@ -41,11 +41,11 @@
     "static/media/twitter.svg": "/static/media/twitter.78b2f008c49406fca0f5.svg",
     "static/media/email.svg": "/static/media/email.3e9588f63732c7d5b880.svg",
     "main.6ac1ae82.css.map": "/static/css/main.6ac1ae82.css.map",
-    "main.cef732de.js.map": "/static/js/main.cef732de.js.map",
+    "main.1d275a09.js.map": "/static/js/main.1d275a09.js.map",
     "495.ffc228f5.chunk.js.map": "/static/js/495.ffc228f5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6ac1ae82.css",
-    "static/js/main.cef732de.js"
+    "static/js/main.1d275a09.js"
   ]
 }
