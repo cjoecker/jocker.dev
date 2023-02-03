@@ -78,7 +78,7 @@ export const Header = () => {
           whileTap={{ scale: 1 }}
           whileHover={{ scale: 1.2 }}
           onClick={onDiscoverMoreClick}
-          className="bg-button-header rounded-full py-2 px-4 text-xl mt-12 text-light-grey hover:cursor-pointer"
+          className="bg-button-header rounded-full py-2 px-4 text-xl mt-12 text-light-grey hover:cursor-pointer select-none"
         >
           Discover More
         </motion.button>

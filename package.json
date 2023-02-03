@@ -5,16 +5,12 @@
   "scripts": {
     "start": "ESLINT_NO_DEV_ERRORS=true react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "check:all": "pnpm lint-fix:all && pnpm format:all && pnpm check-types",
     "check-types": "tsc --noemit -p tsconfig.json",
     "lint": "eslint --max-warnings=0",
-    "lint:fix": "pnpm lint --fix",
-    "lint:all": "pnpm lint .",
-    "lint:fix:all": "pnpm lint:fix .",
-    "format:all": "pnpm format .",
-    "format": "prettier --write",
-    "prepare": "husky install"
+    "lint-fix:all": "pnpm lint --fix .",
+    "format": "prettier --write --ignore-path .gitignore",
+    "format:all": "pnpm format ."
   },
   "dependencies": {
     "@mui/base": "5.0.0-alpha.114",
@@ -55,7 +51,6 @@
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "husky": "^8.0.2",
     "lint-staged": "^13.0.4",
     "postcss": "^8.4.19",
     "prettier": "2.8.0",
