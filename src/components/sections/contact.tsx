@@ -50,7 +50,7 @@ export const ContactButton = ({
         whileTap={{ scale: 1 }}
         whileHover={{ scale: 1.2 }}
         onClick={() => {
-          window.location.href = contactInformation.href;
+          window.open(contactInformation.href, '_blank');
         }}
         className="bg-contact rounded-full w-16 h-16 flex cursor-pointer p-3"
       >
@@ -60,7 +60,7 @@ export const ContactButton = ({
           height="84"
           alt={contactInformation.text}
           src={icons(`./${contactInformation.icon}.svg`)}
-          className="m-auto w-full h-full"
+          className="m-auto w-full h-full select-none pointer-events-none"
         />
       </motion.button>
     </motion.div>

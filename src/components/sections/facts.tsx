@@ -65,7 +65,7 @@ const Fact = ({
       if (!ref.current) {
         return;
       }
-      if (val >= number + 1) {
+      if (val >= number) {
         ref.current.textContent = `${number}+`;
       } else {
         ref.current.textContent = val.toFixed(0);
