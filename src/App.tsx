@@ -8,6 +8,7 @@ import { Header } from './components/sections/header';
 import { Languages } from './components/sections/languages';
 import { Skills } from './components/sections/skills';
 import { Testimonials } from './components/sections/testimonials';
+import { ServiceOffer } from "./components/sections/service-offer";
 
 export function App() {
   return (
@@ -15,6 +16,7 @@ export function App() {
       <Header />
       <div className="max-w-[1140px] flex flex-col mx-auto p-6">
         <Facts />
+        <ServiceOffer />
         <Skills />
         <CoreValues />
         <ExperienceAndEducation />
