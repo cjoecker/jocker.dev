@@ -3,9 +3,8 @@ import { motion } from 'framer-motion';
 
 import {
   education,
-  EducationType,
   WorkExperienceData,
-  WorkExperienceType,
+  ExperiencAndEductionType,
 } from '../../constants/experience-and-education';
 import { useNarrowView } from '../../hooks/useNarrowView';
 import { Section } from '../shared/section';
@@ -94,7 +93,7 @@ const ExperienceItem = ({
   item,
   isOdd,
 }: {
-  item: WorkExperienceType | EducationType;
+  item: ExperiencAndEductionType;
   isOdd: boolean;
 }) => {
   const icons = require.context('../../images/', false);

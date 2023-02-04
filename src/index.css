@@ -73,6 +73,13 @@ hr {
   background: theme('colors.secondary');
   opacity: 40%;
 }
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
 
 .bg-button-header {
   background: linear-gradient(145deg, #0f61a0, #093a60);
