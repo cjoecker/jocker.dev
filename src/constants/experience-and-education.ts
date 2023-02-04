@@ -1,7 +1,8 @@
-export const education: EducationType[] = [
+export const education: ExperiencAndEductionType[] = [
   {
     logo: 'th-wildau.svg',
     logoHeight: 55,
+    link:'https://www.th-wildau.de/',
     title: 'Mechanical Engineering (B. Eng.)',
     location: 'Wildau, Germany',
     startDate: new Date('2011-09'),
@@ -10,6 +11,7 @@ export const education: EducationType[] = [
   {
     logo: 'scmt.svg',
     logoHeight: 60,
+    link:'https://www.scmt.com/home.html',
     title: 'Master of Business Engineering (MBE®)',
     location: 'Filderstadt, Germany',
     startDate: new Date('2016-02'),
@@ -17,7 +19,7 @@ export const education: EducationType[] = [
   },
 ];
 
-export const WorkExperienceData: WorkExperienceType[] = [
+export const WorkExperienceData: ExperiencAndEductionType[] = [
   {
     logo: 'kuka.svg',
     logoHeight: 20,
@@ -56,16 +58,7 @@ export const WorkExperienceData: WorkExperienceType[] = [
   },
 ];
 
-export type EducationType = {
-  logo: string;
-  logoHeight: number;
-  title: string;
-  location: string;
-  startDate: Date;
-  endDate: Date | 'today';
-};
-
-export type WorkExperienceType = {
+export type ExperiencAndEductionType = {
   logo: string;
   logoHeight: number;
   link: string;
