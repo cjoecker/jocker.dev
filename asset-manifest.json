@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.5b34c47d.css",
-    "main.js": "/static/js/main.0d9dfa9f.js",
+    "main.css": "/static/css/main.e7608fce.css",
+    "main.js": "/static/js/main.0e8d9882.js",
     "static/js/495.6882722a.chunk.js": "/static/js/495.6882722a.chunk.js",
     "static/media/artist.svg": "/static/media/artist.42d2199eb44b33ce8349.svg",
     "static/media/meditating.webp": "/static/media/meditating.bdf05b25667acf27c655.webp",
     "static/media/pretzel.svg": "/static/media/pretzel.287ecc97b800c652925b.svg",
-    "static/media/strategy.svg": "/static/media/strategy.d5af15df840fd32b71b5.svg",
+    "static/media/strategy.svg": "/static/media/strategy.e46fe9a9a2a7a27c0343.svg",
     "static/media/face-with-sunglasses.svg": "/static/media/face-with-sunglasses.c669b853e15b690769d0.svg",
     "static/media/rocket.svg": "/static/media/rocket.a44e3da84f07e730b621.svg",
     "static/media/core-values-finder.svg": "/static/media/core-values-finder.e26d5a56d9343bcd2c31.svg",
@@ -47,12 +47,12 @@
     "static/media/expand.svg": "/static/media/expand.7ec0882a53b0ae63b8aa.svg",
     "static/media/twitter.svg": "/static/media/twitter.78b2f008c49406fca0f5.svg",
     "static/media/email.svg": "/static/media/email.3e9588f63732c7d5b880.svg",
-    "main.5b34c47d.css.map": "/static/css/main.5b34c47d.css.map",
-    "main.0d9dfa9f.js.map": "/static/js/main.0d9dfa9f.js.map",
+    "main.e7608fce.css.map": "/static/css/main.e7608fce.css.map",
+    "main.0e8d9882.js.map": "/static/js/main.0e8d9882.js.map",
     "495.6882722a.chunk.js.map": "/static/js/495.6882722a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5b34c47d.css",
-    "static/js/main.0d9dfa9f.js"
+    "static/css/main.e7608fce.css",
+    "static/js/main.0e8d9882.js"
   ]
 }
