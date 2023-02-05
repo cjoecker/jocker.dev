@@ -1,3 +1,5 @@
+export const EXPERIENCE_YEARS = new Date().getFullYear() - new Date('2015-02').getFullYear();
+
 export const education: ExperiencAndEductionType[] = [
   {
     logo: 'th-wildau.svg',
