@@ -1,11 +1,11 @@
-import { Section } from '../shared/section';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+
 import {
   ServiceOfferData,
   ServiceOfferType,
 } from '../../constants/service-offer';
-import { LayoutGroup, motion } from 'framer-motion';
-import { useRef, useState } from 'react';
-import clsx from 'clsx';
+import { Section } from '../shared/section';
 
 export const ServiceOffer = () => {
   return (
@@ -95,10 +95,15 @@ const CardContent = ({
         height={'70'}
         src={icons(`./${offer.logo}`)}
         className={`select-none pointer-events-none ${
-          isOpen ? 'w-[170px] h-[170px] mb-auto mt-4 mx-4' : 'w-[70px] h-[70px] my-4'
+          isOpen
+            ? 'w-[170px] h-[170px] mb-auto mt-4 mx-4'
+            : 'w-[70px] h-[70px] my-4'
         }`}
       />
-      <motion.div className={`flex-1 ${isOpen ? 'min-w-[250px]' : 'min-w-0'}`} layout={isExpandable}>
+      <motion.div
+        className={`flex-1 ${isOpen ? 'min-w-[250px]' : 'min-w-0'}`}
+        layout={isExpandable}
+      >
         <motion.h3
           layout={isExpandable ? 'preserve-aspect' : false}
           className={isOpen ? 'text-2xl mt-4' : 'mb-1 text-lg'}
@@ -106,18 +111,9 @@ const CardContent = ({
           {offer.title}
         </motion.h3>
         {isOpen && (
-          <motion.div className="my-2">
-            {offer.description}
-          </motion.div>
+          <motion.div className="my-2">{offer.description}</motion.div>
         )}
       </motion.div>
     </motion.div>
   );
 };
-
-function parseText(Text: string) {
-  const textWithoutDoubleSpace = Text.replaceAll('  ', '');
-  const textWithoutNewLine = textWithoutDoubleSpace.replaceAll('\n', '');
-  const textWithBreaks = textWithoutNewLine.replaceAll('\\', '\n');
-  return textWithBreaks;
-}
