@@ -10,7 +10,7 @@ import { Section } from '../shared/section';
 export const ServiceOffer = () => {
   return (
     <Section title="What I Can Do for You">
-      <div className="flex gap-4 mx-auto flex-wrap justify-center max-w-3xl">
+      <div className="flex gap-6 mx-auto flex-wrap justify-center max-w-3xl">
         {ServiceOfferData.map(offer => {
           return <Card key={offer.title} offer={offer} />;
         })}
@@ -73,7 +73,7 @@ const CardContent = ({
               ${
                 isOpen && isExpandable
                   ? 'w-full h-auto m-auto max-w-lg shadow-xl flex-wrap'
-                  : 'h-40 w-40 flex-col'
+                  : 'h-60 w-60 md:h-40 md:w-40 flex-col'
               } ${isOpen && !isExpandable ? 'invisible' : 'visible shadow-md'}`}
     >
       <motion.button
@@ -97,7 +97,7 @@ const CardContent = ({
         className={`select-none pointer-events-none ${
           isOpen
             ? 'w-[170px] h-[170px] mb-auto mt-4 mx-4'
-            : 'w-[70px] h-[70px] my-4'
+            : 'w-[105px] h-[105px] md:w-[70px] md:h-[70px] my-4'
         }`}
       />
       <motion.div
@@ -106,7 +106,7 @@ const CardContent = ({
       >
         <motion.h3
           layout={isExpandable ? 'preserve-aspect' : false}
-          className={isOpen ? 'text-2xl mt-4' : 'mb-1 text-lg'}
+          className={isOpen ? 'text-2xl mt-4' : 'mb-1 text-2xl md:text-lg'}
         >
           {offer.title}
         </motion.h3>
