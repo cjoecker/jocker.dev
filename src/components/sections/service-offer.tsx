@@ -101,7 +101,7 @@ const CardContent = ({
         }`}
       />
       <motion.div
-        className={`flex-1 ${isOpen ? 'min-w-[250px]' : 'min-w-0'}`}
+        className={`flex-1 ${isOpen ? 'min-w-[230px]' : 'min-w-0'}`}
         layout={isExpandable}
       >
         <motion.h3
