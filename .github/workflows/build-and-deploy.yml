@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies 💿
         run: pnpm install
       - name: Check linting and format ✅
-        run: pnpm install
+        run: pnpm check:all
       - name: Build 🔨
         run: pnpm run build
         env:
