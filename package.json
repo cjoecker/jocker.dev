@@ -10,7 +10,7 @@
     "check-types": "tsc --noemit -p tsconfig.json",
     "lint": "eslint --max-warnings=0",
     "lint-fix:all": "pnpm lint --fix .",
-    "format": "prettier --ignore-path .gitignore",
+    "format": "prettier",
     "format:all": "pnpm format --write ."
   },
   "dependencies": {
