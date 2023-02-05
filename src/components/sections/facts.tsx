@@ -1,8 +1,8 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
+import { EXPERIENCE_YEARS } from '../../constants/experience-and-education';
 import { Section } from '../shared/section';
-import { EXPERIENCE_YEARS } from "../../constants/experience-and-education";
 
 export const Facts = () => {
   return (
@@ -32,7 +32,11 @@ export const Facts = () => {
           </p>
         </motion.div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-8 justify-between mx-auto flex-wrap">
-          <Fact number={EXPERIENCE_YEARS} label={'Years of experience'} icon="strong" />
+          <Fact
+            number={EXPERIENCE_YEARS}
+            label={'Years of experience'}
+            icon="strong"
+          />
           <Fact number={23} label={'Developed apps'} icon="smartphone" />
           <Fact number={13} label={'Happy customers'} icon="happy" />
         </div>

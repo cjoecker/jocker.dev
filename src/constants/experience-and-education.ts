@@ -1,10 +1,11 @@
-export const EXPERIENCE_YEARS = new Date().getFullYear() - new Date('2015-02').getFullYear();
+export const EXPERIENCE_YEARS =
+  new Date().getFullYear() - new Date('2015-02').getFullYear();
 
 export const education: ExperiencAndEductionType[] = [
   {
     logo: 'th-wildau.svg',
     logoHeight: 55,
-    link:'https://www.th-wildau.de/',
+    link: 'https://www.th-wildau.de/',
     title: 'Mechanical Engineering (B. Eng.)',
     location: 'Wildau, Germany',
     startDate: new Date('2011-09'),
@@ -13,7 +14,7 @@ export const education: ExperiencAndEductionType[] = [
   {
     logo: 'scmt.svg',
     logoHeight: 60,
-    link:'https://www.scmt.com/home.html',
+    link: 'https://www.scmt.com/home.html',
     title: 'Master of Business Engineering (MBE®)',
     location: 'Filderstadt, Germany',
     startDate: new Date('2016-02'),

@@ -20,6 +20,8 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies 💿
         run: pnpm install
+      - name: Check linting and format ✅
+        run: pnpm install
       - name: Build 🔨
         run: pnpm run build
         env:

@@ -1,4 +1,4 @@
-import { EXPERIENCE_YEARS } from "./experience-and-education";
+import { EXPERIENCE_YEARS } from './experience-and-education';
 
 const Paragraph = ({ children }: { children: React.ReactNode }) => {
   return <p className="mb-3 last:mb-0">{children}</p>;
@@ -84,9 +84,9 @@ export const ServiceOfferData: ServiceOfferType[] = [
     description: (
       <>
         <Paragraph>
-          With over {EXPERIENCE_YEARS} years of experience in the tech industry and a track
-          record of success with digital products across multiple industries,
-          I've got the expertise you need to succeed.
+          With over {EXPERIENCE_YEARS} years of experience in the tech industry
+          and a track record of success with digital products across multiple
+          industries, I've got the expertise you need to succeed.
         </Paragraph>
         <Paragraph>
           If you're looking to launch a new product, reinvigorate an existing

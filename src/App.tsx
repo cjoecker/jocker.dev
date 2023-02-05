@@ -6,9 +6,9 @@ import { ExperienceAndEducation } from './components/sections/experience-and-edu
 import { Facts } from './components/sections/facts';
 import { Header } from './components/sections/header';
 import { Languages } from './components/sections/languages';
+import { ServiceOffer } from './components/sections/service-offer';
 import { Skills } from './components/sections/skills';
 import { Testimonials } from './components/sections/testimonials';
-import { ServiceOffer } from "./components/sections/service-offer";
 
 export function App() {
   return (
