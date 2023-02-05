@@ -1,7 +1,7 @@
 export const ServiceOfferData: ServiceOfferType[] = [
   {
     image: 'browser-with-star-face.svg',
-    title: 'Web Development',
+    title: 'Web Applications',
     explanation: `Get ready for a platform that's not just good-looking, 
     but built to last. I'll take your idea from concept to launch, delivering 
     a scalable solution tailored to your business. Say goodbye to clumsy web 
@@ -36,7 +36,7 @@ export const ServiceOfferData: ServiceOfferType[] = [
   },
   {
     image: 'strategy.svg',
-    title: 'Digital Products Strategy Consulting',
+    title: 'Digital Strategy Consulting',
     explanation: `With over 8 years of experience in the tech industry and a 
     track record of success with digital products across multiple industries, 
     I've got the expertise you need to succeed. If you're looking to 
