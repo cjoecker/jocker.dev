@@ -54,7 +54,7 @@ export const WorkExperienceData: ExperiencAndEductionType[] = [
     logo: 'me-with-macbook.webp',
     logoHeight: 50,
     link: 'https://www.linkedin.com/in/christianjoecker/',
-    title: 'Freelance Frontend Engineer & UX/UI Designer',
+    title: 'Freelance Full-Stack Developer & UX/UI Designer',
     startDate: new Date('2023-02'),
     endDate: 'today',
     location: 'Valencia, Spain',
