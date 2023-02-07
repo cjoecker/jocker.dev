@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e7608fce.css",
-    "main.js": "/static/js/main.0e8d9882.js",
+    "main.js": "/static/js/main.c6c28494.js",
     "static/js/495.6882722a.chunk.js": "/static/js/495.6882722a.chunk.js",
     "static/media/artist.svg": "/static/media/artist.42d2199eb44b33ce8349.svg",
     "static/media/meditating.webp": "/static/media/meditating.bdf05b25667acf27c655.webp",
@@ -36,8 +36,8 @@
     "static/media/kuka.svg": "/static/media/kuka.2250850e95d9d1df73f5.svg",
     "static/media/framer-motion.svg": "/static/media/framer-motion.53ad38af3511f5bb8e91.svg",
     "static/media/scmt.svg": "/static/media/scmt.d6e0c905c3f07502d866.svg",
-    "static/media/mui.svg": "/static/media/mui.a112cdd07b48271294a5.svg",
     "index.html": "/index.html",
+    "static/media/mui.svg": "/static/media/mui.a112cdd07b48271294a5.svg",
     "static/media/double-quotes.svg": "/static/media/double-quotes.00d0a108ecf9015b21e6.svg",
     "static/media/github.svg": "/static/media/github.3b378c356585885ae2e4.svg",
     "static/media/3-point-estimator.svg": "/static/media/3-point-estimator.3508a41fc99287d94459.svg",
@@ -48,11 +48,11 @@
     "static/media/twitter.svg": "/static/media/twitter.78b2f008c49406fca0f5.svg",
     "static/media/email.svg": "/static/media/email.3e9588f63732c7d5b880.svg",
     "main.e7608fce.css.map": "/static/css/main.e7608fce.css.map",
-    "main.0e8d9882.js.map": "/static/js/main.0e8d9882.js.map",
+    "main.c6c28494.js.map": "/static/js/main.c6c28494.js.map",
     "495.6882722a.chunk.js.map": "/static/js/495.6882722a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e7608fce.css",
-    "static/js/main.0e8d9882.js"
+    "static/js/main.c6c28494.js"
   ]
 }
