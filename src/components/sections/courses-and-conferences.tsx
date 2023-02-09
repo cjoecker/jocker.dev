@@ -32,7 +32,7 @@ export const CoursesAndConferences = () => {
             transition={{
               staggerChildren: 0.1,
             }}
-            className="flex gap-4 text-left flex-wrap"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-left"
           >
             {reducedCoursesAndConferences.map(course => {
               return (
@@ -42,7 +42,7 @@ export const CoursesAndConferences = () => {
                     visible: { opacity: 1 },
                     hidden: { opacity: 0 },
                   }}
-                  className="flex flex-1 min-w-[270px]"
+                  className="flex col-span-1 min-w-0"
                 >
                   {'instructor' in course ? (
                     <CourseItem course={course as CourseType} />
@@ -70,8 +70,8 @@ const CourseItem = ({ course }: { course: CourseType }) => {
         width={20}
         height={20}
       />
-      <div>
-        <div className="font-medium">{course.name}</div>
+      <div className="overflow-hidden">
+        <div className="font-medium overflow-ellipsis whitespace-nowrap overflow-hidden">{course.name}</div>
         <div className="text-xs">
           {`${course.instructor} – ${format(course.date, DATE_FORMAT)}`}
         </div>
