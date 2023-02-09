@@ -70,7 +70,7 @@ export const Header = () => {
           style={{ y: subtitleY }}
           className="font-normal text-2xl mt-2"
         >
-          Freelance Frontend Developer
+          Freelance Full-Stack Developer
           <br />& UX/UI Designer
         </motion.h2>
         <motion.button
