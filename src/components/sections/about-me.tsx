@@ -1,17 +1,13 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useEffect, useRef } from 'react';
-
-import { EXPERIENCE_YEARS } from '../../constants/experience-and-education';
-import { Section } from '../shared/section';
 import { AboutMeData } from '../../constants/about-me';
-import Signature from "../../images/signature.svg";
+import Signature from '../../images/signature.svg';
+import { Section } from '../shared/section';
 
 export const AboutMe = () => {
   return (
     <Section title="About Me">
       <div className="grid grid-cols-1 md:grid-cols-5 gap-x-10 gap-y-6 rounded-2xl p-6 bg-about-me mx-auto overflow-hidden">
         <div className="col-span-1 inline-block md:hidden">
-          <Photo/>
+          <Photo />
         </div>
         <div className="col-span-1 md:col-span-3 text-left">
           <h3 className="text-3xl mb-4">Hi, I'm Christian...</h3>
@@ -26,7 +22,7 @@ export const AboutMe = () => {
           />
         </div>
         <div className="col-span-2 hidden md:inline-block">
-          <Photo/>
+          <Photo />
         </div>
       </div>
     </Section>

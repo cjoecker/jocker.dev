@@ -1,19 +1,17 @@
 import { Paragraph } from '../components/shared/paragraph';
-import Signature from '../images/signature.svg';
 
 export const AboutMeData = (
   <>
     <Paragraph>
-      ...but my friends call me "Joker".
-      Feel free to do the same. But I need to tell you that I'm bad at telling
-      jokes.
+      ...but my friends call me "Joker". Feel free to do the same. But I need to
+      tell you that I'm bad at telling jokes.
     </Paragraph>
     <Paragraph>
       I discovered my passion for programming when I was 9 after my father gave
       away my beloved dog. To honor his memory, I built a website filled with
       pictures of him. That's where my love affair with coding began. During
-      high school, I took several graphic design courses and developed a
-      strong interest also in UI design.
+      high school, I took several graphic design courses and developed a strong
+      interest also in UI design.
     </Paragraph>
     <Paragraph>
       In my previous role as a consultant, I specialized in developing custom

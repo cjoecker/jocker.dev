@@ -1,6 +1,8 @@
+import React from 'react';
+
+import { Paragraph } from '../components/shared/paragraph';
+
 import { EXPERIENCE_YEARS } from './experience-and-education';
-import React from "react";
-import { Paragraph } from "../components/shared/paragraph";
 
 export const ServiceOfferData: ServiceOfferType[] = [
   {
