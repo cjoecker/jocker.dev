@@ -24,14 +24,6 @@ export const AboutMeData = (
       large corporations, I've ventured into freelance work.
     </Paragraph>
     <Paragraph>
-      I have a wide range of interests and enjoy learning about various
-      subjects. This broad knowledge base allows me to take an integrative
-      approach to my work and always keep the big picture in mind. I am also a
-      firm believer in the importance of helping others, and I always make time
-      for it. My goal is not only to meet your needs but to exceed your
-      expectations with a touch of extra flair and creativity.
-    </Paragraph>
-    <Paragraph>
       I would love to hear from you and discuss our next project!
     </Paragraph>
   </>
