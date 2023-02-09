@@ -118,7 +118,7 @@ img {
   box-shadow: 3px 3px 6px #74747d, -3px -3px 6px #dee5e8;
 }
 
-.bg-about-me{
+.bg-about-me {
   background: theme('colors.light-grey');
   box-shadow: inset 1px 1px 3px #9494a2, inset -1px -1px 3px #ffffff;
 }

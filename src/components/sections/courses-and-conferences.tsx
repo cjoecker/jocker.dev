@@ -71,7 +71,9 @@ const CourseItem = ({ course }: { course: CourseType }) => {
         height={20}
       />
       <div className="overflow-hidden">
-        <div className="font-medium overflow-ellipsis whitespace-nowrap overflow-hidden">{course.name}</div>
+        <div className="font-medium overflow-ellipsis whitespace-nowrap overflow-hidden">
+          {course.name}
+        </div>
         <div className="text-xs">
           {`${course.instructor} – ${format(course.date, DATE_FORMAT)}`}
         </div>

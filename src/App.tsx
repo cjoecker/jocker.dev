@@ -1,4 +1,4 @@
-import { AboutMe } from "./components/sections/about-me";
+import { AboutMe } from './components/sections/about-me';
 import { Contact } from './components/sections/contact';
 import { Contributions } from './components/sections/contributions';
 import { CoreValues } from './components/sections/core-values';

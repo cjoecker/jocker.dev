@@ -6,7 +6,7 @@ import {
   ServiceOfferType,
 } from '../../constants/service-offer';
 import { Section } from '../shared/section';
-import { getAltTextFromFileName } from "../shared/utils";
+import { getAltTextFromFileName } from '../shared/utils';
 
 export const ServiceOffer = () => {
   return (
