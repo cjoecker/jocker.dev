@@ -13,7 +13,7 @@ export const AboutMe = () => {
             className="rounded-2xl w-full h-full object-cover"
             height={512}
             width={384}
-            alt="stack overflow logo"
+            alt="christian"
             src={icons(`./christian.webp`)}
           />
         </div>
