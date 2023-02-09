@@ -1,8 +1,6 @@
 import { EXPERIENCE_YEARS } from './experience-and-education';
-
-const Paragraph = ({ children }: { children: React.ReactNode }) => {
-  return <p className="mb-3 last:mb-0">{children}</p>;
-};
+import React from "react";
+import { Paragraph } from "../components/shared/paragraph";
 
 export const ServiceOfferData: ServiceOfferType[] = [
   {

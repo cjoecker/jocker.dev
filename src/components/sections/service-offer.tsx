@@ -6,6 +6,7 @@ import {
   ServiceOfferType,
 } from '../../constants/service-offer';
 import { Section } from '../shared/section';
+import { getAltTextFromFileName } from "../shared/utils";
 
 export const ServiceOffer = () => {
   return (
@@ -91,6 +92,7 @@ const CardContent = ({
       <motion.img
         layout={isExpandable ? 'preserve-aspect' : false}
         loading="lazy"
+        alt={getAltTextFromFileName(offer.logo)}
         width={'70'}
         height={'70'}
         src={icons(`./${offer.logo}`)}
