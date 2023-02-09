@@ -3,15 +3,23 @@ import Signature from '../../images/signature.svg';
 import { Section } from '../shared/section';
 
 export const AboutMe = () => {
+  const icons = require.context('../../images/', false);
   return (
     <Section title="About Me">
       <div className="grid grid-cols-1 md:grid-cols-5 gap-x-10 gap-y-6 rounded-2xl p-6 bg-about-me mx-auto overflow-hidden">
-        <div className="col-span-1 inline-block md:hidden">
-          <Photo />
+        <div className="col-span-1 md:col-span-2">
+          <img
+            loading="lazy"
+            className="rounded-2xl w-full h-full object-cover"
+            height={512}
+            width={384}
+            alt="stack overflow logo"
+            src={icons(`./christian.webp`)}
+          />
         </div>
         <div className="col-span-1 md:col-span-3 text-left">
           <h3 className="text-3xl mb-4">Hi, I'm Christian...</h3>
-          <div className="text-lg text-justify">{AboutMeData}</div>
+          <div className="text-lg">{AboutMeData}</div>
           <img
             loading="lazy"
             className="mt-4 ml-2"
@@ -21,24 +29,7 @@ export const AboutMe = () => {
             src={Signature}
           />
         </div>
-        <div className="col-span-2 hidden md:inline-block">
-          <Photo />
-        </div>
       </div>
     </Section>
-  );
-};
-
-export const Photo = () => {
-  const icons = require.context('../../images/', false);
-  return (
-    <img
-      loading="lazy"
-      className="rounded-2xl w-full h-full object-cover"
-      height={512}
-      width={384}
-      alt="stack overflow logo"
-      src={icons(`./christian.jpeg`)}
-    />
   );
 };
