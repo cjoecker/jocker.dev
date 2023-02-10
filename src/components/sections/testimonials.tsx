@@ -53,7 +53,7 @@ export function Testimonials() {
               {({ isActive }) => (
                 <div
                   style={{ filter: isActive ? '' : 'blur(1px)' }}
-                  className={`flex-1 select-none flex bg-light-grey shadow-lg p-5 flex-col rounded-xl ${
+                  className={`flex-1 select-none flex bg-neutral shadow-lg p-5 flex-col rounded-xl ${
                     isActive ? '' : 'opacity-70'
                   }`}
                 >
