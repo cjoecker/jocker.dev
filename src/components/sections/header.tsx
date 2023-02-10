@@ -2,26 +2,32 @@ import {
   animate,
   motion,
   MotionValue,
+  useMotionValue,
   useScroll,
   useTransform,
 } from 'framer-motion';
 import { useRef } from 'react';
 
 import { useNarrowView } from '../../hooks/useNarrowView';
-import LightBulb from '../../images/light-bulb.svg';
+import MeshPurple from '../../images/mesh-purple.svg';
+import MeshTurquoise from '../../images/mesh-turquoise.svg';
+import MeshBlue from '../../images/mesh-blue.svg';
+import useMeasure from 'react-use-measure';
+import { useMouse } from 'react-use';
 
 export const Header = () => {
   const { isNarrowView } = useNarrowView();
   const ref = useRef<HTMLDivElement>(null);
+
   const { scrollY } = useScroll({ target: ref });
   const titleY = useParallax(scrollY, -0.25);
   const subtitleY = useParallax(scrollY, -0.5);
   const buttonY = useParallax(scrollY, -1);
-  // there is a bug in chromium that is not showing -webkit-fill-available correctly
-  const isIphone = window.navigator.userAgent.includes('iPhone');
-  const imageOpacity = useTransform(scrollY, value =>
-    Math.max(1 - value / 300, 0)
-  );
+
+  const { elX, elY } = useMouse(ref);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
   const onDiscoverMoreClick = () => {
     if (ref.current) {
       const targetTop = ref.current.offsetTop + ref.current.offsetHeight;
@@ -37,48 +43,36 @@ export const Header = () => {
 
   return (
     <div
-      className={`w-full flex items-end relative ${
-        isIphone ? 'h-ios-screen' : 'h-screen'
-      }`}
+      onPointerMove={e => {
+        mouseX.set(elX / 8);
+        mouseY.set(elY / 8);
+      }}
+      className={`w-full flex items-end relative overflow-x-hidden h-screen`}
       ref={ref}
     >
-      <div className="overflow-hidden absolute w-full h-full top-0 left-0 flex justify-end select-none pointer-events-none">
-        <div
-          className={`${
-            isNarrowView ? 'translate-x-[40%]' : 'translate-x-1/2 my-12'
-          }`}
-        >
-          <motion.img
-            className={isNarrowView ? 'mt-4' : ''}
-            style={{ opacity: imageOpacity }}
-            src={LightBulb}
-            alt="light bulb shining"
-            width={isNarrowView ? '120%' : '100%'}
-            height={isNarrowView ? 'auto' : '100%'}
-          />
-        </div>
-      </div>
+      <Background mouseX={mouseX} mouseY={mouseY} />
       <div
         className={`${
           isNarrowView ? 'mx-12 mb-12' : 'ml-24 mb-20'
         } text-left z-10`}
       >
-        <motion.h1 style={{ y: titleY }} className="text-5xl font-normal">
-          Christian Jöcker
+        <motion.h1 style={{ y: titleY }} className="text-2xl font-bold">
+          Hi, I'm Christian Jöcker,
+          <br />a full stack developer.
         </motion.h1>
-        <motion.h2
+        <motion.p
           style={{ y: subtitleY }}
-          className="font-normal text-2xl mt-2"
+          className="font-normal text-xl mt-12 max-w-[70vw]"
         >
-          Freelance Full-Stack Developer
-          <br />& UX/UI Designer
-        </motion.h2>
+          I work as a freelance developer and am passionate about creating great
+          experiences with beautiful web applications!
+        </motion.p>
         <motion.button
           style={{ y: buttonY }}
           whileTap={{ scale: 1 }}
           whileHover={{ scale: 1.2 }}
           onClick={onDiscoverMoreClick}
-          className="bg-button-header rounded-full py-2 px-4 text-xl mt-12 text-light-grey hover:cursor-pointer select-none"
+          className="rounded-full font-semibold py-5 px-8 text-lg hover:cursor-pointer select-none text-secondary bg-gradient-to-br from-primary to-primary/50 mb-[10vh] mt-[15vh]"
         >
           Discover More
         </motion.button>
@@ -90,3 +84,30 @@ export const Header = () => {
 function useParallax(scrollY: MotionValue<number>, multiplicator: number) {
   return useTransform(scrollY, value => value * multiplicator);
 }
+
+export type Props = {
+  mouseX: MotionValue<number>;
+  mouseY: MotionValue<number>;
+};
+export const Background = ({ mouseX, mouseY }: Props) => {
+  const blueMeshX = useTransform(mouseX, value => value * -0.5);
+  const blueMeshY = useTransform(mouseY, value => value * -0.5);
+  return (
+    <>
+      <motion.img
+        style={{ x: mouseX, y: mouseY }}
+        className="absolute right-[-50vw] top-[-20vh] w-[130vw] h-[85vh]"
+        src={MeshPurple}
+      />
+      <motion.img
+        style={{ x: blueMeshX, y: blueMeshY }}
+        className="absolute right-[-45vw] top-[5vh] w-[120vw] h-[120vh]"
+        src={MeshTurquoise}
+      />
+      <motion.img
+        className="absolute left-[-45vw] top-[-15vh] w-[120vw] h-[120vh]"
+        src={MeshBlue}
+      />
+    </>
+  );
+};

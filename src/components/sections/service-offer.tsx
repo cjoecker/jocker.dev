@@ -69,7 +69,7 @@ const CardContent = ({
   return (
     <motion.div
       layout={isExpandable}
-      className={`flex rounded-2xl bg-light-grey cursor-pointer
+      className={`flex rounded-2xl bg-neutral cursor-pointer
               text-left p-4 whitespace-pre-wrap relative
               ${
                 isOpen && isExpandable

@@ -11,10 +11,22 @@ module.exports = {
     colors: {
       primary: colors.primary,
       secondary: colors.secondary,
-      'light-grey': colors.lightGrey,
+      'neutral': colors.neutral,
     },
     fontFamily: {
-      body: ['"Quicksand"', 'Arial'],
+      body: ['"raleway"', 'Arial'],
+    },
+    fontWeight:{
+      normal:400,
+      semibold:600,
+      bold:800
+    },
+    fontSize: {
+      sm: '14px',
+      base: '18px',
+      lg: '32px',
+      xl: '44px',
+      '2xl': '96px',
     },
     screens: {
       sm: '480px',

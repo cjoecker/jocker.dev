@@ -2,26 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-/* quicksand-regular - latin */
+/* raleway-regular - latin */
 @font-face {
-  font-family: 'Quicksand';
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Raleway';
   font-style: normal;
-  font-display: swap;
   font-weight: 400;
-  src: local(''),
-    url('./fonts/quicksand-v30-latin-regular.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('./fonts/quicksand-v30-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url('./fonts/raleway-v28-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+  url('./fonts/raleway-v28-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-/* quicksand-500 - latin */
+/* raleway-500 - latin */
 @font-face {
-  font-family: 'Quicksand';
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Raleway';
   font-style: normal;
-  font-display: swap;
   font-weight: 500;
-  src: local(''), url('./fonts/quicksand-v30-latin-500.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('./fonts/quicksand-v30-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url('./fonts/raleway-v28-latin-500.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+  url('./fonts/raleway-v28-latin-500.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* raleway-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./fonts/raleway-v28-latin-600.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+  url('./fonts/raleway-v28-latin-600.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* raleway-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./fonts/raleway-v28-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+  url('./fonts/raleway-v28-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* raleway-800 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 800;
+  src: url('./fonts/raleway-v28-latin-800.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+  url('./fonts/raleway-v28-latin-800.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* raleway-900 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 900;
+  src: url('./fonts/raleway-v28-latin-900.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+  url('./fonts/raleway-v28-latin-900.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 #reset-this-root {
@@ -30,21 +63,20 @@
 
 html {
   height: -webkit-fill-available;
-  background-color: #cfcfe0;
+  background-color: #0F0823;
   overflow: unset !important;
 }
 body {
   margin: 0;
-  font-family: Quicksand, sans-serif;
+  font-family: Raleway, Arial, sans-serif;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color-scheme: light;
-  background: linear-gradient(145deg, #cfcfe0, #babaca);
   text-align: center;
   overflow: auto;
   padding: 0;
-  color: #3d3d3d;
+  color: #ffffff;
   min-height: 100vh;
   min-height: -webkit-fill-available;
 }
@@ -119,7 +151,7 @@ img {
 }
 
 .bg-about-me {
-  background: theme('colors.light-grey');
+  background: theme('colors.neutral');
   box-shadow: inset 1px 1px 3px #9494a2, inset -1px -1px 3px #ffffff;
 }
 
