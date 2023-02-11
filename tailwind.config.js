@@ -11,7 +11,12 @@ module.exports = {
     colors: {
       primary: colors.primary,
       secondary: colors.secondary,
-      'neutral': colors.neutral,
+      pink: colors.pink,
+      purple: colors.purple,
+      turquoise: colors.turquoise,
+      blue: colors.blue,
+      green: colors.green,
+      neutral: colors.neutral,
     },
     fontFamily: {
       body: ['"raleway"', 'Arial'],
@@ -24,9 +29,9 @@ module.exports = {
     fontSize: {
       sm: '14px',
       base: '18px',
-      lg: '32px',
-      xl: '44px',
-      '2xl': '96px',
+      lg: '26px',
+      xl: '32px',
+      '2xl': '64px',
     },
     screens: {
       sm: '480px',
