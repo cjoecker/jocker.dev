@@ -50,7 +50,7 @@ export const Header = () => {
         mouseX.set(elX / 8);
         mouseY.set(elY / 8);
       }}
-      className={`w-full flex items-end relative overflow-x-hidden h-screen ${
+      className={`w-full flex items-end relative overflow-hidden mask-header ${
         isIphone ? 'h-ios-screen' : 'h-screen'
       }`}
       ref={ref}
@@ -58,7 +58,7 @@ export const Header = () => {
       <Background mouseX={mouseX} mouseY={mouseY} />
       <div
         className={`${
-          isNarrowView ? 'mx-12 mb-12' : 'ml-24 mb-28'
+          isNarrowView ? 'ml-6 mb-16' : 'ml-24 mb-28'
         } text-left z-10`}
       >
         <motion.h1 style={{ y: titleY }} className="text-2xl font-bold">
@@ -67,7 +67,7 @@ export const Header = () => {
         </motion.h1>
         <motion.p
           style={{ y: subtitleY }}
-          className="font-normal text-lg mt-8 mr-[25vw]"
+          className="font-normal text-lg mt-8 mr-4 md:mr-[25vw]"
         >
           I work as a freelance developer and am passionate about creating great
           experiences with beautiful web applications!
@@ -92,25 +92,25 @@ export type Props = {
   mouseY: MotionValue<number>;
 };
 export const Background = ({ mouseX, mouseY }: Props) => {
-  const blueMeshX = useTransform(mouseX, value => value * -0.5);
+  const blueMeshX = useTransform(mouseX, value => value * -0.7);
   const blueMeshY = useTransform(mouseY, value => value * -0.5);
   return (
     <>
       <motion.img
         aria-hidden="true"
         style={{ x: mouseX, y: mouseY }}
-        className="absolute right-[-50vw] top-[-20vh] w-[130vw] h-[85vh]"
+        className="absolute right-[-50vw] top-[-40vh] w-[130vw] h-[85vh]"
         src={MeshPurple}
       />
       <motion.img
         aria-hidden="true"
         style={{ x: blueMeshX, y: blueMeshY }}
-        className="absolute right-[-45vw] top-[5vh] w-[120vw] h-[120vh]"
+        className="absolute right-[-45vw] top-[-5vh] w-[120vw] h-[120vh]"
         src={MeshTurquoise}
       />
       <motion.img
         aria-hidden="true"
-        className="absolute left-[-45vw] top-[-15vh] w-[120vw] h-[120vh]"
+        className="absolute left-[-25vw] top-[-20vh] w-[80vw] h-[80vh]"
         src={MeshBlue}
       />
     </>

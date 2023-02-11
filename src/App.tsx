@@ -15,7 +15,7 @@ export function App() {
   return (
     <div className="text-base font-normal h-full">
       <Header />
-      <div className="max-w-[1140px] flex flex-col mx-auto p-6">
+      <div className="max-w-[1140px] flex flex-col mx-auto p-6 overflow-x-hidden">
         <Facts />
         <ServiceOffer />
         <Skills />

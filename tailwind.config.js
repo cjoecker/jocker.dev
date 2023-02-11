@@ -27,11 +27,11 @@ module.exports = {
       bold:800
     },
     fontSize: {
-      sm: '14px',
-      base: '18px',
-      lg: '26px',
-      xl: '32px',
-      '2xl': '64px',
+      sm: '0.875rem',
+      base: '1rem',
+      lg: '1.5rem',
+      xl: '2rem',
+      '2xl': '4rem',
     },
     screens: {
       sm: '480px',
