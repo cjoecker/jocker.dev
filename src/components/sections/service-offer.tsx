@@ -7,11 +7,23 @@ import {
 } from '../../constants/service-offer';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
+import MeshPurple from "../../images/mesh-purple.svg";
+import MeshTurquoise from "../../images/mesh-turquoise.svg";
 
 export const ServiceOffer = () => {
   return (
     <Section title="What I Can Do for You">
-      <div className="flex gap-6 mx-auto flex-wrap justify-center max-w-3xl">
+      <div className="flex gap-6 mx-auto flex-wrap justify-center max-w-3xl relative">
+        <img
+          aria-hidden="true"
+          className="absolute -z-10 translate-x-[200px] w-[100vw] h-[100vh]"
+          src={MeshPurple}
+        />
+        <img
+          aria-hidden="true"
+          className="absolute -z-10 translate-y-[-200px] translate-x-[-200px] w-[100vw] h-[100vh]"
+          src={MeshTurquoise}
+        />
         {ServiceOfferData.map(offer => {
           return <Card key={offer.title} offer={offer} />;
         })}
@@ -69,18 +81,18 @@ const CardContent = ({
   return (
     <motion.div
       layout={isExpandable}
-      className={`flex rounded-2xl bg-neutral cursor-pointer
+      className={`flex rounded-2xl bg-gradient-to-br from-neutral to-neutral-dark border-solid border-secondary/10 border-2 cursor-pointer
               text-left p-4 whitespace-pre-wrap relative
               ${
                 isOpen && isExpandable
-                  ? 'w-full h-auto m-auto max-w-lg shadow-xl flex-wrap'
-                  : 'h-60 w-60 md:h-40 md:w-40 flex-col'
-              } ${isOpen && !isExpandable ? 'invisible' : 'visible shadow-md'}`}
+                  ? 'w-full h-auto m-auto max-w-lg flex-wrap bg-gradient-to-br from-neutral/70 to-neutral-dark/70 backdrop-blur-xl'
+                  : 'h-60 w-60 md:h-48 md:w-48 flex-col'
+              } ${isOpen && !isExpandable ? 'invisible' : 'visible'}`}
     >
       <motion.button
         layout={isExpandable ? 'preserve-aspect' : false}
         aria-label={isOpen ? 'expand' : 'contract'}
-        className={`absolute top-2.5 cursor-pointer right-2.5 opacity-60 p-2 ${
+        className={`absolute top-2.5 cursor-pointer right-2.5  p-2 ${
           isOpen ? 'h-7 w-7' : 'h-6 w-6'
         }`}
         style={{
@@ -108,7 +120,7 @@ const CardContent = ({
       >
         <motion.h3
           layout={isExpandable ? 'preserve-aspect' : false}
-          className={isOpen ? 'text-2xl mt-4' : 'mb-1 text-2xl md:text-lg'}
+          className={isOpen ? 'text-xl mt-4 mb-6 text-base' : 'mb-1 text-xl md:text-lg'}
         >
           {offer.title}
         </motion.h3>

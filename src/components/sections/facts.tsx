@@ -3,42 +3,28 @@ import { useEffect, useRef } from 'react';
 
 import { EXPERIENCE_YEARS } from '../../constants/experience-and-education';
 import { Section } from '../shared/section';
-
+import MeshPurple from "../../images/mesh-purple.svg";
+import MeshTurquoise from '../../images/mesh-turquoise.svg';
+import MeshBlue from '../../images/mesh-blue.svg';
 export const Facts = () => {
   return (
     <Section>
-      <div className="w-full flex flex-col">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ amount: 0.2, once: true }}
-          transition={{ duration: 0.7 }}
-          variants={{
-            visible: { opacity: 1, y: 0 },
-            hidden: { opacity: 0, y: 100 },
-          }}
-          className="mb-24 mt-24 text-xl"
-        >
-          <p>
-            I’m passionate about creating{' '}
-            <TextHighlight>great experiences</TextHighlight> with{' '}
-            <TextHighlight>beautiful web applications</TextHighlight>.
-          </p>
-          <p className="mt-4">
-            <TextHighlight>Happy customers</TextHighlight>,{' '}
-            <TextHighlight>clean code</TextHighlight> and{' '}
-            <TextHighlight>sustainable architectures</TextHighlight> are my
-            priority.
-          </p>
-        </motion.div>
+      <div className="relative flex mt-52">
+        <img
+          aria-hidden="true"
+          height={1200}
+          width={900}
+          className="absolute -z-10 top-[10px] left-[-175px]"
+          src={MeshTurquoise}
+        />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-8 justify-between mx-auto flex-wrap">
           <Fact
             number={EXPERIENCE_YEARS}
-            label={'Years of experience'}
+            label={'Years of Experience'}
             icon="strong"
           />
-          <Fact number={23} label={'Developed apps'} icon="smartphone" />
-          <Fact number={13} label={'Happy customers'} icon="happy" />
+          <Fact number={23} label={'Developed Apps'} icon="smartphone" />
+          <Fact number={13} label={'Happy Customers'} icon="happy" />
         </div>
       </div>
     </Section>
@@ -59,7 +45,7 @@ const Fact = ({
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({ target: ref });
-  const content = useTransform(scrollYProgress, [0.9, 0.5], [0, number + 1]);
+  const content = useTransform(scrollYProgress, [0.9, 0.6], [0, number + 1]);
   const icons = require.context('../../images/', false);
 
   useEffect(() => {
@@ -82,7 +68,15 @@ const Fact = ({
   }, [content, number]);
 
   return (
-    <div className="col-span-1 flex flex-col min-w-[220px] p-4 rounded-lg">
+    <div className="col-span-1 flex flex-col min-w-[220px] p-4 rounded-lg relative">
+      {/* eslint-disable-next-line jsx-a11y/alt-text */}
+      <img
+        aria-hidden="true"
+        height={800}
+        width={600}
+        className="absolute -z-10 top-[-300px] left-[-175px]"
+        src={MeshPurple}
+      />
       <motion.img
         loading="lazy"
         className="mx-auto"
@@ -99,8 +93,8 @@ const Fact = ({
           hidden: { opacity: 0, y: 100 },
         }}
       />
-      <div ref={ref} className="text-7xl mt-3 text-primary" />
-      <div className="text-2xl opacity-80">{label}</div>
+      <div ref={ref} className="text-2xl mt-3 font-semibold" />
+      <div className="text-xl mt-4">{label}</div>
     </div>
   );
 };

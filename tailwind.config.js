@@ -17,6 +17,7 @@ module.exports = {
       blue: colors.blue,
       green: colors.green,
       neutral: colors.neutral,
+      'neutral-dark': colors['neutral-dark'],
     },
     fontFamily: {
       body: ['"raleway"', 'Arial'],

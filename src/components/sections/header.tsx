@@ -12,7 +12,6 @@ import { useNarrowView } from '../../hooks/useNarrowView';
 import MeshPurple from '../../images/mesh-purple.svg';
 import MeshTurquoise from '../../images/mesh-turquoise.svg';
 import MeshBlue from '../../images/mesh-blue.svg';
-import useMeasure from 'react-use-measure';
 import { useMouse } from 'react-use';
 
 export const Header = () => {
@@ -26,12 +25,13 @@ export const Header = () => {
 
   // there is a bug in chromium that is not showing -webkit-fill-available correctly
   const isIphone = window.navigator.userAgent.includes('iPhone');
-
   const { elX, elY } = useMouse(ref);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const onDiscoverMoreClick = () => {
+  const onDiscoverMoreClick = (e: React.MouseEvent) => {
+    (e.target as HTMLButtonElement).blur();
+
     if (ref.current) {
       const targetTop = ref.current.offsetTop + ref.current.offsetHeight;
       animate(window.scrollY, targetTop, {
@@ -50,7 +50,7 @@ export const Header = () => {
         mouseX.set(elX / 8);
         mouseY.set(elY / 8);
       }}
-      className={`w-full flex items-end relative overflow-hidden mask-header ${
+      className={`w-full flex items-end relative overflow-hidden mask-header mb-24 ${
         isIphone ? 'h-ios-screen' : 'h-screen'
       }`}
       ref={ref}
@@ -79,7 +79,7 @@ export const Header = () => {
           onClick={onDiscoverMoreClick}
           className="rounded-md font-semibold text-lg hover:cursor-pointer select-none text-secondary bg-gradient-to-br from-turquoise to-blue mt-24"
         >
-          <div className="py-4 px-6 m-[1px] bg-secondary rounded-md bg-[#000] bg-opacity-80">
+          <div className="py-4 px-6 m-[1px] bg-secondary rounded-md bg-[#000] bg-opacity-80 pointer-events-none">
             Discover More
           </div>
         </motion.button>
