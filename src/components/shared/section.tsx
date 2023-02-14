@@ -6,7 +6,7 @@ export const Section = ({ title, children }: Props) => {
   return (
     <section className="mb-[30vh] last:mb-12">
       {title && (
-        <h2 className="text-primary text-4xl font-normal mb-12">{title}</h2>
+        <h2 className="text-xl mb-12">{title}</h2>
       )}
 
       {children}

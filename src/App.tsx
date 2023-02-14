@@ -13,20 +13,23 @@ import { Testimonials } from './components/sections/testimonials';
 
 export function App() {
   return (
-    <div className="text-base font-normal h-full">
+    <div className="text-base font-normal">
       <Header />
-      <div className="max-w-[1140px] flex flex-col mx-auto p-6 overflow-x-hidden">
-        <Facts />
-        <ServiceOffer />
-        <Skills />
-        <CoreValues />
-        <ExperienceAndEducation />
-        <Languages />
-        <Testimonials />
-        <Contributions />
-        <CoursesAndConferences />
-        <AboutMe />
-        <Contact />
+      <div className="w-full flex flex-col">
+        <div className="mx-6">
+          <ServiceOffer />
+          <Facts />
+          {/*<ServiceOffer />*/}
+          {/*<Skills />*/}
+          {/*<CoreValues />*/}
+          {/*<ExperienceAndEducation />*/}
+          {/*<Languages />*/}
+          {/*<Testimonials />*/}
+          {/*<Contributions />*/}
+          {/*<CoursesAndConferences />*/}
+          {/*<AboutMe />*/}
+          {/*<Contact />*/}
+        </div>
       </div>
     </div>
   );
