@@ -16,7 +16,7 @@ export function App() {
     <div className="text-base font-normal">
       <Header />
       <div className="w-full flex flex-col">
-        <div className="mx-6">
+        <div className="">
           <ServiceOffer />
           <Facts />
           {/*<ServiceOffer />*/}
