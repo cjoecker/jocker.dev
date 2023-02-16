@@ -50,15 +50,15 @@ export const Header = () => {
         mouseX.set(elX / 8);
         mouseY.set(elY / 8);
       }}
-      className={`w-full flex items-end relative overflow-hidden mask-header mb-24 ${
-        isIphone ? 'h-ios-screen' : 'h-screen'
+      className={`w-full flex relative overflow-hidden mask-header ${
+        isIphone ? 'h-ios-screen items-center' : 'h-screen items-end'
       }`}
       ref={ref}
     >
       <Background mouseX={mouseX} mouseY={mouseY} />
       <div
         className={`${
-          isNarrowView ? 'ml-6 mb-16' : 'ml-24 mb-28'
+          isNarrowView ? 'ml-6 mb-8' : 'ml-24 mb-20'
         } text-left z-10`}
       >
         <motion.h1 style={{ y: titleY }} className="text-2xl font-bold">

@@ -72,6 +72,10 @@
   }
 }
 
+:root {
+  color-scheme: dark;
+}
+
 html {
   height: -webkit-fill-available;
   background-color: #0F0823;
@@ -83,7 +87,6 @@ body {
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color-scheme: light;
   text-align: center;
   overflow-x: hidden;
   overflow-y: auto;
@@ -92,7 +95,6 @@ body {
   width: 100vw;
   height: 100vh;
   min-height: 100vh;
-  min-height: -webkit-fill-available;
 }
 
 h1,
@@ -176,17 +178,17 @@ img {
 
 .mask-header {
   -webkit-mask-image: linear-gradient(
-          0deg,
+          180deg,
           transparent 0%,
-          black 15%,
-          black 85%,
+          black 5%,
+          black 95%,
           transparent 100%
   );
   mask-image: linear-gradient(
-          0deg,
+          180deg,
           transparent 0%,
-          black 15%,
-          black 85%,
+          black 5%,
+          black 95%,
           transparent 100%
   );
 }
@@ -242,8 +244,8 @@ img {
 }
 
 .h-ios-screen {
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
+  height: 100vh;
+  height: -webkit-fill-available;
 }
 
 *:focus {

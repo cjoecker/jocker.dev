@@ -12,7 +12,7 @@ import MeshTurquoise from "../../images/mesh-turquoise.svg";
 
 export const ServiceOffer = () => {
   return (
-    <Section title="What I Can Do for You">
+    <Section title="What I Can Do for You" className={"mt-16"}>
       <div className="flex gap-6 mx-auto flex-wrap justify-center max-w-3xl relative">
         <img
           aria-hidden="true"
@@ -86,7 +86,7 @@ const CardContent = ({
               ${
                 isOpen && isExpandable
                   ? 'w-full h-auto m-auto max-w-lg flex-wrap bg-gradient-to-br from-neutral/70 to-neutral-dark/70 backdrop-blur-xl'
-                  : 'h-60 w-60 md:h-48 md:w-48 flex-col'
+                  : 'h-64 w-64 md:h-48 md:w-48 flex-col'
               } ${isOpen && !isExpandable ? 'invisible' : 'visible'}`}
     >
       <motion.button
@@ -125,7 +125,7 @@ const CardContent = ({
           {offer.title}
         </motion.h3>
         {isOpen && (
-          <motion.div className="my-2">{offer.description}</motion.div>
+          <motion.div className="my-2 text-md">{offer.description}</motion.div>
         )}
       </motion.div>
     </motion.div>
