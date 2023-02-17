@@ -43,7 +43,7 @@ export const Tags = ({
                 visible: { scale: 1 },
                 hidden: { scale: 0 },
               }}
-              className={`${title === 'Web Development' ? 'shadow-skills-tag-turquoise' : 'shadow-skills-tag-purple'} border-solid border-secondary/10 border-2 bg-gradient-to-br from-neutral to-neutral-dark inline-block rounded-full px-3 py-1 text-md capitalize`}
+              className={`${title === 'Web Development' ? 'shadow-sm-turquoise' : 'shadow-sm-purple'} border-solid border-secondary/10 border-2 bg-gradient-to-br from-neutral to-neutral-dark inline-block rounded-full px-3 py-1 text-md capitalize`}
             >
               {skill}
             </motion.div>

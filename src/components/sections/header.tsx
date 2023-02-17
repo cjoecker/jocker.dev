@@ -96,7 +96,7 @@ export const Background = ({ mouseX, mouseY }: Props) => {
       <motion.img
         aria-hidden="true"
         style={{ x: mouseX, y: mouseY }}
-        className="absolute right-[-50vw] top-[-40vh] w-[130vw] h-[85vh]"
+        className="absolute right-[-40vw] top-[-30vh] w-[130vw] h-[85vh]"
         src={MeshPurple}
       />
       <motion.img
