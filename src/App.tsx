@@ -19,8 +19,7 @@ export function App() {
         <div className="">
           <ServiceOffer />
           <Facts />
-          {/*<ServiceOffer />*/}
-          {/*<Skills />*/}
+          <Skills />
           {/*<CoreValues />*/}
           {/*<ExperienceAndEducation />*/}
           {/*<Languages />*/}

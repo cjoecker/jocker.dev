@@ -139,6 +139,15 @@ img {
   box-shadow: 0px 0px 50px 0px #003040;
 }
 
+.shadow-skills-tag-turquoise {
+  box-shadow: 0px 0px 20px -10px #009fda;
+}
+
+.shadow-skills-tag-purple {
+  box-shadow: 0px 0px 20px -10px #8F00FF;
+}
+
+
 .bg-stack-overflow {
   background: #e3e3ec;
   box-shadow: inset 4px 4px 6px #a1a1af, inset -4px -4px 6px #f3f3fc;

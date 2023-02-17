@@ -7,7 +7,7 @@ export const Skills = () => {
   return (
     <Section title="Skills">
       <div className="w-full flex flex-col">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20 mx-8 sm:mx-16">
           <Tags skills={DevSkills} title="Web Development" />
           <Tags skills={UxSkills} title="UX/UI Design" />
         </div>
@@ -25,7 +25,7 @@ export const Tags = ({
 }) => {
   return (
     <div className="mt-4 col-span-1">
-      <h3 className="text-xl text-left mb-4">{title}</h3>
+      <h3 className="text-lg text-left mb-6">{title}</h3>
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -43,7 +43,7 @@ export const Tags = ({
                 visible: { scale: 1 },
                 hidden: { scale: 0 },
               }}
-              className="bg-tag inline-block rounded-full px-3 text-lg capitalize"
+              className={`${title === 'Web Development' ? 'shadow-skills-tag-turquoise' : 'shadow-skills-tag-purple'} border-solid border-secondary/10 border-2 bg-gradient-to-br from-neutral to-neutral-dark inline-block rounded-full px-3 py-1 text-md capitalize`}
             >
               {skill}
             </motion.div>
