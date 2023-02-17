@@ -10,13 +10,6 @@ export const Facts = () => {
   return (
     <Section>
       <div className="relative flex mt-52">
-        <img
-          aria-hidden="true"
-          height={1200}
-          width={900}
-          className="absolute -z-10 top-[10px] left-[-175px]"
-          src={MeshTurquoise}
-        />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-8 justify-between mx-auto flex-wrap">
           <Fact
             number={EXPERIENCE_YEARS}
