@@ -2,10 +2,10 @@ import {
   animate,
   motion,
   MotionValue,
-  useMotionValue,
+  useMotionValue, useMotionValueEvent,
   useScroll,
-  useTransform,
-} from 'framer-motion';
+  useTransform
+} from "framer-motion";
 import { useRef } from 'react';
 
 import { useNarrowView } from '../../hooks/useNarrowView';
@@ -15,7 +15,6 @@ import MeshBlue from '../../images/mesh-blue.svg';
 import { useMouse } from 'react-use';
 
 export const Header = () => {
-  const { isNarrowView } = useNarrowView();
   const ref = useRef<HTMLDivElement>(null);
 
   const { scrollY } = useScroll({ target: ref });
@@ -50,24 +49,22 @@ export const Header = () => {
         mouseX.set(elX / 8);
         mouseY.set(elY / 8);
       }}
-      className={`w-full flex relative overflow-hidden mask-header ${
-        isIphone ? 'h-ios-screen items-center' : 'h-screen items-end'
+      className={`w-full flex relative items-center  ${
+        isIphone ? 'h-ios-screen' : 'h-screen'
       }`}
       ref={ref}
     >
       <Background mouseX={mouseX} mouseY={mouseY} />
       <div
-        className={`${
-          isNarrowView ? 'ml-6 mb-8' : 'ml-24 mb-20'
-        } text-left z-10`}
+        className={`ml-6 mb-8 sm:mt-[20vh] sm:ml-24 sm:mb-20 text-left z-10`}
       >
-        <motion.h1 style={{ y: titleY }} className="text-2xl font-bold">
+        <motion.h1 style={{ y: titleY }} className="text-2xl font-bold mb-8">
           Hi, I'm Christian Jöcker,
           <br />a Full-Stack Developer.
         </motion.h1>
         <motion.p
           style={{ y: subtitleY }}
-          className="font-normal text-lg mt-8 mr-4 md:mr-[25vw]"
+          className="font-normal text-lg mr-4 md:mr-[25vw] mb-16 sm:mb-[15vh]"
         >
           I work as a freelance developer and am passionate about creating great
           experiences with beautiful web applications!
@@ -77,7 +74,7 @@ export const Header = () => {
           whileTap={{ scale: 1 }}
           whileHover={{ scale: 1.1 }}
           onClick={onDiscoverMoreClick}
-          className="rounded-md font-semibold text-lg hover:cursor-pointer select-none text-secondary bg-gradient-to-br from-turquoise to-blue mt-24"
+          className="rounded-md font-semibold text-lg hover:cursor-pointer select-none text-secondary bg-gradient-to-br from-turquoise to-blue"
         >
           <div className="py-4 px-6 m-[1px] bg-secondary rounded-md bg-[#000] bg-opacity-80 pointer-events-none">
             Discover More
@@ -110,7 +107,7 @@ export const Background = ({ mouseX, mouseY }: Props) => {
       />
       <motion.img
         aria-hidden="true"
-        className="absolute left-[-25vw] top-[-20vh] w-[80vw] h-[80vh]"
+        className="absolute left-[-35vw] top-[-10vh] w-[100vw] h-[100vh]"
         src={MeshBlue}
       />
     </>

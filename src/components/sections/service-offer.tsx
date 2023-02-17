@@ -14,16 +14,19 @@ export const ServiceOffer = () => {
   return (
     <Section title="What I Can Do for You" className={"mt-16"}>
       <div className="flex gap-6 mx-auto flex-wrap justify-center max-w-3xl relative">
-        <img
-          aria-hidden="true"
-          className="absolute -z-10 translate-x-[200px] w-[100vw] h-[100vh]"
-          src={MeshPurple}
-        />
-        <img
-          aria-hidden="true"
-          className="absolute -z-10 translate-y-[-200px] translate-x-[-200px] w-[100vw] h-[100vh]"
-          src={MeshTurquoise}
-        />
+        <div className="absolute -z-10 w-full h-full">
+          <img
+            aria-hidden="true"
+            className="absolute right-0 translate-x-[40%] translate-y-[25%] bottom-0 w-[200%] h-[200%]"
+            src={MeshPurple}
+          />
+          <img
+            aria-hidden="true"
+            className=" absolute top-0 left-0 translate-x-[-40%] translate-y-[-25%] w-[200%] h-[200%]"
+            src={MeshTurquoise}
+          />
+        </div>
+
         {ServiceOfferData.map(offer => {
           return <Card key={offer.title} offer={offer} />;
         })}
