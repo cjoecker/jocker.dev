@@ -139,14 +139,21 @@ img {
   box-shadow: 0px 0px 50px 0px #003040;
 }
 
-.shadow-skills-tag-turquoise {
+.shadow-sm-turquoise {
   box-shadow: 0px 0px 20px -10px #009fda;
 }
 
-.shadow-skills-tag-purple {
+.shadow-sm-purple {
   box-shadow: 0px 0px 20px -10px #8F00FF;
 }
 
+.shadow-md-turquoise {
+  box-shadow: 0px 0px 25px -5px #009fda;
+}
+
+.shadow-md-purple {
+  box-shadow: 0px 0px 25px -5px #8F00FF;
+}
 
 .bg-stack-overflow {
   background: #e3e3ec;

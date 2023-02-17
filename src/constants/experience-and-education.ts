@@ -10,6 +10,7 @@ export const education: ExperiencAndEductionType[] = [
     location: 'Wildau, Germany',
     startDate: new Date('2011-09'),
     endDate: new Date('2014-08'),
+    type: 'education',
   },
   {
     logo: 'scmt.svg',
@@ -19,6 +20,7 @@ export const education: ExperiencAndEductionType[] = [
     location: 'Filderstadt, Germany',
     startDate: new Date('2016-02'),
     endDate: new Date('2018-04'),
+    type: 'education',
   },
 ];
 
@@ -31,6 +33,7 @@ export const WorkExperienceData: ExperiencAndEductionType[] = [
     startDate: new Date('2015-02'),
     endDate: new Date('2018-04'),
     location: 'Augsburg, Germany',
+    type: 'work',
   },
   {
     logo: 'kuka.svg',
@@ -40,6 +43,7 @@ export const WorkExperienceData: ExperiencAndEductionType[] = [
     startDate: new Date('2018-04'),
     endDate: new Date('2019-05'),
     location: 'Augsburg, Germany',
+    type: 'work',
   },
   {
     logo: 'maibornwolff.svg',
@@ -49,6 +53,7 @@ export const WorkExperienceData: ExperiencAndEductionType[] = [
     startDate: new Date('2019-05'),
     endDate: new Date('2023-02'),
     location: 'Munich, Germany',
+    type: 'work',
   },
   {
     logo: 'me-with-macbook.webp',
@@ -58,6 +63,7 @@ export const WorkExperienceData: ExperiencAndEductionType[] = [
     startDate: new Date('2023-02'),
     endDate: 'today',
     location: 'Valencia, Spain',
+    type: 'work',
   },
 ];
 
@@ -69,4 +75,5 @@ export type ExperiencAndEductionType = {
   location: string;
   startDate: Date;
   endDate: Date | 'today';
+  type: 'education' | 'work';
 };

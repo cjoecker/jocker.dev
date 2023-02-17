@@ -3,24 +3,32 @@ import { motion } from 'framer-motion';
 import { CoreValuesData, CoreValuesType } from '../../constants/core-values';
 import meditatingImage from '../../images/meditating.webp';
 import { Section } from '../shared/section';
+import MeshPurpleTurquoise from "../../images/mesh-purple-turquoise.svg";
 
 export const CoreValues = () => {
   return (
     <Section title="Core Values">
       <div className="flex relative flex-col">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ amount: 0.2, once: true }}
-          transition={{
-            staggerChildren: 0.3,
-          }}
-          className="grid grid-cols-1 sm:grid-cols-2 mx-auto gap-y-12 gap-x-16"
-        >
-          {CoreValuesData.map(value => {
-            return <CoreValue key={value.coreValue} coreValue={value} />;
-          })}
-        </motion.div>
+        <div className="relative flex">
+          <img
+            aria-hidden="true"
+            className=" absolute mx-auto top-0 translate-y-[-35%] translate-x-[-32%] sm:translate-x-0 sm:w-[300%] sm:w-[100%] h-[300%]"
+            src={MeshPurpleTurquoise}
+          />
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.2, once: true }}
+            transition={{
+              staggerChildren: 0.3,
+            }}
+            className="grid grid-cols-1 sm:grid-cols-2 mx-auto gap-y-12 gap-x-16"
+          >
+            {CoreValuesData.map(value => {
+              return <CoreValue key={value.coreValue} coreValue={value} />;
+            })}
+          </motion.div>
+        </div>
         <div className="m-auto px-2">
           <motion.img
             loading="lazy"

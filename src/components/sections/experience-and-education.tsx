@@ -28,7 +28,6 @@ const WorkExperience = () => {
     <div className="flex w-full flex-col">
       {workAndEducation.map((experienceItem, index) => {
         const isOdd = index % 2 === 0;
-        const isWork = 'link' in experienceItem;
         const isFirst = index === 0;
         const isLast = index === workAndEducation.length - 1;
         return (
@@ -57,14 +56,18 @@ const WorkExperience = () => {
                   visible: { scale: 1 },
                   hidden: { scale: 0 },
                 }}
-                className="bg-contain flex p-3 bg-timeline-circle rounded-full"
+                className={`${experienceItem.type === 'work' ? 'shadow-md-turquoise' : 'shadow-md-purple'} bg-contain flex p-3 rounded-full border-solid border-secondary/10 border-2 bg-gradient-to-br from-neutral to-neutral-dark`}
               >
                 <img
                   loading="lazy"
                   width="40"
                   height="40"
-                  alt={isWork ? 'office' : 'course'}
-                  src={icons(`./${isWork ? 'office' : 'course'}.svg`)}
+                  alt={experienceItem.type === 'work' ? 'office' : 'course'}
+                  src={icons(
+                    `./${
+                      experienceItem.type === 'work' ? 'office' : 'course'
+                    }.svg`
+                  )}
                 />
               </motion.div>
               <div className="flex-1 pt-2">
@@ -133,7 +136,7 @@ const ExperienceItem = ({
           />
         </button>
         <div
-          className="text-base md:text-lg mt-1 break-words"
+          className="text-base md:text-md mt-1 break-words"
           style={{ lineHeight: '1.3rem' }}
         >
           {item.title}

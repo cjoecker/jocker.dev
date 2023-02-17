@@ -20,8 +20,8 @@ export function App() {
           <ServiceOffer />
           <Facts />
           <Skills />
-          {/*<CoreValues />*/}
-          {/*<ExperienceAndEducation />*/}
+          <CoreValues />
+          <ExperienceAndEducation />
           {/*<Languages />*/}
           {/*<Testimonials />*/}
           {/*<Contributions />*/}
