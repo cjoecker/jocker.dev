@@ -151,6 +151,10 @@ img {
   box-shadow: 0px 0px 50px -10px theme('colors.purple');
 }
 
+.text-shadow-turquoise {
+  text-shadow: 0px 0px 50px theme('colors.turquoise');
+}
+
 .bg-stack-overflow {
   background: #e3e3ec;
   box-shadow: inset 4px 4px 6px #a1a1af, inset -4px -4px 6px #f3f3fc;
