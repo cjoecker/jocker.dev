@@ -28,7 +28,7 @@ module.exports = {
       bold:800
     },
     fontSize: {
-      sm: '0.875rem',
+      sm: '0.8rem',
       base: '1rem',
       md: '1.3rem',
       lg: '1.5rem',
