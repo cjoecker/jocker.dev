@@ -3,7 +3,7 @@ import { Paragraph } from '../components/shared/paragraph';
 export const AboutMeData = (
   <>
     <Paragraph>
-      ...but my friends call me "Joker". Feel free to do the same. But I need to
+      Hey, I'm Christian, but my friends call me "Joker". Feel free to do the same. But I need to
       tell you that I'm bad at telling jokes.
     </Paragraph>
     <Paragraph>
