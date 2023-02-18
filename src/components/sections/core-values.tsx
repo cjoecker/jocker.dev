@@ -62,7 +62,7 @@ const CoreValue = ({ coreValue }: { coreValue: CoreValuesType }) => {
       className="flex flex-col align-top max-w-[190px] col-span-1"
     >
       <h3>{coreValue.coreValue}</h3>
-      <p>{coreValue.explanation}</p>
+      <p className="mt-0.5">{coreValue.explanation}</p>
     </motion.div>
   );
 };

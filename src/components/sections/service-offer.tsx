@@ -117,12 +117,12 @@ const CardContent = ({
       >
         <motion.h3
           layout={isExpandable ? 'preserve-aspect' : false}
-          className={isOpen ? 'text-xl mt-4 mb-6 text-base' : 'mb-1 text-xl md:text-lg'}
+          className={isOpen ? 'text-lg mt-2 mb-2 text-base mr-4' : 'mb-1 text-xl md:text-lg'}
         >
           {offer.title}
         </motion.h3>
         {isOpen && (
-          <motion.div className="my-2 text-md">{offer.description}</motion.div>
+          <motion.div className="my-2 text-base">{offer.description}</motion.div>
         )}
       </motion.div>
     </motion.div>
