@@ -8,6 +8,7 @@ import {
 } from '../../constants/contributions';
 import { Section } from '../shared/section';
 import { Tooltip } from '../shared/tooltip';
+import MeshPurple from "../../images/mesh-purple.svg";
 
 export const Contributions = () => {
   return (
@@ -15,17 +16,32 @@ export const Contributions = () => {
       <div className="flex">
         <div className="flex flex-wrap gap-x-24 justify-center gap-y-36 mx-auto">
           <div className="flex relative flex-col min-w-[250px]">
+            <Mesh/>
             <MyApps />
           </div>
           <div className="flex relative flex-col min-w-[270px]">
+            <Mesh/>
             <OpenSource />
           </div>
           <div className="flex relative flex-col min-w-[200px]">
+            <Mesh/>
             <StackOverflow />
           </div>
         </div>
       </div>
     </Section>
+  );
+};
+
+export const Mesh = () => {
+  return (
+    <img
+      aria-hidden="true"
+      height={800}
+      width={600}
+      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-[200%] h-[150%]"
+      src={MeshPurple}
+    />
   );
 };
 
@@ -42,7 +58,7 @@ const StackOverflow = () => {
   }, []);
   return (
     <>
-      <h3 className="text-xl mb-4">Stack Overflow</h3>
+      <h3 className="text-lg mb-4">Stack Overflow</h3>
       <motion.button
         variants={{
           visible: { opacity: 1 },
@@ -53,7 +69,7 @@ const StackOverflow = () => {
         whileInView="visible"
         aria-label="stack overflow profile"
         onClick={() => window.open(StackOverflowDefaults.profileUrl, '_blank')}
-        className="flex flex-col max-w-fit bg-stack-overflow py-2 px-4 rounded-xl hover:cursor-pointer mx-auto text-secondary"
+        className="flex flex-col max-w-fit bg-gradient-to-br from-neutral to-neutral-dark border-solid border-secondary/10 border-2 py-2 px-4 rounded-xl hover:cursor-pointer mx-auto text-secondary"
       >
         <div className="flex text-left">
           <img
@@ -66,14 +82,14 @@ const StackOverflow = () => {
           />
           <div>
             <div className="-mb-1.5 ml-1">Reputation</div>
-            <div className="text-4xl">
+            <div className="text-xl">
               {(
                 profile?.reputation ?? StackOverflowDefaults.reputation
               ).toLocaleString('en-US')}
             </div>
           </div>
         </div>
-        <div className="flex w-full w-full mt-0.5">
+        <div className="flex w-full w-full mt-1.5 justify-between">
           <Badge
             color="#D0A600"
             number={
@@ -100,12 +116,12 @@ const StackOverflow = () => {
 
 const Badge = ({ color, number }: { color: string; number: number }) => {
   return (
-    <div className="flex flex-1">
+    <div className="flex ">
       <div
         className="h-2 w-2 rounded-full my-auto"
         style={{ backgroundColor: color }}
       />
-      <span className="ml-2">{number}</span>
+      <span className="ml-2 text-md mb-1">{number}</span>
     </div>
   );
 };
@@ -114,7 +130,7 @@ const OpenSource = () => {
   const icons = require.context('../../images/', false);
   return (
     <>
-      <h3 className="text-xl mb-4">Open Source Contributions</h3>
+      <h3 className="text-lg mb-4">Open Source Contributions</h3>
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -144,7 +160,7 @@ const OpenSource = () => {
                 className="max-h-[100px] w-auto"
                 src={icons(`./${contribution.icon}`)}
               />
-              <p className="text-2xl text-secondary">{contribution.name}</p>
+              <p className="text-md text-secondary">{contribution.name}</p>
             </motion.button>
           );
         })}
@@ -157,7 +173,7 @@ const MyApps = () => {
   const icons = require.context('../../images/', false);
   return (
     <>
-      <h3 className="text-xl mb-6">My Apps</h3>
+      <h3 className="text-lg mb-6">My Apps</h3>
       <div className="flex">
         <motion.div
           className="grid grid-cols-2 m-auto gap-8"
