@@ -67,7 +67,7 @@ const Fact = ({
         aria-hidden="true"
         height={800}
         width={600}
-        className="absolute -z-10 top-[-300px] left-[-175px]"
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-[200%] h-[200%]"
         src={MeshPurple}
       />
       <motion.img
