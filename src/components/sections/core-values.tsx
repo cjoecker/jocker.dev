@@ -9,10 +9,10 @@ export const CoreValues = () => {
   return (
     <Section title="Core Values">
       <div className="flex relative flex-col">
-        <div className="relative flex">
+        <div className="relative flex mx-auto">
           <img
             aria-hidden="true"
-            className=" absolute mx-auto top-0 translate-y-[-35%] translate-x-[-32%] sm:translate-x-0 sm:w-[300%] sm:w-[100%] h-[300%]"
+            className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-[300%] h-[300%]"
             src={MeshPurpleTurquoise}
           />
           <motion.div

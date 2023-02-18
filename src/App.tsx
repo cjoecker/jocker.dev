@@ -22,12 +22,12 @@ export function App() {
           <Skills />
           <CoreValues />
           <ExperienceAndEducation />
-          {/*<Languages />*/}
-          {/*<Testimonials />*/}
-          {/*<Contributions />*/}
-          {/*<CoursesAndConferences />*/}
-          {/*<AboutMe />*/}
-          {/*<Contact />*/}
+          <Languages />
+          <Testimonials />
+          <Contributions />
+          <CoursesAndConferences />
+          <AboutMe />
+          <Contact />
         </div>
       </div>
     </div>
