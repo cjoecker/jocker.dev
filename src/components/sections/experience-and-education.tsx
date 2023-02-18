@@ -32,7 +32,7 @@ const WorkExperience = () => {
         const isLast = index === workAndEducation.length - 1;
         return (
           <div
-            className="flex"
+            className="flex mx-4"
             key={`${experienceItem.title}${experienceItem.logo}`}
           >
             <div className="flex-1 min-w-0">
