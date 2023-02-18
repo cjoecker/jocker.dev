@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Autoplay, EffectCoverflow } from 'swiper';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import Colors from '../../constants/colors';
 
 // eslint-disable-next-line import/order
 import { testimonials } from '../../constants/testimonials';
@@ -13,6 +14,8 @@ import 'swiper/css/navigation';
 import { useNarrowView } from '../../hooks/useNarrowView';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
+import MeshPurple from "../../images/mesh-purple.svg";
+import clsx from "clsx";
 
 export function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -52,28 +55,28 @@ export function Testimonials() {
             <SwiperSlide key={testimonial.testimonial}>
               {({ isActive }) => (
                 <div
-                  style={{ filter: isActive ? '' : 'blur(1px)' }}
-                  className={`flex-1 select-none flex bg-neutral shadow-lg p-5 flex-col rounded-xl ${
+                  style={{ filter: clsx(!isActive && 'blur(1px)')}}
+                  className={`my-6 flex-1 select-none flex bg-gradient-to-br from-neutral to-neutral-dark border-solid border-secondary/10 border-2 p-5 flex-col shadow-sm-turquoise rounded-xl ${
                     isActive ? '' : 'opacity-70'
                   }`}
                 >
-                  <img
-                    loading="lazy"
-                    width="150"
-                    height={testimonial.companyHeight}
-                    className="mx-auto object-contain mt-2"
-                    alt={getAltTextFromFileName(testimonial.companyLogo)}
-                    src={images(`./${testimonial.companyLogo}`)}
-                  />
+                    <img
+                      loading="lazy"
+                      width="150"
+                      height={testimonial.companyHeight}
+                      className="mx-auto object-contain mt-2 z-10"
+                      alt={getAltTextFromFileName(testimonial.companyLogo)}
+                      src={images(`./${testimonial.companyLogo}`)}
+                    />
                   <img
                     loading="lazy"
                     width="20"
                     height="20"
-                    className="ml-2 mb-2 mt-4"
+                    className="ml-2 mb-2 mt-6"
                     alt="double quotes"
                     src={images(`./double-quotes.svg`)}
                   />
-                  <div>{testimonial?.testimonial}</div>
+                  <div className="text-base ">{testimonial?.testimonial}</div>
                   <div className="flex mx-auto justify-end text-left mt-12">
                     <img
                       loading="lazy"
@@ -84,11 +87,11 @@ export function Testimonials() {
                       src={images(`./${testimonial?.photo}`)}
                     />
                     <div className="flex flex-col justify-end my-auto ">
-                      <div className="text-lg font-bold">
+                      <div className="text-md font-bold ">
                         {testimonial?.person}
                       </div>
-                      <div>{testimonial?.title}</div>
-                      <div className="text-sm opacity-80">
+                      <div className="text-base">{testimonial?.title}</div>
+                      <div className="text-sm">
                         {testimonial?.company}
                       </div>
                     </div>
@@ -98,7 +101,7 @@ export function Testimonials() {
             </SwiperSlide>
           );
         })}
-        <div className="flex justify-center mt-0 md:mt-6">
+        <div className="flex justify-center mt-0 md:mt-6 mb-4">
           {testimonials.map((_, index) => {
             return (
               <PaginationButtons
@@ -126,17 +129,14 @@ export const PaginationButtons = ({ index, isSelected }: Props) => {
       whileHover={{ scale: 1.3 }}
       whileTap={{ scale: 1 }}
       className="hover:cursor-pointer p-6 md:p-2"
-      onClick={() => {
+      onClick={(e) => {
+        (e.target as HTMLButtonElement).blur();
         swiper.slideTo(index);
       }}
     >
       <div
-        style={{
-          background: isSelected
-            ? 'linear-gradient(145deg, #0C4E80, #062e4d)'
-            : 'linear-gradient(145deg, #778088, #4b5157)',
-        }}
-        className={`w-2 h-2 bg-primary rounded-full bg-pagination bg-pagination-blue`}
+        style={{ boxShadow: clsx(isSelected && `0px 0px 8px 4px ${Colors.turquoise}`) }}
+        className={`w-2 h-2 rounded-full pointer-events-none ${isSelected ? 'bg-secondary' : 'bg-secondary/70'}`}
       />
     </motion.button>
   );
