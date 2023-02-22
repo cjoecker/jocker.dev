@@ -23,8 +23,8 @@ export const AboutMe = () => {
           <img
             loading="lazy"
             className="mt-4"
-            height={50*0.8}
-            width={280*0.8}
+            height={50 * 0.8}
+            width={280 * 0.8}
             alt="handwritten name"
             src={Signature}
           />

@@ -6,10 +6,10 @@ import { Section } from '../shared/section';
 export const Skills = () => {
   return (
     <Section title="Skills" className="flex flex-col mx-8 sm:mx-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20 max-w-7xl mx-auto">
-          <Tags skills={DevSkills} title="Web Development" />
-          <Tags skills={UxSkills} title="UX/UI Design" />
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20 max-w-7xl mx-auto">
+        <Tags skills={DevSkills} title="Web Development" />
+        <Tags skills={UxSkills} title="UX/UI Design" />
+      </div>
     </Section>
   );
 };
@@ -41,7 +41,11 @@ export const Tags = ({
                 visible: { scale: 1 },
                 hidden: { scale: 0 },
               }}
-              className={`${title === 'Web Development' ? 'shadow-sm-turquoise' : 'shadow-sm-purple'} border-solid border-secondary/10 border-2 bg-gradient-to-br from-neutral to-neutral-dark inline-block rounded-full px-3 py-1 text-md capitalize`}
+              className={`${
+                title === 'Web Development'
+                  ? 'shadow-sm-turquoise'
+                  : 'shadow-sm-purple'
+              } border-solid border-secondary/10 border-2 bg-gradient-to-br from-neutral to-neutral-dark inline-block rounded-full px-3 py-1 text-md capitalize`}
             >
               {skill}
             </motion.div>

@@ -2,17 +2,16 @@ import {
   animate,
   motion,
   MotionValue,
-  useMotionValue, useMotionValueEvent,
+  useMotionValue,
   useScroll,
-  useTransform
-} from "framer-motion";
+  useTransform,
+} from 'framer-motion';
 import { useRef } from 'react';
+import { useMouse } from 'react-use';
 
-import { useNarrowView } from '../../hooks/useNarrowView';
+import MeshBlue from '../../images/mesh-blue.svg';
 import MeshPurple from '../../images/mesh-purple.svg';
 import MeshTurquoise from '../../images/mesh-turquoise.svg';
-import MeshBlue from '../../images/mesh-blue.svg';
-import { useMouse } from 'react-use';
 
 export const Header = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -45,7 +44,7 @@ export const Header = () => {
 
   return (
     <div
-      onPointerMove={e => {
+      onPointerMove={() => {
         mouseX.set(elX / 8);
         mouseY.set(elY / 8);
       }}

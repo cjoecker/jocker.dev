@@ -6,9 +6,9 @@ import {
   OwnApps,
   StackOverflowDefaults,
 } from '../../constants/contributions';
+import MeshPurple from '../../images/mesh-purple.svg';
 import { Section } from '../shared/section';
 import { Tooltip } from '../shared/tooltip';
-import MeshPurple from "../../images/mesh-purple.svg";
 
 export const Contributions = () => {
   return (
@@ -16,15 +16,15 @@ export const Contributions = () => {
       <div className="flex">
         <div className="flex flex-wrap gap-x-24 justify-center gap-y-36 mx-auto">
           <div className="flex relative flex-col min-w-[250px]">
-            <Mesh/>
+            <Mesh />
             <MyApps />
           </div>
           <div className="flex relative flex-col min-w-[270px]">
-            <Mesh/>
+            <Mesh />
             <OpenSource />
           </div>
           <div className="flex relative flex-col min-w-[200px]">
-            <Mesh/>
+            <Mesh />
             <StackOverflow />
           </div>
         </div>
@@ -37,6 +37,7 @@ export const Mesh = () => {
   return (
     <img
       aria-hidden="true"
+      alt=""
       height={800}
       width={600}
       className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-[200%] h-[150%]"

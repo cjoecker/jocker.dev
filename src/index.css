@@ -8,8 +8,9 @@
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 400;
-  src: url('./fonts/raleway-v28-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-  url('./fonts/raleway-v28-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url('./fonts/raleway-v28-latin-regular.woff2') format('woff2'),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */
+      url('./fonts/raleway-v28-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* raleway-500 - latin */
 @font-face {
@@ -17,8 +18,9 @@
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 500;
-  src: url('./fonts/raleway-v28-latin-500.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-  url('./fonts/raleway-v28-latin-500.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url('./fonts/raleway-v28-latin-500.woff2') format('woff2'),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */
+      url('./fonts/raleway-v28-latin-500.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* raleway-600 - latin */
 @font-face {
@@ -26,8 +28,9 @@
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 600;
-  src: url('./fonts/raleway-v28-latin-600.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-  url('./fonts/raleway-v28-latin-600.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url('./fonts/raleway-v28-latin-600.woff2') format('woff2'),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */
+      url('./fonts/raleway-v28-latin-600.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* raleway-700 - latin */
 @font-face {
@@ -35,8 +38,9 @@
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 700;
-  src: url('./fonts/raleway-v28-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-  url('./fonts/raleway-v28-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url('./fonts/raleway-v28-latin-700.woff2') format('woff2'),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */
+      url('./fonts/raleway-v28-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* raleway-800 - latin */
 @font-face {
@@ -44,8 +48,9 @@
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 800;
-  src: url('./fonts/raleway-v28-latin-800.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-  url('./fonts/raleway-v28-latin-800.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url('./fonts/raleway-v28-latin-800.woff2') format('woff2'),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */
+      url('./fonts/raleway-v28-latin-800.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* raleway-900 - latin */
 @font-face {
@@ -53,8 +58,9 @@
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 900;
-  src: url('./fonts/raleway-v28-latin-900.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-  url('./fonts/raleway-v28-latin-900.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url('./fonts/raleway-v28-latin-900.woff2') format('woff2'),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */
+      url('./fonts/raleway-v28-latin-900.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 #reset-this-root {
@@ -81,7 +87,7 @@ html {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: #0F0823;
+  background-color: #0f0823;
 }
 body {
   overflow: hidden;
@@ -191,18 +197,18 @@ img {
 
 .mask-header {
   -webkit-mask-image: linear-gradient(
-          180deg,
-          transparent 0%,
-          black 5%,
-          black 95%,
-          transparent 100%
+    180deg,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
   );
   mask-image: linear-gradient(
-          180deg,
-          transparent 0%,
-          black 5%,
-          black 95%,
-          transparent 100%
+    180deg,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
   );
 }
 

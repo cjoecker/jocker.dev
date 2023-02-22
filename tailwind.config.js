@@ -22,10 +22,10 @@ module.exports = {
     fontFamily: {
       body: ['"raleway"', 'Arial'],
     },
-    fontWeight:{
-      normal:400,
-      semibold:600,
-      bold:800
+    fontWeight: {
+      normal: 400,
+      semibold: 600,
+      bold: 800,
     },
     fontSize: {
       sm: '0.8rem',

@@ -2,10 +2,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
 import { EXPERIENCE_YEARS } from '../../constants/experience-and-education';
+import MeshPurple from '../../images/mesh-purple.svg';
 import { Section } from '../shared/section';
-import MeshPurple from "../../images/mesh-purple.svg";
-import MeshTurquoise from '../../images/mesh-turquoise.svg';
-import MeshBlue from '../../images/mesh-blue.svg';
 export const Facts = () => {
   return (
     <Section>
@@ -24,9 +22,6 @@ export const Facts = () => {
   );
 };
 
-const TextHighlight = ({ children }: { children: React.ReactNode }) => (
-  <span className="text-primary font-medium">{children}</span>
-);
 const Fact = ({
   number,
   label,
@@ -62,9 +57,9 @@ const Fact = ({
 
   return (
     <div className="col-span-1 flex flex-col min-w-[220px] p-4 rounded-lg relative">
-      {/* eslint-disable-next-line jsx-a11y/alt-text */}
       <img
         aria-hidden="true"
+        alt=""
         height={800}
         width={600}
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-[200%] h-[200%]"
