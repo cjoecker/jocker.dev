@@ -5,6 +5,7 @@ import {
   ContactInformationType,
 } from '../../constants/contact-information';
 import { Section } from '../shared/section';
+import React from "react";
 
 export const Contact = () => {
   return (
@@ -16,13 +17,13 @@ export const Contact = () => {
         transition={{
           staggerChildren: 0.1,
         }}
-        className="flex gap-8 flex-wrap mx-auto justify-center"
+        className="flex gap-9 flex-wrap mx-auto justify-center"
       >
-        <div className="flex gap-8 flex-wrap justify-center">
+        <div className="flex gap-9 flex-wrap justify-center">
           <ContactButton contactInformation={ContactInformation[0]} />
           <ContactButton contactInformation={ContactInformation[1]} />
         </div>
-        <div className="flex gap-8 flex-wrap justify-center">
+        <div className="flex gap-9 flex-wrap justify-center">
           <ContactButton contactInformation={ContactInformation[2]} />
           <ContactButton contactInformation={ContactInformation[3]} />
         </div>
@@ -46,22 +47,28 @@ export const ContactButton = ({
       }}
     >
       <motion.button
+        style={{ boxShadow: '0px 0px 40px -8px #00DFD866' }}
         aria-label={contactInformation.text}
         whileTap={{ scale: 1 }}
         whileHover={{ scale: 1.2 }}
-        onClick={() => {
+        onClick={(e: React.MouseEvent) => {
+          (e.target as HTMLButtonElement).blur();
           window.open(contactInformation.href, '_blank');
         }}
-        className="bg-contact rounded-full w-16 h-16 flex cursor-pointer p-3"
+        className="p-0.5 h-20 w-20 flex rounded-full font-semibold text-lg hover:cursor-pointer select-none bg-gradient-to-br from-turquoise to-blue"
       >
-        <img
-          loading="lazy"
-          width="84"
-          height="84"
-          alt={contactInformation.text}
-          src={icons(`./${contactInformation.icon}.svg`)}
-          className="m-auto w-full h-full select-none pointer-events-none"
-        />
+        <div className="flex w-full h-full rounded-full bg-[#000] bg-opacity-80 pointer-events-none">
+          <div className="m-4">
+            <img
+              loading="lazy"
+              width="84"
+              height="84"
+              alt={contactInformation.text}
+              src={icons(`./${contactInformation.icon}.svg`)}
+              className="w-full h-full select-none pointer-events-none"
+            />
+          </div>
+        </div>
       </motion.button>
     </motion.div>
   );
