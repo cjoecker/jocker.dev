@@ -55,19 +55,20 @@ export const ContactButton = ({
           (e.target as HTMLButtonElement).blur();
           window.open(contactInformation.href, '_blank');
         }}
-        className="p-0.5 h-20 w-20 flex rounded-full font-semibold text-lg hover:cursor-pointer select-none bg-gradient-to-br from-turquoise to-blue"
+        className={"p-0.5 h-20 w-20 flex rounded-full hover:cursor-pointer select-none bg-gradient-to-br from-turquoise to-blue"}
       >
         <div className="flex w-full h-full rounded-full bg-[#000] bg-opacity-80 pointer-events-none">
-          <div className="m-4">
+          <div className="h-full w-full mx-4">
             <img
               loading="lazy"
               width="38.5"
               height="38.5"
               alt={contactInformation.text}
               src={icons(`./${contactInformation.icon}.svg`)}
-              className="min-w-full min-h-full select-none pointer-events-none"
+              className="w-full h-full select-none pointer-events-none object-contain"
             />
           </div>
+
         </div>
       </motion.button>
     </motion.div>
