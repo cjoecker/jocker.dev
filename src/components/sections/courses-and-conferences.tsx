@@ -7,11 +7,10 @@ import {
   Courses,
   CourseType,
 } from '../../constants/courses-and-conferences';
-import { useNarrowView } from '../../hooks/useNarrowView';
 import conferenceImg from '../../images/conference.svg';
 import courseImg from '../../images/course.svg';
+import MeshPurpleTurquoise from '../../images/mesh-purple-turquoise.svg';
 import { Section } from '../shared/section';
-import MeshPurpleTurquoise from "../../images/mesh-purple-turquoise.svg";
 
 export const CoursesAndConferences = () => {
   const sortedCoursesAndConferences = [...Courses, ...Conferences].sort(
@@ -22,6 +21,7 @@ export const CoursesAndConferences = () => {
       <div className="w-full flex flex-col">
         <div className="flex relative max-w-7xl">
           <img
+            alt=""
             aria-hidden="true"
             className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-[250%] h-[250%]"
             src={MeshPurpleTurquoise}
@@ -98,7 +98,9 @@ const ConferenceItem = ({ conference }: { conference: ConferenceType }) => {
         <div className="text-base overflow-ellipsis whitespace-nowrap overflow-hidden">
           {conference.name}
         </div>
-        <div className="text-sm opacity-80">{format(conference.date, DATE_FORMAT)}</div>
+        <div className="text-sm opacity-80">
+          {format(conference.date, DATE_FORMAT)}
+        </div>
       </div>
     </>
   );

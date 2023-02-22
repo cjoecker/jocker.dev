@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 
 import { LanguagesData } from '../../constants/languages';
+import MeshPurple from '../../images/mesh-purple.svg';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
-import MeshPurple from "../../images/mesh-purple.svg";
 
 export const Languages = () => {
   const icons = require.context('../../images/', false);
@@ -14,6 +14,7 @@ export const Languages = () => {
           return (
             <div className="col-span-1 relative m-auto" key={language.language}>
               <img
+                alt=""
                 aria-hidden="true"
                 height={800}
                 width={600}

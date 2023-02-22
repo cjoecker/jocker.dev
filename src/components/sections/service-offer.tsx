@@ -5,17 +5,16 @@ import {
   ServiceOfferData,
   ServiceOfferType,
 } from '../../constants/service-offer';
+import MeshPurpleTurquoise from '../../images/mesh-purple-turquoise.svg';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
-import MeshPurple from "../../images/mesh-purple.svg";
-import MeshTurquoise from "../../images/mesh-turquoise.svg";
-import MeshPurpleTurquoise from "../../images/mesh-purple-turquoise.svg";
 
 export const ServiceOffer = () => {
   return (
-    <Section title="What I Can Do for You" className={"mt-16"}>
+    <Section title="What I Can Do for You" className={'mt-16'}>
       <div className="flex gap-6 mx-auto flex-wrap justify-center max-w-3xl relative">
         <img
+          alt=""
           aria-hidden="true"
           className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-[200%] h-[200%]"
           src={MeshPurpleTurquoise}
@@ -117,12 +116,18 @@ const CardContent = ({
       >
         <motion.h3
           layout={isExpandable ? 'preserve-aspect' : false}
-          className={isOpen ? 'text-lg mt-2 mb-2 text-base mr-4' : 'mb-1 text-xl md:text-lg'}
+          className={
+            isOpen
+              ? 'text-lg mt-2 mb-2 text-base mr-4'
+              : 'mb-1 text-xl md:text-lg'
+          }
         >
           {offer.title}
         </motion.h3>
         {isOpen && (
-          <motion.div className="my-2 text-base">{offer.description}</motion.div>
+          <motion.div className="my-2 text-base">
+            {offer.description}
+          </motion.div>
         )}
       </motion.div>
     </motion.div>

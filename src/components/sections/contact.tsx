@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
+import React from 'react';
 
 import {
   ContactInformation,
   ContactInformationType,
 } from '../../constants/contact-information';
 import { Section } from '../shared/section';
-import React from "react";
 
 export const Contact = () => {
   return (

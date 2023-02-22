@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 
 import { CoreValuesData, CoreValuesType } from '../../constants/core-values';
 import meditatingImage from '../../images/meditating.webp';
+import MeshPurpleTurquoise from '../../images/mesh-purple-turquoise.svg';
 import { Section } from '../shared/section';
-import MeshPurpleTurquoise from "../../images/mesh-purple-turquoise.svg";
 
 export const CoreValues = () => {
   return (
@@ -11,6 +11,7 @@ export const CoreValues = () => {
       <div className="flex relative flex-col">
         <div className="relative flex mx-auto">
           <img
+            alt=""
             aria-hidden="true"
             className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-[300%] h-[300%]"
             src={MeshPurpleTurquoise}

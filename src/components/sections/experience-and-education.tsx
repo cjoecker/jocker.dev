@@ -56,7 +56,11 @@ const WorkExperience = () => {
                   visible: { scale: 1 },
                   hidden: { scale: 0 },
                 }}
-                className={`${experienceItem.type === 'work' ? 'shadow-md-turquoise' : 'shadow-md-purple'} bg-contain flex p-3 rounded-full border-solid border-secondary/10 border-2 bg-gradient-to-br from-neutral to-neutral-dark`}
+                className={`${
+                  experienceItem.type === 'work'
+                    ? 'shadow-md-turquoise'
+                    : 'shadow-md-purple'
+                } bg-contain flex p-3 rounded-full border-solid border-secondary/10 border-2 bg-gradient-to-br from-neutral to-neutral-dark`}
               >
                 <img
                   loading="lazy"
