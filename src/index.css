@@ -33,7 +33,7 @@
       url('./fonts/raleway-v28-latin-800.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-#reset-this-root {
+#root {
   all: unset;
 }
 
@@ -127,59 +127,8 @@ img {
   box-shadow: 0px 0px 50px -10px theme('colors.purple');
 }
 
-.text-shadow-turquoise {
-  text-shadow: 0px 0px 50px theme('colors.turquoise');
-}
-
 .shadow-lg-purple {
   box-shadow: 0px 0px 50px -25px theme('colors.purple');
-}
-
-.bg-stack-overflow {
-  background: #e3e3ec;
-  box-shadow: inset 4px 4px 6px #a1a1af, inset -4px -4px 6px #f3f3fc;
-}
-
-.bg-tag {
-  background: #c9c9dc;
-  box-shadow: inset 1px 1px 3px #9494a2, inset -1px -1px 3px #e8e8f5;
-}
-
-.bg-contact {
-  background: linear-gradient(145deg, #cbcbdf, #ababbb);
-  box-shadow: 5px 5px 11px #90909f, -5px -5px 11px #d6d6e7;
-}
-
-.bg-timeline-circle {
-  background: #bebed0;
-  box-shadow: inset 4px 4px 6px #9797a6, inset -4px -4px 6px #d7d7eb;
-}
-
-.bg-pagination {
-  background: linear-gradient(145deg, theme('colors.primary'), #babaca);
-  box-shadow: 3px 3px 6px #74747d, -3px -3px 6px #dee5e8;
-}
-
-.bg-about-me {
-  background: theme('colors.neutral');
-  box-shadow: inset 1px 1px 3px #9494a2, inset -1px -1px 3px #ffffff;
-}
-
-.mask-header {
-  -webkit-mask-image: linear-gradient(
-    180deg,
-    transparent 0%,
-    black 5%,
-    black 95%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    180deg,
-    transparent 0%,
-    black 5%,
-    black 95%,
-    transparent 100%
-  );
 }
 
 .mask-swiper {
@@ -214,22 +163,6 @@ img {
     black 95%,
     transparent 100%
   );
-}
-
-.arrow-up {
-  width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-bottom: 7px solid;
-}
-
-.arrow-down {
-  width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-top: 7px solid;
 }
 
 .h-ios-screen {
