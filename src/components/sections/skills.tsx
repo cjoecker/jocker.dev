@@ -5,13 +5,11 @@ import { Section } from '../shared/section';
 
 export const Skills = () => {
   return (
-    <Section title="Skills">
-      <div className="w-full flex flex-col">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20 mx-8 sm:mx-16">
+    <Section title="Skills" className="flex flex-col mx-8 sm:mx-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20 max-w-7xl mx-auto">
           <Tags skills={DevSkills} title="Web Development" />
           <Tags skills={UxSkills} title="UX/UI Design" />
         </div>
-      </div>
     </Section>
   );
 };

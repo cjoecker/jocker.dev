@@ -24,7 +24,7 @@ export function Testimonials() {
   return (
     <Section title="Testimonials">
       <Swiper
-        className="mask-swiper-narrow md:mask-swiper"
+        className="mask-swiper-narrow md:mask-swiper max-w-7xl"
         onSlideChange={swiper =>
           setCurrentIndex(swiper.activeIndex % testimonials.length)
         }

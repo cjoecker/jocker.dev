@@ -8,8 +8,8 @@ import MeshPurple from "../../images/mesh-purple.svg";
 export const Languages = () => {
   const icons = require.context('../../images/', false);
   return (
-    <Section title="Languages">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-y-20">
+    <Section title="Languages" className="flex flex-col">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-x-32 gap-y-20 max-w-7xl mx-auto">
         {LanguagesData.map(language => {
           return (
             <div className="col-span-1 relative m-auto" key={language.language}>
