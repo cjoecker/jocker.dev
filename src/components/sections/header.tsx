@@ -75,7 +75,7 @@ export const Header = () => {
           onClick={onDiscoverMoreClick}
           className="rounded-md font-semibold text-lg hover:cursor-pointer select-none text-secondary bg-gradient-to-br from-turquoise to-blue"
         >
-          <div className="py-4 px-6 m-[1px] bg-secondary rounded-md bg-[#000] bg-opacity-80 pointer-events-none">
+          <div className="py-4 px-6 m-[1px] bg-neutral-dark rounded-md bg-[#000] bg-opacity-80 pointer-events-none">
             Discover More
           </div>
         </motion.button>
