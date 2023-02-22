@@ -13,19 +13,14 @@ import courseImg from '../../images/course.svg';
 import { Section } from '../shared/section';
 import MeshPurpleTurquoise from "../../images/mesh-purple-turquoise.svg";
 
-const NARROW_VIEW_ITEMS_COUNT = 15;
 export const CoursesAndConferences = () => {
-  const { isNarrowView } = useNarrowView();
   const sortedCoursesAndConferences = [...Courses, ...Conferences].sort(
     (a, b) => b.date.getTime() - a.date.getTime()
   );
-  const reducedCoursesAndConferences = isNarrowView
-    ? sortedCoursesAndConferences.slice(0, NARROW_VIEW_ITEMS_COUNT)
-    : sortedCoursesAndConferences;
   return (
     <Section title="Last Attended Courses and Conferences">
-      <div className="w-full flex flex-col mx-8">
-        <div className="flex relative mx-auto max-w-7xl">
+      <div className="w-full flex flex-col">
+        <div className="flex relative max-w-7xl">
           <img
             aria-hidden="true"
             className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-[250%] h-[250%]"
@@ -38,9 +33,9 @@ export const CoursesAndConferences = () => {
             transition={{
               staggerChildren: 0.1,
             }}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-left"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-left"
           >
-            {reducedCoursesAndConferences.map(course => {
+            {sortedCoursesAndConferences.map(course => {
               return (
                 <motion.div
                   key={course.name}
@@ -99,8 +94,10 @@ const ConferenceItem = ({ conference }: { conference: ConferenceType }) => {
         width={20}
         height={20}
       />
-      <div>
-        <div className="text-base">{conference.name}</div>
+      <div className="overflow-hidden">
+        <div className="text-base overflow-ellipsis whitespace-nowrap overflow-hidden">
+          {conference.name}
+        </div>
         <div className="text-sm opacity-80">{format(conference.date, DATE_FORMAT)}</div>
       </div>
     </>

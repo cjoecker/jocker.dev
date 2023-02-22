@@ -61,11 +61,11 @@ export const ContactButton = ({
           <div className="m-4">
             <img
               loading="lazy"
-              width="84"
-              height="84"
+              width="38.5"
+              height="38.5"
               alt={contactInformation.text}
               src={icons(`./${contactInformation.icon}.svg`)}
-              className="w-full h-full select-none pointer-events-none"
+              className="min-w-full min-h-full select-none pointer-events-none"
             />
           </div>
         </div>

@@ -64,7 +64,7 @@ export const Header = () => {
         </motion.h1>
         <motion.p
           style={{ y: subtitleY }}
-          className="font-normal text-lg mr-4 md:mr-[25vw] mb-16 sm:mb-[15vh]"
+          className="font-normal text-lg mr-4 md:mr-[25vw] mb-16 sm:mb-28"
         >
           I work as a freelance developer and am passionate about creating great
           experiences with beautiful web applications!

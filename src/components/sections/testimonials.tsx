@@ -22,7 +22,7 @@ export function Testimonials() {
   const { isNarrowView } = useNarrowView();
 
   return (
-    <Section title="Testimonials">
+    <Section title="Testimonials" className="mx-0">
       <Swiper
         className="mask-swiper-narrow md:mask-swiper max-w-7xl"
         onSlideChange={swiper =>
@@ -33,7 +33,7 @@ export function Testimonials() {
         grabCursor
         speed={2000}
         shortSwipes={false}
-        slidesPerView={isNarrowView ? 1.1 : 2.2}
+        slidesPerView={isNarrowView ? 1.2 : 2.2}
         slideToClickedSlide
         autoplay={{
           delay: 4000,
@@ -57,7 +57,7 @@ export function Testimonials() {
                 <div
                   style={{ filter: clsx(!isActive && 'blur(1px)')}}
                   className={`my-6 flex-1 select-none flex bg-gradient-to-br from-neutral to-neutral-dark border-solid border-secondary/10 border-2 p-5 flex-col shadow-sm-turquoise rounded-xl ${
-                    isActive ? '' : 'opacity-70'
+                    clsx(!isActive && 'opacity-70')
                   }`}
                 >
                     <img
