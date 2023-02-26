@@ -6,7 +6,7 @@ import {
 	useScroll,
 	useTransform,
 } from 'framer-motion';
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from 'react';
 import { useMouse } from 'react-use';
 
 import MeshBlue from '../../images/mesh-blue.svg';
@@ -30,7 +30,6 @@ export const Header = () => {
 	useLayoutEffect(() => {
 		setIsIphone(window.navigator.userAgent.includes('iPhone'));
 	}, []);
-
 
 	const onDiscoverMoreClick = (e: React.MouseEvent) => {
 		(e.target as HTMLButtonElement).blur();

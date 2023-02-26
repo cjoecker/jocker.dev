@@ -1,3 +1,4 @@
+import { Link } from '@remix-run/react';
 import { differenceInMonths, format } from 'date-fns';
 import { motion } from 'framer-motion';
 
@@ -9,7 +10,9 @@ import {
 import { useNarrowView } from '../../hooks/useNarrowView';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
-import { Link } from '@remix-run/react';
+
+import GraduateCap from '~/images/graduate-cap.svg';
+import OfficeImg from '~/images/office.svg';
 
 export const ExperienceAndEducation = () => {
 	return (
@@ -66,8 +69,12 @@ const WorkExperience = () => {
 									loading="lazy"
 									width="40"
 									height="40"
-									alt={experienceItem.type === 'work' ? 'office' : 'course'}
-									src={experienceItem.logo}
+									alt={
+										experienceItem.type === 'work'
+											? 'office building'
+											: 'graduate cap'
+									}
+									src={experienceItem.type === 'work' ? OfficeImg : GraduateCap}
 								/>
 							</motion.div>
 							<div className="flex-1 pt-2">
@@ -119,27 +126,25 @@ const ExperienceItem = ({
 		>
 			<div className="mb-2 max-w-[300px]">
 				<Link to={item.link} target="_blank">
-					<div
-						aria-label={getAltTextFromFileName(item.logo)}
-						className="max-w-[100px] "
-					>
-						<img
-							loading="lazy"
-							width="100"
-							height={item.logoHeight}
-							alt={getAltTextFromFileName(item.logo)}
-							src={item.logo}
-							className="w-full object-contain hover:cursor-pointer"
-						/>
-					</div>
+					<img
+						loading="lazy"
+						width="100"
+						height={item.logoHeight}
+						style={{ height: item.logoHeight }}
+						alt={getAltTextFromFileName(item.logo)}
+						src={item.logo}
+						className={`max-w-[100px] object-contain hover:cursor-pointer mb-2 ${
+							isOdd ? 'object-left' : 'ml-auto object-right'
+						}`}
+					/>
 				</Link>
 				<div
-					className="text-base md:text-md mt-1 break-words"
+					className="font-semibold mb-0.5 break-words"
 					style={{ lineHeight: '1.3rem' }}
 				>
 					{item.title}
 				</div>
-				<div className="opacity-80 leading-tight mt-2 text-sm md:text-base">
+				<div className="opacity-80 text-sm leading-tight text-sm md:text-base">
 					{formatTimePeriod(item.startDate, item.endDate)}
 				</div>
 				<div className="opacity-80 leading-tight text-sm md:text-base">

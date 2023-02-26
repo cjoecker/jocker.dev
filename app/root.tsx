@@ -1,4 +1,4 @@
-import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
+import type { LinksFunction, LoaderArgs, MetaFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import {
 	Links,
@@ -11,20 +11,29 @@ import {
 } from '@remix-run/react';
 import { useTranslation } from 'react-i18next';
 
+import RalewayFont600Woff from '~/fonts/raleway-v28-latin-600.woff';
+import RalewayFont600Woff2 from '~/fonts/raleway-v28-latin-600.woff2';
+import RalewayFont800Woff from '~/fonts/raleway-v28-latin-800.woff';
+import RalewayFont800Woff2 from '~/fonts/raleway-v28-latin-800.woff2';
+import RalewayFontRegularWoff from '~/fonts/raleway-v28-latin-regular.woff';
+import RalewayFontRegularWoff2 from '~/fonts/raleway-v28-latin-regular.woff2';
 import { useChangeLanguage } from '~/hooks/useChangeLanguage';
 import i18next from '~/i18next.server';
-import TailwindStyles from '~/tailwind.css';
 import MainStyles from '~/index.css';
+import TailwindStyles from '~/tailwind.css';
 
 export const meta: MetaFunction = () => {
 	return {
-		title:'Christian Jöcker - Freelance Full-Stack Developer and UX/UI designer',
-		description:'I’m passionate about creating great experiences with beautiful web applications. Happy customers, clean code, and sustainable architectures are my priority.',
-		keywords:'freelancer,independent,contractor,self-employed,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,developer,engineer,software,ux,ui,web,designer',
+		title:
+			'Christian Jöcker - Freelance Full-Stack Developer and UX/UI designer',
+		description:
+			'I’m passionate about creating great experiences with beautiful web applications. Happy customers, clean code, and sustainable architectures are my priority.',
+		keywords:
+			'freelancer,independent,contractor,self-employed,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,developer,engineer,software,ux,ui,web,designer',
 		viewport: 'width=device-width,initial-scale=1,viewport-fit=cover',
-		'theme-color': '#0F0823'
-	}
-}
+		'theme-color': '#0F0823',
+	};
+};
 
 export const links: LinksFunction = () => [
 	{ rel: 'stylesheet', href: TailwindStyles },
@@ -32,22 +41,43 @@ export const links: LinksFunction = () => [
 	{
 		rel: 'preload',
 		as: 'font',
-		href: './fonts/raleway-v28-latin-regular.woff2',
+		href: RalewayFontRegularWoff2,
 		type: 'font/woff2',
 		crossOrigin: 'anonymous',
 	},
 	{
 		rel: 'preload',
 		as: 'font',
-		href: './fonts/raleway-v28-latin-600.woff2',
+		href: RalewayFontRegularWoff,
+		type: 'font/woff',
+		crossOrigin: 'anonymous',
+	},
+	{
+		rel: 'preload',
+		as: 'font',
+		href: RalewayFont600Woff2,
 		type: 'font/woff2',
 		crossOrigin: 'anonymous',
 	},
 	{
 		rel: 'preload',
 		as: 'font',
-		href: './fonts/raleway-v28-latin-800.woff2',
+		href: RalewayFont600Woff,
+		type: 'font/woff',
+		crossOrigin: 'anonymous',
+	},
+	{
+		rel: 'preload',
+		as: 'font',
+		href: RalewayFont800Woff2,
 		type: 'font/woff2',
+		crossOrigin: 'anonymous',
+	},
+	{
+		rel: 'preload',
+		as: 'font',
+		href: RalewayFont800Woff,
+		type: 'font/woff',
 		crossOrigin: 'anonymous',
 	},
 	{

@@ -1,10 +1,10 @@
+import { Link } from '@remix-run/react';
 import { motion } from 'framer-motion';
 import React from 'react';
 
 import type { ContactInformationType } from '../../constants/contact-information';
 import { ContactInformation } from '../../constants/contact-information';
 import { Section } from '../shared/section';
-import { Link } from '@remix-run/react';
 
 export const Contact = () => {
 	return (
@@ -60,8 +60,8 @@ export const ContactButton = ({
 								loading="lazy"
 								width="38.5"
 								height="38.5"
-								alt={contactInformation.text}
-								src={contactInformation.icon}
+								alt={contactInformation.alt}
+								src={contactInformation.image}
 								className="w-full h-full select-none pointer-events-none object-contain"
 							/>
 						</div>

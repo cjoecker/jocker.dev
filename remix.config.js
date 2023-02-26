@@ -1,7 +1,7 @@
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
 	ignoredRouteFiles: ['**/.*'],
-	serverDependenciesToBundle: ["swiper","ssr-window","dom7"],
+	serverDependenciesToBundle: ['swiper', 'ssr-window', 'dom7'],
 	server:
 		process.env.NETLIFY || process.env.NETLIFY_LOCAL
 			? './server.js'
