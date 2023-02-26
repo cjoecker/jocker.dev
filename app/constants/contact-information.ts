@@ -4,32 +4,32 @@ import LinkedinIcon from '../images/linkedin.svg';
 import TwitterIcon from '../images/twitter.svg';
 
 export type ContactInformationType = {
-	icon: string;
+	alt: string;
 	text: string;
 	href: string;
 	image: string;
 };
 export const ContactInformation: ContactInformationType[] = [
 	{
-		icon: 'email',
+		alt: 'email',
 		text: 'c.jocker@hotmail.com',
 		href: 'mailto:c.jocker@hotmail.com',
 		image: EmailIcon,
 	},
 	{
-		icon: 'linkedin',
+		alt: 'linkedin',
 		text: 'christianjoecker',
 		href: 'https://www.linkedin.com/in/christianjoecker/',
 		image: LinkedinIcon,
 	},
 	{
-		icon: 'twitter',
+		alt: 'twitter',
 		text: '@JockerDev',
 		href: 'https://twitter.com/JockerDev',
 		image: TwitterIcon,
 	},
 	{
-		icon: 'github',
+		alt: 'github',
 		text: 'cjoecker',
 		href: 'https://github.com/cjoecker',
 		image: GithubIcon,

@@ -7,7 +7,7 @@ import type {
 } from '../../constants/courses-and-conferences';
 import { Conferences, Courses } from '../../constants/courses-and-conferences';
 import ConferenceImg from '../../images/conference.svg';
-import CourseImg from '../../images/course.svg';
+import GraduateCapImg from '../../images/graduate-cap.svg';
 import MeshPurpleTurquoise from '../../images/mesh-purple-turquoise.svg';
 import { Section } from '../shared/section';
 
@@ -66,7 +66,7 @@ const CourseItem = ({ course }: { course: CourseType }) => {
 				loading="lazy"
 				className="mt-1 mr-2"
 				alt="course"
-				src={CourseImg}
+				src={GraduateCapImg}
 				width={20}
 				height={20}
 			/>

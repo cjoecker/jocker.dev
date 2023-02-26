@@ -18,7 +18,7 @@ export const AboutMe = () => {
 					/>
 				</div>
 				<div className="col-span-1 sm:col-span-3 text-left my-auto">
-					<h3 className="text-xl mb-4">About me</h3>
+					<h3 className="text-xl mb-4 font-semibold">About me</h3>
 					<div className="text-base">{AboutMeData}</div>
 					<img
 						loading="lazy"

@@ -10,7 +10,7 @@ export const education: ExperiencAndEductionType[] = [
 	{
 		logo: ThWildauLogo,
 		logoHeight: 55,
-		link: 'https://www.th-wildau.de/',
+		link: 'https://www.th-wildau.de',
 		title: 'Mechanical Engineering (B. Eng.)',
 		location: 'Wildau, Germany',
 		startDate: new Date('2011-09'),
@@ -33,7 +33,7 @@ export const WorkExperienceData: ExperiencAndEductionType[] = [
 	{
 		logo: KukaLogo,
 		logoHeight: 20,
-		link: 'https://www.kuka.com/',
+		link: 'https://www.kuka.com',
 		title: 'Software Engineer - Virtual Commissioning',
 		startDate: new Date('2015-02'),
 		endDate: new Date('2018-04'),
@@ -43,7 +43,7 @@ export const WorkExperienceData: ExperiencAndEductionType[] = [
 	{
 		logo: KukaLogo,
 		logoHeight: 20,
-		link: 'https://www.kuka.com/',
+		link: 'https://www.kuka.com',
 		title: 'Area Manager  - Virtual Commissioning',
 		startDate: new Date('2018-04'),
 		endDate: new Date('2019-05'),
@@ -53,7 +53,7 @@ export const WorkExperienceData: ExperiencAndEductionType[] = [
 	{
 		logo: MaibornWolffLogo,
 		logoHeight: 50,
-		link: 'https://www.maibornwolff.de/',
+		link: 'https://www.maibornwolff.de',
 		title: 'Senior Software Engineer',
 		startDate: new Date('2019-05'),
 		endDate: new Date('2023-02'),
@@ -63,7 +63,7 @@ export const WorkExperienceData: ExperiencAndEductionType[] = [
 	{
 		logo: MeWithMacbookImg,
 		logoHeight: 50,
-		link: 'https://www.linkedin.com/in/christianjoecker/',
+		link: 'https://www.linkedin.com/in/christianjoecker',
 		title: 'Freelance Full-Stack Developer & UX/UI Designer',
 		startDate: new Date('2023-02'),
 		endDate: 'today',
