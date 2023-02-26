@@ -1,11 +1,4 @@
-dist/
-node_modules/
-
-package-lock.json
-pnpm-lock.yaml
-yarn.lock
-
-/node_modules
-/.pnp
-.pnp.js
-/build
+.cache
+.netlify
+node_modules
+public/build
