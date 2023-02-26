@@ -82,7 +82,7 @@ const CardContent = ({
               ${
 								isOpen && isExpandable
 									? 'w-full h-auto m-auto max-w-lg flex-wrap bg-gradient-to-br from-neutral/70 to-neutral-dark/70 backdrop-blur-xl'
-									: 'h-64 w-64 md:h-56 md:w-56 flex-col'
+									: 'h-80 w-80 md:h-56 md:w-56 flex-col'
 							} ${isOpen && !isExpandable ? 'invisible' : 'visible'}`}
 		>
 			<motion.button

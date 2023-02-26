@@ -2,6 +2,7 @@ import { Paragraph } from '../components/shared/paragraph';
 import ArtistImg from '../images/artist.svg';
 import FaceWithSunglassesImg from '../images/face-with-sunglasses.svg';
 import RobotImg from '../images/robot.svg';
+import RocketImg from '../images/rocket.svg';
 import StrategyImg from '../images/strategy.svg';
 
 import { EXPERIENCE_YEARS } from './experience-and-education';
@@ -63,7 +64,7 @@ export const ServiceOfferData: ServiceOfferType[] = [
 		),
 	},
 	{
-		logo: RobotImg,
+		logo: RocketImg,
 		title: 'Rapid Application Development',
 		description: (
 			<>

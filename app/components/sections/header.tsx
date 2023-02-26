@@ -73,7 +73,7 @@ export const Header = () => {
 					experiences with beautiful web applications!
 				</motion.p>
 				<motion.button
-					style={{ y: buttonY, boxShadow: '0px 0px 100px 0px #00DFD866' }}
+					style={{ y: buttonY, boxShadow: '0px 0px 90px -15px #00DFD8' }}
 					whileTap={{ scale: 1 }}
 					whileHover={{ scale: 1.1 }}
 					onClick={onDiscoverMoreClick}
