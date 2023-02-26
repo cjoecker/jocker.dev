@@ -118,7 +118,7 @@ const ExperienceItem = ({
 				visible: { opacity: 1, x: 0 },
 				hidden: { opacity: 0, x: xAnimationStartPos(isNarrowView, isOdd) },
 			}}
-			className={`flex my-5 overflow-hidden max-w-fit ${
+			className={`flex my-5 max-w-fit ${
 				isOdd
 					? 'text-left justify-start ml-3 md:ml-6'
 					: 'text-right justify-end ml-auto mr-3 md:mr-6'
@@ -126,14 +126,16 @@ const ExperienceItem = ({
 		>
 			<div className="mb-2 max-w-[300px]">
 				<Link to={item.link} target="_blank">
-					<img
+					<motion.img
+						whileTap={{ scale: 1 }}
+						whileHover={{ scale: 1.1 }}
 						loading="lazy"
 						width="100"
 						height={item.logoHeight}
 						style={{ height: item.logoHeight }}
 						alt={getAltTextFromFileName(item.logo)}
 						src={item.logo}
-						className={`max-w-[100px] object-contain hover:cursor-pointer mb-2 ${
+						className={`w-[100px] object-contain hover:cursor-pointer mb-2 ${
 							isOdd ? 'object-left' : 'ml-auto object-right'
 						}`}
 					/>
