@@ -23,7 +23,7 @@ export const Tags = ({
 }) => {
 	return (
 		<div className="mt-4 col-span-1">
-			<h3 className="text-lg text-left mb-6">{title}</h3>
+			<h3 className="text-lg text-left mb-6 font-semibold">{title}</h3>
 			<motion.div
 				initial="hidden"
 				whileInView="visible"

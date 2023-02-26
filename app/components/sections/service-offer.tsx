@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import type { ServiceOfferType } from '../../constants/service-offer';
 import { ServiceOfferData } from '../../constants/service-offer';
-import ContractIcon from '../../images/contract.svg';
+import CollapseIcon from '../../images/collapse.svg';
 import ExpandIcon from '../../images/expand.svg';
 import MeshPurpleTurquoise from '../../images/mesh-purple-turquoise.svg';
 import { Section } from '../shared/section';
@@ -75,6 +75,7 @@ const CardContent = ({
 }) => {
 	return (
 		<motion.div
+			whileHover={{ scale: 1.05 }}
 			layout={isExpandable}
 			className={`flex rounded-2xl bg-gradient-to-br from-neutral to-neutral-dark border-solid border-secondary/10 border-2 cursor-pointer
               text-left p-4 whitespace-pre-wrap relative
@@ -92,7 +93,7 @@ const CardContent = ({
 				}`}
 				style={{
 					backgroundImage: isOpen
-						? `url(${ContractIcon})`
+						? `url(${CollapseIcon})`
 						: `url(${ExpandIcon})`,
 				}}
 			/>
