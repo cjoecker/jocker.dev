@@ -175,7 +175,7 @@ const OpenSource = () => {
 									className="max-h-[60px] w-auto mx-auto"
 									src={contribution.icon}
 								/>
-								<p className="text-md text-secondary">{contribution.name}</p>
+								<div className="text-md text-secondary">{contribution.name}</div>
 							</motion.div>
 						</Link>
 					);
@@ -214,9 +214,9 @@ const MyApps = () => {
 										className="hover:cursor-pointer"
 										to={app.link}
 										target="_blank"
+										aria-label={app.name}
 									>
 										<motion.div
-											aria-label={app.name}
 											whileTap={{ scale: 1 }}
 											whileHover={{ scale: 1.1 }}
 											className="w-16 h-16 rounded-xl mx-auto mb-2"
@@ -224,7 +224,7 @@ const MyApps = () => {
 												backgroundImage: `url(${app.icon})`,
 											}}
 										/>
-										<p className="max-w-[100px]">{app.name}</p>
+										<div className="max-w-[100px]">{app.name}</div>
 									</Link>
 								</Tooltip>
 							</motion.div>
