@@ -67,7 +67,8 @@ const StackOverflow = () => {
 				className="flex text-left"
 			>
 				<motion.div
-					whileTap={{ scale: 1 }} whileHover={{ scale: 1.1 }}
+					whileTap={{ scale: 1 }}
+					whileHover={{ scale: 1.1 }}
 					variants={{
 						visible: { opacity: 1 },
 						hidden: { opacity: 0 },
@@ -157,7 +158,8 @@ const OpenSource = () => {
 							target="_blank"
 						>
 							<motion.div
-								whileTap={{ scale: 1 }} whileHover={{ scale: 1.1 }}
+								whileTap={{ scale: 1 }}
+								whileHover={{ scale: 1.1 }}
 								variants={{
 									visible: { opacity: 1 },
 									hidden: { opacity: 0 },

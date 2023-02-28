@@ -9,28 +9,58 @@ import MeshPurpleTurquoise from '../../images/mesh-purple-turquoise.svg';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
 
+import { useNarrowView } from '~/hooks/useNarrowView';
+
 export const ServiceOffer = () => {
+	const { isNarrowView } = useNarrowView();
+	const staggerAnimation = isNarrowView
+		? {}
+		: {
+				viewport: { amount: 0.2, once: true },
+				transition: {
+					staggerChildren: 0.25,
+				},
+				initial: 'hidden',
+				whileInView: 'visible',
+		  };
 	return (
 		<Section title="What I Can Do for You" className={'mt-16'}>
-			<div className="flex gap-6 mx-auto flex-wrap justify-center max-w-3xl relative">
+			<div className="relative flex">
 				<img
 					alt=""
 					aria-hidden="true"
 					className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-[200%] h-[200%]"
 					src={MeshPurpleTurquoise}
 				/>
-
-				{ServiceOfferData.map(offer => {
-					return <Card key={offer.title} offer={offer} />;
-				})}
+				<motion.div
+					className="flex gap-6 flex-wrap justify-center max-w-3xl mx-auto"
+					{...staggerAnimation}
+				>
+					{ServiceOfferData.map(offer => {
+						return (
+							<Card
+								key={offer.title}
+								offer={offer}
+								isNarrowView={isNarrowView}
+							/>
+						);
+					})}
+				</motion.div>
 			</div>
 		</Section>
 	);
 };
 
-const Card = ({ offer }: { offer: ServiceOfferType }) => {
+const Card = ({
+	offer,
+	isNarrowView,
+}: {
+	offer: ServiceOfferType;
+	isNarrowView: boolean;
+}) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [zIndex, setZIndex] = useState(0);
+
 	const onClick = () => {
 		if (isOpen) {
 			setIsOpen(false);
@@ -41,8 +71,24 @@ const Card = ({ offer }: { offer: ServiceOfferType }) => {
 			setZIndex(10);
 		}
 	};
+	const appearAnimation = isNarrowView
+		? {
+				initial: 'hidden',
+				whileInView: 'visible',
+				viewport: { amount: 0.5, once: true },
+		  }
+		: {};
+
 	return (
-		<div key={offer.title}>
+		<motion.div
+			variants={{
+				visible: { opacity: 1 },
+				hidden: { opacity: 0 },
+			}}
+			transition={{ ease: 'easeInOut', duration: 0.8 }}
+			key={offer.title}
+			{...appearAnimation}
+		>
 			{isOpen && (
 				<div className="z-0 relative">
 					<CardContent offer={offer} isOpen={isOpen} />
@@ -60,7 +106,7 @@ const Card = ({ offer }: { offer: ServiceOfferType }) => {
 			>
 				<CardContent isExpandable offer={offer} isOpen={isOpen} />
 			</motion.div>
-		</div>
+		</motion.div>
 	);
 };
 
@@ -75,7 +121,8 @@ const CardContent = ({
 }) => {
 	return (
 		<motion.div
-			whileHover={{ scale: 1.05 }}
+			whileHover={{ scale: isOpen ? 1 : 1.05 }}
+			transition={{ type: 'spring', damping: 8 }}
 			layout={isExpandable}
 			className={`flex rounded-2xl bg-gradient-to-br from-neutral to-neutral-dark border-solid border-secondary/10 border-2 cursor-pointer
               text-left p-4 whitespace-pre-wrap relative
