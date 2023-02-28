@@ -32,6 +32,7 @@ export const meta: MetaFunction = () => {
 			'freelancer,independent,contractor,self-employed,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,developer,engineer,software,ux,ui,web,designer',
 		viewport: 'width=device-width,initial-scale=1,viewport-fit=cover',
 		'theme-color': '#0F0823',
+		charset: "utf-8",
 	};
 };
 
