@@ -1,4 +1,3 @@
-import { Link } from '@remix-run/react';
 import { differenceInMonths, format } from 'date-fns';
 import { motion } from 'framer-motion';
 
@@ -11,9 +10,9 @@ import { useNarrowView } from '../../hooks/useNarrowView';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
 
+import {ExternalRedirect} from "~/components/shared/external-redirect";
 import GraduateCap from '~/images/graduate-cap.svg';
 import OfficeImg from '~/images/office.svg';
-import {ExternalRedirect} from "~/components/shared/external-redirect";
 
 export const ExperienceAndEducation = () => {
 	return (

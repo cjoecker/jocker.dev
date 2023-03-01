@@ -1,10 +1,10 @@
-import { Link } from '@remix-run/react';
 import { motion } from 'framer-motion';
 import React from 'react';
 
 import type { ContactInformationType } from '../../constants/contact-information';
 import { ContactInformation } from '../../constants/contact-information';
 import { Section } from '../shared/section';
+
 import {ExternalRedirect} from "~/components/shared/external-redirect";
 
 export const Contact = () => {

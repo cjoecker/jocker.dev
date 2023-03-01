@@ -1,4 +1,3 @@
-import { Link } from '@remix-run/react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
@@ -11,6 +10,7 @@ import MeshPurple from '../../images/mesh-purple.svg';
 import StackOverflowLogo from '../../images/stack-overflow.svg';
 import { Section } from '../shared/section';
 import { Tooltip } from '../shared/tooltip';
+
 import {ExternalRedirect} from "~/components/shared/external-redirect";
 
 export const Contributions = () => {
