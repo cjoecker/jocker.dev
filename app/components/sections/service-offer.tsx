@@ -121,8 +121,6 @@ const CardContent = ({
 }) => {
 	return (
 		<motion.div
-			whileHover={{ scale: isOpen ? 1 : 1.05 }}
-			transition={{ type: 'spring', damping: 8 }}
 			layout={isExpandable}
 			className={`flex rounded-2xl bg-gradient-to-br from-neutral to-neutral-dark border-solid border-secondary/10 border-2 cursor-pointer
               text-left p-4 whitespace-pre-wrap relative
