@@ -11,6 +11,7 @@ import MeshPurple from '../../images/mesh-purple.svg';
 import StackOverflowLogo from '../../images/stack-overflow.svg';
 import { Section } from '../shared/section';
 import { Tooltip } from '../shared/tooltip';
+import {ExternalRedirect} from "~/components/shared/external-redirect";
 
 export const Contributions = () => {
 	return (
@@ -61,9 +62,8 @@ const StackOverflow = () => {
 	return (
 		<>
 			<h3 className="text-lg mb-6 font-semibold">Stack Overflow</h3>
-			<Link
+			<ExternalRedirect
 				to={StackOverflowDefaults.profileUrl}
-				target="_blank"
 				className="flex text-left"
 			>
 				<motion.div
@@ -120,7 +120,7 @@ const StackOverflow = () => {
 						/>
 					</div>
 				</motion.div>
-			</Link>
+			</ExternalRedirect>
 		</>
 	);
 };
@@ -152,10 +152,9 @@ const OpenSource = () => {
 			>
 				{OpenSourceContributions.map(contribution => {
 					return (
-						<Link
+						<ExternalRedirect
 							key={contribution.name}
 							to={contribution.link}
-							target="_blank"
 						>
 							<motion.div
 								whileTap={{ scale: 1 }}
@@ -177,7 +176,7 @@ const OpenSource = () => {
 								/>
 								<div className="text-md text-secondary">{contribution.name}</div>
 							</motion.div>
-						</Link>
+						</ExternalRedirect>
 					);
 				})}
 			</motion.div>
@@ -210,11 +209,9 @@ const MyApps = () => {
 								}}
 							>
 								<Tooltip text={app.description}>
-									<Link
+									<ExternalRedirect
 										className="hover:cursor-pointer"
 										to={app.link}
-										target="_blank"
-										aria-label={app.name}
 									>
 										<motion.div
 											whileTap={{ scale: 1 }}
@@ -225,7 +222,7 @@ const MyApps = () => {
 											}}
 										/>
 										<div className="max-w-[100px]">{app.name}</div>
-									</Link>
+									</ExternalRedirect>
 								</Tooltip>
 							</motion.div>
 						);

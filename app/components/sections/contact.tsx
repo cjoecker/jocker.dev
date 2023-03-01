@@ -5,6 +5,7 @@ import React from 'react';
 import type { ContactInformationType } from '../../constants/contact-information';
 import { ContactInformation } from '../../constants/contact-information';
 import { Section } from '../shared/section';
+import {ExternalRedirect} from "~/components/shared/external-redirect";
 
 export const Contact = () => {
 	return (
@@ -44,7 +45,7 @@ export const ContactButton = ({
 				hidden: { scale: 0 },
 			}}
 		>
-			<Link to={contactInformation.href} target="_blank">
+			<ExternalRedirect to={contactInformation.href} >
 				<motion.div
 					style={{ boxShadow: '0px 0px 40px -8px #00DFD866' }}
 					aria-label={contactInformation.text}
@@ -67,7 +68,7 @@ export const ContactButton = ({
 						</div>
 					</div>
 				</motion.div>
-			</Link>
+			</ExternalRedirect>
 		</motion.div>
 	);
 };

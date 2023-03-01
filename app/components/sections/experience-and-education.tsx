@@ -13,6 +13,7 @@ import { getAltTextFromFileName } from '../shared/utils';
 
 import GraduateCap from '~/images/graduate-cap.svg';
 import OfficeImg from '~/images/office.svg';
+import {ExternalRedirect} from "~/components/shared/external-redirect";
 
 export const ExperienceAndEducation = () => {
 	return (
@@ -125,7 +126,7 @@ const ExperienceItem = ({
 			}`}
 		>
 			<div className="mb-2 max-w-[300px]">
-				<Link to={item.link} target="_blank">
+				<ExternalRedirect to={item.link}>
 					<motion.img
 						whileTap={{ scale: 1 }}
 						whileHover={{ scale: 1.1 }}
@@ -139,7 +140,7 @@ const ExperienceItem = ({
 							isOdd ? 'object-left' : 'ml-auto object-right'
 						}`}
 					/>
-				</Link>
+				</ExternalRedirect>
 				<div
 					className="font-semibold mb-0.5 break-words"
 					style={{ lineHeight: '1.3rem' }}
