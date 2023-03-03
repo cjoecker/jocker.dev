@@ -11,7 +11,7 @@ import StackOverflowLogo from '../../images/stack-overflow.svg';
 import { Section } from '../shared/section';
 import { Tooltip } from '../shared/tooltip';
 
-import {ExternalRedirect} from "~/components/shared/external-redirect";
+import { ExternalRedirect } from '~/components/shared/external-redirect';
 
 export const Contributions = () => {
 	return (
@@ -152,10 +152,7 @@ const OpenSource = () => {
 			>
 				{OpenSourceContributions.map(contribution => {
 					return (
-						<ExternalRedirect
-							key={contribution.name}
-							to={contribution.link}
-						>
+						<ExternalRedirect key={contribution.name} to={contribution.link}>
 							<motion.div
 								whileTap={{ scale: 1 }}
 								whileHover={{ scale: 1.1 }}
@@ -174,7 +171,9 @@ const OpenSource = () => {
 									className="max-h-[60px] w-auto mx-auto"
 									src={contribution.icon}
 								/>
-								<div className="text-md text-secondary">{contribution.name}</div>
+								<div className="text-md text-secondary">
+									{contribution.name}
+								</div>
 							</motion.div>
 						</ExternalRedirect>
 					);

@@ -13,14 +13,12 @@ export const ExternalRedirect = ({
 			target="_blank"
 			onClick={e => {
 				(e.target as HTMLLinkElement).blur();
-				e.stopPropagation()
+				e.stopPropagation();
 			}}
 			className={className}
 			rel="noreferrer"
 		>
-			<div className="pointer-events-none">
-				{children}
-			</div>
+			<div className="pointer-events-none">{children}</div>
 		</a>
 	);
 };

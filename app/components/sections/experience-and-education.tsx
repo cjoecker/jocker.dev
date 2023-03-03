@@ -10,7 +10,7 @@ import { useNarrowView } from '../../hooks/useNarrowView';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
 
-import {ExternalRedirect} from "~/components/shared/external-redirect";
+import { ExternalRedirect } from '~/components/shared/external-redirect';
 import GraduateCap from '~/images/graduate-cap.svg';
 import OfficeImg from '~/images/office.svg';
 
@@ -106,18 +106,17 @@ const ExperienceItem = ({
 	item: ExperiencAndEductionType;
 	isOdd: boolean;
 }) => {
-	const { isNarrowView } = useNarrowView();
-
+	const variants = {
+		visible: { opacity: 1, x: 0 },
+		hidden: { opacity: 0, x: isOdd ? 100 : -100 },
+	}
 	return (
 		<motion.div
 			initial="hidden"
 			whileInView="visible"
 			viewport={{ amount: 0.2, once: true }}
 			transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
-			variants={{
-				visible: { opacity: 1, x: 0 },
-				hidden: { opacity: 0, x: xAnimationStartPos(isNarrowView, isOdd) },
-			}}
+			variants={variants}
 			className={`flex my-5 max-w-fit ${
 				isOdd
 					? 'text-left justify-start ml-3 md:ml-6'
@@ -156,13 +155,6 @@ const ExperienceItem = ({
 		</motion.div>
 	);
 };
-
-function xAnimationStartPos(isNarrowView: boolean, isOdd: boolean) {
-	if (isNarrowView) {
-		return 0;
-	}
-	return isOdd ? 100 : -100;
-}
 
 function formatDate(date: Date, showDay = false) {
 	return showDay ? format(date, 'MMM dd, yyyy') : format(date, 'MMM, yyyy');
