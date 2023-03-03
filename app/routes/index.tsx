@@ -9,6 +9,7 @@ import { Header } from '~/components/sections/header';
 import { Languages } from '~/components/sections/languages';
 import { ServiceOffer } from '~/components/sections/service-offer';
 import { Skills } from '~/components/sections/skills';
+import { Testimonials } from '~/components/sections/testimonials';
 
 // eslint-disable-next-line import/no-default-export
 export default function Index() {
@@ -23,7 +24,7 @@ export default function Index() {
 					<CoreValues />
 					<ExperienceAndEducation />
 					<Languages />
-					{/*<Testimonials />*/}
+					<Testimonials />
 					<Contributions />
 					<CoursesAndConferences />
 					<AboutMe />

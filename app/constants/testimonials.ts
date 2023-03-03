@@ -1,3 +1,4 @@
+import DavidPhoto from '../images/david.webp';
 import MaibornWolffLogo from '../images/maibornwolff.svg';
 import PaulaPhoto from '../images/paula.webp';
 import SlectedMeLogo from '../images/slected-me.svg';
@@ -8,7 +9,7 @@ export const testimonials: TestimonialsType[] = [
     He really puts effort in developing what makes sense for the end user. 
     He is also a fan of clean code and good architecture.`,
 		person: 'David Forino',
-		photo: SlectedMeLogo,
+		photo: DavidPhoto,
 		company: 'Slected.me GmbH',
 		companyLogo: SlectedMeLogo,
 		companyHeight: 70,
