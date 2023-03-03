@@ -43,13 +43,13 @@ export function Testimonials() {
 										loading="lazy"
 										width="20"
 										height="20"
-										className="ml-2 mb-2 mt-6 mr-auto"
+										className="ml-2 mb-2 mr-auto"
 										alt="double quotes"
 										src={DoubleQuotesIcon}
 									/>
 									<div className="text-base ">{testimonial?.testimonial}</div>
 								</div>
-								<div className="flex mx-auto justify-end text-left mt-8 mb-2">
+								<div className="flex mx-auto justify-end text-left mt-2 mb-2">
 									<img
 										loading="lazy"
 										width="80"
