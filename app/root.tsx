@@ -9,6 +9,7 @@ import {
 	ScrollRestoration,
 	useLoaderData,
 } from '@remix-run/react';
+import SplideStyles from '@splidejs/splide/dist/css/splide.min.css';
 import { useTranslation } from 'react-i18next';
 
 import RalewayFont600Woff from '~/fonts/raleway-v28-latin-600.woff';
@@ -39,6 +40,7 @@ export const meta: MetaFunction = () => {
 export const links: LinksFunction = () => [
 	{ rel: 'stylesheet', href: TailwindStyles },
 	{ rel: 'stylesheet', href: MainStyles },
+	{ rel: 'stylesheet', href: SplideStyles },
 	{
 		rel: 'preload',
 		as: 'font',

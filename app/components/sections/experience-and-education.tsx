@@ -6,7 +6,6 @@ import {
 	education,
 	WorkExperienceData,
 } from '../../constants/experience-and-education';
-import { useNarrowView } from '../../hooks/useNarrowView';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
 
@@ -109,7 +108,7 @@ const ExperienceItem = ({
 	const variants = {
 		visible: { opacity: 1, x: 0 },
 		hidden: { opacity: 0, x: isOdd ? 100 : -100 },
-	}
+	};
 	return (
 		<motion.div
 			initial="hidden"

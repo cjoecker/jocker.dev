@@ -173,3 +173,19 @@ img {
 	height: 100vh;
 	height: -webkit-fill-available;
 }
+
+.splide__pagination__page {
+	margin: 10px !important;
+	background: theme('colors.secondary') !important;
+}
+
+.splide__pagination__page.is-active {
+	margin: 20px !important;
+	background: white !important;
+	opacity: 1 !important;
+	box-shadow: 0px 0px 8px 4px theme('colors.primary') !important;
+}
+
+.splide__track {
+	padding-bottom: 90px !important;
+}
