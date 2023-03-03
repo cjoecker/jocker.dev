@@ -2,11 +2,12 @@ import type { MotionValue } from 'framer-motion';
 import {
 	animate,
 	motion,
+	useAnimation,
 	useMotionValue,
 	useScroll,
 	useTransform,
 } from 'framer-motion';
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useMouse } from 'react-use';
 
 import MeshBlue from '../../images/mesh-blue.svg';
@@ -27,7 +28,7 @@ export const Header = () => {
 	const mouseY = useMotionValue(0);
 	const [isIphone, setIsIphone] = useState(false);
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		setIsIphone(window.navigator.userAgent.includes('iPhone'));
 	}, []);
 
@@ -63,14 +64,16 @@ export const Header = () => {
 			>
 				<motion.h1 style={{ y: titleY }} className="text-2xl font-bold mb-8">
 					Hi, I'm Christian Jöcker,
-					<br />a Full-Stack Developer.
+					<br />
+					{'a '}
+					{<AnimatedWord />}
 				</motion.h1>
 				<motion.p
 					style={{ y: subtitleY }}
 					className="font-normal text-lg mr-4 md:mr-[25vw] mb-16 sm:mb-28"
 				>
-					I work as a freelance developer and am passionate about creating great
-					experiences with beautiful web applications!
+					I work as a freelance developer and designer, and am passionate about
+					creating great experiences with beautiful web applications!
 				</motion.p>
 				<motion.button
 					style={{ y: buttonY, boxShadow: '0px 0px 90px -15px #00DFD8' }}
@@ -118,4 +121,98 @@ export const Background = ({ mouseX, mouseY }: Props) => {
 };
 function useParallax(scrollY: MotionValue<number>, multiplicator: number) {
 	return useTransform(scrollY, value => value * multiplicator);
+}
+
+const ANIMATED_WORDS = ['Full-Stack Developer.', 'UX/UI Designer.'];
+const STAGGER_DURATION = 0.02;
+const TIMES = {
+	start: 2000,
+	reading: 3000,
+	firstWordAnimation: ANIMATED_WORDS[0].length * STAGGER_DURATION * 1000 + 300,
+	secondWordAnimation: ANIMATED_WORDS[1].length * STAGGER_DURATION * 1000 + 300,
+};
+function AnimatedWord() {
+	const [animatedText, setAnimatedText] = useState(ANIMATED_WORDS[0]);
+	const [isAnimatedTextVisible, setIsAnimatedTextVisible] = useState(true);
+	const [startAnimation, setStartAnimation] = useState(false);
+	const controls = useAnimation();
+
+	useEffect(() => {
+		const animateText = () => {
+			setTimeout(() => {
+				// delete the first word
+				setStartAnimation(true);
+				setIsAnimatedTextVisible(false);
+
+				setTimeout(() => {
+					// add the second word
+					setAnimatedText(ANIMATED_WORDS[1]);
+					setIsAnimatedTextVisible(true);
+
+					setTimeout(() => {
+						// delete the second word
+						setIsAnimatedTextVisible(false);
+
+						setTimeout(() => {
+							// add the first word
+							setAnimatedText(ANIMATED_WORDS[0]);
+							setIsAnimatedTextVisible(true);
+						}, TIMES.secondWordAnimation);
+					}, TIMES.reading);
+				}, TIMES.firstWordAnimation);
+			}, TIMES.start);
+		};
+
+		animateText();
+		const interval = setInterval(() => {
+			animateText();
+		}, TIMES.firstWordAnimation + TIMES.reading + TIMES.secondWordAnimation + TIMES.reading);
+
+		return () => {
+			clearInterval(interval);
+		};
+	}, []);
+
+	useEffect(() => {
+		if (isAnimatedTextVisible) {
+			controls.start('visible');
+		} else {
+			controls.start('hidden');
+		}
+	}, [controls, isAnimatedTextVisible]);
+
+	const wordAnimation = {
+		hidden: {
+			opacity: 0,
+		},
+		visible: {
+			opacity: 1,
+		},
+	};
+
+	return (
+		<motion.span
+			aria-label={animatedText}
+			role="text"
+			transition={{
+				staggerChildren: STAGGER_DURATION,
+				staggerDirection: isAnimatedTextVisible ? 1 : -1,
+			}}
+			animate={controls}
+			initial={startAnimation ? 'hidden' : 'visible'}
+		>
+			{animatedText.split('').map((character, index) => {
+				return (
+					<motion.div
+						aria-hidden="true"
+						key={index + character + animatedText}
+						className="inline-block whitespace-nowrap"
+						variants={wordAnimation}
+					>
+						{character.replace(' ', '\u00A0')}
+					</motion.div>
+				);
+			})}
+		</motion.span>
+	);
 }

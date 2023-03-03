@@ -1,16 +1,17 @@
-import { useLayoutEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 const NARROW_WIDTH = 480;
 export function useNarrowView() {
 	const [width, setWidth] = useState(
-		typeof window !== 'undefined' ? window.innerWidth : 0
+		1000
 	);
-	useLayoutEffect(() => {
+	useEffect(() => {
 		function handleResize() {
 			if (typeof window !== 'undefined') {
 				setWidth(window.innerWidth);
 			}
 		}
+		handleResize()
 		window.addEventListener('resize', handleResize);
 		return () => window.removeEventListener('resize', handleResize);
 	}, []);

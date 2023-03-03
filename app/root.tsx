@@ -27,12 +27,12 @@ export const meta: MetaFunction = () => {
 		title:
 			'Christian Jöcker - Freelance Full-Stack Developer and UX/UI designer',
 		description:
-			'I’m passionate about creating great experiences with beautiful web applications. Happy customers, clean code, and sustainable architectures are my priority.',
+			'Passionate about creating great experiences with beautiful web applications. Happy customers, clean code, and sustainable architectures are my priority.',
 		keywords:
 			'freelancer,independent,contractor,self-employed,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,developer,engineer,software,ux,ui,web,designer',
 		viewport: 'width=device-width,initial-scale=1,viewport-fit=cover',
 		'theme-color': '#0F0823',
-		charset: "utf-8",
+		charset: 'utf-8',
 	};
 };
 
