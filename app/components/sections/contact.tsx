@@ -39,7 +39,7 @@ export const ContactButton = ({
 }: {
 	contactInformation: ContactInformationType;
 }) => {
-	const [isContactFormVisible, setIsContactFormVisible] = useState(true);
+	const [isContactFormVisible, setIsContactFormVisible] = useState(false);
 	const isContactFormButton = contactInformation.alt === 'email';
 
 	const ButtonContent = () => {
