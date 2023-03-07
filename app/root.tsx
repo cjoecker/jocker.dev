@@ -1,5 +1,5 @@
 import type { LinksFunction, LoaderArgs, MetaFunction } from '@remix-run/node';
-import { json } from '@remix-run/node';
+import {ActionArgs, json, redirect} from '@remix-run/node';
 import {
 	Links,
 	LiveReload,
@@ -22,6 +22,10 @@ import { useChangeLanguage } from '~/hooks/useChangeLanguage';
 import i18next from '~/i18next.server';
 import MainStyles from '~/index.css';
 import TailwindStyles from '~/tailwind.css';
+
+export async function action({ request }: ActionArgs) {
+	return redirect(`/`);
+}
 
 export const meta: MetaFunction = () => {
 	return {

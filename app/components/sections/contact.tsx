@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import type { ChangeEvent, MouseEvent } from 'react';
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 
 import type { ContactInformationType } from '../../constants/contact-information';
 import { ContactInformation } from '../../constants/contact-information';
@@ -97,18 +97,34 @@ export const ContactButton = ({
 	);
 };
 
+const ERROR_ANIMATION_DURATION = 0.5;
 export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 	const [error, setError] = useState('');
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [message, setMessage] = useState('');
 	const [hasTriedToSubmit, setHasTriedToSubmit] = useState(false);
+	const isAnimatingError = useRef(false);
 
 	useEffect(() => {
+		const animateErrorChange = (newError: string) => {
+			if (error === newError || isAnimatingError.current) return;
+			if (error === '') {
+				setError(newError);
+			} else {
+				setError('');
+				isAnimatingError.current = true;
+				setTimeout(() => {
+					isAnimatingError.current = false;
+					setError(newError);
+				}, ERROR_ANIMATION_DURATION * 1000 * 2);
+			}
+		};
+
 		if (name === '' || email === '' || message === '') {
-			setError('Please fill out all fields');
+			animateErrorChange('Please fill out all fields');
 		} else if (email.match(/^\S+@\S+\.\S+$/) === null) {
-			setError('Please enter a valid email');
+			animateErrorChange('Please enter a valid email');
 		} else {
 			setError('');
 		}
@@ -174,32 +190,38 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 							name="message"
 						></textarea>
 					</label>
-					<AnimatePresence>
-						{error && hasTriedToSubmit && (
-							<motion.div
-								initial={{ y: 20, opacity: 0 }}
-								animate={{ y: 0, opacity: 1 }}
-								exit={{ y: 20, opacity: 0 }}
-								transition={{ duration: 0.5 }}
-								className="text-primary"
-							>
-								{error}
-							</motion.div>
-						)}
-					</AnimatePresence>
+
 					<div className="flex mt-2">
-						<motion.button
-							type="submit"
-							onClick={onSubmit}
-							style={{ boxShadow: '0px 0px 30px -10px #00DFD866' }}
-							whileTap={{ scale: 1 }}
-							whileHover={{ scale: 1.05 }}
-							className="ml-auto rounded-md font-semibold hover:cursor-pointer select-none text-secondary bg-gradient-to-br from-turquoise to-blue"
-						>
-							<div className="flex py-3 px-4 m-[1px] bg-neutral-dark rounded-md bg-[#000] bg-opacity-80 pointer-events-none">
-								Send Message
-							</div>
-						</motion.button>
+						<div className="flex-1">
+							<AnimatePresence>
+								{error !== '' && hasTriedToSubmit && (
+									<motion.div
+										layout
+										initial={{ y: 20, opacity: 0 }}
+										animate={{ y: 0, opacity: 1 }}
+										exit={{ y: 20, opacity: 0 }}
+										transition={{ duration: ERROR_ANIMATION_DURATION }}
+										className="text-primary"
+									>
+										{error}
+									</motion.div>
+								)}
+							</AnimatePresence>
+						</div>
+						<div className="flex-grow-0">
+							<motion.button
+								type="submit"
+								onClick={onSubmit}
+								style={{ boxShadow: '0px 0px 30px -10px #00DFD866' }}
+								whileTap={{ scale: 1 }}
+								whileHover={{ scale: 1.05 }}
+								className="ml-auto rounded-md font-semibold hover:cursor-pointer select-none text-secondary bg-gradient-to-br from-turquoise to-blue"
+							>
+								<div className="flex py-3 px-4 m-[1px] bg-neutral-dark rounded-md bg-[#000] bg-opacity-80 pointer-events-none">
+									Send Message
+								</div>
+							</motion.button>
+						</div>
 					</div>
 				</form>
 			</motion.div>
