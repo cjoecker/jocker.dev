@@ -45,11 +45,9 @@ export const ContactButton = ({
 
 	const ButtonContent = () => {
 		return (
-			<motion.div
+			<div
 				style={{ boxShadow: '0px 0px 40px -8px #00DFD866' }}
 				aria-label={contactInformation.text}
-				whileTap={{ scale: 1 }}
-				whileHover={{ scale: 1.2 }}
 				className={
 					'p-0.5 h-20 w-20 flex rounded-full hover:cursor-pointer select-none bg-gradient-to-br from-turquoise to-blue'
 				}
@@ -66,7 +64,7 @@ export const ContactButton = ({
 						/>
 					</div>
 				</div>
-			</motion.div>
+			</div>
 		);
 	};
 
@@ -79,15 +77,17 @@ export const ContactButton = ({
 					hidden: { scale: 0 },
 				}}
 			>
-				{isContactFormButton ? (
-					<button onClick={() => setIsContactFormVisible(true)}>
-						<ButtonContent />
-					</button>
-				) : (
-					<ExternalRedirect to={contactInformation.href}>
-						<ButtonContent />
-					</ExternalRedirect>
-				)}
+				<motion.div whileTap={{ scale: 1 }} whileHover={{ scale: 1.2 }}>
+					{isContactFormButton ? (
+						<button onClick={() => setIsContactFormVisible(true)}>
+							<ButtonContent />
+						</button>
+					) : (
+						<ExternalRedirect to={contactInformation.href}>
+							<ButtonContent />
+						</ExternalRedirect>
+					)}
+				</motion.div>
 			</motion.div>
 			<AnimatePresence>
 				{isContactFormButton && isContactFormVisible && (
