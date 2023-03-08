@@ -9,7 +9,7 @@ export async function sendMail(name: string, email: string, message: string) {
 			port: 587,
 			secure: false,
 			auth: {
-				user: process.env.EMAIL,
+				user: process.env.EMAIL_SENDER,
 				pass: process.env.EMAIL_PASSWORD,
 			},
 		});
@@ -17,7 +17,7 @@ export async function sendMail(name: string, email: string, message: string) {
 		const enrichedMessage = `Name: ${name} \n Email: ${email} \n Message: \n\n${message}`;
 
 		const info = await transporter.sendMail({
-			from: `"Jocker Dev" <${process.env.EMAIL}`,
+			from: `"Jocker Dev" <${process.env.EMAIL_SENDER}`,
 			to: 'test@email.com',
 			subject: 'New Contact Message',
 			text: enrichedMessage,
