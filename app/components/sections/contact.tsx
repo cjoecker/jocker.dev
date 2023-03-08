@@ -1,5 +1,6 @@
+import { Form } from '@remix-run/react';
 import { AnimatePresence, motion } from 'framer-motion';
-import type { ChangeEvent, MouseEvent } from 'react';
+import type { ChangeEvent } from 'react';
 import React, {useEffect, useRef, useState} from 'react';
 
 import type { ContactInformationType } from '../../constants/contact-information';
@@ -108,7 +109,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 
 	useEffect(() => {
 		const animateErrorChange = (newError: string) => {
-			if (error === newError || isAnimatingError.current) return;
+			if (error === newError || isAnimatingError.current) {return;}
 			if (error === '') {
 				setError(newError);
 			} else {
@@ -128,14 +129,13 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 		} else {
 			setError('');
 		}
-	}, [name, email, message]);
+	}, [name, email, message, error]);
 
-	const onSubmit = (event: MouseEvent<HTMLButtonElement>) => {
+	const onSubmit = () => {
 		setHasTriedToSubmit(true);
-		if (error !== '') {
-			event.preventDefault();
-		}
+
 	};
+
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
@@ -163,11 +163,9 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 				>
 					<img src={CloseIcon} alt="" width={15} height={15} />
 				</motion.button>
-				<form
-					className="text-left flex flex-col gap-5"
-					name="contact"
-					method="POST"
-					data-netlify="true"
+				<Form
+					className="text-left flex flex-col gap-5 md:w-fit"
+					method="post"
 				>
 					<input type="hidden" name="subject" value="Contact Form" />
 					<Textbox
@@ -182,7 +180,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 						name="email"
 						onChange={e => setEmail(e.target.value)}
 					/>
-					<label className="flex flex-col w-[400px]">
+					<label className="flex flex-col w-full md:w-[400px]">
 						Message
 						<textarea
 							onChange={e => setMessage(e.target.value)}
@@ -223,7 +221,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 							</motion.button>
 						</div>
 					</div>
-				</form>
+				</Form>
 			</motion.div>
 		</motion.div>
 	);
