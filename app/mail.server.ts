@@ -5,7 +5,7 @@ import nodemailer from 'nodemailer';
 export async function sendMail(name: string, email: string, message: string) {
 	try {
 		const transporter = nodemailer.createTransport({
-			host: 'smtp-mail.outlook.comm',
+			host: 'smtp-mail.outlook.com',
 			port: 587,
 			secure: false,
 			auth: {
@@ -24,7 +24,7 @@ export async function sendMail(name: string, email: string, message: string) {
 		});
 
 		console.info('Message sent: %s', info.messageId);
-		console.info('Message:', enrichedMessage);
+		console.info('Email Message: \n', enrichedMessage);
 	} catch (err) {
 		console.error(err);
 	}
