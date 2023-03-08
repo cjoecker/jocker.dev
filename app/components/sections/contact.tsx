@@ -1,6 +1,6 @@
 import { Form } from '@remix-run/react';
 import { AnimatePresence, motion } from 'framer-motion';
-import type { ChangeEvent } from 'react';
+import type { ChangeEvent, MouseEvent } from 'react';
 import React, {useEffect, useRef, useState} from 'react';
 
 import type { ContactInformationType } from '../../constants/contact-information';
@@ -131,9 +131,13 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 		}
 	}, [name, email, message, error]);
 
-	const onSubmit = () => {
+	const onSubmit = (event: MouseEvent<HTMLButtonElement>) => {
 		setHasTriedToSubmit(true);
-
+		if (error !== '') {
+			event.preventDefault();
+		}else {
+			onClose();
+		}
 	};
 
 	return (
