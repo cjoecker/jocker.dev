@@ -1,7 +1,7 @@
 import { Form } from '@remix-run/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { ChangeEvent, MouseEvent } from 'react';
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import type { ContactInformationType } from '../../constants/contact-information';
 import { ContactInformation } from '../../constants/contact-information';
@@ -109,7 +109,9 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 
 	useEffect(() => {
 		const animateErrorChange = (newError: string) => {
-			if (error === newError || isAnimatingError.current) {return;}
+			if (error === newError || isAnimatingError.current) {
+				return;
+			}
 			if (error === '') {
 				setError(newError);
 			} else {
@@ -135,7 +137,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 		setHasTriedToSubmit(true);
 		if (error !== '') {
 			event.preventDefault();
-		}else {
+		} else {
 			onClose();
 		}
 	};
@@ -167,10 +169,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 				>
 					<img src={CloseIcon} alt="" width={15} height={15} />
 				</motion.button>
-				<Form
-					className="text-left flex flex-col gap-5 md:w-fit"
-					method="post"
-				>
+				<Form className="text-left flex flex-col gap-5 md:w-fit" method="post">
 					<input type="hidden" name="subject" value="Contact Form" />
 					<Textbox
 						label="Full Name"
