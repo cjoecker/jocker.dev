@@ -17,16 +17,16 @@ export const Contributions = () => {
 	return (
 		<Section title="Community Contributions">
 			<div className="flex">
-				<div className="flex flex-wrap gap-x-24 justify-center gap-y-36 mx-auto">
-					<div className="flex relative flex-col min-w-[250px]">
+				<div className="mx-auto flex flex-wrap justify-center gap-x-24 gap-y-36">
+					<div className="relative flex min-w-[250px] flex-col">
 						<Mesh />
 						<MyApps />
 					</div>
-					<div className="flex relative flex-col min-w-[270px]">
+					<div className="relative flex min-w-[270px] flex-col">
 						<Mesh />
 						<OpenSource />
 					</div>
-					<div className="flex relative flex-col min-w-[200px]">
+					<div className="relative flex min-w-[200px] flex-col">
 						<Mesh />
 						<StackOverflow />
 					</div>
@@ -43,7 +43,7 @@ export const Mesh = () => {
 			alt=""
 			height={800}
 			width={600}
-			className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-[200%] h-[150%]"
+			className="absolute top-1/2 left-1/2 -z-10 h-[150%] w-[200%] -translate-x-1/2 -translate-y-1/2"
 			src={MeshPurple}
 		/>
 	);
@@ -61,7 +61,7 @@ const StackOverflow = () => {
 	}, []);
 	return (
 		<>
-			<h3 className="text-lg mb-6 font-semibold">Stack Overflow</h3>
+			<h3 className="mb-6 text-lg font-semibold">Stack Overflow</h3>
 			<ExternalRedirect
 				to={StackOverflowDefaults.profileUrl}
 				className="flex text-left"
@@ -77,7 +77,7 @@ const StackOverflow = () => {
 					initial="hidden"
 					whileInView="visible"
 					aria-label="stack overflow profile"
-					className="flex flex-col max-w-fit bg-gradient-to-br from-neutral to-neutral-dark border-solid border-secondary/10 border-2 py-2 px-4 rounded-xl hover:cursor-pointer mx-auto text-secondary"
+					className="mx-auto flex max-w-fit flex-col rounded-xl border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark py-2 px-4 text-secondary hover:cursor-pointer"
 				>
 					<div className="flex">
 						<img
@@ -97,7 +97,7 @@ const StackOverflow = () => {
 							</div>
 						</div>
 					</div>
-					<div className="flex w-full w-full mt-1.5 justify-between">
+					<div className="mt-1.5 flex w-full justify-between">
 						<Badge
 							color="#D0A600"
 							number={
@@ -129,10 +129,10 @@ const Badge = ({ color, number }: { color: string; number: number }) => {
 	return (
 		<div className="flex ">
 			<div
-				className="h-2 w-2 rounded-full my-auto"
+				className="my-auto h-2 w-2 rounded-full"
 				style={{ backgroundColor: color }}
 			/>
-			<span className="ml-2 text-md mb-1">{number}</span>
+			<span className="ml-2 mb-1 text-md">{number}</span>
 		</div>
 	);
 };
@@ -140,7 +140,7 @@ const Badge = ({ color, number }: { color: string; number: number }) => {
 const OpenSource = () => {
 	return (
 		<>
-			<h3 className="text-lg mb-6 font-semibold">Open Source Contributions</h3>
+			<h3 className="mb-6 text-lg font-semibold">Open Source Contributions</h3>
 			<motion.div
 				initial="hidden"
 				whileInView="visible"
@@ -148,7 +148,7 @@ const OpenSource = () => {
 				transition={{
 					staggerChildren: 0.3,
 				}}
-				className="flex flex-col gap-12 mx-auto"
+				className="mx-auto flex flex-col gap-12"
 			>
 				{OpenSourceContributions.map(contribution => {
 					return (
@@ -168,7 +168,7 @@ const OpenSource = () => {
 									alt={`${contribution.name} logo`}
 									width="50"
 									height="50"
-									className="max-h-[60px] w-auto mx-auto"
+									className="mx-auto max-h-[60px] w-auto"
 									src={contribution.icon}
 								/>
 								<div className="text-md text-secondary">
@@ -186,10 +186,10 @@ const OpenSource = () => {
 const MyApps = () => {
 	return (
 		<>
-			<h3 className="text-lg mb-8 font-semibold">My Apps</h3>
+			<h3 className="mb-8 text-lg font-semibold">My Apps</h3>
 			<div className="flex">
 				<motion.div
-					className="grid grid-cols-2 m-auto gap-8"
+					className="m-auto grid grid-cols-2 gap-8"
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ amount: 0.2, once: true }}
@@ -215,7 +215,7 @@ const MyApps = () => {
 										<motion.div
 											whileTap={{ scale: 1 }}
 											whileHover={{ scale: 1.1 }}
-											className="w-16 h-16 rounded-xl mx-auto mb-2"
+											className="mx-auto mb-2 h-16 w-16 rounded-xl"
 											style={{
 												backgroundImage: `url(${app.icon})`,
 											}}

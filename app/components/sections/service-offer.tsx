@@ -29,11 +29,11 @@ export const ServiceOffer = () => {
 				<img
 					alt=""
 					aria-hidden="true"
-					className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-[200%] h-[200%]"
+					className=" absolute top-1/2 left-1/2 -z-10 h-[200%] w-[200%] -translate-x-1/2 -translate-y-1/2"
 					src={MeshPurpleTurquoise}
 				/>
 				<motion.div
-					className="flex gap-6 flex-wrap justify-center max-w-3xl mx-auto"
+					className="mx-auto flex max-w-3xl flex-wrap justify-center gap-6"
 					{...staggerAnimation}
 				>
 					{ServiceOfferData.map(offer => {
@@ -90,7 +90,7 @@ const Card = ({
 			{...appearAnimation}
 		>
 			{isOpen && (
-				<div className="z-0 relative">
+				<div className="relative z-0">
 					<CardContent offer={offer} isOpen={isOpen} />
 				</div>
 			)}
@@ -99,9 +99,7 @@ const Card = ({
 				style={{ zIndex }}
 				layout
 				className={` ${
-					isOpen
-						? 'fixed top-0 left-0 right-0 bottom-0 flex z-10 mx-3'
-						: 'relative z-0'
+					isOpen ? 'fixed inset-0 z-10 mx-3 flex' : 'relative z-0'
 				}`}
 			>
 				<CardContent isExpandable offer={offer} isOpen={isOpen} />
@@ -122,18 +120,18 @@ const CardContent = ({
 	return (
 		<motion.div
 			layout={isExpandable}
-			className={`flex rounded-2xl bg-gradient-to-br from-neutral to-neutral-dark border-solid border-secondary/10 border-2 cursor-pointer
-              text-left p-4 whitespace-pre-wrap relative
+			className={`relative flex cursor-pointer whitespace-pre-wrap rounded-2xl border-2 border-solid border-secondary/10 bg-gradient-to-br
+              from-neutral to-neutral-dark p-4 text-left
               ${
 								isOpen && isExpandable
-									? 'w-full h-auto m-auto max-w-lg flex-wrap bg-gradient-to-br from-neutral/70 to-neutral-dark/70 backdrop-blur-xl'
-									: 'h-80 w-80 md:h-56 md:w-56 flex-col'
+									? 'm-auto h-auto w-full max-w-lg flex-wrap bg-gradient-to-br from-neutral/70 to-neutral-dark/70 backdrop-blur-xl'
+									: 'h-80 w-80 flex-col md:h-56 md:w-56'
 							} ${isOpen && !isExpandable ? 'invisible' : 'visible'}`}
 		>
 			<motion.button
 				layout={isExpandable ? 'preserve-aspect' : false}
 				aria-label={isOpen ? 'expand' : 'contract'}
-				className={`absolute top-2.5 cursor-pointer right-2.5  p-2 ${
+				className={`absolute top-2.5 right-2.5 cursor-pointer  p-2 ${
 					isOpen ? 'h-7 w-7' : 'h-6 w-6'
 				}`}
 				style={{
@@ -149,10 +147,10 @@ const CardContent = ({
 				width={'70'}
 				height={'70'}
 				src={offer.logo}
-				className={`select-none pointer-events-none ${
+				className={`pointer-events-none select-none ${
 					isOpen
-						? 'w-[170px] h-[170px] mb-auto mt-4 mx-4'
-						: 'w-[105px] h-[105px] md:w-[70px] md:h-[70px] my-4'
+						? 'mx-4 mb-auto mt-4 h-[170px] w-[170px]'
+						: 'my-4 h-[105px] w-[105px] md:h-[70px] md:w-[70px]'
 				}`}
 			/>
 			<motion.div
@@ -163,7 +161,7 @@ const CardContent = ({
 					layout={isExpandable ? 'preserve-aspect' : false}
 					className={
 						isOpen
-							? 'text-lg font-semibold mt-2 mb-3 mr-4'
+							? 'mt-2 mb-3 mr-4 text-lg font-semibold'
 							: 'mb-1 text-xl md:text-lg'
 					}
 				>

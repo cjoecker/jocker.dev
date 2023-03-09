@@ -53,16 +53,16 @@ export const Header = () => {
 				mouseX.set(elX / 8);
 				mouseY.set(elY / 8);
 			}}
-			className={`w-full flex relative items-center  ${
+			className={`relative flex w-full items-center  ${
 				isIphone ? 'h-ios-screen' : 'h-screen'
 			}`}
 			ref={ref}
 		>
 			<Background mouseX={mouseX} mouseY={mouseY} />
 			<div
-				className={`ml-6 mb-8 sm:mt-[20vh] sm:ml-24 sm:mb-20 text-left z-10`}
+				className={`z-10 ml-6 mb-8 text-left sm:mt-[20vh] sm:ml-24 sm:mb-20`}
 			>
-				<motion.h1 style={{ y: titleY }} className="text-2xl font-bold mb-8">
+				<motion.h1 style={{ y: titleY }} className="mb-8 text-2xl font-bold">
 					Hi, I'm Christian Jöcker,
 					<br />
 					{'a '}
@@ -70,7 +70,7 @@ export const Header = () => {
 				</motion.h1>
 				<motion.p
 					style={{ y: subtitleY }}
-					className="font-normal text-lg mr-4 md:mr-[25vw] mb-16 sm:mb-28"
+					className="mr-4 mb-16 text-lg font-normal sm:mb-28 md:mr-[25vw]"
 				>
 					I work as a freelance developer and designer, and am passionate about
 					creating great experiences with beautiful web applications!
@@ -80,9 +80,9 @@ export const Header = () => {
 					whileTap={{ scale: 1 }}
 					whileHover={{ scale: 1.1 }}
 					onClick={onDiscoverMoreClick}
-					className="rounded-md font-semibold text-lg hover:cursor-pointer select-none text-secondary bg-gradient-to-br from-turquoise to-blue"
+					className="select-none rounded-md bg-gradient-to-br from-turquoise to-blue text-lg font-semibold text-secondary hover:cursor-pointer"
 				>
-					<div className="py-4 px-6 m-[1px] bg-neutral-dark rounded-md bg-[#000] bg-opacity-80 pointer-events-none">
+					<div className="pointer-events-none m-[1px] rounded-md bg-neutral-dark/80 py-4 px-6">
 						Discover More
 					</div>
 				</motion.button>
@@ -102,18 +102,18 @@ export const Background = ({ mouseX, mouseY }: Props) => {
 			<motion.img
 				aria-hidden="true"
 				style={{ x: mouseX, y: mouseY }}
-				className="absolute right-[-40vw] top-[-30vh] w-[130vw] h-[85vh]"
+				className="absolute right-[-40vw] top-[-30vh] h-[85vh] w-[130vw]"
 				src={MeshPurple}
 			/>
 			<motion.img
 				aria-hidden="true"
 				style={{ x: blueMeshX, y: blueMeshY }}
-				className="absolute right-[-45vw] top-[-5vh] w-[120vw] h-[120vh]"
+				className="absolute right-[-45vw] top-[-5vh] h-[120vh] w-[120vw]"
 				src={MeshTurquoise}
 			/>
 			<motion.img
 				aria-hidden="true"
-				className="absolute left-[-35vw] top-[-10vh] w-[100vw] h-[100vh]"
+				className="absolute left-[-35vw] top-[-10vh] h-[100vh] w-[100vw]"
 				src={MeshBlue}
 			/>
 		</>

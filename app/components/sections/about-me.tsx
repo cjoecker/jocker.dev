@@ -6,19 +6,19 @@ import { Section } from '../shared/section';
 export const AboutMe = () => {
 	return (
 		<Section>
-			<div className="grid grid-cols-1 sm:grid-cols-5 max-w-4xl gap-x-9 gap-y-6 rounded-2xl p-6 mx-auto overflow-hidden">
+			<div className="mx-auto grid max-w-4xl grid-cols-1 gap-x-9 gap-y-6 overflow-hidden rounded-2xl p-6 sm:grid-cols-5">
 				<div className="col-span-1 sm:col-span-2">
 					<img
 						loading="lazy"
-						className="rounded-2xl w-full h-full object-cover shadow-lg-purple -rotate-2"
+						className="shadow-lg-purple h-full w-full -rotate-2 rounded-2xl object-cover"
 						height={512}
 						width={384}
 						alt="christian"
 						src={ChristianImg}
 					/>
 				</div>
-				<div className="col-span-1 sm:col-span-3 text-left my-auto">
-					<h3 className="text-xl mb-4 font-semibold">About me</h3>
+				<div className="col-span-1 my-auto text-left sm:col-span-3">
+					<h3 className="mb-4 text-xl font-semibold">About me</h3>
 					<div className="text-base">{AboutMeData}</div>
 					<img
 						loading="lazy"

@@ -17,12 +17,12 @@ export const CoursesAndConferences = () => {
 	);
 	return (
 		<Section title="Last Attended Courses and Conferences">
-			<div className="w-full flex flex-col ">
-				<div className="flex relative max-w-7xl mx-auto">
+			<div className="flex w-full flex-col ">
+				<div className="relative mx-auto flex max-w-7xl">
 					<img
 						alt=""
 						aria-hidden="true"
-						className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-[250%] h-[250%]"
+						className=" absolute top-1/2 left-1/2 -z-10 h-[250%] w-[250%] -translate-x-1/2 -translate-y-1/2"
 						src={MeshPurpleTurquoise}
 					/>
 					<motion.div
@@ -32,7 +32,7 @@ export const CoursesAndConferences = () => {
 						transition={{
 							staggerChildren: 0.1,
 						}}
-						className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-left"
+						className="grid grid-cols-2 gap-4 text-left md:grid-cols-3 lg:grid-cols-4"
 					>
 						{sortedCoursesAndConferences.map(course => {
 							return (
@@ -42,7 +42,7 @@ export const CoursesAndConferences = () => {
 										visible: { opacity: 1 },
 										hidden: { opacity: 0 },
 									}}
-									className="flex col-span-1 min-w-0"
+									className="col-span-1 flex min-w-0"
 								>
 									{'instructor' in course ? (
 										<CourseItem course={course as CourseType} />
@@ -71,7 +71,7 @@ const CourseItem = ({ course }: { course: CourseType }) => {
 				height={20}
 			/>
 			<div className="overflow-hidden">
-				<div className="text-base overflow-ellipsis whitespace-nowrap overflow-hidden">
+				<div className="overflow-hidden text-ellipsis whitespace-nowrap text-base">
 					{course.name}
 				</div>
 				<div className="text-sm opacity-80">
@@ -94,7 +94,7 @@ const ConferenceItem = ({ conference }: { conference: ConferenceType }) => {
 				height={20}
 			/>
 			<div className="overflow-hidden">
-				<div className="text-base overflow-ellipsis whitespace-nowrap overflow-hidden">
+				<div className="overflow-hidden text-ellipsis whitespace-nowrap text-base">
 					{conference.name}
 				</div>
 				<div className="text-sm opacity-80">
