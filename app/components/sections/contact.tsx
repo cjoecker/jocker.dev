@@ -143,90 +143,96 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 	};
 
 	return (
-		<motion.div
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
-			role="presentation"
-			className="h-screen w-screen bg-neutral-dark/80 fixed top-0 left-0 flex z-40"
-			onClick={onClose}
-		>
+		<>
 			<motion.div
-				initial={{ scale: 0, opacity: 0 }}
-				animate={{ scale: 1, opacity: 1 }}
-				exit={{ scale: 0, opacity: 0 }}
-				transition={{ duration: 0.2 }}
-				onClick={e => e.stopPropagation()}
-				role="dialog"
-				className="relative m-auto rounded-2xl bg-gradient-to-br from-neutral to-neutral-dark border-solid border-secondary/10 border-2 p-6 max-w-7xl shadow-sm-purple"
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				exit={{ opacity: 0 }}
+				role="presentation"
+				className="h-screen w-screen bg-neutral-dark/80 fixed top-0 left-0 z-40 pointer-events-none overscroll-contain"
+			></motion.div>
+			<button
+				onClick={onClose}
+				className="fixed top-0 left-0 flex z-50 h-screen w-screen overscroll-contain"
 			>
-				<motion.button
-					whileTap={{ scale: 1 }}
-					whileHover={{ scale: 1.1 }}
-					onClick={onClose}
-					aria-label="close"
-					className="absolute top-1 right-1 p-3"
+				<motion.div
+					initial={{ scale: 0, opacity: 0 }}
+					animate={{ scale: 1, opacity: 1 }}
+					exit={{ scale: 0, opacity: 0 }}
+					transition={{ duration: 0.2 }}
+					className="w-full sm:w-fit relative my-auto mx-4 sm:m-auto rounded-2xl bg-gradient-to-br from-neutral to-neutral-dark border-solid border-secondary/10 border-2 p-6 max-w-7xl shadow-sm-purple"
 				>
-					<img src={CloseIcon} alt="" width={15} height={15} />
-				</motion.button>
-				<Form className="text-left flex flex-col gap-5 md:w-fit" method="post">
-					<input type="hidden" name="subject" value="Contact Form" />
-					<Textbox
-						label="Full Name"
-						type="text"
-						name="name"
-						onChange={e => setName(e.target.value)}
-					/>
-					<Textbox
-						label="Email"
-						type="email"
-						name="email"
-						onChange={e => setEmail(e.target.value)}
-					/>
-					<label className="flex flex-col w-full md:w-[400px]">
-						Message
-						<textarea
-							onChange={e => setMessage(e.target.value)}
-							className="p-2 mt-2 h-36 rounded-lg focus:filter-none resize-none leading-normal"
-							name="message"
-						></textarea>
-					</label>
+					<motion.button
+						whileTap={{ scale: 1 }}
+						whileHover={{ scale: 1.1 }}
+						onClick={onClose}
+						aria-label="close"
+						className="absolute top-1 right-1 p-3"
+					>
+						<img src={CloseIcon} alt="" width={15} height={15} />
+					</motion.button>
+					<Form
+						className="text-left flex flex-col gap-5 sm:w-fit"
+						method="post"
+					>
+						<input type="hidden" name="subject" value="Contact Form" />
+						<Textbox
+							label="Full Name"
+							type="text"
+							name="name"
+							onChange={e => setName(e.target.value)}
+						/>
+						<Textbox
+							label="Email"
+							type="email"
+							name="email"
+							onChange={e => setEmail(e.target.value)}
+						/>
+						<label className="flex flex-col w-full sm:w-[400px]">
+							Message
+							<textarea
+								onChange={e => setMessage(e.target.value)}
+								className="p-2 mt-2 h-36 rounded-lg focus:filter-none resize-none leading-normal"
+								name="message"
+							></textarea>
+						</label>
 
-					<div className="flex mt-2">
-						<div className="flex-1">
-							<AnimatePresence>
-								{error !== '' && hasTriedToSubmit && (
-									<motion.div
-										layout
-										initial={{ y: 20, opacity: 0 }}
-										animate={{ y: 0, opacity: 1 }}
-										exit={{ y: 20, opacity: 0 }}
-										transition={{ duration: ERROR_ANIMATION_DURATION }}
-										className="text-primary"
-									>
-										{error}
-									</motion.div>
-								)}
-							</AnimatePresence>
+						<div className="flex mt-2">
+							<div className="flex-1">
+								<AnimatePresence>
+									{error !== '' && hasTriedToSubmit && (
+										<motion.div
+											layout
+											initial={{ y: 20, opacity: 0 }}
+											animate={{ y: 0, opacity: 1 }}
+											exit={{ y: 20, opacity: 0 }}
+											transition={{ duration: ERROR_ANIMATION_DURATION }}
+											className="text-primary"
+										>
+											{error}
+										</motion.div>
+									)}
+								</AnimatePresence>
+							</div>
+							<div className="flex-grow-0">
+								<motion.button
+									type="submit"
+									onClick={onSubmit}
+									style={{ boxShadow: '0px 0px 30px -10px #00DFD866' }}
+									whileTap={{ scale: 1 }}
+									whileHover={{ scale: 1.05 }}
+									className="ml-auto rounded-md font-semibold hover:cursor-pointer select-none text-secondary bg-gradient-to-br from-turquoise to-blue"
+								>
+									<div className="flex py-3 px-4 m-[1px] bg-neutral-dark rounded-md bg-[#000] bg-opacity-80 pointer-events-none">
+										Send Message
+									</div>
+								</motion.button>
+							</div>
 						</div>
-						<div className="flex-grow-0">
-							<motion.button
-								type="submit"
-								onClick={onSubmit}
-								style={{ boxShadow: '0px 0px 30px -10px #00DFD866' }}
-								whileTap={{ scale: 1 }}
-								whileHover={{ scale: 1.05 }}
-								className="ml-auto rounded-md font-semibold hover:cursor-pointer select-none text-secondary bg-gradient-to-br from-turquoise to-blue"
-							>
-								<div className="flex py-3 px-4 m-[1px] bg-neutral-dark rounded-md bg-[#000] bg-opacity-80 pointer-events-none">
-									Send Message
-								</div>
-							</motion.button>
-						</div>
-					</div>
-				</Form>
-			</motion.div>
-		</motion.div>
+					</Form>
+				</motion.div>
+			</button>
+		</>
 	);
 };
 
