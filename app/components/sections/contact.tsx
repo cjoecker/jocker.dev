@@ -175,6 +175,9 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 					<Form
 						className="flex flex-col gap-5 text-left sm:w-fit"
 						method="post"
+						onSubmit={e => {
+							e.preventDefault();
+						}}
 					>
 						<input type="hidden" name="subject" value="Contact Form" />
 						<Textbox
@@ -248,6 +251,9 @@ export const Textbox = ({ label, type, name, onChange }: Props) => {
 		<label className="flex flex-col">
 			{label}
 			<input
+				onKeyDown={e => {
+					e.key === 'Enter' && e.preventDefault();
+				}}
 				onChange={onChange}
 				className="mt-2 max-w-[300px] rounded-lg bg-[#3b3b3b] p-2 focus:bg-[#3b3b3b] focus:text-secondary focus:filter-none"
 				type={type}
