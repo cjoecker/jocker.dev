@@ -160,6 +160,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 					animate={{ scale: 1, opacity: 1 }}
 					exit={{ scale: 0, opacity: 0 }}
 					transition={{ duration: 0.2 }}
+					onClick={event => event.stopPropagation()}
 					className="shadow-sm-purple relative my-auto mx-4 w-full max-w-7xl rounded-2xl border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark p-6 sm:m-auto sm:w-fit"
 				>
 					<motion.button
@@ -192,7 +193,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 							Message
 							<textarea
 								onChange={e => setMessage(e.target.value)}
-								className="mt-2 h-36 resize-none rounded-lg p-2 leading-normal focus:filter-none"
+								className="mt-2 h-36 resize-none rounded-lg bg-[#3b3b3b] p-2 leading-normal focus:bg-[#3b3b3b] focus:filter-none"
 								name="message"
 							></textarea>
 						</label>
