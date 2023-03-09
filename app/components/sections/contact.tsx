@@ -20,13 +20,13 @@ export const Contact = () => {
 				transition={{
 					staggerChildren: 0.1,
 				}}
-				className="flex gap-9 flex-wrap mx-auto justify-center"
+				className="mx-auto flex flex-wrap justify-center gap-9"
 			>
-				<div className="flex gap-9 flex-wrap justify-center">
+				<div className="flex flex-wrap justify-center gap-9">
 					<ContactButton contactInformation={ContactInformation[0]} />
 					<ContactButton contactInformation={ContactInformation[1]} />
 				</div>
-				<div className="flex gap-9 flex-wrap justify-center">
+				<div className="flex flex-wrap justify-center gap-9">
 					<ContactButton contactInformation={ContactInformation[2]} />
 					<ContactButton contactInformation={ContactInformation[3]} />
 				</div>
@@ -49,18 +49,18 @@ export const ContactButton = ({
 				style={{ boxShadow: '0px 0px 40px -8px #00DFD866' }}
 				aria-label={contactInformation.text}
 				className={
-					'p-0.5 h-20 w-20 flex rounded-full hover:cursor-pointer select-none bg-gradient-to-br from-turquoise to-blue'
+					'flex h-20 w-20 select-none rounded-full bg-gradient-to-br from-turquoise to-blue p-0.5 hover:cursor-pointer'
 				}
 			>
-				<div className="flex w-full h-full rounded-full bg-[#000] bg-opacity-80 pointer-events-none">
-					<div className="h-full w-full mx-4">
+				<div className="pointer-events-none flex h-full w-full rounded-full bg-neutral-dark/80">
+					<div className="mx-4 h-full w-full">
 						<img
 							loading="lazy"
 							width="38.5"
 							height="38.5"
 							alt={contactInformation.alt}
 							src={contactInformation.image}
-							className="w-full h-full select-none pointer-events-none object-contain"
+							className="pointer-events-none h-full w-full select-none object-contain"
 						/>
 					</div>
 				</div>
@@ -149,18 +149,18 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 				animate={{ opacity: 1 }}
 				exit={{ opacity: 0 }}
 				role="presentation"
-				className="h-screen w-screen bg-neutral-dark/80 fixed top-0 left-0 z-40 pointer-events-none overscroll-contain"
+				className="pointer-events-none fixed top-0 left-0 z-40 h-screen w-screen overscroll-contain bg-neutral-dark/80"
 			></motion.div>
 			<button
 				onClick={onClose}
-				className="fixed top-0 left-0 flex z-50 h-screen w-screen overscroll-contain"
+				className="fixed top-0 left-0 z-50 flex h-screen w-screen overscroll-contain"
 			>
 				<motion.div
 					initial={{ scale: 0, opacity: 0 }}
 					animate={{ scale: 1, opacity: 1 }}
 					exit={{ scale: 0, opacity: 0 }}
 					transition={{ duration: 0.2 }}
-					className="w-full sm:w-fit relative my-auto mx-4 sm:m-auto rounded-2xl bg-gradient-to-br from-neutral to-neutral-dark border-solid border-secondary/10 border-2 p-6 max-w-7xl shadow-sm-purple"
+					className="shadow-sm-purple relative my-auto mx-4 w-full max-w-7xl rounded-2xl border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark p-6 sm:m-auto sm:w-fit"
 				>
 					<motion.button
 						whileTap={{ scale: 1 }}
@@ -172,7 +172,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 						<img src={CloseIcon} alt="" width={15} height={15} />
 					</motion.button>
 					<Form
-						className="text-left flex flex-col gap-5 sm:w-fit"
+						className="flex flex-col gap-5 text-left sm:w-fit"
 						method="post"
 					>
 						<input type="hidden" name="subject" value="Contact Form" />
@@ -188,16 +188,16 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 							name="email"
 							onChange={e => setEmail(e.target.value)}
 						/>
-						<label className="flex flex-col w-full sm:w-[400px]">
+						<label className="flex w-full flex-col sm:w-[400px]">
 							Message
 							<textarea
 								onChange={e => setMessage(e.target.value)}
-								className="p-2 mt-2 h-36 rounded-lg focus:filter-none resize-none leading-normal"
+								className="mt-2 h-36 resize-none rounded-lg p-2 leading-normal focus:filter-none"
 								name="message"
 							></textarea>
 						</label>
 
-						<div className="flex mt-2">
+						<div className="mt-2 flex">
 							<div className="flex-1">
 								<AnimatePresence>
 									{error !== '' && hasTriedToSubmit && (
@@ -214,16 +214,16 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 									)}
 								</AnimatePresence>
 							</div>
-							<div className="flex-grow-0">
+							<div className="grow-0">
 								<motion.button
 									type="submit"
 									onClick={onSubmit}
 									style={{ boxShadow: '0px 0px 30px -10px #00DFD866' }}
 									whileTap={{ scale: 1 }}
 									whileHover={{ scale: 1.05 }}
-									className="ml-auto rounded-md font-semibold hover:cursor-pointer select-none text-secondary bg-gradient-to-br from-turquoise to-blue"
+									className="ml-auto select-none rounded-md bg-gradient-to-br from-turquoise to-blue font-semibold text-secondary hover:cursor-pointer"
 								>
-									<div className="flex py-3 px-4 m-[1px] bg-neutral-dark rounded-md bg-[#000] bg-opacity-80 pointer-events-none">
+									<div className="pointer-events-none m-[1px] flex rounded-md bg-neutral-dark/80 py-3 px-4">
 										Send Message
 									</div>
 								</motion.button>
@@ -248,7 +248,7 @@ export const Textbox = ({ label, type, name, onChange }: Props) => {
 			{label}
 			<input
 				onChange={onChange}
-				className="p-2 rounded-lg mt-2 bg-[#3b3b3b] focus:bg-[#3b3b3b] focus:text-secondary focus:filter-none max-w-[300px]"
+				className="mt-2 max-w-[300px] rounded-lg bg-[#3b3b3b] p-2 focus:bg-[#3b3b3b] focus:text-secondary focus:filter-none"
 				type={type}
 				name={name}
 			/>

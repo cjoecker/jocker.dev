@@ -4,6 +4,7 @@
 		"@remix-run/eslint-config/node",
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended",
+		"plugin:tailwindcss/recommended",
 		"plugin:react/recommended",
 		"prettier",
 		"plugin:jsx-a11y/recommended"

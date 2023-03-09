@@ -10,8 +10,8 @@ import { Section } from '../shared/section';
 export const Facts = () => {
 	return (
 		<Section>
-			<div className="relative flex mt-52">
-				<div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-8 justify-between mx-auto flex-wrap">
+			<div className="relative mt-52 flex">
+				<div className="mx-auto grid grid-cols-1 flex-wrap justify-between gap-x-12 gap-y-8 lg:grid-cols-3">
 					<Fact
 						number={EXPERIENCE_YEARS}
 						label={'Years of Experience'}
@@ -71,13 +71,13 @@ const Fact = ({
 	}, [content, number]);
 
 	return (
-		<div className="col-span-1 flex flex-col min-w-[220px] p-4 rounded-lg relative">
+		<div className="relative col-span-1 flex min-w-[220px] flex-col rounded-lg p-4">
 			<img
 				aria-hidden="true"
 				alt=""
 				height={800}
 				width={600}
-				className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-[200%] h-[200%]"
+				className="absolute top-1/2 left-1/2 -z-10 h-[200%] w-[200%] -translate-x-1/2 -translate-y-1/2"
 				src={MeshPurple}
 			/>
 			<motion.img
@@ -96,8 +96,8 @@ const Fact = ({
 					hidden: { opacity: 0, y: 100 },
 				}}
 			/>
-			<div ref={ref} className="text-2xl mt-3 font-semibold" />
-			<div className="text-xl mt-4">{label}</div>
+			<div ref={ref} className="mt-3 text-2xl font-semibold" />
+			<div className="mt-4 text-xl">{label}</div>
 		</div>
 	);
 };

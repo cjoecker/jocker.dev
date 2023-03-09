@@ -5,8 +5,8 @@ import { Section } from '../shared/section';
 
 export const Skills = () => {
 	return (
-		<Section title="Skills" className="flex flex-col mx-8 sm:mx-16">
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20 max-w-7xl mx-auto">
+		<Section title="Skills" className="mx-8 flex flex-col sm:mx-16">
+			<div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-16 gap-y-20 md:grid-cols-2">
 				<Tags skills={DevSkills} title="Web Development" />
 				<Tags skills={UxSkills} title="UX/UI Design" />
 			</div>
@@ -22,8 +22,8 @@ export const Tags = ({
 	title: string;
 }) => {
 	return (
-		<div className="mt-4 col-span-1">
-			<h3 className="text-lg text-left mb-6 font-semibold">{title}</h3>
+		<div className="col-span-1 mt-4">
+			<h3 className="mb-6 text-left text-lg font-semibold">{title}</h3>
 			<motion.div
 				initial="hidden"
 				whileInView="visible"
@@ -31,7 +31,7 @@ export const Tags = ({
 				transition={{
 					staggerChildren: 0.1,
 				}}
-				className="flex gap-4 text-left flex-wrap"
+				className="flex flex-wrap gap-4 text-left"
 			>
 				{skills.map(skill => {
 					return (
@@ -45,7 +45,7 @@ export const Tags = ({
 								title === 'Web Development'
 									? 'shadow-sm-turquoise'
 									: 'shadow-sm-purple'
-							} border-solid border-secondary/10 border-2 bg-gradient-to-br from-neutral to-neutral-dark inline-block rounded-full px-3 py-1 text-md capitalize`}
+							} inline-block rounded-full border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark px-3 py-1 text-md capitalize`}
 						>
 							{skill}
 						</motion.div>

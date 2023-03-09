@@ -9,12 +9,12 @@ import { Section } from '../shared/section';
 export const CoreValues = () => {
 	return (
 		<Section title="Core Values">
-			<div className="flex relative flex-col">
-				<div className="relative flex mx-auto">
+			<div className="relative flex flex-col">
+				<div className="relative mx-auto flex">
 					<img
 						alt=""
 						aria-hidden="true"
-						className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-[300%] h-[300%]"
+						className=" absolute top-1/2 left-1/2 -z-10 h-[300%] w-[300%] -translate-x-1/2 -translate-y-1/2"
 						src={MeshPurpleTurquoise}
 					/>
 					<motion.div
@@ -24,7 +24,7 @@ export const CoreValues = () => {
 						transition={{
 							staggerChildren: 0.3,
 						}}
-						className="grid grid-cols-1 sm:grid-cols-2 mx-auto gap-y-12 gap-x-16"
+						className="mx-auto grid grid-cols-1 gap-y-12 gap-x-16 sm:grid-cols-2"
 					>
 						{CoreValuesData.map(value => {
 							return <CoreValue key={value.coreValue} coreValue={value} />;
@@ -36,7 +36,7 @@ export const CoreValues = () => {
 						loading="lazy"
 						width="350"
 						height="260"
-						className="w-full max-w-[350px] h-auto mt-12 sm:-mt-5"
+						className="mt-12 h-auto w-full max-w-[350px] sm:-mt-5"
 						src={MeditatingImage}
 						alt="avatar of myself meditating"
 						initial="hidden"
@@ -61,9 +61,9 @@ const CoreValue = ({ coreValue }: { coreValue: CoreValuesType }) => {
 				visible: { opacity: 1 },
 				hidden: { opacity: 0 },
 			}}
-			className="flex flex-col align-top max-w-[190px] col-span-1"
+			className="col-span-1 flex max-w-[190px] flex-col align-top"
 		>
-			<h3 className="font-semibold text-md">{coreValue.coreValue}</h3>
+			<h3 className="text-md font-semibold">{coreValue.coreValue}</h3>
 			<p className="mt-0.5 opacity-90">{coreValue.explanation}</p>
 		</motion.div>
 	);

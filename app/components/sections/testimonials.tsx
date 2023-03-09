@@ -11,10 +11,10 @@ import { useNarrowView } from '~/hooks/useNarrowView';
 export function Testimonials() {
 	const { isNarrowView } = useNarrowView();
 	return (
-		<Section title="Testimonials" className="mx-0 max-w-5xl mx-auto">
+		<Section title="Testimonials" className="mx-auto max-w-5xl">
 			<Splide
 				aria-label="testimonials"
-				className="mask-swiper-narrow md:mask-swiper max-w-5xl mx-auto"
+				className="mask-swiper-narrow md:mask-swiper mx-auto max-w-5xl"
 				options={{
 					type: 'loop',
 					perPage: 1,
@@ -28,17 +28,17 @@ export function Testimonials() {
 					return (
 						<SplideSlide key={testimonial.testimonial}>
 							<div
-								className={`h-full cursor-grab my-6 mx-4 flex-1 select-none flex bg-gradient-to-br from-neutral to-neutral-dark border-solid border-secondary/10 border-2 p-5 flex-col shadow-sm-turquoise rounded-xl`}
+								className={`shadow-sm-turquoise my-6 mx-4 flex h-full flex-1 cursor-grab select-none flex-col rounded-xl border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark p-5`}
 							>
 								<img
 									loading="lazy"
 									width="150"
 									height={testimonial.companyHeight}
-									className="mx-auto object-contain mt-2 z-10"
+									className="z-10 mx-auto mt-2 object-contain"
 									alt={getAltTextFromFileName(testimonial.companyLogo)}
 									src={testimonial.companyLogo}
 								/>
-								<div className="flex-1 flex flex-col justify-center">
+								<div className="flex flex-1 flex-col justify-center">
 									<img
 										loading="lazy"
 										width="20"
@@ -49,7 +49,7 @@ export function Testimonials() {
 									/>
 									<div className="text-base ">{testimonial?.testimonial}</div>
 								</div>
-								<div className="flex mx-auto justify-end text-left mt-2 mb-2">
+								<div className="mx-auto my-2 flex justify-end text-left">
 									<img
 										loading="lazy"
 										width="80"
@@ -58,7 +58,7 @@ export function Testimonials() {
 										alt={getAltTextFromFileName(testimonial?.photo)}
 										src={testimonial.photo}
 									/>
-									<div className="flex flex-col justify-end my-auto">
+									<div className="my-auto flex flex-col justify-end">
 										<div className="text-md font-bold ">
 											{testimonial?.person}
 										</div>

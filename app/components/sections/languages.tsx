@@ -8,16 +8,16 @@ import { getAltTextFromFileName } from '../shared/utils';
 export const Languages = () => {
 	return (
 		<Section title="Languages" className="flex flex-col">
-			<div className="grid grid-cols-1 md:grid-cols-4 gap-x-32 gap-y-20 max-w-7xl mx-auto">
+			<div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-32 gap-y-20 md:grid-cols-4">
 				{LanguagesData.map(language => {
 					return (
-						<div className="col-span-1 relative m-auto" key={language.language}>
+						<div className="relative col-span-1 m-auto" key={language.language}>
 							<img
 								alt=""
 								aria-hidden="true"
 								height={800}
 								width={600}
-								className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 w-[300%] h-[200%]"
+								className="absolute top-1/2 left-1/2 -z-10 h-[200%] w-[300%] -translate-x-1/2 -translate-y-1/2"
 								src={MeshPurple}
 							/>
 							<motion.img
@@ -36,8 +36,8 @@ export const Languages = () => {
 								alt={getAltTextFromFileName(language.icon)}
 								src={language.icon}
 							/>
-							<div className="font-bold text-md">{language.language}</div>
-							<div className="text-base mt-1">{language.level}</div>
+							<div className="text-md font-bold">{language.language}</div>
+							<div className="mt-1 text-base">{language.level}</div>
 						</div>
 					);
 				})}

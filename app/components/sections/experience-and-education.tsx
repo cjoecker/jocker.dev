@@ -34,19 +34,17 @@ const WorkExperience = () => {
 				const isLast = index === workAndEducation.length - 1;
 				return (
 					<div
-						className="flex mx-4"
+						className="mx-4 flex"
 						key={`${experienceItem.title}${experienceItem.logo}`}
 					>
-						<div className="flex-1 min-w-0">
+						<div className="min-w-0 flex-1">
 							{!isOdd && <ExperienceItem isOdd={isOdd} item={experienceItem} />}
 						</div>
-						<div className="flex-grow-0 flex-shrink-0 flex flex-col">
+						<div className="flex shrink-0 grow-0 flex-col">
 							<div className="flex-1 pb-2">
 								<span
-									className={`w-[3px] h-full flex mx-auto rounded-b-full opacity-60 ${
-										isFirst
-											? 'bg-gradient-to-t from-secondary to-transparent'
-											: 'bg-secondary'
+									className={`mx-auto flex h-full w-[3px] rounded-b-full opacity-60 ${
+										isFirst ? 'bg-gradient-to-t from-secondary' : 'bg-secondary'
 									}`}
 								/>
 							</div>
@@ -62,7 +60,7 @@ const WorkExperience = () => {
 									experienceItem.type === 'work'
 										? 'shadow-md-turquoise'
 										: 'shadow-md-purple'
-								} bg-contain flex p-3 rounded-full border-solid border-secondary/10 border-2 bg-gradient-to-br from-neutral to-neutral-dark`}
+								} flex rounded-full border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark bg-contain p-3`}
 							>
 								<img
 									loading="lazy"
@@ -78,15 +76,13 @@ const WorkExperience = () => {
 							</motion.div>
 							<div className="flex-1 pt-2">
 								<span
-									className={`w-[3px] h-full flex mx-auto rounded-t-full opacity-60 ${
-										isLast
-											? 'bg-gradient-to-b from-secondary to-transparent'
-											: 'bg-secondary'
+									className={`mx-auto flex h-full w-[3px] rounded-t-full opacity-60 ${
+										isLast ? 'bg-gradient-to-b from-secondary' : 'bg-secondary'
 									}`}
 								/>
 							</div>
 						</div>
-						<div className="flex-1 min-w-0">
+						<div className="min-w-0 flex-1">
 							{isOdd && <ExperienceItem isOdd={isOdd} item={experienceItem} />}
 						</div>
 					</div>
@@ -116,10 +112,10 @@ const ExperienceItem = ({
 			viewport={{ amount: 0.2, once: true }}
 			transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
 			variants={variants}
-			className={`flex my-5 max-w-fit ${
+			className={`my-5 flex max-w-fit ${
 				isOdd
-					? 'text-left justify-start ml-3 md:ml-6'
-					: 'text-right justify-end ml-auto mr-3 md:mr-6'
+					? 'ml-3 justify-start text-left md:ml-6'
+					: 'ml-auto mr-3 justify-end text-right md:mr-6'
 			}`}
 		>
 			<div className="mb-2 max-w-[300px]">
@@ -133,21 +129,21 @@ const ExperienceItem = ({
 						style={{ height: item.logoHeight }}
 						alt={getAltTextFromFileName(item.logo)}
 						src={item.logo}
-						className={`w-[100px] object-contain hover:cursor-pointer mb-2 ${
+						className={`mb-2 w-[100px] object-contain hover:cursor-pointer ${
 							isOdd ? 'object-left' : 'ml-auto object-right'
 						}`}
 					/>
 				</ExternalRedirect>
 				<div
-					className="font-semibold mb-0.5 break-words"
+					className="mb-0.5 break-words font-semibold"
 					style={{ lineHeight: '1.3rem' }}
 				>
 					{item.title}
 				</div>
-				<div className="opacity-80 text-sm leading-tight text-sm md:text-base">
+				<div className="text-sm leading-tight opacity-80 md:text-base">
 					{formatTimePeriod(item.startDate, item.endDate)}
 				</div>
-				<div className="opacity-80 leading-tight text-sm md:text-base">
+				<div className="text-sm leading-tight opacity-80 md:text-base">
 					{item.location}
 				</div>
 			</div>
