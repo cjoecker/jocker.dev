@@ -23,7 +23,7 @@ export const Contact = () => {
 				className="mx-auto flex flex-wrap justify-center gap-9"
 			>
 				<div className="flex flex-wrap justify-center gap-9">
-					<ContactButton contactInformation={ContactInformation[0]} />
+					{/*<ContactButton contactInformation={ContactInformation[0]} />*/}
 					<ContactButton contactInformation={ContactInformation[1]} />
 				</div>
 				<div className="flex flex-wrap justify-center gap-9">
@@ -175,9 +175,6 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 					<Form
 						className="flex flex-col gap-5 text-left sm:w-fit"
 						method="post"
-						onSubmit={e => {
-							e.preventDefault();
-						}}
 					>
 						<input type="hidden" name="subject" value="Contact Form" />
 						<Textbox
