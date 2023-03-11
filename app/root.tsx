@@ -10,7 +10,9 @@ import {
 	useLoaderData,
 } from '@remix-run/react';
 import SplideStyles from '@splidejs/splide/dist/css/splide.min.css';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import invariant from 'tiny-invariant';
 
 import RalewayFont600Woff from '~/fonts/raleway-v28-latin-600.woff';
 import RalewayFont600Woff2 from '~/fonts/raleway-v28-latin-600.woff2';
@@ -19,10 +21,10 @@ import RalewayFont800Woff2 from '~/fonts/raleway-v28-latin-800.woff2';
 import RalewayFontRegularWoff from '~/fonts/raleway-v28-latin-regular.woff';
 import RalewayFontRegularWoff2 from '~/fonts/raleway-v28-latin-regular.woff2';
 import { useChangeLanguage } from '~/hooks/useChangeLanguage';
+import * as gtag from '~/services/gtags.client';
 import i18next from '~/services/i18next.server';
 import MainStyles from '~/styles/main.css';
 import TailwindStyles from '~/styles/tailwind.css';
-
 export const meta: MetaFunction = () => {
 	return {
 		title:
@@ -94,7 +96,14 @@ export const links: LinksFunction = () => [
 
 export async function loader({ request }: LoaderArgs) {
 	const locale = await i18next.getLocale(request);
-	return json({ locale });
+	invariant(
+		process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID,
+		'Missing Google Analytics ID'
+	);
+	return json({
+		locale,
+		gaTrackingId: process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID,
+	});
 }
 
 export const handle = {
@@ -103,9 +112,14 @@ export const handle = {
 
 // eslint-disable-next-line import/no-default-export
 export default function Root() {
-	const { locale } = useLoaderData<typeof loader>();
+	const { locale, gaTrackingId } = useLoaderData<typeof loader>();
 	const { i18n } = useTranslation();
 	useChangeLanguage(locale);
+	useEffect(() => {
+		if (gaTrackingId?.length) {
+			gtag.pageview(location.pathname, gaTrackingId);
+		}
+	}, [gaTrackingId]);
 	return (
 		<html lang={locale} dir={i18n.dir()}>
 			<head>
@@ -113,6 +127,28 @@ export default function Root() {
 				<Links />
 			</head>
 			<body>
+				{process.env.NODE_ENV === 'development' || !gaTrackingId ? null : (
+					<>
+						<script
+							async
+							src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
+						/>
+						<script
+							async
+							id="gtag-init"
+							dangerouslySetInnerHTML={{
+								__html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaTrackingId}', {
+                  page_path: window.location.pathname,
+                });
+              `,
+							}}
+						/>
+					</>
+				)}
 				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
