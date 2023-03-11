@@ -1,7 +1,10 @@
 import type { ActionArgs } from '@remix-run/node';
+import { useActionData } from '@remix-run/react';
+import { AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 import { AboutMe } from '~/components/sections/about-me';
-import { Contact } from '~/components/sections/contact';
+import { Contact, ContactFormAlert } from '~/components/sections/contact';
 import { Contributions } from '~/components/sections/contributions';
 import { CoreValues } from '~/components/sections/core-values';
 import { CoursesAndConferences } from '~/components/sections/courses-and-conferences';
@@ -19,14 +22,27 @@ export async function action({ request }: ActionArgs) {
 	const name = formData.get('name') as string;
 	const email = formData.get('email') as string;
 	const message = formData.get('message') as string;
-
-	await sendMail(name, email, message);
-
-	return null;
+	return await sendMail(name, email, message);
 }
+
+const ALERT_DURATION = 5000;
 
 // eslint-disable-next-line import/no-default-export
 export default function Index() {
+	const data = useActionData<typeof action>();
+	const [isContactFormAlertVisible, setIsContactFormAlertVisible] =
+		useState(false);
+	useEffect(() => {
+		if (data && 'success' in data) {
+			setIsContactFormAlertVisible(true);
+			if (data.success) {
+				setTimeout(() => {
+					setIsContactFormAlertVisible(false);
+				}, ALERT_DURATION);
+			}
+		}
+	}, [data]);
+
 	return (
 		<main className="text-base font-normal">
 			<Header />
@@ -45,6 +61,11 @@ export default function Index() {
 					<Contact />
 				</div>
 			</div>
+			<AnimatePresence>
+				{isContactFormAlertVisible && (
+					<ContactFormAlert type={data?.success ? 'success' : 'error'} />
+				)}
+			</AnimatePresence>
 		</main>
 	);
 }

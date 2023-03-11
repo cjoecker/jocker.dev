@@ -1,5 +1,6 @@
 import process from 'process';
 
+import { json } from '@remix-run/node';
 import FormData from 'form-data';
 import Mailgun from 'mailgun.js';
 import invariant from 'tiny-invariant';
@@ -22,12 +23,17 @@ export async function sendMail(name: string, email: string, message: string) {
 		text: enrichedMessage,
 	};
 
-	client.messages
-		.create(process.env.MAILGUN_DOMAIN, messageData)
-		.then(res => {
-			console.info(res);
-		})
-		.catch(err => {
-			console.error(err);
-		});
+	try {
+		const res = await client.messages.create(
+			process.env.MAILGUN_DOMAIN,
+			messageData
+		);
+		console.info(res);
+		console.info('new message sent: ', enrichedMessage);
+		return json({ success: true }, { status: 200 });
+	} catch (err) {
+		console.error('failed to send this message: ', enrichedMessage);
+		console.error(err);
+		return json({ success: false }, { status: 500 });
+	}
 }
