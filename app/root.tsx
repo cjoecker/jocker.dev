@@ -19,9 +19,9 @@ import RalewayFont800Woff2 from '~/fonts/raleway-v28-latin-800.woff2';
 import RalewayFontRegularWoff from '~/fonts/raleway-v28-latin-regular.woff';
 import RalewayFontRegularWoff2 from '~/fonts/raleway-v28-latin-regular.woff2';
 import { useChangeLanguage } from '~/hooks/useChangeLanguage';
-import i18next from '~/i18next.server';
-import MainStyles from '~/index.css';
-import TailwindStyles from '~/tailwind.css';
+import i18next from '~/services/i18next.server';
+import MainStyles from '~/styles/main.css';
+import TailwindStyles from '~/styles/tailwind.css';
 
 export const meta: MetaFunction = () => {
 	return {

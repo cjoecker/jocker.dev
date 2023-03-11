@@ -12,7 +12,7 @@ import { Languages } from '~/components/sections/languages';
 import { ServiceOffer } from '~/components/sections/service-offer';
 import { Skills } from '~/components/sections/skills';
 import { Testimonials } from '~/components/sections/testimonials';
-import { sendMail } from '~/mail.server';
+import { sendMail } from '~/services/mail.server';
 
 export async function action({ request }: ActionArgs) {
 	const formData = await request.formData();

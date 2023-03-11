@@ -11,7 +11,7 @@ import { renderToPipeableStream } from 'react-dom/server';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 
 import i18n from './i18n'; // your i18n configuration file
-import i18next from './i18next.server';
+import i18next from './services/i18next.server';
 
 const ABORT_DELAY = 5000;
 
