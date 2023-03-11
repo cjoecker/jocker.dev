@@ -151,8 +151,8 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 				role="presentation"
 				className="pointer-events-none fixed top-0 left-0 z-40 h-screen w-screen overscroll-contain bg-neutral-dark/80"
 			></motion.div>
-			<button
-				tabIndex={-1}
+			<div
+				aria-hidden="true"
 				onClick={onClose}
 				className="fixed top-0 left-0 z-50 flex h-screen w-screen overscroll-contain"
 			>
@@ -177,6 +177,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 					<Form
 						className="flex flex-col gap-5 text-left sm:w-fit"
 						method="post"
+						action="/?index"
 					>
 						<input type="hidden" name="subject" value="Contact Form" />
 						<Textbox
@@ -234,7 +235,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 						</div>
 					</Form>
 				</motion.div>
-			</button>
+			</div>
 		</>
 	);
 };
@@ -259,5 +260,43 @@ export const Textbox = ({ label, type, name, onChange }: Props) => {
 				name={name}
 			/>
 		</label>
+	);
+};
+
+export type ContactFormAlertProps = {
+	type: 'success' | 'error';
+};
+export const ContactFormAlert = ({ type }: ContactFormAlertProps) => {
+	const ErrorMessage = () => {
+		return type === 'success' ? (
+			<>
+				<span className="font-bold">Thanks for your message!</span>&ensp;I'll
+				get back to you within <span className="font-bold">one day</span>.
+			</>
+		) : (
+			<>
+				Server error!&ensp;Your message could not be sent. Please send me an
+				email to&nbsp;
+				<a
+					className="font-bold text-primary underline"
+					href="test@email.com"
+				>
+					test@email.com
+				</a>
+			</>
+		);
+	};
+	return (
+		<motion.div
+			className="fixed bottom-0 left-0 z-50 mb-4 flex w-full"
+			initial={{ y: 100 }}
+			animate={{ y: 0 }}
+			exit={{ y: 100 }}
+			transition={{ duration: 0.3, ease: 'easeInOut' }}
+		>
+			<div className="shadow-sm-turquoise mx-auto rounded-xl border-2 border-solid border-secondary/10 bg-neutral-dark p-6">
+				<ErrorMessage />
+			</div>
+		</motion.div>
 	);
 };
