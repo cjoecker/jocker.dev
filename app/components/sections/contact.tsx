@@ -23,7 +23,7 @@ export const Contact = () => {
 				className="mx-auto flex flex-wrap justify-center gap-9"
 			>
 				<div className="flex flex-wrap justify-center gap-9">
-					{/*<ContactButton contactInformation={ContactInformation[0]} />*/}
+					<ContactButton contactInformation={ContactInformation[0]} />
 					<ContactButton contactInformation={ContactInformation[1]} />
 				</div>
 				<div className="flex flex-wrap justify-center gap-9">
@@ -152,6 +152,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 				className="pointer-events-none fixed top-0 left-0 z-40 h-screen w-screen overscroll-contain bg-neutral-dark/80"
 			></motion.div>
 			<button
+				tabIndex={-1}
 				onClick={onClose}
 				className="fixed top-0 left-0 z-50 flex h-screen w-screen overscroll-contain"
 			>
@@ -160,6 +161,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 					animate={{ scale: 1, opacity: 1 }}
 					exit={{ scale: 0, opacity: 0 }}
 					transition={{ duration: 0.2 }}
+					tabIndex={-1}
 					onClick={event => event.stopPropagation()}
 					className="shadow-sm-purple relative my-auto mx-4 w-full max-w-7xl rounded-2xl border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark p-6 sm:m-auto sm:w-fit"
 				>

@@ -1,31 +1,33 @@
 import process from 'process';
 
-import nodemailer from 'nodemailer';
+import FormData from 'form-data';
+import Mailgun from 'mailgun.js';
+import invariant from 'tiny-invariant';
 
 export async function sendMail(name: string, email: string, message: string) {
-	try {
-		const transporter = nodemailer.createTransport({
-			host: 'smtp-mail.outlook.com',
-			port: 587,
-			secure: false,
-			auth: {
-				user: process.env.EMAIL_SENDER,
-				pass: process.env.EMAIL_PASSWORD,
-			},
+	invariant(process.env.MAILGUN_PRIVATE_KEY, 'MAILGUN_PRIVATE_KEY is required');
+	invariant(process.env.MAILGUN_DOMAIN, 'MAILGUN_DOMAIN is required');
+	const enrichedMessage = `Name: ${name} \nEmail: ${email} \nMessage: \n\n${message}`;
+
+	const mailgun = new Mailgun(FormData);
+	const client = mailgun.client({
+		username: 'api',
+		key: process.env.MAILGUN_PRIVATE_KEY,
+	});
+
+	const messageData = {
+		from: `"jocker.dev" <brad@sandboxe23eff7090a244428e43adca2240d88a.mailgun.org>`,
+		to: 'c.jocker@hotmail.com',
+		subject: 'New Contact Message',
+		text: enrichedMessage,
+	};
+
+	client.messages
+		.create(process.env.MAILGUN_DOMAIN, messageData)
+		.then(res => {
+			console.info(res);
+		})
+		.catch(err => {
+			console.error(err);
 		});
-
-		const enrichedMessage = `Name: ${name} \n Email: ${email} \n Message: \n\n${message}`;
-
-		const info = await transporter.sendMail({
-			from: `"Jocker Dev" <${process.env.EMAIL_SENDER}`,
-			to: 'c.jocker@hotmail.com',
-			subject: 'New Contact Message',
-			text: enrichedMessage,
-		});
-
-		console.info('Message sent: %s', info.messageId);
-		console.info('Email Message: \n', enrichedMessage);
-	} catch (err) {
-		console.error(err);
-	}
 }
