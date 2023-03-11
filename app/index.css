@@ -84,11 +84,6 @@ p {
 	margin-block: 0;
 }
 
-*:focus {
-	outline: none;
-	filter: brightness(30%);
-}
-
 button {
 	border: unset;
 	background: unset;

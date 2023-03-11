@@ -31,7 +31,8 @@ export const meta: MetaFunction = () => {
 			'Passionate about creating great experiences with beautiful web applications. Happy customers, clean code, and sustainable architectures are my priority.',
 		keywords:
 			'freelancer,independent,contractor,self-employed,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,developer,engineer,software,ux,ui,web,designer',
-		viewport: 'width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1',
+		viewport:
+			'width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1',
 		'theme-color': '#0F0823',
 		charset: 'utf-8',
 	};
