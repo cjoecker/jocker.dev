@@ -65,8 +65,7 @@ export const Header = () => {
 				<motion.h1 style={{ y: titleY }} className="mb-8 text-2xl font-bold">
 					Hi, I'm Christian Jöcker,
 					<br />
-					{'a '}
-					{<AnimatedWord />}
+					<AnimatedWord />
 				</motion.h1>
 				<motion.p
 					style={{ y: subtitleY }}
@@ -190,10 +189,10 @@ function AnimatedWord() {
 		},
 	};
 
+	const words = animatedText.split(' ');
 	return (
 		<motion.span
-			aria-label={animatedText}
-			role="text"
+			className="flex flex-wrap"
 			transition={{
 				staggerChildren: STAGGER_DURATION,
 				staggerDirection: isAnimatedTextVisible ? 1 : -1,
@@ -201,16 +200,29 @@ function AnimatedWord() {
 			animate={controls}
 			initial={startAnimation ? 'hidden' : 'visible'}
 		>
-			{animatedText.split('').map((character, index) => {
+			{'a\u00A0'}
+			{words.map((word, wordIndex) => {
 				return (
-					<motion.div
-						aria-hidden="true"
-						key={index + character + animatedText}
-						className="inline-block whitespace-nowrap"
-						variants={wordAnimation}
+					<motion.span
+						aria-label={word}
+						role="text"
+						className="flex flex-nowrap"
+						key={wordIndex + word + animatedText}
 					>
-						{character.replace(' ', '\u00A0')}
-					</motion.div>
+						{(wordIndex + 1 === words.length ? word : word + '\u00A0')
+							.split('')
+							.map((letter, letterIndex) => {
+								return (
+									<motion.span
+										aria-hidden="true"
+										key={letterIndex + letter + animatedText}
+										variants={wordAnimation}
+									>
+										{letter}
+									</motion.span>
+								);
+							})}
+					</motion.span>
 				);
 			})}
 		</motion.span>
