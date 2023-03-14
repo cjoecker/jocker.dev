@@ -124,7 +124,7 @@ const CardContent = ({
               from-neutral to-neutral-dark p-4 text-left
               ${
 								isOpen && isExpandable
-									? 'm-auto h-auto w-full max-w-lg flex-wrap bg-gradient-to-br from-neutral/70 to-neutral-dark/70 backdrop-blur-xl'
+									? 'm-auto h-auto w-full max-w-lg flex-wrap bg-gradient-to-br from-neutral/70 to-neutral-dark/70 backdrop-blur'
 									: 'h-80 w-80 flex-col md:h-56 md:w-56'
 							} ${isOpen && !isExpandable ? 'invisible' : 'visible'}`}
 		>

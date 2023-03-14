@@ -159,7 +159,10 @@ img {
 		transparent 100%
 	);
 }
-
+.backdrop-blur {
+	-webkit-backdrop-filter: blur(24px);
+	backdrop-filter: blur(24px);
+}
 .h-ios-screen {
 	min-height: 100vh;
 	min-height: -webkit-fill-available;

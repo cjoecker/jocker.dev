@@ -16,12 +16,12 @@ export function Testimonials() {
 				aria-label="testimonials"
 				className="mask-swiper-narrow md:mask-swiper mx-auto max-w-5xl"
 				options={{
-					type: 'loop',
+					autoplay: true,
 					perPage: 1,
-					perMove: 1,
+					perMove: -1,
 					padding: isNarrowView ? '3rem' : '15rem',
 					arrows: false,
-					interval: 3000,
+					interval: 5000,
 				}}
 			>
 				{testimonials.map(testimonial => {

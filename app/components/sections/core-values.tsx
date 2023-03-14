@@ -36,7 +36,7 @@ export const CoreValues = () => {
 						loading="lazy"
 						width="350"
 						height="260"
-						className="mt-12 h-auto w-full max-w-[350px] sm:-mt-5"
+						className="mt-12 h-auto w-full max-w-[350px] sm:mt-0"
 						src={MeditatingImage}
 						alt="avatar of myself meditating"
 						initial="hidden"
