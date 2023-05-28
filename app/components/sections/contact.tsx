@@ -270,8 +270,8 @@ export const ContactFormAlert = ({ type }: ContactFormAlertProps) => {
 	const ErrorMessage = () => {
 		return type === 'success' ? (
 			<>
-				<span className="font-bold">Thanks for your message!</span>&ensp;I'll
-				get back to you within <span className="font-bold">one day</span>.
+				<span className="font-bold">Message Sent!</span>&ensp;I'll get back to
+				you within <span className="font-bold">one day</span>.
 			</>
 		) : (
 			<>
@@ -288,7 +288,7 @@ export const ContactFormAlert = ({ type }: ContactFormAlertProps) => {
 	};
 	return (
 		<motion.div
-			className="fixed bottom-0 left-0 z-50 mb-4 flex w-full"
+			className="fixed bottom-0 left-0 z-50 mb-4 flex w-full px-2"
 			initial={{ y: 100 }}
 			animate={{ y: 0 }}
 			exit={{ y: 100 }}
