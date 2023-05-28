@@ -1,4 +1,4 @@
-import { PopperUnstyled } from '@mui/base';
+import { Popper } from '@mui/base';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { cloneElement, useRef, useState } from 'react';
@@ -19,7 +19,7 @@ export const Tooltip = ({ children, text }: Props) => {
 			})}
 			<AnimatePresence>
 				{isVisible && (
-					<PopperUnstyled
+					<Popper
 						id="tootlip-popper"
 						open={true}
 						anchorEl={elementRef.current}
@@ -35,7 +35,7 @@ export const Tooltip = ({ children, text }: Props) => {
 						>
 							{text}
 						</motion.div>
-					</PopperUnstyled>
+					</Popper>
 				)}
 			</AnimatePresence>
 		</>

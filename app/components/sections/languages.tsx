@@ -17,7 +17,7 @@ export const Languages = () => {
 								aria-hidden="true"
 								height={800}
 								width={600}
-								className="absolute top-1/2 left-1/2 -z-10 h-[200%] w-[300%] -translate-x-1/2 -translate-y-1/2"
+								className="absolute left-1/2 top-1/2 -z-10 h-[200%] w-[300%] -translate-x-1/2 -translate-y-1/2"
 								src={MeshPurple}
 							/>
 							<motion.img

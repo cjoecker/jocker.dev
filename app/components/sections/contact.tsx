@@ -1,10 +1,10 @@
 import { Form } from '@remix-run/react';
 import { AnimatePresence, motion } from 'framer-motion';
-import type { ChangeEvent, MouseEvent } from 'react';
 import React, { useEffect, useRef, useState } from 'react';
+import type { ChangeEvent, MouseEvent } from 'react';
 
-import type { ContactInformationType } from '../../constants/contact-information';
 import { ContactInformation } from '../../constants/contact-information';
+import type { ContactInformationType } from '../../constants/contact-information';
 import { Section } from '../shared/section';
 
 import { ExternalRedirect } from '~/components/shared/external-redirect';
@@ -149,12 +149,12 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 				animate={{ opacity: 1 }}
 				exit={{ opacity: 0 }}
 				role="presentation"
-				className="pointer-events-none fixed top-0 left-0 z-40 h-screen w-screen overscroll-contain bg-neutral-dark/80"
+				className="pointer-events-none fixed left-0 top-0 z-40 h-screen w-screen overscroll-contain bg-neutral-dark/80"
 			></motion.div>
 			<div
 				aria-hidden="true"
 				onClick={onClose}
-				className="fixed top-0 left-0 z-50 flex h-screen w-screen overscroll-contain"
+				className="fixed left-0 top-0 z-50 flex h-screen w-screen overscroll-contain"
 			>
 				<motion.div
 					initial={{ scale: 0, opacity: 0 }}
@@ -163,14 +163,14 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 					transition={{ duration: 0.2 }}
 					tabIndex={-1}
 					onClick={event => event.stopPropagation()}
-					className="shadow-sm-purple relative my-auto mx-4 w-full max-w-7xl rounded-2xl border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark p-6 sm:m-auto sm:w-fit"
+					className="shadow-sm-purple relative mx-4 my-auto w-full max-w-7xl rounded-2xl border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark p-6 sm:m-auto sm:w-fit"
 				>
 					<motion.button
 						whileTap={{ scale: 1 }}
 						whileHover={{ scale: 1.1 }}
 						onClick={onClose}
 						aria-label="close"
-						className="absolute top-1 right-1 p-3"
+						className="absolute right-1 top-1 p-3"
 					>
 						<img src={CloseIcon} alt="" width={15} height={15} />
 					</motion.button>
@@ -227,7 +227,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 									whileHover={{ scale: 1.05 }}
 									className="ml-auto select-none rounded-md bg-gradient-to-br from-turquoise to-blue font-semibold text-secondary hover:cursor-pointer"
 								>
-									<div className="pointer-events-none m-[1px] flex rounded-md bg-neutral-dark/80 py-3 px-4">
+									<div className="pointer-events-none m-[1px] flex rounded-md bg-neutral-dark/80 px-4 py-3">
 										Send Message
 									</div>
 								</motion.button>
@@ -270,8 +270,8 @@ export const ContactFormAlert = ({ type }: ContactFormAlertProps) => {
 	const ErrorMessage = () => {
 		return type === 'success' ? (
 			<>
-				<span className="font-bold">Thanks for your message!</span>&ensp;I'll
-				get back to you within <span className="font-bold">one day</span>.
+				<span className="font-bold">Message Sent!</span>&ensp;I'll get back to
+				you within <span className="font-bold">one day</span>.
 			</>
 		) : (
 			<>
@@ -288,7 +288,7 @@ export const ContactFormAlert = ({ type }: ContactFormAlertProps) => {
 	};
 	return (
 		<motion.div
-			className="fixed bottom-0 left-0 z-50 mb-4 flex w-full"
+			className="fixed bottom-0 left-0 z-50 mb-4 flex w-full px-2"
 			initial={{ y: 100 }}
 			animate={{ y: 0 }}
 			exit={{ y: 100 }}

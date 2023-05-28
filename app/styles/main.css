@@ -110,6 +110,10 @@ img {
 	box-shadow: 0px 0px 20px -10px theme('colors.turquoise');
 }
 
+.shadow-sm-turquoise {
+	box-shadow: 0px 0px 20px -10px theme('colors.turquoise');
+}
+
 .shadow-sm-purple {
 	box-shadow: 0px 0px 20px -10px theme('colors.purple');
 }
@@ -159,7 +163,10 @@ img {
 		transparent 100%
 	);
 }
-
+.backdrop-blur {
+	-webkit-backdrop-filter: blur(24px);
+	backdrop-filter: blur(24px);
+}
 .h-ios-screen {
 	min-height: 100vh;
 	min-height: -webkit-fill-available;
