@@ -64,7 +64,7 @@ const StackOverflow = () => {
 			<h3 className="mb-6 text-lg font-semibold">Stack Overflow</h3>
 			<ExternalRedirect
 				to={StackOverflowDefaults.profileUrl}
-				className="flex text-left"
+				className="flex text-left mx-auto"
 			>
 				<motion.div
 					whileTap={{ scale: 1 }}

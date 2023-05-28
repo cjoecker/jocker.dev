@@ -1,14 +1,15 @@
 import { Form } from '@remix-run/react';
 import { AnimatePresence, motion } from 'framer-motion';
-import type { ChangeEvent, MouseEvent } from 'react';
 import React, { useEffect, useRef, useState } from 'react';
+import type { ChangeEvent, MouseEvent } from 'react';
 
-import type { ContactInformationType } from '../../constants/contact-information';
 import { ContactInformation } from '../../constants/contact-information';
+import type { ContactInformationType } from '../../constants/contact-information';
 import { Section } from '../shared/section';
 
 import { ExternalRedirect } from '~/components/shared/external-redirect';
 import CloseIcon from '~/images/x.svg';
+
 
 export const Contact = () => {
 	return (
