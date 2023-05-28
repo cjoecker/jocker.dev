@@ -42,6 +42,9 @@ export function Testimonials() {
 			return currentSlideIndex + 1;
 		}
 	};
+
+	/* eslint-disable tailwindcss/classnames-order */
+	// conflicting with boxShadow style
 	return (
 		<Section title="Testimonials" className="relative mx-auto max-w-5xl">
 			<Splide
@@ -129,7 +132,7 @@ export function Testimonials() {
 									style={{
 										boxShadow: clsx(
 											currentSlideIndex === index &&
-												`0px 12px 6px ${colors.primary}`
+												`${colors.primary} 0px 0px 12px 6px`
 										),
 									}}
 									className="inline-block h-3 w-3 rounded-full bg-secondary"
