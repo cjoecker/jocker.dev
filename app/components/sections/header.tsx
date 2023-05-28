@@ -60,7 +60,7 @@ export const Header = () => {
 		>
 			<Background mouseX={mouseX} mouseY={mouseY} />
 			<div
-				className={`z-10 ml-6 mb-8 text-left sm:mt-[20vh] sm:ml-24 sm:mb-20`}
+				className={`z-10 mb-8 ml-6 text-left sm:mb-20 sm:ml-24 sm:mt-[20vh]`}
 			>
 				<motion.h1 style={{ y: titleY }} className="mb-8 text-2xl font-bold">
 					Hi, I'm Christian Jöcker,
@@ -69,7 +69,7 @@ export const Header = () => {
 				</motion.h1>
 				<motion.p
 					style={{ y: subtitleY }}
-					className="mr-4 mb-16 text-lg font-normal sm:mb-28 md:mr-[25vw]"
+					className="mb-16 mr-4 text-lg font-normal sm:mb-28 md:mr-[25vw]"
 				>
 					I work as a freelance developer and designer, and am passionate about
 					creating great experiences with beautiful web applications!
@@ -81,7 +81,7 @@ export const Header = () => {
 					onClick={onDiscoverMoreClick}
 					className="select-none rounded-md bg-gradient-to-br from-turquoise to-blue text-lg font-semibold text-secondary hover:cursor-pointer"
 				>
-					<div className="pointer-events-none m-[1px] rounded-md bg-neutral-dark/80 py-4 px-6">
+					<div className="pointer-events-none m-[1px] rounded-md bg-neutral-dark/80 px-6 py-4">
 						Discover More
 					</div>
 				</motion.button>

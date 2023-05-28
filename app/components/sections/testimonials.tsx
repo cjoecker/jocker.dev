@@ -1,15 +1,14 @@
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+import clsx from 'clsx';
+import { useRef, useState } from 'react';
 
-// eslint-disable-next-line import/order
 import DoubleQuotesIcon from '../../images/double-quotes.svg';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
 
+import colors from '~/constants/colors';
 import { testimonials } from '~/constants/testimonials';
 import { useNarrowView } from '~/hooks/useNarrowView';
-import { useEffect, useRef, useState } from 'react';
-import colors from '~/constants/colors';
-import clsx from 'clsx';
 import ArrowLeft from '~/images/arrow-left.svg';
 import ArrowRight from '~/images/arrow-right.svg';
 
@@ -18,7 +17,6 @@ export function Testimonials() {
 	const splideRef = useRef(null);
 	const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 	const goToPage = (page: number | 'prev' | 'next') => {
-		console.log('page', page);
 		if (splideRef.current) {
 			if (page === 'prev') {
 				(splideRef.current as any).go(getIndex('prev'));
@@ -44,7 +42,6 @@ export function Testimonials() {
 			return currentSlideIndex + 1;
 		}
 	};
-
 	return (
 		<Section title="Testimonials" className="relative mx-auto max-w-5xl">
 			<Splide
@@ -124,6 +121,7 @@ export function Testimonials() {
 				{testimonials.map((testimonial, index) => {
 					return (
 						<button
+							key={testimonial.testimonial}
 							aria-label={`see page ${index + 1}`}
 							className="h-12 w-12"
 							onClick={() => goToPage(index)}
@@ -132,7 +130,7 @@ export function Testimonials() {
 								style={{
 									boxShadow: clsx(
 										currentSlideIndex === index &&
-											`0px 0px 12px 6px ${colors.primary}`
+											`0px 12px 6px ${colors.primary}`
 									),
 								}}
 								className="inline-block h-3 w-3 rounded-full bg-secondary"

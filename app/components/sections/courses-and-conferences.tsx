@@ -22,7 +22,7 @@ export const CoursesAndConferences = () => {
 					<img
 						alt=""
 						aria-hidden="true"
-						className=" absolute top-1/2 left-1/2 -z-10 h-[250%] w-[250%] -translate-x-1/2 -translate-y-1/2"
+						className=" absolute left-1/2 top-1/2 -z-10 h-[250%] w-[250%] -translate-x-1/2 -translate-y-1/2"
 						src={MeshPurpleTurquoise}
 					/>
 					<motion.div
@@ -64,7 +64,7 @@ const CourseItem = ({ course }: { course: CourseType }) => {
 		<>
 			<img
 				loading="lazy"
-				className="mr-2 mb-auto"
+				className="mb-auto mr-2"
 				alt="course"
 				src={GraduateCapImg}
 				width={20}
@@ -87,7 +87,7 @@ const ConferenceItem = ({ conference }: { conference: ConferenceType }) => {
 		<>
 			<img
 				loading="lazy"
-				className="mr-2 mb-auto"
+				className="mb-auto mr-2"
 				alt="conference"
 				src={ConferenceImg}
 				width={20}

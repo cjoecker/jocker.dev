@@ -1,9 +1,7 @@
-
+import { Popper } from '@mui/base';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { cloneElement, useRef, useState } from 'react';
-import { Popper } from '@mui/base';
-
 
 export type Props = {
 	text: string;
