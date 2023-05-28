@@ -29,7 +29,7 @@ export const ServiceOffer = () => {
 				<img
 					alt=""
 					aria-hidden="true"
-					className=" absolute top-1/2 left-1/2 -z-10 h-[200%] w-[200%] -translate-x-1/2 -translate-y-1/2"
+					className=" absolute left-1/2 top-1/2 -z-10 h-[200%] w-[200%] -translate-x-1/2 -translate-y-1/2"
 					src={MeshPurpleTurquoise}
 				/>
 				<motion.div
@@ -124,14 +124,14 @@ const CardContent = ({
               from-neutral to-neutral-dark p-4 text-left
               ${
 								isOpen && isExpandable
-									? 'm-auto h-auto w-full max-w-lg flex-wrap bg-gradient-to-br from-neutral/70 to-neutral-dark/70 backdrop-blur-xl'
+									? 'm-auto h-auto w-full max-w-lg flex-wrap bg-gradient-to-br from-neutral/70 to-neutral-dark/70 backdrop-blur'
 									: 'h-80 w-80 flex-col md:h-56 md:w-56'
 							} ${isOpen && !isExpandable ? 'invisible' : 'visible'}`}
 		>
 			<motion.button
 				layout={isExpandable ? 'preserve-aspect' : false}
 				aria-label={isOpen ? 'expand' : 'contract'}
-				className={`absolute top-2.5 right-2.5 cursor-pointer  p-2 ${
+				className={`absolute right-2.5 top-2.5 cursor-pointer  p-2 ${
 					isOpen ? 'h-7 w-7' : 'h-6 w-6'
 				}`}
 				style={{
@@ -161,7 +161,7 @@ const CardContent = ({
 					layout={isExpandable ? 'preserve-aspect' : false}
 					className={
 						isOpen
-							? 'mt-2 mb-3 mr-4 text-lg font-semibold'
+							? 'mb-3 mr-4 mt-2 text-lg font-semibold'
 							: 'mb-1 text-xl md:text-lg'
 					}
 				>

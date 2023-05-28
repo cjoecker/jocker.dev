@@ -43,7 +43,7 @@ export const Mesh = () => {
 			alt=""
 			height={800}
 			width={600}
-			className="absolute top-1/2 left-1/2 -z-10 h-[150%] w-[200%] -translate-x-1/2 -translate-y-1/2"
+			className="absolute left-1/2 top-1/2 -z-10 h-[150%] w-[200%] -translate-x-1/2 -translate-y-1/2"
 			src={MeshPurple}
 		/>
 	);
@@ -64,7 +64,7 @@ const StackOverflow = () => {
 			<h3 className="mb-6 text-lg font-semibold">Stack Overflow</h3>
 			<ExternalRedirect
 				to={StackOverflowDefaults.profileUrl}
-				className="flex text-left"
+				className="mx-auto flex text-left"
 			>
 				<motion.div
 					whileTap={{ scale: 1 }}
@@ -77,7 +77,7 @@ const StackOverflow = () => {
 					initial="hidden"
 					whileInView="visible"
 					aria-label="stack overflow profile"
-					className="mx-auto flex max-w-fit flex-col rounded-xl border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark py-2 px-4 text-secondary hover:cursor-pointer"
+					className="mx-auto flex max-w-fit flex-col rounded-xl border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark px-4 py-2 text-secondary hover:cursor-pointer"
 				>
 					<div className="flex">
 						<img
@@ -132,7 +132,7 @@ const Badge = ({ color, number }: { color: string; number: number }) => {
 				className="my-auto h-2 w-2 rounded-full"
 				style={{ backgroundColor: color }}
 			/>
-			<span className="ml-2 mb-1 text-md">{number}</span>
+			<span className="mb-1 ml-2 text-md">{number}</span>
 		</div>
 	);
 };
