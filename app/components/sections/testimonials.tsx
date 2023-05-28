@@ -111,34 +111,35 @@ export function Testimonials() {
 					})}
 				</SplideTrack>
 			</Splide>
-			<div className="absolute top-0 flex h-full w-full">
+			<div className="absolute top-0 flex h-full w-full flex-col">
 				<div className="mx-auto flex h-full w-full max-w-5xl justify-between">
 					<ChangeButton orientation="left" onClick={() => goToPage('prev')} />
 					<ChangeButton orientation="right" onClick={() => goToPage('next')} />
 				</div>
+				<div>
+					{testimonials.map((testimonial, index) => {
+						return (
+							<button
+								key={testimonial.testimonial}
+								aria-label={`see page ${index + 1}`}
+								className="h-12 w-12"
+								onClick={() => goToPage(index)}
+							>
+								<span
+									style={{
+										boxShadow: clsx(
+											currentSlideIndex === index &&
+												`0px 12px 6px ${colors.primary}`
+										),
+									}}
+									className="inline-block h-3 w-3 rounded-full bg-secondary"
+								/>
+							</button>
+						);
+					})}
+				</div>
 			</div>
-			<div>
-				{testimonials.map((testimonial, index) => {
-					return (
-						<button
-							key={testimonial.testimonial}
-							aria-label={`see page ${index + 1}`}
-							className="h-12 w-12"
-							onClick={() => goToPage(index)}
-						>
-							<span
-								style={{
-									boxShadow: clsx(
-										currentSlideIndex === index &&
-											`0px 12px 6px ${colors.primary}`
-									),
-								}}
-								className="inline-block h-3 w-3 rounded-full bg-secondary"
-							/>
-						</button>
-					);
-				})}
-			</div>
+			<div></div>
 		</Section>
 	);
 }
