@@ -6,7 +6,7 @@ import DoubleQuotesIcon from '../../images/double-quotes.svg';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
 
-import colors from '~/constants/colors';
+import { colors } from '~/constants/colors';
 import { testimonials } from '~/constants/testimonials';
 import { useNarrowView } from '~/hooks/useNarrowView';
 import ArrowLeft from '~/images/arrow-left.svg';

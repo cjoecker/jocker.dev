@@ -117,10 +117,13 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 			} else {
 				setError('');
 				isAnimatingError.current = true;
-				setTimeout(() => {
-					isAnimatingError.current = false;
-					setError(newError);
-				}, ERROR_ANIMATION_DURATION * 1000 * 2);
+				setTimeout(
+					() => {
+						isAnimatingError.current = false;
+						setError(newError);
+					},
+					ERROR_ANIMATION_DURATION * 1000 * 2
+				);
 			}
 		};
 

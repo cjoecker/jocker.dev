@@ -71,9 +71,7 @@ const CourseItem = ({ course }: { course: CourseType }) => {
 				height={20}
 			/>
 			<div className="overflow-hidden">
-				<div className="overflow-hidden text-ellipsis whitespace-nowrap text-base">
-					{course.name}
-				</div>
+				<div className="truncate text-base">{course.name}</div>
 				<div className="text-sm opacity-80">
 					{`${course.instructor} – ${format(course.date, DATE_FORMAT)}`}
 				</div>
@@ -94,9 +92,7 @@ const ConferenceItem = ({ conference }: { conference: ConferenceType }) => {
 				height={20}
 			/>
 			<div className="overflow-hidden">
-				<div className="overflow-hidden text-ellipsis whitespace-nowrap text-base">
-					{conference.name}
-				</div>
+				<div className="truncate text-base">{conference.name}</div>
 				<div className="text-sm opacity-80">
 					{format(conference.date, DATE_FORMAT)}
 				</div>

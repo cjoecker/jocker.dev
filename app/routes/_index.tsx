@@ -28,7 +28,7 @@ export async function action({ request }: ActionArgs) {
 const ALERT_DURATION = 5000;
 
 // eslint-disable-next-line import/no-default-export
-export default function Index() {
+export default function _index() {
 	const data = useActionData<typeof action>();
 	const [isContactFormAlertVisible, setIsContactFormAlertVisible] =
 		useState(false);

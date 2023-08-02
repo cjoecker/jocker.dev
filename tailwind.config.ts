@@ -1,7 +1,9 @@
-const colors = require('./app/constants/colors.js');
+import type { Config } from 'tailwindcss';
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+const colors = require('./app/constants/colors.js').colors;
+
+// eslint-disable-next-line import/no-default-export
+export default {
 	content: ['./app/**/*.{js,jsx,ts,tsx}'],
 	theme: {
 		colors: {
@@ -20,9 +22,9 @@ module.exports = {
 			body: ['"raleway"', 'Arial'],
 		},
 		fontWeight: {
-			normal: 400,
-			semibold: 600,
-			bold: 800,
+			normal: '400',
+			semibold: '600',
+			bold: '800',
 		},
 		fontSize: {
 			sm: '0.8rem',
@@ -39,4 +41,4 @@ module.exports = {
 		},
 	},
 	plugins: [],
-};
+} satisfies Config;

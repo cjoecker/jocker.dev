@@ -1,4 +1,8 @@
-import type { LinksFunction, LoaderArgs, MetaFunction } from '@remix-run/node';
+import type {
+	LinksFunction,
+	LoaderArgs,
+	V2_MetaFunction,
+} from '@remix-run/node';
 import { json } from '@remix-run/node';
 import {
 	Links,
@@ -24,24 +28,37 @@ import { useChangeLanguage } from '~/hooks/useChangeLanguage';
 import * as gtag from '~/services/gtags.client';
 import i18next from '~/services/i18next.server';
 import MainStyles from '~/styles/main.css';
-import TailwindStyles from '~/styles/tailwind.css';
-export const meta: MetaFunction = () => {
-	return {
-		title:
-			'Christian Jöcker - Freelance Full-Stack Developer and UX/UI designer',
-		description:
-			'Passionate about creating great experiences with beautiful web applications. Happy customers, clean code, and sustainable architectures are my priority.',
-		keywords:
-			'freelancer,independent,contractor,self-employed,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,developer,engineer,software,ux,ui,web,designer',
-		viewport:
-			'width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1',
-		'theme-color': '#0F0823',
-		charset: 'utf-8',
-	};
+
+export const meta: V2_MetaFunction = () => {
+	return [
+		{
+			title:
+				'Christian Jöcker - Freelance Full-Stack Developer and UX/UI designer',
+		},
+		{ charset: 'utf-8' },
+		{
+			name: 'description',
+			content:
+				'Passionate about creating great experiences with beautiful web applications. Happy customers, clean code, and sustainable architectures are my priority.',
+		},
+		{
+			name: 'keywords',
+			content:
+				'freelancer,independent,contractor,self-employed,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,developer,engineer,software,ux,ui,web,designer',
+		},
+		{
+			name: 'viewport',
+			content:
+				'width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1',
+		},
+		{
+			name: 'theme-color',
+			content: '#0F0823',
+		},
+	];
 };
 
 export const links: LinksFunction = () => [
-	{ rel: 'stylesheet', href: TailwindStyles },
 	{ rel: 'stylesheet', href: MainStyles },
 	{ rel: 'stylesheet', href: SplideStyles },
 	{
