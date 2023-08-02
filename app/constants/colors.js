@@ -1,5 +1,4 @@
-// eslint-disable unicorn/prefer-module
-module.exports = {
+export const colors = {
 	primary: '#11c0ff',
 	secondary: '#ffffff',
 	pink: '#FF00E5',

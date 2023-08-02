@@ -163,9 +163,15 @@ function AnimatedWord() {
 		};
 
 		animateText();
-		const interval = setInterval(() => {
-			animateText();
-		}, TIMES.firstWordAnimation + TIMES.reading + TIMES.secondWordAnimation + TIMES.reading);
+		const interval = setInterval(
+			() => {
+				animateText();
+			},
+			TIMES.firstWordAnimation +
+				TIMES.reading +
+				TIMES.secondWordAnimation +
+				TIMES.reading
+		);
 
 		return () => {
 			clearInterval(interval);
