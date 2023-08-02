@@ -56,23 +56,23 @@ export const meta: V2_MetaFunction = () => {
 			content: '#0F0823',
 		},
 		{
-			name: 'og:image',
+			property: 'og:image',
 			content: 'https://jocker.dev/og-image.png',
 		},
 		{
-			name: 'og:image:secure_url',
+			property: 'og:image:secure_url',
 			content: 'https://jocker.dev/og-image.png',
 		},
 		{
-			name: 'og:image:type',
+			property: 'og:image:type',
 			content: 'image/png',
 		},
 		{
-			name: 'og:image:width',
+			property: 'og:image:width',
 			content: '320',
 		},
 		{
-			name: 'og:image:height',
+			property: 'og:image:height',
 			content: '320',
 		},
 	];
