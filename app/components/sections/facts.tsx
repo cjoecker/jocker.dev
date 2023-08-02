@@ -55,7 +55,7 @@ const Fact = ({
 		if (ref.current) {
 			ref.current.textContent = '0';
 		}
-		content.onChange(val => {
+		content.on('change', val => {
 			if (!ref.current) {
 				return;
 			}
