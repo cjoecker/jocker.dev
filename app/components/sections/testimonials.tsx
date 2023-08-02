@@ -1,6 +1,5 @@
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
-import clsx from 'clsx';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import DoubleQuotesIcon from '../../images/double-quotes.svg';
 import { Section } from '../shared/section';
@@ -8,19 +7,12 @@ import { getAltTextFromFileName } from '../shared/utils';
 
 import { colors } from '~/constants/colors';
 import { testimonials } from '~/constants/testimonials';
-import { useNarrowView } from '~/hooks/useNarrowView';
 import ArrowLeft from '~/images/arrow-left.svg';
 import ArrowRight from '~/images/arrow-right.svg';
 
 export function Testimonials() {
-	const { isNarrowView } = useNarrowView();
 	const splideRef = useRef(null);
 	const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-	const [isMounted, setIsMounted] = useState(false);
-
-	useEffect(() => {
-		setIsMounted(true);
-	}, []);
 
 	const goToPage = (page: number | 'prev' | 'next') => {
 		if (splideRef.current) {
@@ -52,7 +44,7 @@ export function Testimonials() {
 	/* eslint-disable tailwindcss/classnames-order */
 	// conflicting with boxShadow style
 	return (
-		<Section title="Testimonials" className="relative mx-auto max-w-5xl">
+		<Section title="Testimonials" className="relative mx-auto max-w-[900px]">
 			<Splide
 				ref={splideRef}
 				hasTrack={false}
@@ -65,7 +57,7 @@ export function Testimonials() {
 					autoplay: true,
 					perPage: 1,
 					perMove: -1,
-					padding: isNarrowView ? '3rem' : '15rem',
+					padding: '10vw',
 					arrows: false,
 					interval: 5000,
 					pagination: false,
