@@ -1,6 +1,6 @@
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import clsx from 'clsx';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import DoubleQuotesIcon from '../../images/double-quotes.svg';
 import { Section } from '../shared/section';
@@ -16,6 +16,12 @@ export function Testimonials() {
 	const { isNarrowView } = useNarrowView();
 	const splideRef = useRef(null);
 	const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+	const [isMounted, setIsMounted] = useState(false);
+
+	useEffect(() => {
+		setIsMounted(true);
+	}, []);
+
 	const goToPage = (page: number | 'prev' | 'next') => {
 		if (splideRef.current) {
 			if (page === 'prev') {
@@ -130,10 +136,10 @@ export function Testimonials() {
 							>
 								<span
 									style={{
-										boxShadow: clsx(
-											currentSlideIndex === index &&
-												`${colors.primary} 0px 0px 12px 6px`
-										),
+										boxShadow:
+											currentSlideIndex === index
+												? `${colors.primary} 0px 0px 12px 6px`
+												: 'unset',
 									}}
 									className="inline-block h-3 w-3 rounded-full bg-secondary"
 								/>
