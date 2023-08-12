@@ -40,17 +40,6 @@
 	all: unset;
 }
 
-@media screen and (min-width: 481px) {
-	html {
-		font-size: 16px;
-	}
-}
-@media screen and (max-width: 480px) {
-	html {
-		font-size: 16px;
-	}
-}
-
 :root {
 	color-scheme: dark;
 }
@@ -112,8 +101,12 @@ img {
 	display: block;
 }
 
-.shadow-sm-turquoise {
-	box-shadow: 0px 0px 20px -10px theme('colors.turquoise');
+.shadow-xs-turquoise {
+	box-shadow: 0px 0px 10px -5px theme('colors.turquoise');
+}
+
+.shadow-xs-purple {
+	box-shadow: 0px 0px 10px -5px theme('colors.purple');
 }
 
 .shadow-sm-turquoise {

@@ -23,7 +23,7 @@ export const Tags = ({
 }) => {
 	return (
 		<div className="col-span-1 mt-4">
-			<h3 className="mb-6 text-left text-lg font-semibold">{title}</h3>
+			<h3 className="mb-4 text-left text-lg font-semibold">{title}</h3>
 			<motion.div
 				initial="hidden"
 				whileInView="visible"
@@ -31,7 +31,7 @@ export const Tags = ({
 				transition={{
 					staggerChildren: 0.1,
 				}}
-				className="flex flex-wrap gap-4 text-left"
+				className="flex flex-wrap gap-2 text-left"
 			>
 				{skills.map(skill => {
 					return (
@@ -43,9 +43,9 @@ export const Tags = ({
 							}}
 							className={`${
 								title === 'Web Development'
-									? 'shadow-sm-turquoise'
-									: 'shadow-sm-purple'
-							} inline-block rounded-full border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark px-3 py-1 text-md capitalize`}
+									? 'shadow-xs-turquoise'
+									: 'shadow-xs-purple'
+							} inline-block rounded-full border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark px-3 py-1 capitalize`}
 						>
 							{skill}
 						</motion.div>

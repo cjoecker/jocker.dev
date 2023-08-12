@@ -32,7 +32,8 @@ export default {
 			md: '1.3rem',
 			lg: '1.5rem',
 			xl: '2rem',
-			'2xl': '4rem',
+			'2xl': '3rem',
+			'3xl': '4rem',
 		},
 		screens: {
 			sm: '480px',
