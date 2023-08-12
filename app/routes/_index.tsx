@@ -48,16 +48,16 @@ export default function _index() {
 			{/*<Header />*/}
 			<div className="flex w-full flex-col">
 				<div className="">
-					<ServiceOffer />
-					<Facts />
-					<Skills />
-					<CoreValues />
-					<ExperienceAndEducation />
-					<Languages />
-					<Testimonials />
-					<Contributions />
-					<CoursesAndConferences />
-					<AboutMe />
+					{/*<ServiceOffer />*/}
+					{/*<Facts />*/}
+					{/*<Skills />*/}
+					{/*<CoreValues />*/}
+					{/*<ExperienceAndEducation />*/}
+					{/*<Languages />*/}
+					{/*<Testimonials />*/}
+					{/*<Contributions />*/}
+					{/*<CoursesAndConferences />*/}
+					{/*<AboutMe />*/}
 					<Contact />
 				</div>
 			</div>
