@@ -45,7 +45,7 @@ export default function _index() {
 
 	return (
 		<main className="text-base font-normal">
-			<Header />
+			{/*<Header />*/}
 			<div className="flex w-full flex-col">
 				<div className="">
 					<ServiceOffer />
