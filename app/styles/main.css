@@ -47,7 +47,7 @@
 }
 @media screen and (max-width: 480px) {
 	html {
-		font-size: 14px;
+		font-size: 16px;
 	}
 }
 
@@ -61,6 +61,7 @@ html {
 	overflow-x: hidden;
 	overflow-y: auto;
 	background-color: #0f0823;
+	position: relative;
 }
 body {
 	overflow: hidden;
@@ -107,6 +108,8 @@ img {
 	-moz-user-drag: none;
 	-o-user-drag: none;
 	user-drag: none;
+	max-width: 100%;
+	display: block;
 }
 
 .shadow-sm-turquoise {
