@@ -75,6 +75,15 @@ export const meta: V2_MetaFunction = () => {
 			property: 'og:image:height',
 			content: '320',
 		},
+		{
+			'script:ld+json': {
+				'@context': 'http://schema.org',
+				'@type': 'Organization',
+				name: 'Christian Jöcker - Freelance Full-Stack Developer and UX/UI designer',
+				url: 'https://jocker.dev',
+				logo: 'https://jocker.dev/favicons/android-chrome-256x256.png',
+			},
+		},
 	];
 };
 
