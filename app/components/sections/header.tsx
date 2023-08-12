@@ -99,18 +99,21 @@ export const Background = ({ mouseX, mouseY }: Props) => {
 	return (
 		<>
 			<motion.img
+				alt=""
 				aria-hidden="true"
 				style={{ x: mouseX, y: mouseY }}
 				className="absolute right-[-40vw] top-[-30vh] h-[85vh] w-[130vw]"
 				src={MeshPurple}
 			/>
 			<motion.img
+				alt=""
 				aria-hidden="true"
 				style={{ x: blueMeshX, y: blueMeshY }}
 				className="absolute right-[-45vw] top-[-5vh] h-[120vh] w-[120vw]"
 				src={MeshTurquoise}
 			/>
 			<motion.img
+				alt=""
 				aria-hidden="true"
 				className="absolute left-[-35vw] top-[-10vh] h-[100vh] w-[100vw]"
 				src={MeshBlue}
