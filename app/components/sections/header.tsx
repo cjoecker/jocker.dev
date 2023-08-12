@@ -60,16 +60,19 @@ export const Header = () => {
 		>
 			<Background mouseX={mouseX} mouseY={mouseY} />
 			<div
-				className={`z-10 mb-8 ml-6 text-left sm:mb-20 sm:ml-24 sm:mt-[20vh]`}
+				className={`z-10 mb-8 ml-6 mt-4 text-left sm:mb-20 sm:ml-24 sm:mt-[20vh]`}
 			>
-				<motion.h1 style={{ y: titleY }} className="mb-8 text-2xl font-bold">
+				<motion.h1
+					style={{ y: titleY }}
+					className="mx-2 mb-8 text-2xl font-bold sm:text-3xl"
+				>
 					Hi, I'm Christian Jöcker,
 					<br />
 					<AnimatedWord />
 				</motion.h1>
 				<motion.p
 					style={{ y: subtitleY }}
-					className="mb-16 mr-4 text-lg font-normal sm:mb-28 md:mr-[25vw]"
+					className="mb-16 mr-4 text-md font-normal sm:mb-28 sm:text-lg md:mr-[25vw]"
 				>
 					I work as a freelance developer and designer, and am passionate about
 					creating great experiences with beautiful web applications!

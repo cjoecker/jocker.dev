@@ -125,7 +125,7 @@ const CardContent = ({
               ${
 								isOpen && isExpandable
 									? 'm-auto h-auto w-full max-w-lg flex-wrap bg-gradient-to-br from-neutral/70 to-neutral-dark/70 backdrop-blur'
-									: 'h-80 w-80 flex-col md:h-56 md:w-56'
+									: 'h-64 w-64 flex-col md:h-56 md:w-56'
 							} ${isOpen && !isExpandable ? 'invisible' : 'visible'}`}
 		>
 			<motion.button
@@ -160,9 +160,7 @@ const CardContent = ({
 				<motion.h3
 					layout={isExpandable ? 'preserve-aspect' : false}
 					className={
-						isOpen
-							? 'mb-3 mr-4 mt-2 text-lg font-semibold'
-							: 'mb-1 text-xl md:text-lg'
+						isOpen ? 'mb-3 mr-4 mt-2 text-lg font-semibold' : 'mb-1 text-lg'
 					}
 				>
 					{offer.title}
