@@ -29,7 +29,7 @@ export const ServiceOffer = () => {
 				<img
 					alt=""
 					aria-hidden="true"
-					className=" absolute left-1/2 top-1/2 -z-10 h-[200%] w-[200%] -translate-x-1/2 -translate-y-1/2"
+					className=" invisible absolute left-1/2 top-1/2 -z-10 h-[200%] w-[200%] -translate-x-1/2 -translate-y-1/2 sm:visible"
 					src={MeshPurpleTurquoise}
 				/>
 				<motion.div

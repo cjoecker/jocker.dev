@@ -14,7 +14,7 @@ export const CoreValues = () => {
 					<img
 						alt=""
 						aria-hidden="true"
-						className=" absolute left-1/2 top-1/2 -z-10 h-[300%] w-[300%] -translate-x-1/2 -translate-y-1/2"
+						className=" absolute left-1/2 top-1/2 -z-10 h-[300%] w-[300%] min-w-[1000px] -translate-x-1/2 -translate-y-1/2 sm:min-w-full"
 						src={MeshPurpleTurquoise}
 					/>
 					<motion.div

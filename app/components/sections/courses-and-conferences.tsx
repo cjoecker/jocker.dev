@@ -22,7 +22,7 @@ export const CoursesAndConferences = () => {
 					<img
 						alt=""
 						aria-hidden="true"
-						className=" absolute left-1/2 top-1/2 -z-10 h-[250%] w-[250%] -translate-x-1/2 -translate-y-1/2"
+						className=" invisible absolute left-1/2 top-1/2 -z-10 h-[250%] min-h-full w-[250%] -translate-x-1/2 -translate-y-1/2 sm:visible"
 						src={MeshPurpleTurquoise}
 					/>
 					<motion.div
