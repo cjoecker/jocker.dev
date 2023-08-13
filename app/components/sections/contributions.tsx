@@ -43,7 +43,7 @@ export const Mesh = () => {
 			alt=""
 			height={800}
 			width={600}
-			className="absolute left-1/2 top-1/2 -z-10 h-[150%] w-[200%] -translate-x-1/2 -translate-y-1/2"
+			className="absolute left-1/2 top-1/2 -z-10 h-[150%] min-h-[400px] w-[200%] min-w-[500px] -translate-x-1/2 -translate-y-1/2"
 			src={MeshPurple}
 		/>
 	);

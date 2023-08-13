@@ -44,7 +44,7 @@ export default function _index() {
 	}, [data]);
 
 	return (
-		<main className="text-base font-normal">
+		<main className="overflow-x-hidden text-base font-normal">
 			<Header />
 			<div className="flex w-full flex-col">
 				<div className="">
