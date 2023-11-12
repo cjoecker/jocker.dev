@@ -1,7 +1,9 @@
 import type {
-	LinksFunction, LoaderFunctionArgs,
+	LinksFunction,
+	LoaderFunctionArgs,
+	MetaFunction,
 } from '@remix-run/node';
-import {json, MetaFunction} from '@remix-run/node';
+import { json } from '@remix-run/node';
 import {
 	Links,
 	LiveReload,
