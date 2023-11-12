@@ -1,4 +1,3 @@
-import type { ActionArgs } from '@remix-run/node';
 import { useActionData } from '@remix-run/react';
 import { AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -16,8 +15,9 @@ import { ServiceOffer } from '~/components/sections/service-offer';
 import { Skills } from '~/components/sections/skills';
 import { Testimonials } from '~/components/sections/testimonials';
 import { sendMail } from '~/services/mail.server';
+import {ActionFunctionArgs} from "@remix-run/node";
 
-export async function action({ request }: ActionArgs) {
+export async function action({ request }: ActionFunctionArgs) {
 	const formData = await request.formData();
 	const name = formData.get('name') as string;
 	const email = formData.get('email') as string;

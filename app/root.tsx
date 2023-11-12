@@ -1,9 +1,7 @@
 import type {
-	LinksFunction,
-	LoaderArgs,
-	V2_MetaFunction,
+	LinksFunction, LoaderFunctionArgs,
 } from '@remix-run/node';
-import { json } from '@remix-run/node';
+import {json, MetaFunction} from '@remix-run/node';
 import {
 	Links,
 	LiveReload,
@@ -29,7 +27,7 @@ import * as gtag from '~/services/gtags.client';
 import i18next from '~/services/i18next.server';
 import MainStyles from '~/styles/main.css';
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
 	return [
 		{
 			title:
@@ -140,7 +138,7 @@ export const links: LinksFunction = () => [
 	},
 ];
 
-export async function loader({ request }: LoaderArgs) {
+export async function loader({ request }: LoaderFunctionArgs) {
 	const locale = await i18next.getLocale(request);
 	invariant(
 		process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID,
