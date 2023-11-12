@@ -2,7 +2,6 @@ import { resolve } from 'node:path';
 import { PassThrough } from 'stream';
 
 import type { EntryContext } from '@remix-run/node';
-import { Response } from '@remix-run/node';
 import { RemixServer } from '@remix-run/react';
 import { createInstance } from 'i18next';
 import Backend from 'i18next-fs-backend';
