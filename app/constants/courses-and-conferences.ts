@@ -134,9 +134,18 @@ export const Courses: CourseType[] = [
 		instructor: 'Tailwind Labs Inc',
 		date: new Date('2022-12'),
 	},
+	{
+		name: 'AWS Certified Cloud Practitioner',
+		instructor: 'Neal Davis',
+		date: new Date('2023-03'),
+	},
 ];
 
 export const Conferences: ConferenceType[] = [
+	{
+		name: 'UXDX Dublin',
+		date: new Date('2023-10'),
+	},
 	{
 		name: 'React Miami',
 		date: new Date('2022-04'),
