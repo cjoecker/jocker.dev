@@ -45,102 +45,53 @@ export function Testimonials() {
 	// conflicting with boxShadow style
 	return (
 		<Section title="Testimonials" className="relative mx-auto max-w-[900px]">
-			<Splide
-				ref={splideRef}
-				hasTrack={false}
-				aria-label="testimonials"
-				className="md:mask-swiper mx-auto max-w-5xl"
-				onMove={(_, newIndex) => {
-					setCurrentSlideIndex(newIndex);
-				}}
-				options={{
-					autoplay: true,
-					perPage: 1,
-					perMove: -1,
-					padding: '10vw',
-					arrows: false,
-					interval: 5000,
-					pagination: false,
-				}}
-			>
-				<SplideTrack className="mask-swiper-narrow">
-					{testimonials.map(testimonial => {
-						return (
-							<SplideSlide key={testimonial.testimonial}>
-								<div
-									className={`shadow-sm-turquoise mx-4 my-6 flex h-full flex-1 cursor-grab select-none flex-col rounded-xl border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark p-5`}
-								>
-									<img
-										loading="lazy"
-										width="150"
-										height={testimonial.companyHeight}
-										className="z-10 mx-auto mt-2 object-contain"
-										alt={getAltTextFromFileName(testimonial.companyLogo)}
-										src={testimonial.companyLogo}
-									/>
-									<div className="flex flex-1 flex-col justify-center">
-										<img
-											loading="lazy"
-											width="20"
-											height="20"
-											className="mb-2 ml-2 mr-auto"
-											alt="double quotes"
-											src={DoubleQuotesIcon}
-										/>
-										<div className="text-base ">{testimonial?.testimonial}</div>
-									</div>
-									<div className="mx-auto my-2 flex justify-end text-left">
-										<img
-											loading="lazy"
-											width="80"
-											height="80"
-											className="my-auto"
-											alt={getAltTextFromFileName(testimonial?.photo)}
-											src={testimonial.photo}
-										/>
-										<div className="my-auto flex flex-col justify-end">
-											<div className="text-md font-bold ">
-												{testimonial?.person}
-											</div>
-											<div className="text-base">{testimonial?.title}</div>
-											<div className="text-sm">{testimonial?.company}</div>
-										</div>
-									</div>
-								</div>
-							</SplideSlide>
-						);
-					})}
-				</SplideTrack>
-			</Splide>
-			<div className="absolute top-0 flex h-full w-full flex-col">
-				<div className="mx-auto flex h-full w-full max-w-5xl justify-between">
-					<ChangeButton orientation="left" onClick={() => goToPage('prev')} />
-					<ChangeButton orientation="right" onClick={() => goToPage('next')} />
-				</div>
-				<div>
-					{testimonials.map((testimonial, index) => {
-						return (
-							<button
-								key={testimonial.testimonial}
-								aria-label={`see page ${index + 1}`}
-								className="h-12 w-12"
-								onClick={() => goToPage(index)}
-							>
-								<span
-									style={{
-										boxShadow:
-											currentSlideIndex === index
-												? `${colors.primary} 0px 0px 12px 6px`
-												: 'unset',
-									}}
-									className="inline-block h-3 w-3 rounded-full bg-secondary"
+			<div className="flex h-full px-4">
+				{testimonials.map(testimonial => {
+					return (
+						<div
+							key={testimonial.testimonial}
+							className={`h-auto min-h-full flex shadow-sm-turquoise mx-4 my-6 flex flex-1 cursor-grab select-none flex-col rounded-xl border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark p-5`}
+						>
+							<img
+								loading="lazy"
+								width="150"
+								height={testimonial.companyHeight}
+								className="z-10 mx-auto mt-2 object-contain"
+								alt={getAltTextFromFileName(testimonial.companyLogo)}
+								src={testimonial.companyLogo}
+							/>
+							<div className="flex flex-1 flex-col justify-center">
+								<img
+									loading="lazy"
+									width="20"
+									height="20"
+									className="mb-2 ml-2 mr-auto"
+									alt="double quotes"
+									src={DoubleQuotesIcon}
 								/>
-							</button>
-						);
-					})}
-				</div>
+								<div className="text-base ">{testimonial?.testimonial}</div>
+							</div>
+							<div className="mx-auto my-2 flex justify-end text-left">
+								<img
+									loading="lazy"
+									width="80"
+									height="80"
+									className="my-auto"
+									alt={getAltTextFromFileName(testimonial?.photo)}
+									src={testimonial.photo}
+								/>
+								<div className="my-auto flex flex-col justify-end">
+									<div className="text-md font-bold ">
+										{testimonial?.person}
+									</div>
+									<div className="text-base">{testimonial?.title}</div>
+									<div className="text-sm">{testimonial?.company}</div>
+								</div>
+							</div>
+						</div>
+					);
+				})}
 			</div>
-			<div></div>
 		</Section>
 	);
 }

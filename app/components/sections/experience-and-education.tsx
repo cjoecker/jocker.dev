@@ -48,14 +48,7 @@ const WorkExperience = () => {
 									}`}
 								/>
 							</div>
-							<motion.div
-								initial="hidden"
-								whileInView="visible"
-								viewport={{ amount: 'all', once: true }}
-								variants={{
-									visible: { scale: 1 },
-									hidden: { scale: 0 },
-								}}
+							<div
 								className={`${
 									experienceItem.type === 'work'
 										? 'shadow-md-turquoise'
@@ -73,7 +66,7 @@ const WorkExperience = () => {
 									}
 									src={experienceItem.type === 'work' ? OfficeImg : GraduateCap}
 								/>
-							</motion.div>
+							</div>
 							<div className="flex-1 pt-2">
 								<span
 									className={`mx-auto flex h-full w-[3px] rounded-t-full opacity-60 ${
@@ -106,12 +99,7 @@ const ExperienceItem = ({
 		hidden: { opacity: 0, x: isOdd ? 100 : -100 },
 	};
 	return (
-		<motion.div
-			initial="hidden"
-			whileInView="visible"
-			viewport={{ amount: 0.2, once: true }}
-			transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
-			variants={variants}
+		<div
 			className={`my-5 flex max-w-fit ${
 				isOdd
 					? 'ml-3 justify-start text-left md:ml-6'
@@ -147,7 +135,7 @@ const ExperienceItem = ({
 					{item.location}
 				</div>
 			</div>
-		</motion.div>
+		</div>
 	);
 };
 

@@ -45,20 +45,19 @@ export default function _index() {
 
 	return (
 		<main className="overflow-x-hidden text-base font-normal">
-			<Header />
+			<div className="text-2xl font-bold text-center pt-4">Why you should hire me?</div>
 			<div className="flex w-full flex-col">
 				<div className="">
-					<ServiceOffer />
 					<Facts />
+					<ServiceOffer />
 					<Skills />
-					<CoreValues />
-					<ExperienceAndEducation />
 					<Languages />
+					<CoreValues />
 					<Testimonials />
+					<ExperienceAndEducation />
 					<Contributions />
 					<CoursesAndConferences />
 					<AboutMe />
-					<Contact />
 				</div>
 			</div>
 			<AnimatePresence>

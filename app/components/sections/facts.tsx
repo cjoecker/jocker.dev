@@ -10,8 +10,8 @@ import { Section } from '../shared/section';
 export const Facts = () => {
 	return (
 		<Section>
-			<div className="relative mt-52 flex">
-				<div className="mx-auto grid grid-cols-1 flex-wrap justify-between gap-x-12 gap-y-8 lg:grid-cols-3">
+			<div className="relative mt-4 flex">
+				<div className="mx-auto grid grid-cols-1 flex-wrap justify-between gap-x-12 gap-y-12 lg:grid-cols-3">
 					<Fact
 						number={EXPERIENCE_YEARS}
 						label={'Years of Experience'}
@@ -52,22 +52,7 @@ const Fact = ({
 	const content = useTransform(scrollYProgress, [0.9, 0.6], [0, number + 1]);
 
 	useEffect(() => {
-		if (ref.current) {
-			ref.current.textContent = '0';
-		}
-		content.on('change', val => {
-			if (!ref.current) {
-				return;
-			}
-			if (val >= number) {
-				ref.current.textContent = `${number}+`;
-			} else {
-				ref.current.textContent = val.toFixed(0);
-			}
-		});
-		return () => {
-			content.destroy();
-		};
+		ref.current.textContent = `${number}+`;
 	}, [content, number]);
 
 	return (
@@ -80,21 +65,13 @@ const Fact = ({
 				className="absolute left-1/2 top-1/2 -z-10 h-[200%] w-[200%] -translate-x-1/2 -translate-y-1/2"
 				src={MeshPurple}
 			/>
-			<motion.img
+			<img
 				loading="lazy"
 				className="mx-auto"
 				alt={alt}
-				width="150"
-				height="150"
+				width="135"
+				height="135"
 				src={icon}
-				initial="hidden"
-				whileInView="visible"
-				viewport={{ amount: 0.9, once: true }}
-				transition={{ duration: 0.7 }}
-				variants={{
-					visible: { opacity: 1, y: 0 },
-					hidden: { opacity: 0, y: 100 },
-				}}
 			/>
 			<div ref={ref} className="mt-3 text-2xl font-semibold" />
 			<div className="mt-4 text-xl">{label}</div>

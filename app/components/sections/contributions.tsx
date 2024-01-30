@@ -16,8 +16,8 @@ import { ExternalRedirect } from '~/components/shared/external-redirect';
 export const Contributions = () => {
 	return (
 		<Section title="Community Contributions">
-			<div className="flex">
-				<div className="mx-auto flex flex-wrap justify-center gap-x-24 gap-y-36">
+			<div className="flex mt-6">
+				<div className="mx-auto flex flex-wrap justify-center gap-4">
 					<div className="relative flex min-w-[250px] flex-col">
 						<Mesh />
 						<MyApps />
@@ -66,16 +66,7 @@ const StackOverflow = () => {
 				to={StackOverflowDefaults.profileUrl}
 				className="mx-auto flex text-left"
 			>
-				<motion.div
-					whileTap={{ scale: 1 }}
-					whileHover={{ scale: 1.1 }}
-					variants={{
-						visible: { opacity: 1 },
-						hidden: { opacity: 0 },
-					}}
-					viewport={{ amount: 0.9, once: true }}
-					initial="hidden"
-					whileInView="visible"
+				<div
 					aria-label="stack overflow profile"
 					className="mx-auto flex max-w-fit flex-col rounded-xl border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark px-4 py-2 text-secondary hover:cursor-pointer"
 				>
@@ -119,7 +110,7 @@ const StackOverflow = () => {
 							}
 						/>
 					</div>
-				</motion.div>
+				</div>
 			</ExternalRedirect>
 		</>
 	);
@@ -139,27 +130,15 @@ const Badge = ({ color, number }: { color: string; number: number }) => {
 
 const OpenSource = () => {
 	return (
-		<>
+		<div className="max-w-[270px]">
 			<h3 className="mb-6 text-lg font-semibold">Open Source Contributions</h3>
-			<motion.div
-				initial="hidden"
-				whileInView="visible"
-				viewport={{ amount: 0.9, once: true }}
-				transition={{
-					staggerChildren: 0.3,
-				}}
+			<div
 				className="mx-auto flex flex-col gap-12"
 			>
 				{OpenSourceContributions.map(contribution => {
 					return (
 						<ExternalRedirect key={contribution.name} to={contribution.link}>
-							<motion.div
-								whileTap={{ scale: 1 }}
-								whileHover={{ scale: 1.1 }}
-								variants={{
-									visible: { opacity: 1 },
-									hidden: { opacity: 0 },
-								}}
+							<div
 								className="hover:cursor-pointer"
 								aria-label={`${contribution.name} website`}
 							>
@@ -174,12 +153,12 @@ const OpenSource = () => {
 								<div className="text-md text-secondary">
 									{contribution.name}
 								</div>
-							</motion.div>
+							</div>
 						</ExternalRedirect>
 					);
 				})}
-			</motion.div>
-		</>
+			</div>
+		</div>
 	);
 };
 
@@ -188,33 +167,21 @@ const MyApps = () => {
 		<>
 			<h3 className="mb-8 text-lg font-semibold">My Apps</h3>
 			<div className="flex">
-				<motion.div
-					className="m-auto grid grid-cols-2 gap-8"
-					initial="hidden"
-					whileInView="visible"
-					viewport={{ amount: 0.2, once: true }}
-					transition={{
-						staggerChildren: 0.3,
-					}}
+				<div
+					className="m-auto grid grid-cols-2 gap-2"
 				>
 					{OwnApps.map(app => {
 						return (
-							<motion.div
+							<div
 								className="col-span-1 flex flex-col"
 								key={app.name}
-								variants={{
-									visible: { opacity: 1 },
-									hidden: { opacity: 0 },
-								}}
 							>
 								<Tooltip text={app.description}>
 									<ExternalRedirect
 										className="hover:cursor-pointer"
 										to={app.link}
 									>
-										<motion.div
-											whileTap={{ scale: 1 }}
-											whileHover={{ scale: 1.1 }}
+										<div
 											className="mx-auto mb-2 h-16 w-16 rounded-xl"
 											style={{
 												backgroundImage: `url(${app.icon})`,
@@ -223,10 +190,10 @@ const MyApps = () => {
 										<div className="max-w-[100px]">{app.name}</div>
 									</ExternalRedirect>
 								</Tooltip>
-							</motion.div>
+							</div>
 						);
 					})}
-				</motion.div>
+				</div>
 			</div>
 		</>
 	);

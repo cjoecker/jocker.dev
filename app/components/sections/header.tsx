@@ -9,6 +9,7 @@ import {
 } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { useMouse } from 'react-use';
+import SmartCubeLogo from '../../images/smart-cube-360-logo-white.svg';
 
 import MeshBlue from '../../images/mesh-blue.svg';
 import MeshPurple from '../../images/mesh-purple.svg';
@@ -62,32 +63,34 @@ export const Header = () => {
 			<div
 				className={`z-10 mb-8 ml-6 mt-4 text-left sm:mb-20 sm:ml-24 sm:mt-[20vh]`}
 			>
-				<motion.h1
+				<h1
 					style={{ y: titleY }}
-					className="mx-2 mb-8 text-2xl font-bold sm:text-3xl"
+					className="mx-2 text-2xl font-bold sm:text-3xl"
 				>
-					Hi, I'm Christian Jöcker,
-					<br />
-					<AnimatedWord />
-				</motion.h1>
-				<motion.p
-					style={{ y: subtitleY }}
-					className="mb-16 mr-4 text-md font-normal sm:mb-28 sm:text-lg md:mr-[25vw]"
-				>
-					I work as a freelance developer and designer, and am passionate about
-					creating great experiences with beautiful web applications!
-				</motion.p>
-				<motion.button
+					Christian Jöcker
+				</h1>
+				<br />
+				<div className="mx-2 -mt-4 text-xl">Full-stack developer & UX/UI Designer</div>
+					<button
 					style={{ y: buttonY, boxShadow: '0px 0px 90px -15px #00DFD8' }}
 					whileTap={{ scale: 1 }}
 					whileHover={{ scale: 1.1 }}
 					onClick={onDiscoverMoreClick}
-					className="select-none rounded-md bg-gradient-to-br from-turquoise to-blue text-lg font-semibold text-secondary hover:cursor-pointer"
+					className="absolute bottom-6 right-6 rounded-md bg-gradient-to-br from-turquoise to-blue text-md font-semibold text-secondary hover:cursor-pointer"
 				>
-					<div className="pointer-events-none m-[1px] rounded-md bg-neutral-dark/80 px-6 py-4">
-						Discover More
+					<div className="flex flex-col pointer-events-none m-[1px] rounded-md bg-neutral-dark/80 px-6 py-4">
+						<span className="w-full text-left mb-4">Offer for</span>
+						<img
+							style={{ height: '70px' }}
+							alt=""
+							aria-hidden="true"
+							className="inline-block ml-2"
+							src={SmartCubeLogo}
+							/>
+						<span className="font-bold mt-2 text-left text-sm">Thomas Kirner</span>
+						<span className="text-left text-sm">Erdweg 12, DE-86554 Pöttmes</span>
 					</div>
-				</motion.button>
+				</button>
 			</div>
 		</div>
 	);

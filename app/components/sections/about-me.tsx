@@ -8,16 +8,8 @@ import { Section } from '../shared/section';
 export const AboutMe = () => {
 	return (
 		<Section>
-			<motion.div
-				initial="hidden"
-				whileInView="visible"
-				viewport={{ amount: 0.1, once: true }}
-				transition={{ duration: 0.7 }}
-				variants={{
-					visible: { opacity: 1 },
-					hidden: { opacity: 0 },
-				}}
-				className="mx-auto grid max-w-4xl grid-cols-1 gap-x-9 gap-y-6 overflow-hidden rounded-2xl p-6 sm:grid-cols-5"
+			<div
+				className="pt-12 mt-32 px-6 mx-auto grid max-w-4xl grid-cols-1 gap-x-9 gap-y-6 overflow-hidden rounded-2xl sm:grid-cols-5"
 			>
 				<div className="col-span-1 sm:col-span-2">
 					<img
@@ -41,7 +33,7 @@ export const AboutMe = () => {
 						src={Signature}
 					/>
 				</div>
-			</motion.div>
+			</div>
 		</Section>
 	);
 };

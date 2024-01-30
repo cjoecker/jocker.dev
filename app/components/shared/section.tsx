@@ -5,8 +5,8 @@ export type Props = {
 };
 export const Section = ({ title, children, className }: Props) => {
 	return (
-		<section className={`mx-4 mb-[30vh] max-w-[100vw] last:mb-12 ${className}`}>
-			{title && <h2 className="mb-12 text-xl font-bold">{title}</h2>}
+		<section className={`mx-4 mb-8 max-w-[100vw] last:mb-12 ${className}`}>
+			{title && <h2 className="mb-4 text-xl font-bold mt-12 pt-4">{title}</h2>}
 
 			{children}
 		</section>

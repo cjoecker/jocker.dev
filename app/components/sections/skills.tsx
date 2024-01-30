@@ -24,13 +24,7 @@ export const Tags = ({
 	return (
 		<div className="col-span-1 mt-4">
 			<h3 className="mb-4 text-left text-lg font-semibold">{title}</h3>
-			<motion.div
-				initial="hidden"
-				whileInView="visible"
-				viewport={{ amount: 0.2, once: true }}
-				transition={{
-					staggerChildren: 0.1,
-				}}
+			<div
 				className="flex flex-wrap gap-2 text-left"
 			>
 				{skills.map(skill => {
@@ -51,7 +45,7 @@ export const Tags = ({
 						</motion.div>
 					);
 				})}
-			</motion.div>
+			</div>
 		</div>
 	);
 };

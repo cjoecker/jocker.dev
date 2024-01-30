@@ -24,7 +24,7 @@ export const ServiceOffer = () => {
 				whileInView: 'visible',
 		  };
 	return (
-		<Section title="What I Can Do for You" className={'mt-16'}>
+		<Section title="What I Can Do for You">
 			<div className="relative flex">
 				<img
 					alt=""
@@ -32,20 +32,16 @@ export const ServiceOffer = () => {
 					className=" invisible absolute left-1/2 top-1/2 -z-10 h-[200%] w-[200%] -translate-x-1/2 -translate-y-1/2 sm:visible"
 					src={MeshPurpleTurquoise}
 				/>
-				<motion.div
-					className="mx-auto flex max-w-3xl flex-wrap justify-center gap-6"
+				<div
+					className="flex w-full justify-center gap-4 flex-wrap px-8"
 					{...staggerAnimation}
 				>
 					{ServiceOfferData.map(offer => {
 						return (
-							<Card
-								key={offer.title}
-								offer={offer}
-								isNarrowView={isNarrowView}
-							/>
+							<CardContent offer={offer} isOpen={true} />
 						);
 					})}
-				</motion.div>
+				</div>
 			</div>
 		</Section>
 	);
@@ -58,7 +54,7 @@ const Card = ({
 	offer: ServiceOfferType;
 	isNarrowView: boolean;
 }) => {
-	const [isOpen, setIsOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState(true);
 	const [zIndex, setZIndex] = useState(0);
 
 	const onClick = () => {
@@ -80,31 +76,7 @@ const Card = ({
 		: {};
 
 	return (
-		<motion.div
-			variants={{
-				visible: { opacity: 1 },
-				hidden: { opacity: 0 },
-			}}
-			transition={{ ease: 'easeInOut', duration: 0.8 }}
-			key={offer.title}
-			{...appearAnimation}
-		>
-			{isOpen && (
-				<div className="relative z-0">
-					<CardContent offer={offer} isOpen={isOpen} />
-				</div>
-			)}
-			<motion.div
-				onClick={onClick}
-				style={{ zIndex }}
-				layout
-				className={` ${
-					isOpen ? 'fixed inset-0 z-10 mx-3 flex' : 'relative z-0'
-				}`}
-			>
-				<CardContent isExpandable offer={offer} isOpen={isOpen} />
-			</motion.div>
-		</motion.div>
+			<CardContent offer={offer} isOpen={isOpen} />
 	);
 };
 
@@ -118,59 +90,38 @@ const CardContent = ({
 	isOpen: boolean;
 }) => {
 	return (
-		<motion.div
-			layout={isExpandable}
-			className={`relative flex cursor-pointer whitespace-pre-wrap rounded-2xl border-2 border-solid border-secondary/10 bg-gradient-to-br
-              from-neutral to-neutral-dark p-4 text-left
-              ${
-								isOpen && isExpandable
-									? 'm-auto h-auto w-full max-w-lg flex-wrap bg-gradient-to-br from-neutral/70 to-neutral-dark/70 backdrop-blur'
-									: 'h-64 w-64 flex-col md:h-56 md:w-56'
-							} ${isOpen && !isExpandable ? 'invisible' : 'visible'}`}
+		<div
+			className={`w-full min-w-full flex-1 flex whitespace-pre-wrap rounded-2xl border-2 border-solid border-secondary/10 
+              p-2 text-left flex-wrap bg-gradient-to-br from-neutral/70 to-neutral-dark/70 backdrop-blur`}
 		>
-			<motion.button
-				layout={isExpandable ? 'preserve-aspect' : false}
-				aria-label={isOpen ? 'expand' : 'contract'}
-				className={`absolute right-2.5 top-2.5 cursor-pointer  p-2 ${
-					isOpen ? 'h-7 w-7' : 'h-6 w-6'
-				}`}
-				style={{
-					backgroundImage: isOpen
-						? `url(${CollapseIcon})`
-						: `url(${ExpandIcon})`,
-				}}
-			/>
-			<motion.img
-				layout={isExpandable ? 'preserve-aspect' : false}
+			<img
 				loading="lazy"
 				alt={getAltTextFromFileName(offer.logo)}
-				width={'70'}
-				height={'70'}
+				width={'50'}
+				height={'50'}
 				src={offer.logo}
 				className={`pointer-events-none select-none ${
 					isOpen
-						? 'mx-4 mb-auto mt-4 h-[170px] w-[170px]'
+						? 'mx-4 mb-auto mt-4 h-[130px] w-[130px]'
 						: 'my-4 h-[105px] w-[105px] md:h-[70px] md:w-[70px]'
 				}`}
 			/>
-			<motion.div
+			<div
 				className={`flex-1 ${isOpen ? 'min-w-[230px]' : 'min-w-0'}`}
-				layout={isExpandable}
 			>
-				<motion.h3
-					layout={isExpandable ? 'preserve-aspect' : false}
+				<h3
 					className={
-						isOpen ? 'mb-3 mr-4 mt-2 text-lg font-semibold' : 'mb-1 text-lg'
+						isOpen ? 'mb-1 mr-4 mt-2 text-lg font-semibold' : 'mb-1 text-lg'
 					}
 				>
 					{offer.title}
-				</motion.h3>
+				</h3>
 				{isOpen && (
-					<motion.div className="my-2 text-base">
+					<div className="my-2 text-base">
 						{offer.description}
-					</motion.div>
+					</div>
 				)}
-			</motion.div>
-		</motion.div>
+			</div>
+		</div>
 	);
 };
