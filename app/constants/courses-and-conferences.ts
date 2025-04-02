@@ -1,5 +1,20 @@
 export const Courses: CourseType[] = [
 	{
+		name: 'Improvisation Skills',
+		instructor: 'SUBIT!',
+		date: new Date('2025-03'),
+	},
+	{
+		name: 'AWS IoT Hand-on Training',
+		instructor: 'Thomas Kriechbaumer',
+		date: new Date('2024-04'),
+	},
+	{
+		name: 'Epic Web',
+		instructor: 'Kent C. Dodds',
+		date: new Date('2025-02'),
+	},
+	{
 		name: 'Affinity Designer',
 		instructor: 'Heiko Deppler',
 		date: new Date('2019-01'),
@@ -142,6 +157,14 @@ export const Courses: CourseType[] = [
 ];
 
 export const Conferences: ConferenceType[] = [
+	{
+		name: 'Valencia Digital Summit',
+		date: new Date('2024-11'),
+	},
+	{
+		name: 'Embedded World',
+		date: new Date('2024-04'),
+	},
 	{
 		name: 'UXDX Dublin',
 		date: new Date('2023-10'),
