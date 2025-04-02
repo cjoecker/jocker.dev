@@ -1,19 +1,7 @@
-import type {
-	LinksFunction,
-	LoaderFunctionArgs,
-	MetaFunction,
-} from '@remix-run/node';
-import { json } from '@remix-run/node';
-import {
-	Links,
-	LiveReload,
-	Meta,
-	Outlet,
-	Scripts,
-	ScrollRestoration,
-	useLoaderData,
-} from '@remix-run/react';
-import SplideStyles from '@splidejs/splide/dist/css/splide.min.css';
+import type { LinksFunction, LoaderFunctionArgs, MetaFunction } from 'react-router';
+import { data } from 'react-router';
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from 'react-router';
+import SplideStyles from '@splidejs/splide/dist/css/splide.min.css?url';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import invariant from 'tiny-invariant';
@@ -27,7 +15,7 @@ import RalewayFontRegularWoff2 from '~/fonts/raleway-v28-latin-regular.woff2';
 import { useChangeLanguage } from '~/hooks/useChangeLanguage';
 import * as gtag from '~/services/gtags.client';
 import i18next from '~/services/i18next.server';
-import MainStyles from '~/styles/main.css';
+import MainStyles from '~/styles/main.css?url';
 
 export const meta: MetaFunction = () => {
 	return [
@@ -146,7 +134,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
 		process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID,
 		'Missing Google Analytics ID'
 	);
-	return json({
+	return data({
 		locale,
 		gaTrackingId: process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID,
 	});
@@ -198,7 +186,6 @@ export default function Root() {
 				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
-				<LiveReload />
 			</body>
 		</html>
 	);

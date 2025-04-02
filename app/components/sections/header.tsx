@@ -8,7 +8,6 @@ import {
 	useTransform,
 } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
-import { useMouse } from 'react-use';
 
 import MeshBlue from '../../images/mesh-blue.svg';
 import MeshPurple from '../../images/mesh-purple.svg';
@@ -23,7 +22,6 @@ export const Header = () => {
 	const buttonY = useParallax(scrollY, -1);
 
 	// there is a bug in chromium that is not showing -webkit-fill-available correctly
-	const { elX, elY } = useMouse(ref);
 	const mouseX = useMotionValue(0);
 	const mouseY = useMotionValue(0);
 	const [isIphone, setIsIphone] = useState(false);
@@ -49,10 +47,6 @@ export const Header = () => {
 
 	return (
 		<div
-			onPointerMove={() => {
-				mouseX.set(elX / 8);
-				mouseY.set(elY / 8);
-			}}
 			className={`relative flex w-full items-center  ${
 				isIphone ? 'h-ios-screen' : 'h-screen'
 			}`}

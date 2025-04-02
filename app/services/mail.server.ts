@@ -1,6 +1,6 @@
 import process from 'process';
 
-import { json } from '@remix-run/node';
+import { data } from 'react-router';
 import FormData from 'form-data';
 import Mailgun from 'mailgun.js';
 import invariant from 'tiny-invariant';
@@ -30,10 +30,10 @@ export async function sendMail(name: string, email: string, message: string) {
 		);
 		console.info(res);
 		console.info('new message sent: ', enrichedMessage);
-		return json({ success: true }, { status: 200 });
+		return data({ success: true }, { status: 200 });
 	} catch (err) {
 		console.error('failed to send this message: ', enrichedMessage);
 		console.error(err);
-		return json({ success: false }, { status: 500 });
+		return data({ success: false }, { status: 500 });
 	}
 }

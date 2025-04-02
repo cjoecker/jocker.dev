@@ -6,6 +6,7 @@ import RocketImg from '../images/rocket.svg';
 import StrategyImg from '../images/strategy.svg';
 
 import { EXPERIENCE_YEARS } from './experience-and-education';
+import { ReactNode } from 'react';
 
 export const ServiceOfferData: ServiceOfferType[] = [
 	{
@@ -104,5 +105,5 @@ export const ServiceOfferData: ServiceOfferType[] = [
 export type ServiceOfferType = {
 	logo: string;
 	title: string;
-	description: JSX.Element;
+	description: ReactNode;
 };

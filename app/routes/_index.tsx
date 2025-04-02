@@ -1,5 +1,5 @@
-import type { ActionFunctionArgs } from '@remix-run/node';
-import { useActionData } from '@remix-run/react';
+import type { ActionFunctionArgs } from 'react-router';
+import { useActionData } from 'react-router';
 import { AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 

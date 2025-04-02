@@ -1,6 +1,7 @@
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import { useRef, useState } from 'react';
 
+
 import DoubleQuotesIcon from '../../images/double-quotes.svg';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
@@ -50,7 +51,7 @@ export function Testimonials() {
 				hasTrack={false}
 				aria-label="testimonials"
 				className="md:mask-swiper mx-auto max-w-5xl"
-				onMove={(_, newIndex) => {
+				onMove={(_: never, newIndex: number) => {
 					setCurrentSlideIndex(newIndex);
 				}}
 				options={{

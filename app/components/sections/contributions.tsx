@@ -9,7 +9,6 @@ import {
 import MeshPurple from '../../images/mesh-purple.svg';
 import StackOverflowLogo from '../../images/stack-overflow.svg';
 import { Section } from '../shared/section';
-import { Tooltip } from '../shared/tooltip';
 
 import { ExternalRedirect } from '~/components/shared/external-redirect';
 
@@ -207,7 +206,6 @@ const MyApps = () => {
 									hidden: { opacity: 0 },
 								}}
 							>
-								<Tooltip text={app.description}>
 									<ExternalRedirect
 										className="hover:cursor-pointer"
 										to={app.link}
@@ -222,7 +220,6 @@ const MyApps = () => {
 										/>
 										<div className="max-w-[100px]">{app.name}</div>
 									</ExternalRedirect>
-								</Tooltip>
 							</motion.div>
 						);
 					})}
