@@ -14,7 +14,6 @@ import RalewayFontRegularWoff from '~/fonts/raleway-v28-latin-regular.woff';
 import RalewayFontRegularWoff2 from '~/fonts/raleway-v28-latin-regular.woff2';
 import { useChangeLanguage } from '~/hooks/useChangeLanguage';
 import * as gtag from '~/services/gtags.client';
-import i18next from '~/services/i18next.server';
 import MainStyles from '~/styles/main.css?url';
 
 export const meta: MetaFunction = () => {
@@ -129,33 +128,27 @@ export const links: LinksFunction = () => [
 ];
 
 export async function loader({ request }: LoaderFunctionArgs) {
-	const locale = await i18next.getLocale(request);
 	invariant(
 		process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID,
 		'Missing Google Analytics ID'
 	);
 	return data({
-		locale,
 		gaTrackingId: process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID,
 	});
 }
 
-export const handle = {
-	i18n: 'common',
-};
+
 
 // eslint-disable-next-line import/no-default-export
 export default function Root() {
-	const { locale, gaTrackingId } = useLoaderData<typeof loader>();
-	const { i18n } = useTranslation();
-	useChangeLanguage(locale);
+	const { gaTrackingId } = useLoaderData<typeof loader>();
 	useEffect(() => {
 		if (gaTrackingId?.length) {
 			gtag.pageview(location.pathname, gaTrackingId);
 		}
 	}, [gaTrackingId]);
 	return (
-		<html lang={locale} dir={i18n.dir()}>
+		<html>
 			<head>
 				<Meta />
 				<Links />
