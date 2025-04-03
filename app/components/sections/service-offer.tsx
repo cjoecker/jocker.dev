@@ -120,11 +120,11 @@ const CardContent = ({
 	return (
 		<motion.div
 			layout={isExpandable}
-			className={`relative flex cursor-pointer whitespace-pre-wrap rounded-2xl border-2 border-solid border-secondary/10 bg-gradient-to-br
+			className={`relative flex cursor-pointer whitespace-pre-wrap rounded-2xl border-2 border-solid border-secondary/10 bg-linear-to-br
               from-neutral to-neutral-dark p-4 text-left
               ${
 								isOpen && isExpandable
-									? 'm-auto h-auto w-full max-w-lg flex-wrap bg-gradient-to-br from-neutral/70 to-neutral-dark/70 backdrop-blur'
+									? 'm-auto h-auto w-full max-w-lg flex-wrap bg-linear-to-br from-neutral/70 to-neutral-dark/70 backdrop-blur-sm'
 									: 'h-64 w-64 flex-col md:h-56 md:w-56'
 							} ${isOpen && !isExpandable ? 'invisible' : 'visible'}`}
 		>

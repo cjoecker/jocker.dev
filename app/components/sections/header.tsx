@@ -76,7 +76,7 @@ export const Header = () => {
 					whileTap={{ scale: 1 }}
 					whileHover={{ scale: 1.1 }}
 					onClick={onDiscoverMoreClick}
-					className="select-none rounded-md bg-gradient-to-br from-turquoise to-blue text-lg font-semibold text-secondary hover:cursor-pointer"
+					className="select-none rounded-md bg-linear-to-br from-turquoise to-blue text-lg font-semibold text-secondary hover:cursor-pointer"
 				>
 					<div className="pointer-events-none m-[1px] rounded-md bg-neutral-dark/80 px-6 py-4">
 						Discover More

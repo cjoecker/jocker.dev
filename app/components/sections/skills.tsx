@@ -45,7 +45,7 @@ export const Tags = ({
 								title === 'Web Development'
 									? 'shadow-xs-turquoise'
 									: 'shadow-xs-purple'
-							} inline-block rounded-full border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark px-3 py-1 capitalize`}
+							} inline-block rounded-full border-2 border-solid border-secondary/10 bg-linear-to-br from-neutral to-neutral-dark px-3 py-1 capitalize`}
 						>
 							{skill}
 						</motion.div>

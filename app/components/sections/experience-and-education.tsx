@@ -44,7 +44,7 @@ const WorkExperience = () => {
 							<div className="flex-1 pb-2">
 								<span
 									className={`mx-auto flex h-full w-[3px] rounded-b-full opacity-60 ${
-										isFirst ? 'bg-gradient-to-t from-secondary' : 'bg-secondary'
+										isFirst ? 'bg-linear-to-t from-secondary' : 'bg-secondary'
 									}`}
 								/>
 							</div>
@@ -60,7 +60,7 @@ const WorkExperience = () => {
 									experienceItem.type === 'work'
 										? 'shadow-md-turquoise'
 										: 'shadow-md-purple'
-								} flex rounded-full border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark bg-contain p-3`}
+								} flex rounded-full border-2 border-solid border-secondary/10 bg-linear-to-br from-neutral to-neutral-dark bg-contain p-3`}
 							>
 								<img
 									loading="lazy"
@@ -77,7 +77,7 @@ const WorkExperience = () => {
 							<div className="flex-1 pt-2">
 								<span
 									className={`mx-auto flex h-full w-[3px] rounded-t-full opacity-60 ${
-										isLast ? 'bg-gradient-to-b from-secondary' : 'bg-secondary'
+										isLast ? 'bg-linear-to-b from-secondary' : 'bg-secondary'
 									}`}
 								/>
 							</div>

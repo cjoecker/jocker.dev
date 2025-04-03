@@ -69,7 +69,7 @@ export function Testimonials() {
 						return (
 							<SplideSlide key={testimonial.testimonial}>
 								<div
-									className={`shadow-sm-turquoise mx-4 my-6 flex h-full flex-1 cursor-grab select-none flex-col rounded-xl border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark p-5`}
+									className={`shadow-sm-turquoise mx-4 my-6 flex h-full flex-1 cursor-grab select-none flex-col rounded-xl border-2 border-solid border-secondary/10 bg-linear-to-br from-neutral to-neutral-dark p-5`}
 								>
 									<img
 										loading="lazy"

@@ -76,7 +76,7 @@ const StackOverflow = () => {
 					initial="hidden"
 					whileInView="visible"
 					aria-label="stack overflow profile"
-					className="mx-auto flex max-w-fit flex-col rounded-xl border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark px-4 py-2 text-secondary hover:cursor-pointer"
+					className="mx-auto flex max-w-fit flex-col rounded-xl border-2 border-solid border-secondary/10 bg-linear-to-br from-neutral to-neutral-dark px-4 py-2 text-secondary hover:cursor-pointer"
 				>
 					<div className="flex">
 						<img

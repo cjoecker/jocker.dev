@@ -49,7 +49,7 @@ export const ContactButton = ({
 				style={{ boxShadow: '0px 0px 40px -8px #00DFD866' }}
 				aria-label={contactInformation.text}
 				className={
-					'flex h-20 w-20 select-none rounded-full bg-gradient-to-br from-turquoise to-blue p-0.5 hover:cursor-pointer'
+					'flex h-20 w-20 select-none rounded-full bg-linear-to-br from-turquoise to-blue p-0.5 hover:cursor-pointer'
 				}
 			>
 				<div className="pointer-events-none flex h-full w-full rounded-full bg-neutral-dark/80">
@@ -166,7 +166,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 					transition={{ duration: 0.2 }}
 					tabIndex={-1}
 					onClick={event => event.stopPropagation()}
-					className="shadow-sm-purple relative mx-4 my-auto w-full max-w-7xl rounded-2xl border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark p-6 sm:m-auto sm:w-fit"
+					className="shadow-sm-purple relative mx-4 my-auto w-full max-w-7xl rounded-2xl border-2 border-solid border-secondary/10 bg-linear-to-br from-neutral to-neutral-dark p-6 sm:m-auto sm:w-fit"
 				>
 					<motion.button
 						whileTap={{ scale: 1 }}
@@ -228,7 +228,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 									style={{ boxShadow: '0px 0px 30px -10px #00DFD866' }}
 									whileTap={{ scale: 1 }}
 									whileHover={{ scale: 1.05 }}
-									className="ml-auto select-none rounded-md bg-gradient-to-br from-turquoise to-blue font-semibold text-secondary hover:cursor-pointer"
+									className="ml-auto select-none rounded-md bg-linear-to-br from-turquoise to-blue font-semibold text-secondary hover:cursor-pointer"
 								>
 									<div className="pointer-events-none m-[1px] flex rounded-md bg-neutral-dark/80 px-4 py-3">
 										Send Message
