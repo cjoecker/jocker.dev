@@ -14,7 +14,6 @@ import { Header } from '~/components/sections/header';
 import { Languages } from '~/components/sections/languages';
 import { ServiceOffer } from '~/components/sections/service-offer';
 import { Skills } from '~/components/sections/skills';
-import { Testimonials } from '~/components/sections/testimonials';
 import { sendMail } from '~/services/mail.server';
 
 export async function action({ request }: ActionFunctionArgs) {
@@ -54,7 +53,6 @@ export default function _index() {
 					<CoreValues />
 					<ExperienceAndEducation />
 					<Languages />
-					<Testimonials />
 					<Contributions />
 					<CoursesAndConferences />
 					<AboutMe />
