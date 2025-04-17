@@ -12,4 +12,10 @@ export default defineConfig({
 		tsconfigPaths(),
 		netlifyPlugin(),
 	],
+	optimizeDeps: {
+		include: ["react-use"],
+	},
+	ssr: {
+		noExternal: ["react-use"],
+	},
 });

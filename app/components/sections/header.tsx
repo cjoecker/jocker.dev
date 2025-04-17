@@ -12,6 +12,7 @@ import { useEffect, useRef, useState } from 'react';
 import MeshBlue from '../../images/mesh-blue.svg';
 import MeshPurple from '../../images/mesh-purple.svg';
 import MeshTurquoise from '../../images/mesh-turquoise.svg';
+import { useMouse } from 'react-use';
 
 export const Header = () => {
 	const ref = useRef<HTMLDivElement>(null);
@@ -22,6 +23,7 @@ export const Header = () => {
 	const buttonY = useParallax(scrollY, -1);
 
 	// there is a bug in chromium that is not showing -webkit-fill-available correctly
+	const { elX, elY } = useMouse(ref as never);
 	const mouseX = useMotionValue(0);
 	const mouseY = useMotionValue(0);
 	const [isIphone, setIsIphone] = useState(false);
@@ -47,6 +49,10 @@ export const Header = () => {
 
 	return (
 		<div
+			onPointerMove={() => {
+				mouseX.set(elX / 8);
+				mouseY.set(elY / 8);
+			}}
 			className={`relative flex w-full items-center  ${
 				isIphone ? 'h-ios-screen' : 'h-screen'
 			}`}
@@ -131,18 +137,19 @@ const HIDE_TIME_OFFSET = 200;
 const SPACE_CHAR = '\u00A0';
 
 function AnimatedWord() {
-	const [visibility, setVisibility] = useState(true);
 	const [wordIndex, setWordIndex] = useState(0);
 	const animatedText = ANIMATED_WORDS[wordIndex];
 	const textLength = animatedText.length;
 	const ariaLabel = ANIMATED_WORDS.join(' and ').replace(/\./g, '');
+	const controls = useAnimation();
+	const [animationStarted, setAnimationStarted] = useState(false);
 
 	useEffect(() => {
 		const changeText = () => {
 			setWordIndex(prevIndex => (prevIndex + 1) % ANIMATED_WORDS.length);
 		};
 		const hideText = () => {
-			setVisibility(false);
+			controls.start('hidden');
 			setTimeout(changeText, textLength * STAGGER_DURATION * 1000);
 			setTimeout(
 				showText,
@@ -150,7 +157,10 @@ function AnimatedWord() {
 			);
 		};
 		const showText = () => {
-			setVisibility(true);
+			if(!animationStarted) {
+				setAnimationStarted(true);
+			}
+			controls.start('visible');
 			setTimeout(hideText, READING_TIME);
 		};
 		showText();
@@ -176,13 +186,13 @@ function AnimatedWord() {
 							className="flex flex-nowrap"
 							key={wordIndex + word + animatedText}
 						>
-							<AnimatePresence>
 								{letters.map((letter, index) => {
-									if (!visibility) {
-										return null;
-									}
 									return (
 										<motion.div
+											initial={{
+												opacity: animationStarted ? 0 : 1,
+											}}
+											animate={controls}
 											variants={{
 												hidden: {
 													opacity: 0,
@@ -201,15 +211,11 @@ function AnimatedWord() {
 												},
 											}}
 											key={index + letter + word}
-											initial={'hidden'}
-											animate={'visible'}
-											exit={'hidden'}
 										>
 											{letter}
 										</motion.div>
 									);
 								})}
-							</AnimatePresence>
 						</span>
 					);
 				})}
