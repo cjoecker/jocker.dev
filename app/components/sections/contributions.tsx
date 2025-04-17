@@ -214,10 +214,14 @@ const MyApps = () => {
 											whileTap={{ scale: 1 }}
 											whileHover={{ scale: 1.1 }}
 											className="mx-auto mb-2 h-16 w-16 rounded-xl"
-											style={{
-												backgroundImage: `url(${app.icon})`,
-											}}
-										/>
+										>
+											<motion.img
+												loading="lazy"
+												alt={`${app.name} logo`}
+												className="h-full w-full rounded-xl"
+												src={app.icon}
+											/>
+										</motion.div>
 										<div className="max-w-[100px]">{app.name}</div>
 									</ExternalRedirect>
 							</motion.div>
