@@ -22,11 +22,12 @@ export const Contact = () => {
 				}}
 				className="mx-auto flex flex-wrap justify-center gap-9"
 			>
+				{/*<div className="flex flex-wrap justify-center gap-9">*/}
+				{/*	<ContactButton contactInformation={ContactInformation[0]} />*/}
+				{/*	<ContactButton contactInformation={ContactInformation[1]} />*/}
+				{/*</div>*/}
 				<div className="flex flex-wrap justify-center gap-9">
-					<ContactButton contactInformation={ContactInformation[0]} />
 					<ContactButton contactInformation={ContactInformation[1]} />
-				</div>
-				<div className="flex flex-wrap justify-center gap-9">
 					<ContactButton contactInformation={ContactInformation[2]} />
 					<ContactButton contactInformation={ContactInformation[3]} />
 				</div>
