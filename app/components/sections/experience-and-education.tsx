@@ -1,17 +1,17 @@
-import { differenceInMonths, format } from 'date-fns';
-import { motion } from 'framer-motion';
+import { differenceInMonths, format } from "date-fns";
+import { motion } from "framer-motion";
 
-import type { ExperiencAndEductionType } from '../../constants/experience-and-education';
+import type { ExperiencAndEductionType } from "../../constants/experience-and-education";
 import {
 	education,
 	WorkExperienceData,
-} from '../../constants/experience-and-education';
-import { Section } from '../shared/section';
-import { getAltTextFromFileName } from '../shared/utils';
+} from "../../constants/experience-and-education";
+import { Section } from "../shared/section";
+import { getAltTextFromFileName } from "../shared/utils";
 
-import { ExternalRedirect } from '~/components/shared/external-redirect';
-import GraduateCap from '~/images/graduate-cap.svg';
-import OfficeImg from '~/images/office.svg';
+import { ExternalRedirect } from "~/components/shared/external-redirect";
+import GraduateCap from "~/images/graduate-cap.svg";
+import OfficeImg from "~/images/office.svg";
 
 export const ExperienceAndEducation = () => {
 	return (
@@ -24,7 +24,9 @@ export const ExperienceAndEducation = () => {
 
 const WorkExperience = () => {
 	const workAndEducation = [...WorkExperienceData, ...education].sort(
-		(a, b) => a.startDate.getTime() - b.startDate.getTime()
+		(a, b) => {
+			return a.startDate.getTime() - b.startDate.getTime();
+		},
 	);
 	return (
 		<div className="flex w-full flex-col">
@@ -44,40 +46,40 @@ const WorkExperience = () => {
 							<div className="flex-1 pb-2">
 								<span
 									className={`mx-auto flex h-full w-[3px] rounded-b-full opacity-60 ${
-										isFirst ? 'bg-gradient-to-t from-secondary' : 'bg-secondary'
+										isFirst ? "from-secondary bg-linear-to-t" : "bg-secondary"
 									}`}
 								/>
 							</div>
 							<motion.div
 								initial="hidden"
 								whileInView="visible"
-								viewport={{ amount: 'all', once: true }}
+								viewport={{ amount: "all", once: true }}
 								variants={{
 									visible: { scale: 1 },
 									hidden: { scale: 0 },
 								}}
 								className={`${
-									experienceItem.type === 'work'
-										? 'shadow-md-turquoise'
-										: 'shadow-md-purple'
-								} flex rounded-full border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark bg-contain p-3`}
+									experienceItem.type === "work"
+										? "shadow-md-turquoise"
+										: "shadow-md-purple"
+								} border-secondary/10 from-neutral to-neutral-dark flex rounded-full border-2 border-solid bg-linear-to-br bg-contain p-3`}
 							>
 								<img
 									loading="lazy"
 									width="40"
 									height="40"
 									alt={
-										experienceItem.type === 'work'
-											? 'office building'
-											: 'graduate cap'
+										experienceItem.type === "work"
+											? "office building"
+											: "graduate cap"
 									}
-									src={experienceItem.type === 'work' ? OfficeImg : GraduateCap}
+									src={experienceItem.type === "work" ? OfficeImg : GraduateCap}
 								/>
 							</motion.div>
 							<div className="flex-1 pt-2">
 								<span
 									className={`mx-auto flex h-full w-[3px] rounded-t-full opacity-60 ${
-										isLast ? 'bg-gradient-to-b from-secondary' : 'bg-secondary'
+										isLast ? "from-secondary bg-linear-to-b" : "bg-secondary"
 									}`}
 								/>
 							</div>
@@ -110,12 +112,12 @@ const ExperienceItem = ({
 			initial="hidden"
 			whileInView="visible"
 			viewport={{ amount: 0.2, once: true }}
-			transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
+			transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
 			variants={variants}
 			className={`my-5 flex max-w-fit ${
 				isOdd
-					? 'ml-3 justify-start text-left md:ml-6'
-					: 'ml-auto mr-3 justify-end text-right md:mr-6'
+					? "ml-3 justify-start text-left md:ml-6"
+					: "mr-3 ml-auto justify-end text-right md:mr-6"
 			}`}
 		>
 			<div className="mb-2 max-w-[300px]">
@@ -130,13 +132,13 @@ const ExperienceItem = ({
 						alt={getAltTextFromFileName(item.logo)}
 						src={item.logo}
 						className={`mb-2 w-[100px] object-contain hover:cursor-pointer ${
-							isOdd ? 'object-left' : 'ml-auto object-right'
+							isOdd ? "object-left" : "ml-auto object-right"
 						}`}
 					/>
 				</ExternalRedirect>
 				<div
-					className="mb-0.5 break-words font-semibold"
-					style={{ lineHeight: '1.3rem' }}
+					className="mb-0.5 font-semibold break-words"
+					style={{ lineHeight: "1.3rem" }}
 				>
 					{item.title}
 				</div>
@@ -152,19 +154,19 @@ const ExperienceItem = ({
 };
 
 function formatDate(date: Date, showDay = false) {
-	return showDay ? format(date, 'MMM dd, yyyy') : format(date, 'MMM, yyyy');
+	return showDay ? format(date, "MMM dd, yyyy") : format(date, "MMM, yyyy");
 }
 
-function formatTimePeriod(startDate: Date, endDate: Date | 'today') {
-	const newEndDate = endDate === 'today' ? new Date() : endDate;
+function formatTimePeriod(startDate: Date, endDate: Date | "today") {
+	const newEndDate = endDate === "today" ? new Date() : endDate;
 
 	const distanceInYears = (differenceInMonths(newEndDate, startDate) + 1) / 12;
 	const distance =
 		distanceInYears > 1
-			? `${distanceInYears.toFixed(1).replace('.0', '')}y`
+			? `${distanceInYears.toFixed(1).replace(".0", "")}y`
 			: `${differenceInMonths(newEndDate, startDate)}m`;
 
-	return endDate === 'today'
+	return endDate === "today"
 		? `${formatDate(startDate)} - Present  (${distance})`
 		: `${formatDate(startDate)} - ${formatDate(endDate)}  (${distance})`;
 }

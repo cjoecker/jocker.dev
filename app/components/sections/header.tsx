@@ -1,4 +1,4 @@
-import type { MotionValue } from 'framer-motion';
+import { MotionValue } from "framer-motion";
 import {
 	animate,
 	motion,
@@ -6,13 +6,15 @@ import {
 	useMotionValue,
 	useScroll,
 	useTransform,
-} from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
-import { useMouse } from 'react-use';
+} from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { useMouse } from "react-use";
 
-import MeshBlue from '../../images/mesh-blue.svg';
-import MeshPurple from '../../images/mesh-purple.svg';
-import MeshTurquoise from '../../images/mesh-turquoise.svg';
+import MeshBlue from "../../images/mesh-blue.svg";
+import MeshPurple from "../../images/mesh-purple.svg";
+import MeshTurquoise from "../../images/mesh-turquoise.svg";
+
+import { useEffectUnsafe } from "~/hooks/unsafe-hookst";
 
 export const Header = () => {
 	const ref = useRef<HTMLDivElement>(null);
@@ -23,13 +25,13 @@ export const Header = () => {
 	const buttonY = useParallax(scrollY, -1);
 
 	// there is a bug in chromium that is not showing -webkit-fill-available correctly
-	const { elX, elY } = useMouse(ref);
+	const { elX, elY } = useMouse(ref as never);
 	const mouseX = useMotionValue(0);
 	const mouseY = useMotionValue(0);
 	const [isIphone, setIsIphone] = useState(false);
 
 	useEffect(() => {
-		setIsIphone(window.navigator.userAgent.includes('iPhone'));
+		setIsIphone(globalThis.navigator.userAgent.includes("iPhone"));
 	}, []);
 
 	const onDiscoverMoreClick = (e: React.MouseEvent) => {
@@ -42,7 +44,7 @@ export const Header = () => {
 				onUpdate(value) {
 					window.scrollTo(0, value);
 				},
-				ease: 'easeInOut',
+				ease: "easeInOut",
 			});
 		}
 	};
@@ -53,38 +55,40 @@ export const Header = () => {
 				mouseX.set(elX / 8);
 				mouseY.set(elY / 8);
 			}}
-			className={`relative flex w-full items-center  ${
-				isIphone ? 'h-ios-screen' : 'h-screen'
+			className={`relative flex w-full items-center ${
+				isIphone ? "h-ios-screen" : "h-screen"
 			}`}
 			ref={ref}
 		>
 			<Background mouseX={mouseX} mouseY={mouseY} />
 			<div
-				className={`z-10 mb-8 ml-6 mt-4 text-left sm:mb-20 sm:ml-24 sm:mt-[20vh]`}
+				className={
+					"z-10 mt-4 mb-8 ml-6 text-left sm:mt-[20vh] sm:mb-20 sm:ml-24"
+				}
 			>
 				<motion.h1
 					style={{ y: titleY }}
 					className="mx-2 mb-8 text-2xl font-bold sm:text-3xl"
 				>
-					Hi, I'm Christian Jöcker,
+					Hi, I&#39;m Christian Jöcker,
 					<br />
 					<AnimatedWord />
 				</motion.h1>
 				<motion.p
 					style={{ y: subtitleY }}
-					className="mb-16 mr-4 text-md font-normal sm:mb-28 sm:text-lg md:mr-[25vw]"
+					className="text-md mr-4 mb-16 font-normal sm:mb-28 sm:text-lg md:mr-[25vw]"
 				>
 					I work as a freelance developer and designer, and am passionate about
 					creating great experiences with beautiful web applications!
 				</motion.p>
 				<motion.button
-					style={{ y: buttonY, boxShadow: '0px 0px 90px -15px #00DFD8' }}
+					style={{ y: buttonY, boxShadow: "0px 0px 90px -15px #00DFD8" }}
 					whileTap={{ scale: 1 }}
 					whileHover={{ scale: 1.1 }}
 					onClick={onDiscoverMoreClick}
-					className="select-none rounded-md bg-gradient-to-br from-turquoise to-blue text-lg font-semibold text-secondary hover:cursor-pointer"
+					className="from-turquoise to-blue text-secondary rounded-md bg-linear-to-br text-lg font-semibold select-none hover:cursor-pointer"
 				>
-					<div className="pointer-events-none m-[1px] rounded-md bg-neutral-dark/80 px-6 py-4">
+					<div className="bg-neutral-dark/80 pointer-events-none m-[1px] rounded-md px-6 py-4">
 						Discover More
 					</div>
 				</motion.button>
@@ -92,151 +96,143 @@ export const Header = () => {
 		</div>
 	);
 };
-export type Props = {
+export interface Props {
 	mouseX: MotionValue<number>;
 	mouseY: MotionValue<number>;
-};
+}
 export const Background = ({ mouseX, mouseY }: Props) => {
-	const blueMeshX = useTransform(mouseX, value => value * -0.7);
-	const blueMeshY = useTransform(mouseY, value => value * -0.5);
+	const blueMeshX = useTransform(mouseX, (value) => {
+		return value * -0.7;
+	});
+	const blueMeshY = useTransform(mouseY, (value) => {
+		return value * -0.5;
+	});
 	return (
 		<>
 			<motion.img
 				alt=""
 				aria-hidden="true"
 				style={{ x: mouseX, y: mouseY }}
-				className="absolute right-[-40vw] top-[-30vh] h-[85vh] w-[130vw]"
+				className="absolute top-[-30vh] right-[-40vw] h-[85vh] w-[130vw]"
 				src={MeshPurple}
 			/>
 			<motion.img
 				alt=""
 				aria-hidden="true"
 				style={{ x: blueMeshX, y: blueMeshY }}
-				className="absolute right-[-45vw] top-[-5vh] h-[120vh] w-[120vw]"
+				className="absolute top-[-5vh] right-[-45vw] h-[120vh] w-[120vw]"
 				src={MeshTurquoise}
 			/>
 			<motion.img
 				alt=""
 				aria-hidden="true"
-				className="absolute left-[-35vw] top-[-10vh] h-[100vh] w-[100vw]"
+				className="absolute top-[-10vh] left-[-35vw] h-[100vh] w-[100vw]"
 				src={MeshBlue}
 			/>
 		</>
 	);
 };
+
 function useParallax(scrollY: MotionValue<number>, multiplicator: number) {
-	return useTransform(scrollY, value => value * multiplicator);
+	return useTransform(scrollY, (value) => {
+		return value * multiplicator;
+	});
 }
 
-const ANIMATED_WORDS = ['Full-Stack Developer.', 'UX/UI Designer.'];
-const STAGGER_DURATION = 0.02;
-const TIMES = {
-	start: 2000,
-	reading: 3000,
-	firstWordAnimation: ANIMATED_WORDS[0].length * STAGGER_DURATION * 1000 + 300,
-	secondWordAnimation: ANIMATED_WORDS[1].length * STAGGER_DURATION * 1000 + 300,
-};
+const ANIMATED_WORDS = ["Full-Stack Developer.", "UX/UI Designer."];
+const STAGGER_DURATION = 0.03;
+
+const READING_TIME = 2500;
+const HIDE_TIME_OFFSET = 200;
+const SPACE_CHAR = "\u00A0";
+
 function AnimatedWord() {
-	const [animatedText, setAnimatedText] = useState(ANIMATED_WORDS[0]);
-	const [isAnimatedTextVisible, setIsAnimatedTextVisible] = useState(true);
-	const [startAnimation, setStartAnimation] = useState(false);
+	const [wordIndex, setWordIndex] = useState(0);
+	const animatedText = ANIMATED_WORDS[wordIndex];
+	const textLength = animatedText.length;
+	const ariaLabel = ANIMATED_WORDS.join(" and ").replaceAll(".", "");
 	const controls = useAnimation();
+	const [animationStarted, setAnimationStarted] = useState(false);
 
-	useEffect(() => {
-		const animateText = () => {
-			setTimeout(() => {
-				// delete the first word
-				setStartAnimation(true);
-				setIsAnimatedTextVisible(false);
-
-				setTimeout(() => {
-					// add the second word
-					setAnimatedText(ANIMATED_WORDS[1]);
-					setIsAnimatedTextVisible(true);
-
-					setTimeout(() => {
-						// delete the second word
-						setIsAnimatedTextVisible(false);
-
-						setTimeout(() => {
-							// add the first word
-							setAnimatedText(ANIMATED_WORDS[0]);
-							setIsAnimatedTextVisible(true);
-						}, TIMES.secondWordAnimation);
-					}, TIMES.reading);
-				}, TIMES.firstWordAnimation);
-			}, TIMES.start);
+	useEffectUnsafe(() => {
+		const changeText = () => {
+			setWordIndex((prevIndex) => {
+				return (prevIndex + 1) % ANIMATED_WORDS.length;
+			});
 		};
-
-		animateText();
-		const interval = setInterval(
-			() => {
-				animateText();
-			},
-			TIMES.firstWordAnimation +
-				TIMES.reading +
-				TIMES.secondWordAnimation +
-				TIMES.reading
-		);
-
-		return () => {
-			clearInterval(interval);
+		const hideText = () => {
+			void controls.start("hidden");
+			setTimeout(changeText, textLength * STAGGER_DURATION * 1000);
+			setTimeout(
+				showText,
+				textLength * STAGGER_DURATION * 1000 + HIDE_TIME_OFFSET,
+			);
 		};
+		const showText = () => {
+			if (!animationStarted) {
+				setAnimationStarted(true);
+			}
+			void controls.start("visible");
+			setTimeout(hideText, READING_TIME);
+		};
+		showText();
 	}, []);
 
-	useEffect(() => {
-		if (isAnimatedTextVisible) {
-			controls.start('visible');
-		} else {
-			controls.start('hidden');
-		}
-	}, [controls, isAnimatedTextVisible]);
-
-	const wordAnimation = {
-		hidden: {
-			opacity: 0,
-		},
-		visible: {
-			opacity: 1,
-		},
-	};
-
-	const words = animatedText.split(' ');
+	const words = animatedText.split(" ");
 	return (
-		<motion.span
-			className="flex flex-wrap"
-			transition={{
-				staggerChildren: STAGGER_DURATION,
-				staggerDirection: isAnimatedTextVisible ? 1 : -1,
-			}}
-			animate={controls}
-			initial={startAnimation ? 'hidden' : 'visible'}
-		>
-			{'a\u00A0'}
+		<span className="flex flex-wrap" aria-label={ariaLabel}>
+			{`a${SPACE_CHAR}`}
+			{/* Words split for wrapping them on narrow screens */}
 			{words.map((word, wordIndex) => {
+				const wordWithSpaces =
+					wordIndex + 1 === words.length ? word : word + SPACE_CHAR;
+				// eslint-disable-next-line @typescript-eslint/no-misused-spread
+				const letters = [...wordWithSpaces];
+				const prevWordsLength = words
+					.slice(0, wordIndex)
+					.reduce((acc, curr) => {
+						return acc + curr.length;
+					}, 0);
+
 				return (
-					<motion.span
-						aria-label={word}
-						role="text"
+					<span
+						aria-hidden={true}
 						className="flex flex-nowrap"
-						key={wordIndex + word + animatedText}
+						key={`${wordIndex}${word}${animatedText}`}
 					>
-						{(wordIndex + 1 === words.length ? word : word + '\u00A0')
-							.split('')
-							.map((letter, letterIndex) => {
-								return (
-									<motion.span
-										aria-hidden="true"
-										key={letterIndex + letter + animatedText}
-										variants={wordAnimation}
-									>
-										{letter}
-									</motion.span>
-								);
-							})}
-					</motion.span>
+						{letters.map((letter, index) => {
+							return (
+								<motion.div
+									initial={{
+										opacity: animationStarted ? 0 : 1,
+									}}
+									animate={controls}
+									variants={{
+										hidden: {
+											opacity: 0,
+											transition: {
+												// delay instead of stagger to allow word wrapping on narrow screens
+												delay:
+													(textLength - prevWordsLength - index - 1) *
+													STAGGER_DURATION,
+											},
+										},
+										visible: {
+											opacity: 1,
+											transition: {
+												delay: (prevWordsLength + index) * STAGGER_DURATION,
+											},
+										},
+									}}
+									key={`${index}${letter}${word}`}
+								>
+									{letter}
+								</motion.div>
+							);
+						})}
+					</span>
 				);
 			})}
-		</motion.span>
+		</span>
 	);
 }
