@@ -17,7 +17,7 @@ export async function sendMail(name: string, email: string, message: string) {
 	});
 
 	const messageData = {
-		from: "\"jocker.dev\" <brad@sandboxe23eff7090a244428e43adca2240d88a.mailgun.org>",
+		from: '"jocker.dev" <brad@sandboxe23eff7090a244428e43adca2240d88a.mailgun.org>',
 		to: "c.jocker@hotmail.com",
 		subject: "New Contact Message",
 		text: enrichedMessage,
@@ -26,7 +26,7 @@ export async function sendMail(name: string, email: string, message: string) {
 	try {
 		const res = await client.messages.create(
 			process.env.MAILGUN_DOMAIN,
-			messageData
+			messageData,
 		);
 		console.info(res);
 		console.info("new message sent:", enrichedMessage);

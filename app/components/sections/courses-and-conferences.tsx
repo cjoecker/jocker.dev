@@ -13,7 +13,9 @@ import { Section } from "../shared/section";
 
 export const CoursesAndConferences = () => {
 	const sortedCoursesAndConferences = [...Courses, ...Conferences].sort(
-		(a, b) => {return b.date.getTime() - a.date.getTime()}
+		(a, b) => {
+			return b.date.getTime() - a.date.getTime();
+		},
 	);
 	return (
 		<Section title="Last Attended Courses and Conferences">
@@ -22,7 +24,7 @@ export const CoursesAndConferences = () => {
 					<img
 						alt=""
 						aria-hidden="true"
-						className=" invisible absolute left-1/2 top-1/2 -z-10 h-[250%] min-h-full w-[250%] -translate-x-1/2 -translate-y-1/2 sm:visible"
+						className="invisible absolute top-1/2 left-1/2 -z-10 h-[250%] min-h-full w-[250%] -translate-x-1/2 -translate-y-1/2 sm:visible"
 						src={MeshPurpleTurquoise}
 					/>
 					<motion.div
@@ -34,7 +36,7 @@ export const CoursesAndConferences = () => {
 						}}
 						className="grid grid-cols-2 gap-4 text-left md:grid-cols-3 lg:grid-cols-4"
 					>
-						{sortedCoursesAndConferences.map(course => {
+						{sortedCoursesAndConferences.map((course) => {
 							return (
 								<motion.div
 									key={course.name}
@@ -64,7 +66,7 @@ const CourseItem = ({ course }: { course: CourseType }) => {
 		<>
 			<img
 				loading="lazy"
-				className="mb-auto mr-2"
+				className="mr-2 mb-auto"
 				alt="course"
 				src={GraduateCapImg}
 				width={20}
@@ -85,7 +87,7 @@ const ConferenceItem = ({ conference }: { conference: ConferenceType }) => {
 		<>
 			<img
 				loading="lazy"
-				className="mb-auto mr-2"
+				className="mr-2 mb-auto"
 				alt="conference"
 				src={ConferenceImg}
 				width={20}

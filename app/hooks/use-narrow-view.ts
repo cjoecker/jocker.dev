@@ -5,14 +5,16 @@ export function useNarrowView() {
 	const [width, setWidth] = useState(1000);
 	useEffect(() => {
 		function handleResize() {
-			if (globalThis.window !== undefined) {
-				setWidth(window.innerWidth);
-			}
+			setWidth(window.innerWidth);
 		}
 		handleResize();
 		window.addEventListener("resize", handleResize);
-		return () => { window.removeEventListener("resize", handleResize); };
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
 	}, []);
-	const isNarrowView = useMemo(() => {return width <= NARROW_WIDTH}, [width]);
+	const isNarrowView = useMemo(() => {
+		return width <= NARROW_WIDTH;
+	}, [width]);
 	return { isNarrowView };
 }

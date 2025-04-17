@@ -49,10 +49,10 @@ export const ContactButton = ({
 				style={{ boxShadow: "0px 0px 40px -8px #00DFD866" }}
 				aria-label={contactInformation.text}
 				className={
-					"flex h-20 w-20 select-none rounded-full bg-linear-to-br from-turquoise to-blue p-0.5 hover:cursor-pointer"
+					"from-turquoise to-blue flex h-20 w-20 rounded-full bg-linear-to-br p-0.5 select-none hover:cursor-pointer"
 				}
 			>
-				<div className="pointer-events-none flex h-full w-full rounded-full bg-neutral-dark/80">
+				<div className="bg-neutral-dark/80 pointer-events-none flex h-full w-full rounded-full">
 					<div className="mx-4 h-full w-full">
 						<img
 							loading="lazy"
@@ -60,7 +60,7 @@ export const ContactButton = ({
 							height="38.5"
 							alt={contactInformation.alt}
 							src={contactInformation.image}
-							className="pointer-events-none h-full w-full select-none object-contain"
+							className="pointer-events-none h-full w-full object-contain select-none"
 						/>
 					</div>
 				</div>
@@ -79,7 +79,11 @@ export const ContactButton = ({
 			>
 				<motion.div whileTap={{ scale: 1 }} whileHover={{ scale: 1.2 }}>
 					{isContactFormButton ? (
-						<button onClick={() => { setIsContactFormVisible(true); }}>
+						<button
+							onClick={() => {
+								setIsContactFormVisible(true);
+							}}
+						>
 							<ButtonContent />
 						</button>
 					) : (
@@ -91,7 +95,11 @@ export const ContactButton = ({
 			</motion.div>
 			<AnimatePresence>
 				{isContactFormButton && isContactFormVisible && (
-					<ContactForm onClose={() => { setIsContactFormVisible(false); }} />
+					<ContactForm
+						onClose={() => {
+							setIsContactFormVisible(false);
+						}}
+					/>
 				)}
 			</AnimatePresence>
 		</>
@@ -122,14 +130,14 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 						isAnimatingError.current = false;
 						setError(newError);
 					},
-					ERROR_ANIMATION_DURATION * 1000 * 2
+					ERROR_ANIMATION_DURATION * 1000 * 2,
 				);
 			}
 		};
 
 		if (name === "" || email === "" || message === "") {
 			animateErrorChange("Please fill out all fields");
-		} else if ((/^\S+@\S+\.\S+$/.exec(email)) === null) {
+		} else if (/^\S+@\S+\.\S+$/.exec(email) === null) {
 			animateErrorChange("Please enter a valid email");
 		} else {
 			setError("");
@@ -152,12 +160,12 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 				animate={{ opacity: 1 }}
 				exit={{ opacity: 0 }}
 				role="presentation"
-				className="pointer-events-none fixed left-0 top-0 z-40 h-screen w-screen overscroll-contain bg-neutral-dark/80"
+				className="bg-neutral-dark/80 pointer-events-none fixed top-0 left-0 z-40 h-screen w-screen overscroll-contain"
 			></motion.div>
 			<div
 				aria-hidden="true"
 				onClick={onClose}
-				className="fixed left-0 top-0 z-50 flex h-screen w-screen overscroll-contain"
+				className="fixed top-0 left-0 z-50 flex h-screen w-screen overscroll-contain"
 			>
 				<motion.div
 					initial={{ scale: 0, opacity: 0 }}
@@ -165,15 +173,17 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 					exit={{ scale: 0, opacity: 0 }}
 					transition={{ duration: 0.2 }}
 					tabIndex={-1}
-					onClick={event => { event.stopPropagation(); }}
-					className="shadow-sm-purple relative mx-4 my-auto w-full max-w-7xl rounded-2xl border-2 border-solid border-secondary/10 bg-linear-to-br from-neutral to-neutral-dark p-6 sm:m-auto sm:w-fit"
+					onClick={(event) => {
+						event.stopPropagation();
+					}}
+					className="shadow-sm-purple border-secondary/10 from-neutral to-neutral-dark relative mx-4 my-auto w-full max-w-7xl rounded-2xl border-2 border-solid bg-linear-to-br p-6 sm:m-auto sm:w-fit"
 				>
 					<motion.button
 						whileTap={{ scale: 1 }}
 						whileHover={{ scale: 1.1 }}
 						onClick={onClose}
 						aria-label="close"
-						className="absolute right-1 top-1 p-3"
+						className="absolute top-1 right-1 p-3"
 					>
 						<img src={CloseIcon} alt="" width={15} height={15} />
 					</motion.button>
@@ -187,18 +197,24 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 							label="Full Name"
 							type="text"
 							name="name"
-							onChange={e => { setName(e.target.value); }}
+							onChange={(e) => {
+								setName(e.target.value);
+							}}
 						/>
 						<Textbox
 							label="Email"
 							type="email"
 							name="email"
-							onChange={e => { setEmail(e.target.value); }}
+							onChange={(e) => {
+								setEmail(e.target.value);
+							}}
 						/>
 						<label className="flex w-full flex-col sm:w-[400px]">
 							Message
 							<textarea
-								onChange={e => { setMessage(e.target.value); }}
+								onChange={(e) => {
+									setMessage(e.target.value);
+								}}
 								className="mt-2 h-36 resize-none rounded-lg bg-[#3b3b3b] p-2 leading-normal focus:bg-[#3b3b3b] focus:filter-none"
 								name="message"
 							></textarea>
@@ -228,9 +244,9 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 									style={{ boxShadow: "0px 0px 30px -10px #00DFD866" }}
 									whileTap={{ scale: 1 }}
 									whileHover={{ scale: 1.05 }}
-									className="ml-auto select-none rounded-md bg-linear-to-br from-turquoise to-blue font-semibold text-secondary hover:cursor-pointer"
+									className="from-turquoise to-blue text-secondary ml-auto rounded-md bg-linear-to-br font-semibold select-none hover:cursor-pointer"
 								>
-									<div className="pointer-events-none m-[1px] flex rounded-md bg-neutral-dark/80 px-4 py-3">
+									<div className="bg-neutral-dark/80 pointer-events-none m-[1px] flex rounded-md px-4 py-3">
 										Send Message
 									</div>
 								</motion.button>
@@ -254,12 +270,12 @@ export const Textbox = ({ label, type, name, onChange }: Props) => {
 		<label className="flex flex-col">
 			{label}
 			<input
-				onKeyDown={e => {
+				onKeyDown={(e) => {
 					// eslint-disable-next-line @typescript-eslint/no-unused-expressions
 					e.key === "Enter" && e.preventDefault();
 				}}
 				onChange={onChange}
-				className="mt-2 max-w-[300px] rounded-lg bg-[#3b3b3b] p-2 focus:bg-[#3b3b3b] focus:text-secondary focus:filter-none"
+				className="focus:text-secondary mt-2 max-w-[300px] rounded-lg bg-[#3b3b3b] p-2 focus:bg-[#3b3b3b] focus:filter-none"
 				type={type}
 				name={name}
 			/>
@@ -274,15 +290,15 @@ export const ContactFormAlert = ({ type }: ContactFormAlertProps) => {
 	const ErrorMessage = () => {
 		return type === "success" ? (
 			<>
-				<span className="font-bold">Message Sent!</span>&ensp;I&#39;ll get back to
-				you within <span className="font-bold">one day</span>.
+				<span className="font-bold">Message Sent!</span>&ensp;I&#39;ll get back
+				to you within <span className="font-bold">one day</span>.
 			</>
 		) : (
 			<>
 				Server error!&ensp;Your message could not be sent. Please send me an
 				email to&nbsp;
 				<a
-					className="font-bold text-primary underline"
+					className="text-primary font-bold underline"
 					href="c.jocker@hotmail.com"
 				>
 					c.jocker@hotmail.com
@@ -298,7 +314,7 @@ export const ContactFormAlert = ({ type }: ContactFormAlertProps) => {
 			exit={{ y: 100 }}
 			transition={{ duration: 0.3, ease: "easeInOut" }}
 		>
-			<div className="shadow-sm-turquoise mx-auto rounded-xl border-2 border-solid border-secondary/10 bg-neutral-dark p-6">
+			<div className="shadow-sm-turquoise border-secondary/10 bg-neutral-dark mx-auto rounded-xl border-2 border-solid p-6">
 				<ErrorMessage />
 			</div>
 		</motion.div>

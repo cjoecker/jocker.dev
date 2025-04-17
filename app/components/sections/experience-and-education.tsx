@@ -24,7 +24,9 @@ export const ExperienceAndEducation = () => {
 
 const WorkExperience = () => {
 	const workAndEducation = [...WorkExperienceData, ...education].sort(
-		(a, b) => {return a.startDate.getTime() - b.startDate.getTime()}
+		(a, b) => {
+			return a.startDate.getTime() - b.startDate.getTime();
+		},
 	);
 	return (
 		<div className="flex w-full flex-col">
@@ -44,7 +46,7 @@ const WorkExperience = () => {
 							<div className="flex-1 pb-2">
 								<span
 									className={`mx-auto flex h-full w-[3px] rounded-b-full opacity-60 ${
-										isFirst ? "bg-linear-to-t from-secondary" : "bg-secondary"
+										isFirst ? "from-secondary bg-linear-to-t" : "bg-secondary"
 									}`}
 								/>
 							</div>
@@ -60,7 +62,7 @@ const WorkExperience = () => {
 									experienceItem.type === "work"
 										? "shadow-md-turquoise"
 										: "shadow-md-purple"
-								} flex rounded-full border-2 border-solid border-secondary/10 bg-linear-to-br from-neutral to-neutral-dark bg-contain p-3`}
+								} border-secondary/10 from-neutral to-neutral-dark flex rounded-full border-2 border-solid bg-linear-to-br bg-contain p-3`}
 							>
 								<img
 									loading="lazy"
@@ -77,7 +79,7 @@ const WorkExperience = () => {
 							<div className="flex-1 pt-2">
 								<span
 									className={`mx-auto flex h-full w-[3px] rounded-t-full opacity-60 ${
-										isLast ? "bg-linear-to-b from-secondary" : "bg-secondary"
+										isLast ? "from-secondary bg-linear-to-b" : "bg-secondary"
 									}`}
 								/>
 							</div>
@@ -115,7 +117,7 @@ const ExperienceItem = ({
 			className={`my-5 flex max-w-fit ${
 				isOdd
 					? "ml-3 justify-start text-left md:ml-6"
-					: "ml-auto mr-3 justify-end text-right md:mr-6"
+					: "mr-3 ml-auto justify-end text-right md:mr-6"
 			}`}
 		>
 			<div className="mb-2 max-w-[300px]">
@@ -135,7 +137,7 @@ const ExperienceItem = ({
 					/>
 				</ExternalRedirect>
 				<div
-					className="mb-0.5 break-words font-semibold"
+					className="mb-0.5 font-semibold break-words"
 					style={{ lineHeight: "1.3rem" }}
 				>
 					{item.title}

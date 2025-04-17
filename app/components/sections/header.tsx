@@ -55,14 +55,16 @@ export const Header = () => {
 				mouseX.set(elX / 8);
 				mouseY.set(elY / 8);
 			}}
-			className={`relative flex w-full items-center  ${
+			className={`relative flex w-full items-center ${
 				isIphone ? "h-ios-screen" : "h-screen"
 			}`}
 			ref={ref}
 		>
 			<Background mouseX={mouseX} mouseY={mouseY} />
 			<div
-				className={"z-10 mb-8 ml-6 mt-4 text-left sm:mb-20 sm:ml-24 sm:mt-[20vh]"}
+				className={
+					"z-10 mt-4 mb-8 ml-6 text-left sm:mt-[20vh] sm:mb-20 sm:ml-24"
+				}
 			>
 				<motion.h1
 					style={{ y: titleY }}
@@ -74,7 +76,7 @@ export const Header = () => {
 				</motion.h1>
 				<motion.p
 					style={{ y: subtitleY }}
-					className="mb-16 mr-4 text-md font-normal sm:mb-28 sm:text-lg md:mr-[25vw]"
+					className="text-md mr-4 mb-16 font-normal sm:mb-28 sm:text-lg md:mr-[25vw]"
 				>
 					I work as a freelance developer and designer, and am passionate about
 					creating great experiences with beautiful web applications!
@@ -84,9 +86,9 @@ export const Header = () => {
 					whileTap={{ scale: 1 }}
 					whileHover={{ scale: 1.1 }}
 					onClick={onDiscoverMoreClick}
-					className="select-none rounded-md bg-linear-to-br from-turquoise to-blue text-lg font-semibold text-secondary hover:cursor-pointer"
+					className="from-turquoise to-blue text-secondary rounded-md bg-linear-to-br text-lg font-semibold select-none hover:cursor-pointer"
 				>
-					<div className="pointer-events-none m-[1px] rounded-md bg-neutral-dark/80 px-6 py-4">
+					<div className="bg-neutral-dark/80 pointer-events-none m-[1px] rounded-md px-6 py-4">
 						Discover More
 					</div>
 				</motion.button>
@@ -99,28 +101,32 @@ export interface Props {
 	mouseY: MotionValue<number>;
 }
 export const Background = ({ mouseX, mouseY }: Props) => {
-	const blueMeshX = useTransform(mouseX, value => {return value * -0.7});
-	const blueMeshY = useTransform(mouseY, value => {return value * -0.5});
+	const blueMeshX = useTransform(mouseX, (value) => {
+		return value * -0.7;
+	});
+	const blueMeshY = useTransform(mouseY, (value) => {
+		return value * -0.5;
+	});
 	return (
 		<>
 			<motion.img
 				alt=""
 				aria-hidden="true"
 				style={{ x: mouseX, y: mouseY }}
-				className="absolute right-[-40vw] top-[-30vh] h-[85vh] w-[130vw]"
+				className="absolute top-[-30vh] right-[-40vw] h-[85vh] w-[130vw]"
 				src={MeshPurple}
 			/>
 			<motion.img
 				alt=""
 				aria-hidden="true"
 				style={{ x: blueMeshX, y: blueMeshY }}
-				className="absolute right-[-45vw] top-[-5vh] h-[120vh] w-[120vw]"
+				className="absolute top-[-5vh] right-[-45vw] h-[120vh] w-[120vw]"
 				src={MeshTurquoise}
 			/>
 			<motion.img
 				alt=""
 				aria-hidden="true"
-				className="absolute left-[-35vw] top-[-10vh] h-[100vh] w-[100vw]"
+				className="absolute top-[-10vh] left-[-35vw] h-[100vh] w-[100vw]"
 				src={MeshBlue}
 			/>
 		</>
@@ -128,7 +134,9 @@ export const Background = ({ mouseX, mouseY }: Props) => {
 };
 
 function useParallax(scrollY: MotionValue<number>, multiplicator: number) {
-	return useTransform(scrollY, value => {return value * multiplicator});
+	return useTransform(scrollY, (value) => {
+		return value * multiplicator;
+	});
 }
 
 const ANIMATED_WORDS = ["Full-Stack Developer.", "UX/UI Designer."];
@@ -148,18 +156,20 @@ function AnimatedWord() {
 
 	useEffectUnsafe(() => {
 		const changeText = () => {
-			setWordIndex(prevIndex => {return (prevIndex + 1) % ANIMATED_WORDS.length});
+			setWordIndex((prevIndex) => {
+				return (prevIndex + 1) % ANIMATED_WORDS.length;
+			});
 		};
 		const hideText = () => {
 			void controls.start("hidden");
 			setTimeout(changeText, textLength * STAGGER_DURATION * 1000);
 			setTimeout(
 				showText,
-				textLength * STAGGER_DURATION * 1000 + HIDE_TIME_OFFSET
+				textLength * STAGGER_DURATION * 1000 + HIDE_TIME_OFFSET,
 			);
 		};
 		const showText = () => {
-			if(!animationStarted) {
+			if (!animationStarted) {
 				setAnimationStarted(true);
 			}
 			void controls.start("visible");
@@ -170,57 +180,59 @@ function AnimatedWord() {
 
 	const words = animatedText.split(" ");
 	return (
+		<span className="flex flex-wrap" aria-label={ariaLabel}>
+			{`a${SPACE_CHAR}`}
+			{/* Words split for wrapping them on narrow screens */}
+			{words.map((word, wordIndex) => {
+				const wordWithSpaces =
+					wordIndex + 1 === words.length ? word : word + SPACE_CHAR;
+				// eslint-disable-next-line @typescript-eslint/no-misused-spread
+				const letters = [...wordWithSpaces];
+				const prevWordsLength = words
+					.slice(0, wordIndex)
+					.reduce((acc, curr) => {
+						return acc + curr.length;
+					}, 0);
 
-			<span className="flex flex-wrap" role="text" aria-label={ariaLabel}>
-				{`a${SPACE_CHAR}`}
-				{/* Words split for wrapping them on narrow screens */}
-				{words.map((word, wordIndex) => {
-					const wordWithSpaces =
-						wordIndex + 1 === words.length ? word : word + SPACE_CHAR;
-					const letters = [...wordWithSpaces];
-					const prevWordsLength = words
-						.slice(0, wordIndex)
-						.reduce((acc, curr) => {return acc + curr.length}, 0);
-
-					return (
-						<span
-							aria-hidden={true}
-							className="flex flex-nowrap"
-							key={wordIndex + word + animatedText}
-						>
-								{letters.map((letter, index) => {
-									return (
-										<motion.div
-											initial={{
-												opacity: animationStarted ? 0 : 1,
-											}}
-											animate={controls}
-											variants={{
-												hidden: {
-													opacity: 0,
-													transition: {
-														// delay instead of stagger to allow word wrapping on narrow screens
-														delay:
-															(textLength - prevWordsLength - index - 1) *
-															STAGGER_DURATION,
-													},
-												},
-												visible: {
-													opacity: 1,
-													transition: {
-														delay: (prevWordsLength + index) * STAGGER_DURATION,
-													},
-												},
-											}}
-											key={index + letter + word}
-										>
-											{letter}
-										</motion.div>
-									);
-								})}
-						</span>
-					);
-				})}
-			</span>
+				return (
+					<span
+						aria-hidden={true}
+						className="flex flex-nowrap"
+						key={`${wordIndex}${word}${animatedText}`}
+					>
+						{letters.map((letter, index) => {
+							return (
+								<motion.div
+									initial={{
+										opacity: animationStarted ? 0 : 1,
+									}}
+									animate={controls}
+									variants={{
+										hidden: {
+											opacity: 0,
+											transition: {
+												// delay instead of stagger to allow word wrapping on narrow screens
+												delay:
+													(textLength - prevWordsLength - index - 1) *
+													STAGGER_DURATION,
+											},
+										},
+										visible: {
+											opacity: 1,
+											transition: {
+												delay: (prevWordsLength + index) * STAGGER_DURATION,
+											},
+										},
+									}}
+									key={`${index}${letter}${word}`}
+								>
+									{letter}
+								</motion.div>
+							);
+						})}
+					</span>
+				);
+			})}
+		</span>
 	);
 }

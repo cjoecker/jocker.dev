@@ -14,7 +14,7 @@ export const CoreValues = () => {
 					<img
 						alt=""
 						aria-hidden="true"
-						className=" absolute left-1/2 top-1/2 -z-10 h-[300%] w-[300%] min-w-[1000px] -translate-x-1/2 -translate-y-1/2 sm:min-w-full"
+						className="absolute top-1/2 left-1/2 -z-10 h-[300%] w-[300%] min-w-[1000px] -translate-x-1/2 -translate-y-1/2 sm:min-w-full"
 						src={MeshPurpleTurquoise}
 					/>
 					<motion.div
@@ -26,7 +26,7 @@ export const CoreValues = () => {
 						}}
 						className="mx-auto grid grid-cols-1 gap-x-16 gap-y-12 sm:grid-cols-2"
 					>
-						{CoreValuesData.map(value => {
+						{CoreValuesData.map((value) => {
 							return <CoreValue key={value.coreValue} coreValue={value} />;
 						})}
 					</motion.div>

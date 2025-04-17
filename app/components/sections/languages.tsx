@@ -9,7 +9,7 @@ export const Languages = () => {
 	return (
 		<Section title="Languages" className="flex flex-col">
 			<div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-32 gap-y-20 md:grid-cols-4">
-				{LanguagesData.map(language => {
+				{LanguagesData.map((language) => {
 					return (
 						<div className="relative col-span-1 m-auto" key={language.language}>
 							<img
@@ -17,7 +17,7 @@ export const Languages = () => {
 								aria-hidden="true"
 								height={800}
 								width={600}
-								className="absolute left-1/2 top-1/2 -z-10 min-h-[350px]  min-w-[350px] -translate-x-1/2 -translate-y-1/2 sm:h-[200%] sm:w-[300%]"
+								className="absolute top-1/2 left-1/2 -z-10 min-h-[350px] min-w-[350px] -translate-x-1/2 -translate-y-1/2 sm:h-[200%] sm:w-[300%]"
 								src={MeshPurple}
 							/>
 							<motion.img

@@ -33,7 +33,7 @@ export const Tags = ({
 				}}
 				className="flex flex-wrap gap-2 text-left"
 			>
-				{skills.map(skill => {
+				{skills.map((skill) => {
 					return (
 						<motion.div
 							key={skill}
@@ -45,7 +45,7 @@ export const Tags = ({
 								title === "Web Development"
 									? "shadow-xs-turquoise"
 									: "shadow-xs-purple"
-							} inline-block rounded-full border-2 border-solid border-secondary/10 bg-linear-to-br from-neutral to-neutral-dark px-3 py-1 capitalize`}
+							} border-secondary/10 from-neutral to-neutral-dark inline-block rounded-full border-2 border-solid bg-linear-to-br px-3 py-1 capitalize`}
 						>
 							{skill}
 						</motion.div>

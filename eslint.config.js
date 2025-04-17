@@ -56,7 +56,7 @@ export default tseslint.config(
 			"test-results/",
 			"eslint.config.js",
 			"**/sentry.config.js",
-			".netlify"
+			".netlify",
 		],
 	},
 	{
@@ -84,7 +84,7 @@ export default tseslint.config(
 				},
 			], // auto sort imports
 
-			"no-console": ["error"], // prefer custom log function for observability
+			"no-console": ["error", { allow: ["warn", "error", "info"] }], // don't allow console.log
 
 			"max-params": ["warn", 5], // prevent functions with too many parameters
 			"import/no-unresolved": "off", // IDE is recognizing it already
@@ -157,5 +157,5 @@ export default tseslint.config(
 				version: "detect", // necessary for eslint-plugin-react
 			},
 		},
-	}
+	},
 );

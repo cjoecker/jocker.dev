@@ -1,8 +1,8 @@
 import type { Config } from "tailwindcss";
 
+/* eslint-disable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-assignment */
 const colors = require("./app/constants/colors.js").colors;
 
- 
 export default {
 	content: ["./app/**/*.{js,jsx,ts,tsx}"],
 	theme: {

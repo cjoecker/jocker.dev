@@ -42,7 +42,7 @@ export const Mesh = () => {
 			alt=""
 			height={800}
 			width={600}
-			className="absolute left-1/2 top-1/2 -z-10 h-[150%] min-h-[400px] w-[200%] min-w-[500px] -translate-x-1/2 -translate-y-1/2"
+			className="absolute top-1/2 left-1/2 -z-10 h-[150%] min-h-[400px] w-[200%] min-w-[500px] -translate-x-1/2 -translate-y-1/2"
 			src={MeshPurple}
 		/>
 	);
@@ -55,8 +55,12 @@ const StackOverflow = () => {
 
 	useEffect(() => {
 		void fetch(STACK_OVERFLOW_API)
-			.then(res => {return res.json()})
-			.then(res => { setProfilesData(res as never); });
+			.then((res) => {
+				return res.json();
+			})
+			.then((res) => {
+				setProfilesData(res as never);
+			});
 	}, []);
 	return (
 		<>
@@ -76,7 +80,7 @@ const StackOverflow = () => {
 					initial="hidden"
 					whileInView="visible"
 					aria-label="stack overflow profile"
-					className="mx-auto flex max-w-fit flex-col rounded-xl border-2 border-solid border-secondary/10 bg-linear-to-br from-neutral to-neutral-dark px-4 py-2 text-secondary hover:cursor-pointer"
+					className="border-secondary/10 from-neutral to-neutral-dark text-secondary mx-auto flex max-w-fit flex-col rounded-xl border-2 border-solid bg-linear-to-br px-4 py-2 hover:cursor-pointer"
 				>
 					<div className="flex">
 						<img
@@ -126,12 +130,12 @@ const StackOverflow = () => {
 
 const Badge = ({ color, number }: { color: string; number: number }) => {
 	return (
-		<div className="flex ">
+		<div className="flex">
 			<div
 				className="my-auto h-2 w-2 rounded-full"
 				style={{ backgroundColor: color }}
 			/>
-			<span className="mb-1 ml-2 text-md">{number}</span>
+			<span className="text-md mb-1 ml-2">{number}</span>
 		</div>
 	);
 };
@@ -149,7 +153,7 @@ const OpenSource = () => {
 				}}
 				className="mx-auto flex flex-col gap-12"
 			>
-				{OpenSourceContributions.map(contribution => {
+				{OpenSourceContributions.map((contribution) => {
 					return (
 						<ExternalRedirect key={contribution.name} to={contribution.link}>
 							<motion.div
@@ -196,7 +200,7 @@ const MyApps = () => {
 						staggerChildren: 0.3,
 					}}
 				>
-					{OwnApps.map(app => {
+					{OwnApps.map((app) => {
 						return (
 							<motion.div
 								className="col-span-1 flex flex-col"
@@ -206,24 +210,24 @@ const MyApps = () => {
 									hidden: { opacity: 0 },
 								}}
 							>
-									<ExternalRedirect
-										className="hover:cursor-pointer"
-										to={app.link}
+								<ExternalRedirect
+									className="hover:cursor-pointer"
+									to={app.link}
+								>
+									<motion.div
+										whileTap={{ scale: 1 }}
+										whileHover={{ scale: 1.1 }}
+										className="mx-auto mb-2 h-16 w-16 rounded-xl"
 									>
-										<motion.div
-											whileTap={{ scale: 1 }}
-											whileHover={{ scale: 1.1 }}
-											className="mx-auto mb-2 h-16 w-16 rounded-xl"
-										>
-											<motion.img
-												loading="lazy"
-												alt={`${app.name} logo`}
-												className="h-full w-full rounded-xl"
-												src={app.icon}
-											/>
-										</motion.div>
-										<div className="max-w-[100px]">{app.name}</div>
-									</ExternalRedirect>
+										<motion.img
+											loading="lazy"
+											alt={`${app.name} logo`}
+											className="h-full w-full rounded-xl"
+											src={app.icon}
+										/>
+									</motion.div>
+									<div className="max-w-[100px]">{app.name}</div>
+								</ExternalRedirect>
 							</motion.div>
 						);
 					})}

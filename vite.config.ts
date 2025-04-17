@@ -5,12 +5,7 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-	plugins: [
-		tailwindcss(),
-		reactRouter(),
-		tsconfigPaths(),
-		netlifyPlugin(),
-	],
+	plugins: [tailwindcss(), reactRouter(), tsconfigPaths(), netlifyPlugin()],
 	optimizeDeps: {
 		include: ["react-use", "@splidejs/react-splide"],
 	},

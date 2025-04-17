@@ -11,7 +11,7 @@ export const ExternalRedirect = ({
 		<a
 			href={to}
 			target="_blank"
-			onClick={e => {
+			onClick={(e) => {
 				(e.target as HTMLLinkElement).blur();
 				e.stopPropagation();
 			}}

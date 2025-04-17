@@ -1,8 +1,15 @@
 import SplideStyles from "@splidejs/splide/dist/css/splide.min.css?url";
 import { useEffect } from "react";
-import type { LinksFunction, LoaderFunctionArgs, MetaFunction } from "react-router";
+import type { LinksFunction, MetaFunction } from "react-router";
 import { data } from "react-router";
-import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "react-router";
+import {
+	Links,
+	Meta,
+	Outlet,
+	Scripts,
+	ScrollRestoration,
+	useLoaderData,
+} from "react-router";
 import invariant from "tiny-invariant";
 
 import RalewayFont600Woff from "~/fonts/raleway-v28-latin-600.woff";
@@ -72,72 +79,71 @@ export const meta: MetaFunction = () => {
 	];
 };
 
-export const links: LinksFunction = () => {return [
-	{ rel: "stylesheet", href: MainStyles },
-	{ rel: "stylesheet", href: SplideStyles },
-	{
-		rel: "preload",
-		as: "font",
-		href: RalewayFontRegularWoff2,
-		type: "font/woff2",
-		crossOrigin: "anonymous",
-	},
-	{
-		rel: "preload",
-		as: "font",
-		href: RalewayFontRegularWoff,
-		type: "font/woff",
-		crossOrigin: "anonymous",
-	},
-	{
-		rel: "preload",
-		as: "font",
-		href: RalewayFont600Woff2,
-		type: "font/woff2",
-		crossOrigin: "anonymous",
-	},
-	{
-		rel: "preload",
-		as: "font",
-		href: RalewayFont600Woff,
-		type: "font/woff",
-		crossOrigin: "anonymous",
-	},
-	{
-		rel: "preload",
-		as: "font",
-		href: RalewayFont800Woff2,
-		type: "font/woff2",
-		crossOrigin: "anonymous",
-	},
-	{
-		rel: "preload",
-		as: "font",
-		href: RalewayFont800Woff,
-		type: "font/woff",
-		crossOrigin: "anonymous",
-	},
-	{
-		rel: "icon",
-		type: "image/png",
-		sizes: "32x32",
-		href: "/favicon.png",
-	},
-]};
+export const links: LinksFunction = () => {
+	return [
+		{ rel: "stylesheet", href: MainStyles },
+		{ rel: "stylesheet", href: SplideStyles },
+		{
+			rel: "preload",
+			as: "font",
+			href: RalewayFontRegularWoff2,
+			type: "font/woff2",
+			crossOrigin: "anonymous",
+		},
+		{
+			rel: "preload",
+			as: "font",
+			href: RalewayFontRegularWoff,
+			type: "font/woff",
+			crossOrigin: "anonymous",
+		},
+		{
+			rel: "preload",
+			as: "font",
+			href: RalewayFont600Woff2,
+			type: "font/woff2",
+			crossOrigin: "anonymous",
+		},
+		{
+			rel: "preload",
+			as: "font",
+			href: RalewayFont600Woff,
+			type: "font/woff",
+			crossOrigin: "anonymous",
+		},
+		{
+			rel: "preload",
+			as: "font",
+			href: RalewayFont800Woff2,
+			type: "font/woff2",
+			crossOrigin: "anonymous",
+		},
+		{
+			rel: "preload",
+			as: "font",
+			href: RalewayFont800Woff,
+			type: "font/woff",
+			crossOrigin: "anonymous",
+		},
+		{
+			rel: "icon",
+			type: "image/png",
+			sizes: "32x32",
+			href: "/favicon.png",
+		},
+	];
+};
 
-export async function loader({ request }: LoaderFunctionArgs) {
+export function loader() {
 	invariant(
 		process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID,
-		"Missing Google Analytics ID"
+		"Missing Google Analytics ID",
 	);
 	return data({
 		gaTrackingId: process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID,
 	});
 }
 
-
-
- 
 export default function Root() {
 	const { gaTrackingId } = useLoaderData<typeof loader>();
 	useEffect(() => {
@@ -146,7 +152,7 @@ export default function Root() {
 		}
 	}, [gaTrackingId]);
 	return (
-		<html>
+		<html lang="en">
 			<head>
 				<Meta />
 				<Links />

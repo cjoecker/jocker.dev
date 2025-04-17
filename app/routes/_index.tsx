@@ -27,8 +27,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
 const ALERT_DURATION = 5000;
 
- 
-export default function _index() {
+export default function Index() {
 	const data = useActionData<typeof action>();
 	const [isContactFormAlertVisible, setIsContactFormAlertVisible] =
 		useState(false);
