@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-import { AboutMeData } from '../../constants/about-me';
-import ChristianImg from '../../images/christian.webp';
-import Signature from '../../images/signature.svg';
-import { Section } from '../shared/section';
+import { AboutMeData } from "../../constants/about-me";
+import ChristianImg from "../../images/christian.webp";
+import Signature from "../../images/signature.svg";
+import { Section } from "../shared/section";
 
 export const AboutMe = () => {
 	return (
