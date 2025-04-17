@@ -54,13 +54,17 @@ const StackOverflow = () => {
 	const profile = profilesData?.items[0];
 
 	useEffect(() => {
-		void fetch(STACK_OVERFLOW_API)
-			.then((res) => {
-				return res.json();
-			})
-			.then((res) => {
-				setProfilesData(res as never);
-			});
+		try {
+			void fetch(STACK_OVERFLOW_API)
+				.then((res) => {
+					return res.json();
+				})
+				.then((res) => {
+					setProfilesData(res as never);
+				});
+		} catch (error) {
+			console.error("Error fetching Stack Overflow data:", error);
+		}
 	}, []);
 	return (
 		<>
