@@ -1,4 +1,4 @@
-import type { MotionValue } from 'framer-motion';
+import { AnimatePresence, MotionValue } from 'framer-motion';
 import {
 	animate,
 	motion,
@@ -118,117 +118,98 @@ export const Background = ({ mouseX, mouseY }: Props) => {
 		</>
 	);
 };
+
 function useParallax(scrollY: MotionValue<number>, multiplicator: number) {
 	return useTransform(scrollY, value => value * multiplicator);
 }
 
 const ANIMATED_WORDS = ['Full-Stack Developer.', 'UX/UI Designer.'];
 const STAGGER_DURATION = 0.02;
-const TIMES = {
-	start: 2000,
-	reading: 3000,
-	firstWordAnimation: ANIMATED_WORDS[0].length * STAGGER_DURATION * 1000 + 300,
-	secondWordAnimation: ANIMATED_WORDS[1].length * STAGGER_DURATION * 1000 + 300,
-};
+
+const READING_TIME = 2500;
+
+
 function AnimatedWord() {
-	const [animatedText, setAnimatedText] = useState(ANIMATED_WORDS[0]);
-	const [isAnimatedTextVisible, setIsAnimatedTextVisible] = useState(true);
-	const [startAnimation, setStartAnimation] = useState(false);
-	const controls = useAnimation();
+	const [visibility, setVisibility] = useState(true);
+	const [wordIndex, setWordIndex] = useState(0);
+	const animatedText = ANIMATED_WORDS[wordIndex];
+	const textLength = animatedText.length;
+
 
 	useEffect(() => {
-		const animateText = () => {
-			setTimeout(() => {
-				// delete the first word
-				setStartAnimation(true);
-				setIsAnimatedTextVisible(false);
-
-				setTimeout(() => {
-					// add the second word
-					setAnimatedText(ANIMATED_WORDS[1]);
-					setIsAnimatedTextVisible(true);
-
-					setTimeout(() => {
-						// delete the second word
-						setIsAnimatedTextVisible(false);
-
-						setTimeout(() => {
-							// add the first word
-							setAnimatedText(ANIMATED_WORDS[0]);
-							setIsAnimatedTextVisible(true);
-						}, TIMES.secondWordAnimation);
-					}, TIMES.reading);
-				}, TIMES.firstWordAnimation);
-			}, TIMES.start);
-		};
-
-		animateText();
-		const interval = setInterval(
-			() => {
-				animateText();
-			},
-			TIMES.firstWordAnimation +
-				TIMES.reading +
-				TIMES.secondWordAnimation +
-				TIMES.reading
-		);
-
+		const interval = setInterval(() => {
+			setVisibility(v => !v);
+		}, 5000);
 		return () => {
 			clearInterval(interval);
 		};
 	}, []);
 
 	useEffect(() => {
-		if (isAnimatedTextVisible) {
-			controls.start('visible');
-		} else {
-			controls.start('hidden');
+		if(!visibility) {
+			setTimeout(() => {
+				setWordIndex(prevIndex => (prevIndex + 1) % ANIMATED_WORDS.length);
+			}, textLength * STAGGER_DURATION * 1000 + 1);
 		}
-	}, [controls, isAnimatedTextVisible]);
+	}, [visibility]);
 
-	const wordAnimation = {
-		hidden: {
-			opacity: 0,
-		},
-		visible: {
-			opacity: 1,
-		},
-	};
+
+
 
 	const words = animatedText.split(' ');
 	return (
-		<motion.span
-			className="flex flex-wrap"
-			transition={{
-				staggerChildren: STAGGER_DURATION,
-				staggerDirection: isAnimatedTextVisible ? 1 : -1,
-			}}
-			animate={controls}
-			initial={startAnimation ? 'hidden' : 'visible'}
-		>
+		<motion.span className="flex flex-wrap">
 			{'a\u00A0'}
 			{words.map((word, wordIndex) => {
+				const wordWithSpaces =
+					wordIndex + 1 === words.length ? word : word + '\u00A0';
+				const letters = wordWithSpaces.split('');
+				const prevWordsLength = words
+					.slice(0, wordIndex)
+					.reduce((acc, curr) => acc + curr.length, 0);
+
 				return (
-					<motion.span
+					<span
 						aria-label={word}
 						role="text"
 						className="flex flex-nowrap"
 						key={wordIndex + word + animatedText}
 					>
-						{(wordIndex + 1 === words.length ? word : word + '\u00A0')
-							.split('')
-							.map((letter, letterIndex) => {
+						<AnimatePresence>
+							{letters.map((letter, index) => {
+								if (!visibility) {
+									return null;
+								}
+
 								return (
-									<motion.span
-										aria-hidden="true"
-										key={letterIndex + letter + animatedText}
-										variants={wordAnimation}
+									<motion.div
+										variants={{
+											hidden: {
+												opacity: 0,
+												transition: {
+													delay:
+														(textLength - prevWordsLength - index - 1) *
+														STAGGER_DURATION,
+												},
+											},
+											visible: {
+												opacity: 1,
+												transition: {
+													delay: (prevWordsLength + index) * STAGGER_DURATION,
+												},
+											},
+										}}
+										key={index + letter + word}
+										initial={'hidden'}
+										animate={'visible'}
+										exit={'hidden'}
 									>
 										{letter}
-									</motion.span>
+									</motion.div>
 								);
 							})}
-					</motion.span>
+						</AnimatePresence>
+					</span>
 				);
 			})}
 		</motion.span>
