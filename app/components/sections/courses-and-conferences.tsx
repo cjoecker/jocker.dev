@@ -1,19 +1,21 @@
-import { format } from 'date-fns';
-import { motion } from 'framer-motion';
+import { format } from "date-fns";
+import { motion } from "framer-motion";
 
 import type {
 	ConferenceType,
 	CourseType,
-} from '../../constants/courses-and-conferences';
-import { Conferences, Courses } from '../../constants/courses-and-conferences';
-import ConferenceImg from '../../images/conference.svg';
-import GraduateCapImg from '../../images/graduate-cap.svg';
-import MeshPurpleTurquoise from '../../images/mesh-purple-turquoise.svg';
-import { Section } from '../shared/section';
+} from "../../constants/courses-and-conferences";
+import { Conferences, Courses } from "../../constants/courses-and-conferences";
+import ConferenceImg from "../../images/conference.svg";
+import GraduateCapImg from "../../images/graduate-cap.svg";
+import MeshPurpleTurquoise from "../../images/mesh-purple-turquoise.svg";
+import { Section } from "../shared/section";
 
 export const CoursesAndConferences = () => {
 	const sortedCoursesAndConferences = [...Courses, ...Conferences].sort(
-		(a, b) => b.date.getTime() - a.date.getTime()
+		(a, b) => {
+			return b.date.getTime() - a.date.getTime();
+		},
 	);
 	return (
 		<Section title="Last Attended Courses and Conferences">
@@ -22,7 +24,7 @@ export const CoursesAndConferences = () => {
 					<img
 						alt=""
 						aria-hidden="true"
-						className=" invisible absolute left-1/2 top-1/2 -z-10 h-[250%] min-h-full w-[250%] -translate-x-1/2 -translate-y-1/2 sm:visible"
+						className="invisible absolute top-1/2 left-1/2 -z-10 h-[250%] min-h-full w-[250%] -translate-x-1/2 -translate-y-1/2 sm:visible"
 						src={MeshPurpleTurquoise}
 					/>
 					<motion.div
@@ -34,7 +36,7 @@ export const CoursesAndConferences = () => {
 						}}
 						className="grid grid-cols-2 gap-4 text-left md:grid-cols-3 lg:grid-cols-4"
 					>
-						{sortedCoursesAndConferences.map(course => {
+						{sortedCoursesAndConferences.map((course) => {
 							return (
 								<motion.div
 									key={course.name}
@@ -44,7 +46,7 @@ export const CoursesAndConferences = () => {
 									}}
 									className="col-span-1 flex min-w-0"
 								>
-									{'instructor' in course ? (
+									{"instructor" in course ? (
 										<CourseItem course={course as CourseType} />
 									) : (
 										<ConferenceItem conference={course} />
@@ -58,13 +60,13 @@ export const CoursesAndConferences = () => {
 		</Section>
 	);
 };
-const DATE_FORMAT = 'MMM, y';
+const DATE_FORMAT = "MMM, y";
 const CourseItem = ({ course }: { course: CourseType }) => {
 	return (
 		<>
 			<img
 				loading="lazy"
-				className="mb-auto mr-2"
+				className="mr-2 mb-auto"
 				alt="course"
 				src={GraduateCapImg}
 				width={20}
@@ -85,7 +87,7 @@ const ConferenceItem = ({ conference }: { conference: ConferenceType }) => {
 		<>
 			<img
 				loading="lazy"
-				className="mb-auto mr-2"
+				className="mr-2 mb-auto"
 				alt="conference"
 				src={ConferenceImg}
 				width={20}

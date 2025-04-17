@@ -1,34 +1,34 @@
-import DavidPhoto from '../images/david.webp';
-import MaibornWolffLogo from '../images/maibornwolff.svg';
-import PaulaPhoto from '../images/paula.webp';
-import SlectedMeLogo from '../images/slected-me.svg';
+import DavidPhoto from "../images/david.webp";
+import MaibornWolffLogo from "../images/maibornwolff.svg";
+import PaulaPhoto from "../images/paula.webp";
+import SlectedMeLogo from "../images/slected-me.svg";
 
 export const testimonials: TestimonialsType[] = [
 	{
 		testimonial: `Christian is a very creative person with attention to details. 
     He really puts effort in developing what makes sense for the end user. 
     He is also a fan of clean code and good architecture.`,
-		person: 'David Forino',
+		person: "David Forino",
 		photo: DavidPhoto,
-		company: 'Slected.me GmbH',
+		company: "Slected.me GmbH",
 		companyLogo: SlectedMeLogo,
 		companyHeight: 70,
-		title: 'CTO and co-founder',
+		title: "CTO and co-founder",
 	},
 	{
 		testimonial: `He perfectly embodies the role of a skilled developer, 
     who not only masters his technologies but also has amazing UX know-how. 
     Both his creativity and entrepreneurial mindset bring his projects and the company forward.`,
-		person: 'Paula Montesa Rausell',
+		person: "Paula Montesa Rausell",
 		photo: PaulaPhoto,
-		company: 'MaibornWolff GmbH',
+		company: "MaibornWolff GmbH",
 		companyLogo: MaibornWolffLogo,
 		companyHeight: 50,
-		title: 'Lead Digital Design Engineer',
+		title: "Lead Digital Design Engineer",
 	},
 ];
 
-export type TestimonialsType = {
+export interface TestimonialsType {
 	testimonial: string;
 	person: string;
 	photo: string;
@@ -36,4 +36,4 @@ export type TestimonialsType = {
 	companyLogo: string;
 	companyHeight: number;
 	title: string;
-};
+}

@@ -1,39 +1,39 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss" important;
+
+@config '../../tailwind.config.ts';
 
 /* raleway-regular - latin */
 @font-face {
 	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-	font-family: 'Raleway';
+	font-family: "Raleway";
 	font-style: normal;
 	font-weight: 400;
 	src:
-		url('../fonts/raleway-v28-latin-regular.woff2') format('woff2'),
+		url("../fonts/raleway-v28-latin-regular.woff2") format("woff2"),
 		/* Chrome 36+, Opera 23+, Firefox 39+ */
-			url('../fonts/raleway-v28-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+			url("../fonts/raleway-v28-latin-regular.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* raleway-600 - latin */
 @font-face {
 	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-	font-family: 'Raleway';
+	font-family: "Raleway";
 	font-style: normal;
 	font-weight: 600;
 	src:
-		url('../fonts/raleway-v28-latin-600.woff2') format('woff2'),
+		url("../fonts/raleway-v28-latin-600.woff2") format("woff2"),
 		/* Chrome 36+, Opera 23+, Firefox 39+ */
-			url('../fonts/raleway-v28-latin-600.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+			url("../fonts/raleway-v28-latin-600.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* raleway-800 - latin */
 @font-face {
 	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-	font-family: 'Raleway';
+	font-family: "Raleway";
 	font-style: normal;
 	font-weight: 800;
 	src:
-		url('../fonts/raleway-v28-latin-800.woff2') format('woff2'),
+		url("../fonts/raleway-v28-latin-800.woff2") format("woff2"),
 		/* Chrome 36+, Opera 23+, Firefox 39+ */
-			url('../fonts/raleway-v28-latin-800.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+			url("../fonts/raleway-v28-latin-800.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 #root {
@@ -88,7 +88,7 @@ hr {
 	width: 50px;
 	border: none;
 	height: 1px;
-	background: theme('colors.secondary');
+	background: var(--color-secondary);
 	opacity: 40%;
 }
 img {
@@ -102,31 +102,31 @@ img {
 }
 
 .shadow-xs-turquoise {
-	box-shadow: 0px 0px 10px -5px theme('colors.turquoise');
+	box-shadow: 0px 0px 10px -5px var(--color-turquoise);
 }
 
 .shadow-xs-purple {
-	box-shadow: 0px 0px 10px -5px theme('colors.purple');
+	box-shadow: 0px 0px 10px -5px var(--color-purple);
 }
 
 .shadow-sm-turquoise {
-	box-shadow: 0px 0px 20px -10px theme('colors.turquoise');
+	box-shadow: 0px 0px 20px -10px var(--color-turquoise);
 }
 
 .shadow-sm-purple {
-	box-shadow: 0px 0px 20px -10px theme('colors.purple');
+	box-shadow: 0px 0px 20px -10px var(--color-purple);
 }
 
 .shadow-md-turquoise {
-	box-shadow: 0px 0px 50px -10px theme('colors.turquoise');
+	box-shadow: 0px 0px 50px -10px var(--color-turquoise);
 }
 
 .shadow-md-purple {
-	box-shadow: 0px 0px 50px -10px theme('colors.purple');
+	box-shadow: 0px 0px 50px -10px var(--color-purple);
 }
 
 .shadow-lg-purple {
-	box-shadow: 0px 0px 50px -25px theme('colors.purple');
+	box-shadow: 0px 0px 50px -25px var(--color-purple);
 }
 
 .mask-swiper {
@@ -177,14 +177,14 @@ img {
 
 .splide__pagination__page {
 	margin: 10px !important;
-	background: theme('colors.secondary') !important;
+	background: var(--color-secondary) !important;
 }
 
 .splide__pagination__page.is-active {
 	margin: 20px !important;
 	background: white !important;
 	opacity: 1 !important;
-	box-shadow: 0px 0px 8px 4px theme('colors.primary') !important;
+	box-shadow: 0px 0px 8px 4px var(--color-primary) !important;
 }
 
 .splide__track {

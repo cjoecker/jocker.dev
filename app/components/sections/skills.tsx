@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-import { DevSkills, UxSkills } from '../../constants/skills';
-import { Section } from '../shared/section';
+import { DevSkills, UxSkills } from "../../constants/skills";
+import { Section } from "../shared/section";
 
 export const Skills = () => {
 	return (
@@ -33,7 +33,7 @@ export const Tags = ({
 				}}
 				className="flex flex-wrap gap-2 text-left"
 			>
-				{skills.map(skill => {
+				{skills.map((skill) => {
 					return (
 						<motion.div
 							key={skill}
@@ -42,10 +42,10 @@ export const Tags = ({
 								hidden: { scale: 0 },
 							}}
 							className={`${
-								title === 'Web Development'
-									? 'shadow-xs-turquoise'
-									: 'shadow-xs-purple'
-							} inline-block rounded-full border-2 border-solid border-secondary/10 bg-gradient-to-br from-neutral to-neutral-dark px-3 py-1 capitalize`}
+								title === "Web Development"
+									? "shadow-xs-turquoise"
+									: "shadow-xs-purple"
+							} border-secondary/10 from-neutral to-neutral-dark inline-block rounded-full border-2 border-solid bg-linear-to-br px-3 py-1 capitalize`}
 						>
 							{skill}
 						</motion.div>

@@ -1,12 +1,12 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef } from "react";
 
-import { EXPERIENCE_YEARS } from '../../constants/experience-and-education';
-import HappyIcon from '../../images/happy.svg';
-import MeshPurple from '../../images/mesh-purple.svg';
-import SmartphoneIcon from '../../images/smartphone.svg';
-import StrongIcon from '../../images/strong.svg';
-import { Section } from '../shared/section';
+import { EXPERIENCE_YEARS } from "../../constants/experience-and-education";
+import HappyIcon from "../../images/happy.svg";
+import MeshPurple from "../../images/mesh-purple.svg";
+import SmartphoneIcon from "../../images/smartphone.svg";
+import StrongIcon from "../../images/strong.svg";
+import { Section } from "../shared/section";
 export const Facts = () => {
 	return (
 		<Section>
@@ -14,19 +14,19 @@ export const Facts = () => {
 				<div className="mx-auto grid grid-cols-1 flex-wrap justify-between gap-x-12 gap-y-8 lg:grid-cols-3">
 					<Fact
 						number={EXPERIENCE_YEARS}
-						label={'Years of Experience'}
+						label={"Years of Experience"}
 						icon={StrongIcon}
 						alt="strong"
 					/>
 					<Fact
 						number={23}
-						label={'Developed Apps'}
+						label={"Developed Apps"}
 						icon={SmartphoneIcon}
 						alt="smartphone"
 					/>
 					<Fact
 						number={13}
-						label={'Happy Customers'}
+						label={"Happy Customers"}
 						icon={HappyIcon}
 						alt="happy face"
 					/>
@@ -53,9 +53,9 @@ const Fact = ({
 
 	useEffect(() => {
 		if (ref.current) {
-			ref.current.textContent = '0';
+			ref.current.textContent = "0";
 		}
-		content.on('change', val => {
+		content.on("change", (val) => {
 			if (!ref.current) {
 				return;
 			}
@@ -77,7 +77,7 @@ const Fact = ({
 				alt=""
 				height={800}
 				width={600}
-				className="absolute left-1/2 top-1/2 -z-10 h-[200%] w-[200%] -translate-x-1/2 -translate-y-1/2"
+				className="absolute top-1/2 left-1/2 -z-10 h-[200%] w-[200%] -translate-x-1/2 -translate-y-1/2"
 				src={MeshPurple}
 			/>
 			<motion.img
