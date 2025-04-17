@@ -13,9 +13,9 @@ export default defineConfig({
 		netlifyPlugin(),
 	],
 	optimizeDeps: {
-		include: ["react-use"],
+		include: ["react-use", "@splidejs/react-splide"],
 	},
 	ssr: {
-		noExternal: ["react-use"],
+		noExternal: ["react-use", "@splidejs/react-splide"],
 	},
 });

@@ -15,6 +15,7 @@ import { Languages } from '~/components/sections/languages';
 import { ServiceOffer } from '~/components/sections/service-offer';
 import { Skills } from '~/components/sections/skills';
 import { sendMail } from '~/services/mail.server';
+import { Testimonials } from '~/components/sections/testimonials';
 
 export async function action({ request }: ActionFunctionArgs) {
 	const formData = await request.formData();
@@ -53,6 +54,7 @@ export default function _index() {
 					<CoreValues />
 					<ExperienceAndEducation />
 					<Languages />
+					<Testimonials />
 					<Contributions />
 					<CoursesAndConferences />
 					<AboutMe />
