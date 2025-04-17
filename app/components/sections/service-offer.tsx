@@ -3,8 +3,8 @@ import { useState } from 'react';
 
 import type { ServiceOfferType } from '../../constants/service-offer';
 import { ServiceOfferData } from '../../constants/service-offer';
-import CollapseIcon from '../../images/collapse.svg';
-import ExpandIcon from '../../images/expand.svg';
+import CollapseIcon from '../../images/collapse.svg?url';
+import ExpandIcon from '../../images/expand.svg?url';
 import MeshPurpleTurquoise from '../../images/mesh-purple-turquoise.svg';
 import { Section } from '../shared/section';
 import { getAltTextFromFileName } from '../shared/utils';
@@ -22,7 +22,7 @@ export const ServiceOffer = () => {
 				},
 				initial: 'hidden',
 				whileInView: 'visible',
-		  };
+			};
 	return (
 		<Section title="What I Can Do for You" className={'mt-16'}>
 			<div className="relative flex">
@@ -76,7 +76,7 @@ const Card = ({
 				initial: 'hidden',
 				whileInView: 'visible',
 				viewport: { amount: 0.5, once: true },
-		  }
+			}
 		: {};
 
 	return (
@@ -99,8 +99,9 @@ const Card = ({
 				style={{ zIndex }}
 				layout
 				className={` ${
-					isOpen ? 'fixed inset-0 z-10 mx-3 flex' : 'relative z-0'
+					isOpen ? 'fixed inset-0 mx-3 flex' : 'relative'
 				}`}
+
 			>
 				<CardContent isExpandable offer={offer} isOpen={isOpen} />
 			</motion.div>
@@ -131,15 +132,18 @@ const CardContent = ({
 			<motion.button
 				layout={isExpandable ? 'preserve-aspect' : false}
 				aria-label={isOpen ? 'expand' : 'contract'}
-				className={`absolute right-2.5 top-2.5 cursor-pointer  p-2 ${
+				className={`absolute right-2.5 top-2.5 cursor-pointer ${
 					isOpen ? 'h-7 w-7' : 'h-6 w-6'
 				}`}
-				style={{
-					backgroundImage: isOpen
-						? `url(${CollapseIcon})`
-						: `url(${ExpandIcon})`,
-				}}
-			/>
+			>
+				<img
+					width={28}
+					height={28}
+					src={isOpen ? CollapseIcon : ExpandIcon}
+					aria-label={isOpen ? 'expand' : 'contract'}
+					alt={isOpen ? 'expand' : 'contract'}
+				/>
+			</motion.button>
 			<motion.img
 				layout={isExpandable ? 'preserve-aspect' : false}
 				loading="lazy"
