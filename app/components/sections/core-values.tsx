@@ -1,10 +1,10 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-import type { CoreValuesType } from '../../constants/core-values';
-import { CoreValuesData } from '../../constants/core-values';
-import MeditatingImage from '../../images/meditating.webp';
-import MeshPurpleTurquoise from '../../images/mesh-purple-turquoise.svg';
-import { Section } from '../shared/section';
+import type { CoreValuesType } from "../../constants/core-values";
+import { CoreValuesData } from "../../constants/core-values";
+import MeditatingImage from "../../images/meditating.webp";
+import MeshPurpleTurquoise from "../../images/mesh-purple-turquoise.svg";
+import { Section } from "../shared/section";
 
 export const CoreValues = () => {
 	return (

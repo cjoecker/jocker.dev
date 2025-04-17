@@ -1,19 +1,19 @@
-import { format } from 'date-fns';
-import { motion } from 'framer-motion';
+import { format } from "date-fns";
+import { motion } from "framer-motion";
 
 import type {
 	ConferenceType,
 	CourseType,
-} from '../../constants/courses-and-conferences';
-import { Conferences, Courses } from '../../constants/courses-and-conferences';
-import ConferenceImg from '../../images/conference.svg';
-import GraduateCapImg from '../../images/graduate-cap.svg';
-import MeshPurpleTurquoise from '../../images/mesh-purple-turquoise.svg';
-import { Section } from '../shared/section';
+} from "../../constants/courses-and-conferences";
+import { Conferences, Courses } from "../../constants/courses-and-conferences";
+import ConferenceImg from "../../images/conference.svg";
+import GraduateCapImg from "../../images/graduate-cap.svg";
+import MeshPurpleTurquoise from "../../images/mesh-purple-turquoise.svg";
+import { Section } from "../shared/section";
 
 export const CoursesAndConferences = () => {
 	const sortedCoursesAndConferences = [...Courses, ...Conferences].sort(
-		(a, b) => b.date.getTime() - a.date.getTime()
+		(a, b) => {return b.date.getTime() - a.date.getTime()}
 	);
 	return (
 		<Section title="Last Attended Courses and Conferences">
@@ -44,7 +44,7 @@ export const CoursesAndConferences = () => {
 									}}
 									className="col-span-1 flex min-w-0"
 								>
-									{'instructor' in course ? (
+									{"instructor" in course ? (
 										<CourseItem course={course as CourseType} />
 									) : (
 										<ConferenceItem conference={course} />
@@ -58,7 +58,7 @@ export const CoursesAndConferences = () => {
 		</Section>
 	);
 };
-const DATE_FORMAT = 'MMM, y';
+const DATE_FORMAT = "MMM, y";
 const CourseItem = ({ course }: { course: CourseType }) => {
 	return (
 		<>

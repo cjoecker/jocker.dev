@@ -1,16 +1,16 @@
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 import {
 	OpenSourceContributions,
 	OwnApps,
 	StackOverflowDefaults,
-} from '../../constants/contributions';
-import MeshPurple from '../../images/mesh-purple.svg';
-import StackOverflowLogo from '../../images/stack-overflow.svg';
-import { Section } from '../shared/section';
+} from "../../constants/contributions";
+import MeshPurple from "../../images/mesh-purple.svg";
+import StackOverflowLogo from "../../images/stack-overflow.svg";
+import { Section } from "../shared/section";
 
-import { ExternalRedirect } from '~/components/shared/external-redirect';
+import { ExternalRedirect } from "~/components/shared/external-redirect";
 
 export const Contributions = () => {
 	return (
@@ -51,12 +51,12 @@ export const Mesh = () => {
 const StackOverflow = () => {
 	const [profilesData, setProfilesData] =
 		useState<StackOverflowResponse | null>(null);
-	const profile = profilesData?.items?.[0];
+	const profile = profilesData?.items[0];
 
 	useEffect(() => {
-		fetch(STACK_OVERFLOW_API)
-			.then(res => res.json())
-			.then(res => setProfilesData(res));
+		void fetch(STACK_OVERFLOW_API)
+			.then(res => {return res.json()})
+			.then(res => { setProfilesData(res as never); });
 	}, []);
 	return (
 		<>
@@ -92,7 +92,7 @@ const StackOverflow = () => {
 							<div className="text-xl">
 								{(
 									profile?.reputation ?? StackOverflowDefaults.reputation
-								).toLocaleString('en-US')}
+								).toLocaleString("en-US")}
 							</div>
 						</div>
 					</div>
@@ -234,7 +234,7 @@ const MyApps = () => {
 };
 
 const STACK_OVERFLOW_API =
-	'https://api.stackexchange.com/2.3/users/4934446?order=desc&sort=reputation&site=stackoverflow';
+	"https://api.stackexchange.com/2.3/users/4934446?order=desc&sort=reputation&site=stackoverflow";
 
 export interface StackOverflowResponse {
 	items: Item[];

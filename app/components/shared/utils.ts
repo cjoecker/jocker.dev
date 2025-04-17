@@ -1,3 +1,3 @@
 export function getAltTextFromFileName(filename: string) {
-	return filename.replace('.svg', '').replace('-', ' ');
+	return filename.replace(".svg", "").replace("-", " ");
 }

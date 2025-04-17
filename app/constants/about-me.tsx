@@ -1,4 +1,4 @@
-import { Paragraph } from '../components/shared/paragraph';
+import { Paragraph } from "../components/shared/paragraph";
 
 export const AboutMeData = (
 	<>

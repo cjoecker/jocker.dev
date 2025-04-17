@@ -1,6 +1,0 @@
-.cache
-.netlify
-node_modules
-public/build
-app/styles/tailwind.css
-package-lock.json

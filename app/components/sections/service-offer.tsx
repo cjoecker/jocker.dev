@@ -1,15 +1,15 @@
-import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { motion } from "framer-motion";
+import { useState } from "react";
 
-import type { ServiceOfferType } from '../../constants/service-offer';
-import { ServiceOfferData } from '../../constants/service-offer';
-import CollapseIcon from '../../images/collapse.svg?url';
-import ExpandIcon from '../../images/expand.svg?url';
-import MeshPurpleTurquoise from '../../images/mesh-purple-turquoise.svg';
-import { Section } from '../shared/section';
-import { getAltTextFromFileName } from '../shared/utils';
+import type { ServiceOfferType } from "../../constants/service-offer";
+import { ServiceOfferData } from "../../constants/service-offer";
+import CollapseIcon from "../../images/collapse.svg?url";
+import ExpandIcon from "../../images/expand.svg?url";
+import MeshPurpleTurquoise from "../../images/mesh-purple-turquoise.svg";
+import { Section } from "../shared/section";
+import { getAltTextFromFileName } from "../shared/utils";
 
-import { useNarrowView } from '~/hooks/useNarrowView';
+import { useNarrowView } from "~/hooks/useNarrowView";
 
 export const ServiceOffer = () => {
 	const { isNarrowView } = useNarrowView();
@@ -20,11 +20,11 @@ export const ServiceOffer = () => {
 				transition: {
 					staggerChildren: 0.25,
 				},
-				initial: 'hidden',
-				whileInView: 'visible',
+				initial: "hidden",
+				whileInView: "visible",
 			};
 	return (
-		<Section title="What I Can Do for You" className={'mt-16'}>
+		<Section title="What I Can Do for You" className={"mt-16"}>
 			<div className="relative flex">
 				<img
 					alt=""
@@ -65,7 +65,7 @@ const Card = ({
 		if (isOpen) {
 			setIsOpen(false);
 			//avoid card appear below the other while closing
-			setTimeout(() => setZIndex(0), 500);
+			setTimeout(() => { setZIndex(0); }, 500);
 		} else {
 			setIsOpen(true);
 			setZIndex(10);
@@ -73,8 +73,8 @@ const Card = ({
 	};
 	const appearAnimation = isNarrowView
 		? {
-				initial: 'hidden',
-				whileInView: 'visible',
+				initial: "hidden",
+				whileInView: "visible",
 				viewport: { amount: 0.5, once: true },
 			}
 		: {};
@@ -85,7 +85,7 @@ const Card = ({
 				visible: { opacity: 1 },
 				hidden: { opacity: 0 },
 			}}
-			transition={{ ease: 'easeInOut', duration: 0.8 }}
+			transition={{ ease: "easeInOut", duration: 0.8 }}
 			key={offer.title}
 			{...appearAnimation}
 		>
@@ -99,7 +99,7 @@ const Card = ({
 				style={{ zIndex }}
 				layout
 				className={` ${
-					isOpen ? 'fixed inset-0 mx-3 flex' : 'relative'
+					isOpen ? "fixed inset-0 mx-3 flex" : "relative"
 				}`}
 
 			>
@@ -125,46 +125,46 @@ const CardContent = ({
               from-neutral to-neutral-dark p-4 text-left
               ${
 								isOpen && isExpandable
-									? 'm-auto h-auto w-full max-w-lg flex-wrap bg-linear-to-br from-neutral/70 to-neutral-dark/70 backdrop-blur-sm'
-									: 'h-64 w-64 flex-col md:h-56 md:w-56'
-							} ${isOpen && !isExpandable ? 'invisible' : 'visible'}`}
+									? "m-auto h-auto w-full max-w-lg flex-wrap bg-linear-to-br from-neutral/70 to-neutral-dark/70 backdrop-blur-sm"
+									: "h-64 w-64 flex-col md:h-56 md:w-56"
+							} ${isOpen && !isExpandable ? "invisible" : "visible"}`}
 		>
 			<motion.button
-				layout={isExpandable ? 'preserve-aspect' : false}
-				aria-label={isOpen ? 'expand' : 'contract'}
+				layout={isExpandable ? "preserve-aspect" : false}
+				aria-label={isOpen ? "expand" : "contract"}
 				className={`absolute right-2.5 top-2.5 cursor-pointer ${
-					isOpen ? 'h-7 w-7' : 'h-6 w-6'
+					isOpen ? "h-7 w-7" : "h-6 w-6"
 				}`}
 			>
 				<img
 					width={28}
 					height={28}
 					src={isOpen ? CollapseIcon : ExpandIcon}
-					aria-label={isOpen ? 'expand' : 'contract'}
-					alt={isOpen ? 'expand' : 'contract'}
+					aria-label={isOpen ? "expand" : "contract"}
+					alt={isOpen ? "expand" : "contract"}
 				/>
 			</motion.button>
 			<motion.img
-				layout={isExpandable ? 'preserve-aspect' : false}
+				layout={isExpandable ? "preserve-aspect" : false}
 				loading="lazy"
 				alt={getAltTextFromFileName(offer.logo)}
-				width={'70'}
-				height={'70'}
+				width={"70"}
+				height={"70"}
 				src={offer.logo}
 				className={`pointer-events-none select-none ${
 					isOpen
-						? 'mx-4 mb-auto mt-4 h-[170px] w-[170px]'
-						: 'my-4 h-[105px] w-[105px] md:h-[70px] md:w-[70px]'
+						? "mx-4 mb-auto mt-4 h-[170px] w-[170px]"
+						: "my-4 h-[105px] w-[105px] md:h-[70px] md:w-[70px]"
 				}`}
 			/>
 			<motion.div
-				className={`flex-1 ${isOpen ? 'min-w-[230px]' : 'min-w-0'}`}
+				className={`flex-1 ${isOpen ? "min-w-[230px]" : "min-w-0"}`}
 				layout={isExpandable}
 			>
 				<motion.h3
-					layout={isExpandable ? 'preserve-aspect' : false}
+					layout={isExpandable ? "preserve-aspect" : false}
 					className={
-						isOpen ? 'mb-3 mr-4 mt-2 text-lg font-semibold' : 'mb-1 text-lg'
+						isOpen ? "mb-3 mr-4 mt-2 text-lg font-semibold" : "mb-1 text-lg"
 					}
 				>
 					{offer.title}

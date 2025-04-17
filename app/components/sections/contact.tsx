@@ -1,14 +1,14 @@
-import { Form } from 'react-router';
-import { AnimatePresence, motion } from 'framer-motion';
-import React, { useEffect, useRef, useState } from 'react';
-import type { ChangeEvent, MouseEvent } from 'react';
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import type { ChangeEvent, MouseEvent } from "react";
+import { Form } from "react-router";
 
-import { ContactInformation } from '../../constants/contact-information';
-import type { ContactInformationType } from '../../constants/contact-information';
-import { Section } from '../shared/section';
+import { ContactInformation } from "../../constants/contact-information";
+import type { ContactInformationType } from "../../constants/contact-information";
+import { Section } from "../shared/section";
 
-import { ExternalRedirect } from '~/components/shared/external-redirect';
-import CloseIcon from '~/images/x.svg';
+import { ExternalRedirect } from "~/components/shared/external-redirect";
+import CloseIcon from "~/images/x.svg";
 
 export const Contact = () => {
 	return (
@@ -41,15 +41,15 @@ export const ContactButton = ({
 	contactInformation: ContactInformationType;
 }) => {
 	const [isContactFormVisible, setIsContactFormVisible] = useState(false);
-	const isContactFormButton = contactInformation.alt === 'email';
+	const isContactFormButton = contactInformation.alt === "email";
 
 	const ButtonContent = () => {
 		return (
 			<div
-				style={{ boxShadow: '0px 0px 40px -8px #00DFD866' }}
+				style={{ boxShadow: "0px 0px 40px -8px #00DFD866" }}
 				aria-label={contactInformation.text}
 				className={
-					'flex h-20 w-20 select-none rounded-full bg-linear-to-br from-turquoise to-blue p-0.5 hover:cursor-pointer'
+					"flex h-20 w-20 select-none rounded-full bg-linear-to-br from-turquoise to-blue p-0.5 hover:cursor-pointer"
 				}
 			>
 				<div className="pointer-events-none flex h-full w-full rounded-full bg-neutral-dark/80">
@@ -79,7 +79,7 @@ export const ContactButton = ({
 			>
 				<motion.div whileTap={{ scale: 1 }} whileHover={{ scale: 1.2 }}>
 					{isContactFormButton ? (
-						<button onClick={() => setIsContactFormVisible(true)}>
+						<button onClick={() => { setIsContactFormVisible(true); }}>
 							<ButtonContent />
 						</button>
 					) : (
@@ -91,7 +91,7 @@ export const ContactButton = ({
 			</motion.div>
 			<AnimatePresence>
 				{isContactFormButton && isContactFormVisible && (
-					<ContactForm onClose={() => setIsContactFormVisible(false)} />
+					<ContactForm onClose={() => { setIsContactFormVisible(false); }} />
 				)}
 			</AnimatePresence>
 		</>
@@ -100,10 +100,10 @@ export const ContactButton = ({
 
 const ERROR_ANIMATION_DURATION = 0.5;
 export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
-	const [error, setError] = useState('');
-	const [name, setName] = useState('');
-	const [email, setEmail] = useState('');
-	const [message, setMessage] = useState('');
+	const [error, setError] = useState("");
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [message, setMessage] = useState("");
 	const [hasTriedToSubmit, setHasTriedToSubmit] = useState(false);
 	const isAnimatingError = useRef(false);
 
@@ -112,10 +112,10 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 			if (error === newError || isAnimatingError.current) {
 				return;
 			}
-			if (error === '') {
+			if (error === "") {
 				setError(newError);
 			} else {
-				setError('');
+				setError("");
 				isAnimatingError.current = true;
 				setTimeout(
 					() => {
@@ -127,21 +127,21 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 			}
 		};
 
-		if (name === '' || email === '' || message === '') {
-			animateErrorChange('Please fill out all fields');
-		} else if (email.match(/^\S+@\S+\.\S+$/) === null) {
-			animateErrorChange('Please enter a valid email');
+		if (name === "" || email === "" || message === "") {
+			animateErrorChange("Please fill out all fields");
+		} else if ((/^\S+@\S+\.\S+$/.exec(email)) === null) {
+			animateErrorChange("Please enter a valid email");
 		} else {
-			setError('');
+			setError("");
 		}
 	}, [name, email, message, error]);
 
 	const onSubmit = (event: MouseEvent<HTMLButtonElement>) => {
 		setHasTriedToSubmit(true);
-		if (error !== '') {
-			event.preventDefault();
-		} else {
+		if (error === "") {
 			onClose();
+		} else {
+			event.preventDefault();
 		}
 	};
 
@@ -165,7 +165,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 					exit={{ scale: 0, opacity: 0 }}
 					transition={{ duration: 0.2 }}
 					tabIndex={-1}
-					onClick={event => event.stopPropagation()}
+					onClick={event => { event.stopPropagation(); }}
 					className="shadow-sm-purple relative mx-4 my-auto w-full max-w-7xl rounded-2xl border-2 border-solid border-secondary/10 bg-linear-to-br from-neutral to-neutral-dark p-6 sm:m-auto sm:w-fit"
 				>
 					<motion.button
@@ -187,18 +187,18 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 							label="Full Name"
 							type="text"
 							name="name"
-							onChange={e => setName(e.target.value)}
+							onChange={e => { setName(e.target.value); }}
 						/>
 						<Textbox
 							label="Email"
 							type="email"
 							name="email"
-							onChange={e => setEmail(e.target.value)}
+							onChange={e => { setEmail(e.target.value); }}
 						/>
 						<label className="flex w-full flex-col sm:w-[400px]">
 							Message
 							<textarea
-								onChange={e => setMessage(e.target.value)}
+								onChange={e => { setMessage(e.target.value); }}
 								className="mt-2 h-36 resize-none rounded-lg bg-[#3b3b3b] p-2 leading-normal focus:bg-[#3b3b3b] focus:filter-none"
 								name="message"
 							></textarea>
@@ -207,7 +207,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 						<div className="mt-2 flex">
 							<div className="flex-1">
 								<AnimatePresence>
-									{error !== '' && hasTriedToSubmit && (
+									{error !== "" && hasTriedToSubmit && (
 										<motion.div
 											layout
 											initial={{ y: 20, opacity: 0 }}
@@ -225,7 +225,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 								<motion.button
 									type="submit"
 									onClick={onSubmit}
-									style={{ boxShadow: '0px 0px 30px -10px #00DFD866' }}
+									style={{ boxShadow: "0px 0px 30px -10px #00DFD866" }}
 									whileTap={{ scale: 1 }}
 									whileHover={{ scale: 1.05 }}
 									className="ml-auto select-none rounded-md bg-linear-to-br from-turquoise to-blue font-semibold text-secondary hover:cursor-pointer"
@@ -243,19 +243,20 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 	);
 };
 
-export type Props = {
+export interface Props {
 	label: string;
 	type: string;
 	name: string;
 	onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-};
+}
 export const Textbox = ({ label, type, name, onChange }: Props) => {
 	return (
 		<label className="flex flex-col">
 			{label}
 			<input
 				onKeyDown={e => {
-					e.key === 'Enter' && e.preventDefault();
+					// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+					e.key === "Enter" && e.preventDefault();
 				}}
 				onChange={onChange}
 				className="mt-2 max-w-[300px] rounded-lg bg-[#3b3b3b] p-2 focus:bg-[#3b3b3b] focus:text-secondary focus:filter-none"
@@ -266,14 +267,14 @@ export const Textbox = ({ label, type, name, onChange }: Props) => {
 	);
 };
 
-export type ContactFormAlertProps = {
-	type: 'success' | 'error';
-};
+export interface ContactFormAlertProps {
+	type: "success" | "error";
+}
 export const ContactFormAlert = ({ type }: ContactFormAlertProps) => {
 	const ErrorMessage = () => {
-		return type === 'success' ? (
+		return type === "success" ? (
 			<>
-				<span className="font-bold">Message Sent!</span>&ensp;I'll get back to
+				<span className="font-bold">Message Sent!</span>&ensp;I&#39;ll get back to
 				you within <span className="font-bold">one day</span>.
 			</>
 		) : (
@@ -295,7 +296,7 @@ export const ContactFormAlert = ({ type }: ContactFormAlertProps) => {
 			initial={{ y: 100 }}
 			animate={{ y: 0 }}
 			exit={{ y: 100 }}
-			transition={{ duration: 0.3, ease: 'easeInOut' }}
+			transition={{ duration: 0.3, ease: "easeInOut" }}
 		>
 			<div className="shadow-sm-turquoise mx-auto rounded-xl border-2 border-solid border-secondary/10 bg-neutral-dark p-6">
 				<ErrorMessage />

@@ -1,39 +1,39 @@
-import type { ActionFunctionArgs } from 'react-router';
-import { useActionData } from 'react-router';
-import { AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import type { ActionFunctionArgs } from "react-router";
+import { useActionData } from "react-router";
 
-import { AboutMe } from '~/components/sections/about-me';
-import { Contact, ContactFormAlert } from '~/components/sections/contact';
-import { Contributions } from '~/components/sections/contributions';
-import { CoreValues } from '~/components/sections/core-values';
-import { CoursesAndConferences } from '~/components/sections/courses-and-conferences';
-import { ExperienceAndEducation } from '~/components/sections/experience-and-education';
-import { Facts } from '~/components/sections/facts';
-import { Header } from '~/components/sections/header';
-import { Languages } from '~/components/sections/languages';
-import { ServiceOffer } from '~/components/sections/service-offer';
-import { Skills } from '~/components/sections/skills';
-import { sendMail } from '~/services/mail.server';
-import { Testimonials } from '~/components/sections/testimonials';
+import { AboutMe } from "~/components/sections/about-me";
+import { Contact, ContactFormAlert } from "~/components/sections/contact";
+import { Contributions } from "~/components/sections/contributions";
+import { CoreValues } from "~/components/sections/core-values";
+import { CoursesAndConferences } from "~/components/sections/courses-and-conferences";
+import { ExperienceAndEducation } from "~/components/sections/experience-and-education";
+import { Facts } from "~/components/sections/facts";
+import { Header } from "~/components/sections/header";
+import { Languages } from "~/components/sections/languages";
+import { ServiceOffer } from "~/components/sections/service-offer";
+import { Skills } from "~/components/sections/skills";
+import { Testimonials } from "~/components/sections/testimonials";
+import { sendMail } from "~/services/mail.server";
 
 export async function action({ request }: ActionFunctionArgs) {
 	const formData = await request.formData();
-	const name = formData.get('name') as string;
-	const email = formData.get('email') as string;
-	const message = formData.get('message') as string;
+	const name = formData.get("name") as string;
+	const email = formData.get("email") as string;
+	const message = formData.get("message") as string;
 	return await sendMail(name, email, message);
 }
 
 const ALERT_DURATION = 5000;
 
-// eslint-disable-next-line import/no-default-export
+ 
 export default function _index() {
 	const data = useActionData<typeof action>();
 	const [isContactFormAlertVisible, setIsContactFormAlertVisible] =
 		useState(false);
 	useEffect(() => {
-		if (data && 'success' in data) {
+		if (data && "success" in data) {
 			setIsContactFormAlertVisible(true);
 			if (data.success) {
 				setTimeout(() => {
@@ -63,7 +63,7 @@ export default function _index() {
 			</div>
 			<AnimatePresence>
 				{isContactFormAlertVisible && (
-					<ContactFormAlert type={data?.success ? 'success' : 'error'} />
+					<ContactFormAlert type={data?.success ? "success" : "error"} />
 				)}
 			</AnimatePresence>
 		</main>

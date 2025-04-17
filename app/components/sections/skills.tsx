@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-import { DevSkills, UxSkills } from '../../constants/skills';
-import { Section } from '../shared/section';
+import { DevSkills, UxSkills } from "../../constants/skills";
+import { Section } from "../shared/section";
 
 export const Skills = () => {
 	return (
@@ -42,9 +42,9 @@ export const Tags = ({
 								hidden: { scale: 0 },
 							}}
 							className={`${
-								title === 'Web Development'
-									? 'shadow-xs-turquoise'
-									: 'shadow-xs-purple'
+								title === "Web Development"
+									? "shadow-xs-turquoise"
+									: "shadow-xs-purple"
 							} inline-block rounded-full border-2 border-solid border-secondary/10 bg-linear-to-br from-neutral to-neutral-dark px-3 py-1 capitalize`}
 						>
 							{skill}

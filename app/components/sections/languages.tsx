@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-import { LanguagesData } from '../../constants/languages';
-import MeshPurple from '../../images/mesh-purple.svg';
-import { Section } from '../shared/section';
-import { getAltTextFromFileName } from '../shared/utils';
+import { LanguagesData } from "../../constants/languages";
+import MeshPurple from "../../images/mesh-purple.svg";
+import { Section } from "../shared/section";
+import { getAltTextFromFileName } from "../shared/utils";
 
 export const Languages = () => {
 	return (

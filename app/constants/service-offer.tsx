@@ -1,17 +1,18 @@
-import { Paragraph } from '../components/shared/paragraph';
-import ArtistImg from '../images/artist.svg';
-import FaceWithSunglassesImg from '../images/face-with-sunglasses.svg';
-import RobotImg from '../images/robot.svg';
-import RocketImg from '../images/rocket.svg';
-import StrategyImg from '../images/strategy.svg';
+import { ReactNode } from "react";
 
-import { EXPERIENCE_YEARS } from './experience-and-education';
-import { ReactNode } from 'react';
+import { Paragraph } from "../components/shared/paragraph";
+import ArtistImg from "../images/artist.svg";
+import FaceWithSunglassesImg from "../images/face-with-sunglasses.svg";
+import RobotImg from "../images/robot.svg";
+import RocketImg from "../images/rocket.svg";
+import StrategyImg from "../images/strategy.svg";
+
+import { EXPERIENCE_YEARS } from "./experience-and-education";
 
 export const ServiceOfferData: ServiceOfferType[] = [
 	{
 		logo: FaceWithSunglassesImg,
-		title: 'Web Applications',
+		title: "Web Applications",
 		description: (
 			<>
 				<Paragraph>
@@ -31,7 +32,7 @@ export const ServiceOfferData: ServiceOfferType[] = [
 	},
 	{
 		logo: ArtistImg,
-		title: 'UX/UI Design',
+		title: "UX/UI Design",
 		description: (
 			<>
 				<Paragraph>
@@ -48,7 +49,7 @@ export const ServiceOfferData: ServiceOfferType[] = [
 	},
 	{
 		logo: RobotImg,
-		title: 'IoT Platforms',
+		title: "IoT Platforms",
 		description: (
 			<>
 				<Paragraph>
@@ -66,7 +67,7 @@ export const ServiceOfferData: ServiceOfferType[] = [
 	},
 	{
 		logo: RocketImg,
-		title: 'Rapid Application Development',
+		title: "Rapid Application Development",
 		description: (
 			<>
 				<Paragraph>
@@ -84,7 +85,7 @@ export const ServiceOfferData: ServiceOfferType[] = [
 	},
 	{
 		logo: StrategyImg,
-		title: 'Digital Strategy Consulting',
+		title: "Digital Strategy Consulting",
 		description: (
 			<>
 				<Paragraph>
@@ -102,8 +103,8 @@ export const ServiceOfferData: ServiceOfferType[] = [
 	},
 ];
 
-export type ServiceOfferType = {
+export interface ServiceOfferType {
 	logo: string;
 	title: string;
 	description: ReactNode;
-};
+}
