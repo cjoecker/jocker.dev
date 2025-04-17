@@ -124,94 +124,95 @@ function useParallax(scrollY: MotionValue<number>, multiplicator: number) {
 }
 
 const ANIMATED_WORDS = ['Full-Stack Developer.', 'UX/UI Designer.'];
-const STAGGER_DURATION = 0.02;
+const STAGGER_DURATION = 0.03;
 
 const READING_TIME = 2500;
-
+const HIDE_TIME_OFFSET = 200;
+const SPACE_CHAR = '\u00A0';
 
 function AnimatedWord() {
 	const [visibility, setVisibility] = useState(true);
 	const [wordIndex, setWordIndex] = useState(0);
 	const animatedText = ANIMATED_WORDS[wordIndex];
 	const textLength = animatedText.length;
-
+	const ariaLabel = ANIMATED_WORDS.join(' and ').replace(/\./g, '');
 
 	useEffect(() => {
-		const interval = setInterval(() => {
-			setVisibility(v => !v);
-		}, 5000);
-		return () => {
-			clearInterval(interval);
+		const changeText = () => {
+			setWordIndex(prevIndex => (prevIndex + 1) % ANIMATED_WORDS.length);
 		};
+		const hideText = () => {
+			setVisibility(false);
+			setTimeout(changeText, textLength * STAGGER_DURATION * 1000);
+			setTimeout(
+				showText,
+				textLength * STAGGER_DURATION * 1000 + HIDE_TIME_OFFSET
+			);
+		};
+		const showText = () => {
+			setVisibility(true);
+			setTimeout(hideText, READING_TIME);
+		};
+		showText();
 	}, []);
-
-	useEffect(() => {
-		if(!visibility) {
-			setTimeout(() => {
-				setWordIndex(prevIndex => (prevIndex + 1) % ANIMATED_WORDS.length);
-			}, textLength * STAGGER_DURATION * 1000 + 1);
-		}
-	}, [visibility]);
-
-
-
 
 	const words = animatedText.split(' ');
 	return (
-		<motion.span className="flex flex-wrap">
-			{'a\u00A0'}
-			{words.map((word, wordIndex) => {
-				const wordWithSpaces =
-					wordIndex + 1 === words.length ? word : word + '\u00A0';
-				const letters = wordWithSpaces.split('');
-				const prevWordsLength = words
-					.slice(0, wordIndex)
-					.reduce((acc, curr) => acc + curr.length, 0);
 
-				return (
-					<span
-						aria-label={word}
-						role="text"
-						className="flex flex-nowrap"
-						key={wordIndex + word + animatedText}
-					>
-						<AnimatePresence>
-							{letters.map((letter, index) => {
-								if (!visibility) {
-									return null;
-								}
+			<span className="flex flex-wrap" role="text" aria-label={ariaLabel}>
+				{`a${SPACE_CHAR}`}
+				{/* Words split for wrapping them on narrow screens */}
+				{words.map((word, wordIndex) => {
+					const wordWithSpaces =
+						wordIndex + 1 === words.length ? word : word + SPACE_CHAR;
+					const letters = wordWithSpaces.split('');
+					const prevWordsLength = words
+						.slice(0, wordIndex)
+						.reduce((acc, curr) => acc + curr.length, 0);
 
-								return (
-									<motion.div
-										variants={{
-											hidden: {
-												opacity: 0,
-												transition: {
-													delay:
-														(textLength - prevWordsLength - index - 1) *
-														STAGGER_DURATION,
+					return (
+						<span
+							aria-hidden={true}
+							className="flex flex-nowrap"
+							key={wordIndex + word + animatedText}
+						>
+							<AnimatePresence>
+								{letters.map((letter, index) => {
+									if (!visibility) {
+										return null;
+									}
+									return (
+										<motion.div
+											variants={{
+												hidden: {
+													opacity: 0,
+													transition: {
+														// delay instead of stagger to allow word wrapping on narrow screens
+														delay:
+															(textLength - prevWordsLength - index - 1) *
+															STAGGER_DURATION,
+													},
 												},
-											},
-											visible: {
-												opacity: 1,
-												transition: {
-													delay: (prevWordsLength + index) * STAGGER_DURATION,
+												visible: {
+													opacity: 1,
+													transition: {
+														delay: (prevWordsLength + index) * STAGGER_DURATION,
+													},
 												},
-											},
-										}}
-										key={index + letter + word}
-										initial={'hidden'}
-										animate={'visible'}
-										exit={'hidden'}
-									>
-										{letter}
-									</motion.div>
-								);
-							})}
-						</AnimatePresence>
-					</span>
-				);
-			})}
-		</motion.span>
+											}}
+											key={index + letter + word}
+											initial={'hidden'}
+											animate={'visible'}
+											exit={'hidden'}
+										>
+											{letter}
+										</motion.div>
+									);
+								})}
+							</AnimatePresence>
+						</span>
+					);
+				})}
+			</span>
 	);
 }
