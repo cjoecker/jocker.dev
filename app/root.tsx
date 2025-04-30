@@ -22,6 +22,7 @@ import RalewayFontRegularWoff from "~/fonts/raleway-v28-latin-regular.woff";
 import RalewayFontRegularWoff2 from "~/fonts/raleway-v28-latin-regular.woff2";
 import * as gtag from "~/services/gtags.client";
 import MainStyles from "~/styles/main.css?url";
+import { POSTHOG_IGNORE_KEY } from "~/constants/about-me";
 
 export const meta: MetaFunction = () => {
 	return [
@@ -149,10 +150,13 @@ export function loader() {
 function PosthogInit() {
 	const isHydrated = useHydrated();
 	useEffect(() => {
-		if (isHydrated) {
+		const isDev = !location.hostname.includes("jocker.dev");
+		const ignorePosthog = globalThis.localStorage.getItem(POSTHOG_IGNORE_KEY);
+		if (isHydrated && !isDev && !ignorePosthog) {
 			posthog.init("phc_zJ008UtaAYRQuW1Q9zLwe3LiC2nK573C1gxVsoHjKQ8", {
 				api_host: "https://eu.i.posthog.com",
 				person_profiles: "always",
+				persistence: "memory"
 			});
 		}
 	}, [isHydrated]);

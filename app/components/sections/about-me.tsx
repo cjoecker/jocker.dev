@@ -1,14 +1,30 @@
 import { motion } from "framer-motion";
 
-import { AboutMeData } from "../../constants/about-me";
+import { AboutMeData, POSTHOG_IGNORE_KEY } from "../../constants/about-me";
 import ChristianImg from "../../images/christian.webp";
 import Signature from "../../images/signature.svg";
 import { Section } from "../shared/section";
+import { useRef } from "react";
+
+const CLICKS_THRESHOLD = 5;
 
 export const AboutMe = () => {
+	const sectionClicks = useRef(0);
+	const handleSectionClick = () => {
+		sectionClicks.current += 1;
+		if (sectionClicks.current === CLICKS_THRESHOLD) {
+			sectionClicks.current = 0;
+			handleAddPostHogIgnore();
+		}
+	}
+	const handleAddPostHogIgnore = () => {
+		globalThis.localStorage.setItem(POSTHOG_IGNORE_KEY, "true");
+		alert("posthog ignore set to true");
+	}
 	return (
 		<Section>
 			<motion.div
+				onClick={handleSectionClick}
 				initial="hidden"
 				whileInView="visible"
 				viewport={{ amount: 0.1, once: true }}
