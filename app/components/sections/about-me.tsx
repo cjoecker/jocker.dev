@@ -22,7 +22,7 @@ export const AboutMe = () => {
 		alert("posthog ignore set to true");
 	};
 	return (
-		<Section>
+		<Section title={"About Me"}>
 			<motion.div
 				onClick={handleSectionClick}
 				initial="hidden"
