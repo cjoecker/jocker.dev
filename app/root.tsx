@@ -1,4 +1,5 @@
 import SplideStyles from "@splidejs/splide/dist/css/splide.min.css?url";
+import posthog from "posthog-js";
 import { useEffect } from "react";
 import type { LinksFunction, MetaFunction } from "react-router";
 import { data } from "react-router";
@@ -10,6 +11,7 @@ import {
 	ScrollRestoration,
 	useLoaderData,
 } from "react-router";
+import { useHydrated } from "remix-utils/use-hydrated";
 import invariant from "tiny-invariant";
 
 import RalewayFont600Woff from "~/fonts/raleway-v28-latin-600.woff";
@@ -144,6 +146,20 @@ export function loader() {
 	});
 }
 
+function PosthogInit() {
+	const isHydrated = useHydrated();
+	useEffect(() => {
+		if (isHydrated) {
+			posthog.init("phc_zJ008UtaAYRQuW1Q9zLwe3LiC2nK573C1gxVsoHjKQ8", {
+				api_host: "https://eu.i.posthog.com",
+				person_profiles: "always",
+			});
+		}
+	}, [isHydrated]);
+
+	return null;
+}
+
 export default function Root() {
 	const { gaTrackingId } = useLoaderData<typeof loader>();
 	useEffect(() => {
@@ -158,31 +174,10 @@ export default function Root() {
 				<Links />
 			</head>
 			<body>
-				{process.env.NODE_ENV === "development" || !gaTrackingId ? null : (
-					<>
-						<script
-							async
-							src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
-						/>
-						<script
-							async
-							id="gtag-init"
-							dangerouslySetInnerHTML={{
-								__html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaTrackingId}', {
-                  page_path: window.location.pathname,
-                });
-              `,
-							}}
-						/>
-					</>
-				)}
 				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
+				<PosthogInit />
 			</body>
 		</html>
 	);
