@@ -3,8 +3,6 @@ import MaibornWolffLogo from "../images/maibornwolff.svg";
 import PaulaPhoto from "../images/paula.webp";
 import SlectedMeLogo from "../images/slected-me.svg";
 import SmartCube360Logo from "../images/smart-cube-360.svg";
-import SmartCube360Logo from "../images/smart-cube-360.svg";
-import ThomasPhoto from "../images/thomas.png";
 import ThomasPhoto from "../images/thomas.png";
 
 export const testimonials: TestimonialsType[] = [

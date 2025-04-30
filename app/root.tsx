@@ -14,6 +14,7 @@ import {
 import { useHydrated } from "remix-utils/use-hydrated";
 import invariant from "tiny-invariant";
 
+import { POSTHOG_IGNORE_KEY } from "~/constants/about-me";
 import RalewayFont600Woff from "~/fonts/raleway-v28-latin-600.woff";
 import RalewayFont600Woff2 from "~/fonts/raleway-v28-latin-600.woff2";
 import RalewayFont800Woff from "~/fonts/raleway-v28-latin-800.woff";
@@ -22,7 +23,6 @@ import RalewayFontRegularWoff from "~/fonts/raleway-v28-latin-regular.woff";
 import RalewayFontRegularWoff2 from "~/fonts/raleway-v28-latin-regular.woff2";
 import * as gtag from "~/services/gtags.client";
 import MainStyles from "~/styles/main.css?url";
-import { POSTHOG_IGNORE_KEY } from "~/constants/about-me";
 
 export const meta: MetaFunction = () => {
 	return [
@@ -156,7 +156,7 @@ function PosthogInit() {
 			posthog.init("phc_zJ008UtaAYRQuW1Q9zLwe3LiC2nK573C1gxVsoHjKQ8", {
 				api_host: "https://eu.i.posthog.com",
 				person_profiles: "always",
-				persistence: "memory"
+				persistence: "memory",
 			});
 		}
 	}, [isHydrated]);
