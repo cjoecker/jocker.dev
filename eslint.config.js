@@ -41,6 +41,7 @@ export default tseslint.config(
 	),
 	{
 		ignores: [
+			"instrument.server.mjs",
 			".react-router",
 			"server/build/*",
 			"build/*",

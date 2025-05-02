@@ -41,7 +41,6 @@ export default function Index() {
 			}
 		}
 	}, [data]);
-
 	return (
 		<main className="overflow-x-hidden text-base font-normal">
 			<Header />

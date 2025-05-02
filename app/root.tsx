@@ -1,27 +1,24 @@
+import * as Sentry from "@sentry/react-router";
 import SplideStyles from "@splidejs/splide/dist/css/splide.min.css?url";
 import posthog from "posthog-js";
 import { useEffect } from "react";
-import type { LinksFunction, MetaFunction } from "react-router";
-import { data } from "react-router";
 import {
-	Links,
-	Meta,
-	Outlet,
-	Scripts,
-	ScrollRestoration,
-	useLoaderData,
+	isRouteErrorResponse,
+	LinksFunction,
+	MetaFunction,
 } from "react-router";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import { useHydrated } from "remix-utils/use-hydrated";
-import invariant from "tiny-invariant";
 
-import { POSTHOG_IGNORE_KEY } from "~/constants/about-me";
+import { Route } from "./+types/root";
+
+import { POSTHOG_IGNORE_KEY } from "~/constants/misc";
 import RalewayFont600Woff from "~/fonts/raleway-v28-latin-600.woff";
 import RalewayFont600Woff2 from "~/fonts/raleway-v28-latin-600.woff2";
 import RalewayFont800Woff from "~/fonts/raleway-v28-latin-800.woff";
 import RalewayFont800Woff2 from "~/fonts/raleway-v28-latin-800.woff2";
 import RalewayFontRegularWoff from "~/fonts/raleway-v28-latin-regular.woff";
 import RalewayFontRegularWoff2 from "~/fonts/raleway-v28-latin-regular.woff2";
-import * as gtag from "~/services/gtags.client";
 import MainStyles from "~/styles/main.css?url";
 
 export const meta: MetaFunction = () => {
@@ -82,6 +79,7 @@ export const meta: MetaFunction = () => {
 	];
 };
 
+
 export const links: LinksFunction = () => {
 	return [
 		{ rel: "stylesheet", href: MainStyles },
@@ -137,15 +135,6 @@ export const links: LinksFunction = () => {
 	];
 };
 
-export function loader() {
-	invariant(
-		process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID,
-		"Missing Google Analytics ID",
-	);
-	return data({
-		gaTrackingId: process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID,
-	});
-}
 
 function PosthogInit() {
 	const isHydrated = useHydrated();
@@ -165,12 +154,6 @@ function PosthogInit() {
 }
 
 export default function Root() {
-	const { gaTrackingId } = useLoaderData<typeof loader>();
-	useEffect(() => {
-		if (gaTrackingId.length > 0) {
-			gtag.pageview(location.pathname, gaTrackingId);
-		}
-	}, [gaTrackingId]);
 	return (
 		<html lang="en">
 			<head>
@@ -184,5 +167,37 @@ export default function Root() {
 				<PosthogInit />
 			</body>
 		</html>
+	);
+}
+
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+	let message = "Oops!";
+	let details = "An unexpected error occurred.";
+	let stack: string | undefined;
+	if (isRouteErrorResponse(error)) {
+		message = error.status
+		=== 404 ? "404" : "Error";
+		details =
+			error.status === 404
+				? "The requested page could not be found."
+				: error.statusText || details;
+	} else if (error && error instanceof Error) {
+		Sentry.captureException(error);
+
+		if (import.meta.env.DEV) {
+			details = error.message;
+			stack = error.stack;
+		}
+	}
+	return (
+		<main>
+			<h1>{message}</h1>
+			<p>{details}</p>
+			{stack && (
+				<pre>
+					<code>{stack}</code>
+				</pre>
+			)}
+		</main>
 	);
 }
