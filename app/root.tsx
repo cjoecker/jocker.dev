@@ -135,11 +135,6 @@ export const links: LinksFunction = () => {
 	];
 };
 
-export function loader() {
-	throw new Error("other error");
-	return null
-}
-
 function PosthogInit() {
 	const isHydrated = useHydrated();
 	useEffect(() => {
