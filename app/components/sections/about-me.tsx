@@ -5,6 +5,7 @@ import { AboutMeData } from "../../constants/about-me";
 import ChristianImg from "../../images/christian.webp";
 import Signature from "../../images/signature.svg";
 import { Section } from "../shared/section";
+
 import { POSTHOG_IGNORE_KEY } from "~/constants/misc";
 
 const CLICKS_THRESHOLD = 5;

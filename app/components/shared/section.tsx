@@ -30,14 +30,21 @@ export interface Props {
 	hideTitle?: boolean;
 	children: React.ReactNode;
 	className?: string;
+	isLast?: boolean;
 }
-export const Section = ({ title, hideTitle, children, className }: Props) => {
+export const Section = ({
+	title,
+	hideTitle,
+	children,
+	className,
+	isLast,
+}: Props) => {
 	const ref = useRef<HTMLDivElement | null>(null);
 	useCaptureSeenSection(ref, title || "default");
 
 	return (
 		<section
-			className={`mx-4 mb-[30vh] max-w-[100vw] last:mb-12 ${className}`}
+			className={`mx-4 ${isLast ? "mb-12" : "mb-[30vh]"} max-w-[100vw] ${className}`}
 			ref={ref}
 		>
 			{!hideTitle && <h2 className="mb-12 text-xl font-bold">{title}</h2>}

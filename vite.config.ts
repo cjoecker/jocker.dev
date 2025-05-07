@@ -11,8 +11,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 const sentryConfig: SentryReactRouterBuildOptions = {
 	org: "jockerdev",
 	project: "jocker-dev",
-	authToken:
-		process.env.SENTRY_AUTH_TOKEN,
+	authToken: process.env.SENTRY_AUTH_TOKEN,
 };
 
 export default defineConfig((config) => {

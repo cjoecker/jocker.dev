@@ -12,7 +12,7 @@ import CloseIcon from "~/images/x.svg";
 
 export const Contact = () => {
 	return (
-		<Section title="Contact Me!">
+		<Section title="Contact Me!" isLast>
 			<motion.div
 				initial="hidden"
 				whileInView="visible"
