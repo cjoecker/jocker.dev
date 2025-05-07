@@ -4,3 +4,7 @@
 
 [dev]
   command = "react-router dev"
+
+#necessay for sentry together with NODE_OPTIONS="--import ./instrument.server.mjs"
+[functions]
+  included_files = ["instrument.server.mjs"]
