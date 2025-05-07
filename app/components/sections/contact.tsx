@@ -22,12 +22,11 @@ export const Contact = () => {
 				}}
 				className="mx-auto flex flex-wrap justify-center gap-9"
 			>
-				{/*<div className="flex flex-wrap justify-center gap-9">*/}
-				{/*	<ContactButton contactInformation={ContactInformation[0]} />*/}
-				{/*	<ContactButton contactInformation={ContactInformation[1]} />*/}
-				{/*</div>*/}
 				<div className="flex flex-wrap justify-center gap-9">
+					<ContactButton contactInformation={ContactInformation[0]} />
 					<ContactButton contactInformation={ContactInformation[1]} />
+				</div>
+				<div className="flex flex-wrap justify-center gap-9">
 					<ContactButton contactInformation={ContactInformation[2]} />
 					<ContactButton contactInformation={ContactInformation[3]} />
 				</div>
@@ -184,14 +183,14 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 						whileHover={{ scale: 1.1 }}
 						onClick={onClose}
 						aria-label="close"
-						className="absolute top-1 right-1 p-3"
+						className="absolute top-1 right-1 p-3 cursor-pointer"
 					>
 						<img src={CloseIcon} alt="" width={15} height={15} />
 					</motion.button>
 					<Form
 						className="flex flex-col gap-5 text-left sm:w-fit"
-						method="post"
-						action="/?index"
+						name="contact" method="POST" data-netlify="true"
+						action={"?submitted=true"}
 					>
 						<input type="hidden" name="subject" value="Contact Form" />
 						<Textbox
