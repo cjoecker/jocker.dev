@@ -3,6 +3,7 @@
 	"sideEffects": false,
 	"type": "module",
 	"scripts": {
+		"prebuild": "npm install",
 		"build": "react-router build",
 		"dev": "react-router dev",
 		"start": "react-router-serve ./build/server/index.js",
