@@ -3,7 +3,7 @@ try {
 	Sentry = await import('@sentry/react-router');
 } catch (error) {
 	console.warn('Sentry integration not available:', error.message);
-	// Provide a fallback implementation to continue without Sentry
+	// Provide a fallback implementation to continue without Sentry to avoid error on Netlify
 	Sentry = { init: () => {} };
 }
 
