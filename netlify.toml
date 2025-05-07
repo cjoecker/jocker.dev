@@ -7,5 +7,6 @@
 
 #necessay for sentry together with NODE_OPTIONS="--import ./instrument.server.mjs"
 [functions]
+  external_node_modules  = ["@sentry/react-router"]
   included_files = ["instrument.server.mjs"]
   node_bundler = "esbuild"
