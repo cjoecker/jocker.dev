@@ -32,7 +32,6 @@ export async function action({ request }: ActionFunctionArgs) {
 			headers: { "Content-Type": "application/x-www-form-urlencoded" },
 			body: `name=${name}&email=${email}&message=${message}&form-name=contact`,
 		});
-		throw new Error("Form submission failed");
 	}
 	catch (error) {
 		console.error("Error sending form data:", error);
