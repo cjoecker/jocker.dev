@@ -78,8 +78,7 @@ export const Header = () => {
 					style={{ y: subtitleY }}
 					className="text-md mr-4 mb-16 font-normal sm:mb-28 sm:text-lg md:mr-[25vw]"
 				>
-					I work as a freelance developer and designer, and am passionate about
-					creating great experiences with beautiful web applications!
+					I don&#39;t just code features, I help you build scalable apps with amazing user experiences and code that holds up!
 				</motion.p>
 				<motion.button
 					style={{ y: buttonY, boxShadow: "0px 0px 90px -15px #00DFD8" }}
