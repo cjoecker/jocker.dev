@@ -120,7 +120,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 
 	useEffectUnsafe(() => {
 		const handleBeforeUnload = () => {
-			posthog.capture("contact_form_close_browser", {
+			posthog.capture("contact_form_close", {
 				name: name,
 				email: email,
 				message: message,
