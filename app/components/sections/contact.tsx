@@ -2,15 +2,15 @@ import { AnimatePresence, motion } from "framer-motion";
 import posthog from "posthog-js";
 import React, { useEffect, useRef, useState } from "react";
 import type { ChangeEvent, MouseEvent } from "react";
-import { Form } from "react-router";
+import { Form, useSubmit } from "react-router";
 
 import { ContactInformation } from "../../constants/contact-information";
 import type { ContactInformationType } from "../../constants/contact-information";
 import { Section } from "../shared/section";
 
 import { ExternalRedirect } from "~/components/shared/external-redirect";
-import CloseIcon from "~/images/x.svg";
 import { useEffectUnsafe } from "~/hooks/unsafe-hookst";
+import CloseIcon from "~/images/x.svg";
 
 export const Contact = () => {
 	return (
@@ -116,16 +116,15 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 	const [message, setMessage] = useState("");
 	const [hasTriedToSubmit, setHasTriedToSubmit] = useState(false);
 	const isAnimatingError = useRef(false);
+	const submit = useSubmit();
 
 	useEffectUnsafe(() => {
 		const handleBeforeUnload = () => {
-			posthog.capture("contact_form_close_browser",
-				{
-					name: name,
-					email: email,
-					message: message,
-				},
-			);
+			posthog.capture("contact_form_close_browser", {
+				name: name,
+				email: email,
+				message: message,
+			});
 		};
 
 		window.addEventListener("beforeunload", handleBeforeUnload);
@@ -172,6 +171,15 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 		}
 	};
 
+	const handleClose = () => {
+		posthog.capture("contact_form_close", {
+			name: name,
+			email: email,
+			message: message,
+		});
+		onClose();
+	};
+
 	return (
 		<>
 			<motion.div
@@ -183,14 +191,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 			></motion.div>
 			<div
 				aria-hidden="true"
-				onClick={() => {
-					posthog.capture("contact_form_close", {
-						name: name,
-						email: email,
-						message: message,
-					});
-					onClose();
-				}}
+				onClick={handleClose}
 				className="fixed top-0 left-0 z-50 flex h-screen w-screen overscroll-contain"
 			>
 				<motion.div
@@ -207,7 +208,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 					<motion.button
 						whileTap={{ scale: 1 }}
 						whileHover={{ scale: 1.1 }}
-						onClick={onClose}
+						onClick={handleClose}
 						aria-label="close"
 						className="absolute top-1 right-1 cursor-pointer p-3"
 					>
@@ -217,12 +218,14 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 						className="flex flex-col gap-5 text-left sm:w-fit"
 						method="post"
 						action="/?index"
-						onSubmit={() => {
+						onSubmit={(event) => {
+							event.preventDefault();
 							posthog.capture("contact_form_submit", {
 								name: name,
 								email: email,
 								message: message,
 							});
+							void submit(event.currentTarget);
 						}}
 					>
 						<Textbox
@@ -318,10 +321,13 @@ export const Textbox = ({ label, type, name, onChange }: Props) => {
 
 export interface ContactFormAlertProps {
 	type: "success" | "error";
-	personalEmail: string
+	personalEmail: string;
 }
 
-export const ContactFormAlert = ({ type,personalEmail }: ContactFormAlertProps) => {
+export const ContactFormAlert = ({
+	type,
+	personalEmail,
+}: ContactFormAlertProps) => {
 	const ErrorMessage = () => {
 		return type === "success" ? (
 			<>
