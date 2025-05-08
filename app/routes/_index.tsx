@@ -24,6 +24,8 @@ export async function action({ request }: ActionFunctionArgs) {
 	const email = formData.get("email") as string;
 	const message = formData.get("message") as string;
 
+	const baseUrl = request.url
+
 	fetch("/", {
 		method: "POST",
 		headers: { "Content-Type": "application/x-www-form-urlencoded" },
