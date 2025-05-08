@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import posthog from "posthog-js";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import type { ChangeEvent, MouseEvent } from "react";
 import { Form, useSubmit } from "react-router";
 
@@ -115,8 +115,8 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 	const [email, setEmail] = useState("");
 	const [message, setMessage] = useState("");
 	const [hasTriedToSubmit, setHasTriedToSubmit] = useState(false);
-	const isAnimatingError = useRef(false);
 	const submit = useSubmit();
+	const formRef = useRef<HTMLFormElement>(null);
 
 	useEffectUnsafe(() => {
 		const handleBeforeUnload = () => {
@@ -133,50 +133,42 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 		};
 	}, []);
 
-	useEffect(() => {
-		const animateErrorChange = (newError: string) => {
-			if (error === newError || isAnimatingError.current) {
-				return;
-			}
-			if (error === "") {
-				setError(newError);
-			} else {
-				setError("");
-				isAnimatingError.current = true;
-				setTimeout(
-					() => {
-						isAnimatingError.current = false;
-						setError(newError);
-					},
-					ERROR_ANIMATION_DURATION * 1000 * 2,
-				);
-			}
-		};
-
+	const validateForm = () => {
 		if (name === "" || email === "" || message === "") {
-			animateErrorChange("Please fill out all fields");
+			setError("Please fill out all fields");
+			return true;
 		} else if (/^\S+@\S+\.\S+$/.exec(email) === null) {
-			animateErrorChange("Please enter a valid email");
-		} else {
-			setError("");
+			setError("Please enter a valid email");
+			return true;
 		}
-	}, [name, email, message, error]);
+		setError("");
+		return false;
+	};
 
-	const onSubmit = (event: MouseEvent<HTMLButtonElement>) => {
+	const onSendClick = (event: MouseEvent<HTMLButtonElement>) => {
+		event.preventDefault();
 		setHasTriedToSubmit(true);
-		if (error === "") {
+		const hasError = validateForm();
+		if (!hasError) {
+			posthog.capture("contact_form_submit", {
+				name: name,
+				email: email,
+				message: message,
+			});
+			void submit(formRef.current);
 			onClose();
-		} else {
-			event.preventDefault();
 		}
 	};
 
 	const handleClose = () => {
-		posthog.capture("contact_form_close", {
-			name: name,
-			email: email,
-			message: message,
-		});
+		if (name || email || message) {
+			posthog.capture("contact_form_close", {
+				name: name,
+				email: email,
+				message: message,
+			});
+		}
+
 		onClose();
 	};
 
@@ -215,17 +207,13 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 						<img src={CloseIcon} alt="" width={15} height={15} />
 					</motion.button>
 					<Form
+						ref={formRef}
 						className="flex flex-col gap-5 text-left sm:w-fit"
 						method="post"
 						action="/?index"
-						onSubmit={(event) => {
-							event.preventDefault();
-							posthog.capture("contact_form_submit", {
-								name: name,
-								email: email,
-								message: message,
-							});
-							void submit(event.currentTarget);
+						noValidate
+						onChange={() => {
+							validateForm();
 						}}
 					>
 						<Textbox
@@ -274,8 +262,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 							</div>
 							<div className="grow-0">
 								<motion.button
-									type="submit"
-									onClick={onSubmit}
+									onClick={onSendClick}
 									style={{ boxShadow: "0px 0px 30px -10px #00DFD866" }}
 									whileTap={{ scale: 1 }}
 									whileHover={{ scale: 1.05 }}
