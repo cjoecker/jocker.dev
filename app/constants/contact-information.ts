@@ -1,19 +1,24 @@
 import EmailIcon from "../images/email.svg";
 import GithubIcon from "../images/github.svg";
 import LinkedinIcon from "../images/linkedin.svg";
-import TwitterIcon from "../images/twitter.svg";
+import VideoCallIcon from "../images/video-call.svg";
 
 export interface ContactInformationType {
 	alt: string;
 	text: string;
-	href: string;
+	href?: string;
 	image: string;
 }
 export const ContactInformation: ContactInformationType[] = [
 	{
-		alt: "email",
-		text: "c.jocker@hotmail.com",
-		href: "mailto:c.jocker@hotmail.com",
+		alt: "video-call",
+		text: "schedule a video call",
+		href: "https://calendly.com/jockerdev/30min",
+		image: VideoCallIcon,
+	},
+	{
+		alt: "message",
+		text: "send a message",
 		image: EmailIcon,
 	},
 	{
@@ -21,12 +26,6 @@ export const ContactInformation: ContactInformationType[] = [
 		text: "christianjoecker",
 		href: "https://www.linkedin.com/in/christianjoecker/",
 		image: LinkedinIcon,
-	},
-	{
-		alt: "twitter",
-		text: "@JockerDev",
-		href: "https://twitter.com/JockerDev",
-		image: TwitterIcon,
 	},
 	{
 		alt: "github",
