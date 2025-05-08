@@ -189,13 +189,8 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 					</motion.button>
 					<form
 						className="flex flex-col gap-5 text-left sm:w-fit"
-						name="contact"
 						method="POST"
-						data-netlify="true"
-						netlify-honeypot="bot-field"
-						action={"/?index"}
 					>
-						<input type="hidden" name="form-name" value="contact" />
 						<Textbox
 							label="Full Name"
 							type="text"
