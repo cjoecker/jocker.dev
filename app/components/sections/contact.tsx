@@ -191,6 +191,20 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 						className="flex flex-col gap-5 text-left sm:w-fit"
 						name="contact" method="POST" data-netlify="true"
 						action={"?submitted=true"}
+						onSubmit={(event) => {
+							event.preventDefault();
+
+							const myForm = event.target;
+							const formData = new FormData(myForm);
+
+							fetch("/", {
+								method: "POST",
+								headers: { "Content-Type": "application/x-www-form-urlencoded" },
+								body: new URLSearchParams(formData).toString()
+							})
+								.then(() => console.log("Form successfully submitted"))
+								.catch(error => alert(error));
+						}}
 					>
 						<input type="hidden" name="subject" value="Contact Form" />
 						<Textbox
