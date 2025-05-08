@@ -9,6 +9,7 @@ import { Section } from "../shared/section";
 
 import { ExternalRedirect } from "~/components/shared/external-redirect";
 import CloseIcon from "~/images/x.svg";
+import posthog from "posthog-js";
 
 export const Contact = () => {
 	return (
@@ -164,7 +165,14 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 			></motion.div>
 			<div
 				aria-hidden="true"
-				onClick={onClose}
+				onClick={() => {
+					posthog.capture("contact_form_close", {
+						name: name,
+						email: email,
+						message: message,
+					});
+					onClose();
+				}}
 				className="fixed top-0 left-0 z-50 flex h-screen w-screen overscroll-contain"
 			>
 				<motion.div
@@ -183,7 +191,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 						whileHover={{ scale: 1.1 }}
 						onClick={onClose}
 						aria-label="close"
-						className="absolute top-1 right-1 p-3 cursor-pointer"
+						className="absolute top-1 right-1 cursor-pointer p-3"
 					>
 						<img src={CloseIcon} alt="" width={15} height={15} />
 					</motion.button>
@@ -191,6 +199,13 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 						className="flex flex-col gap-5 text-left sm:w-fit"
 						method="post"
 						action="/?index"
+						onSubmit={() => {
+							posthog.capture("contact_form_submit", {
+								name: name,
+								email: email,
+								message: message,
+							});
+						}}
 					>
 						<Textbox
 							label="Full Name"
@@ -264,6 +279,7 @@ export interface Props {
 	name: string;
 	onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
+
 export const Textbox = ({ label, type, name, onChange }: Props) => {
 	return (
 		<label className="flex flex-col">
@@ -285,6 +301,7 @@ export const Textbox = ({ label, type, name, onChange }: Props) => {
 export interface ContactFormAlertProps {
 	type: "success" | "error";
 }
+
 export const ContactFormAlert = ({ type }: ContactFormAlertProps) => {
 	const ErrorMessage = () => {
 		return type === "success" ? (
