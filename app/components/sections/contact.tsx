@@ -187,9 +187,10 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 					>
 						<img src={CloseIcon} alt="" width={15} height={15} />
 					</motion.button>
-					<form
+					<Form
 						className="flex flex-col gap-5 text-left sm:w-fit"
-						method="POST"
+						method="post"
+						action="/?index"
 					>
 						<Textbox
 							label="Full Name"
@@ -250,7 +251,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 								</motion.button>
 							</div>
 						</div>
-					</form>
+					</Form>
 				</motion.div>
 			</div>
 		</>
