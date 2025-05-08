@@ -1,7 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import type { ActionFunctionArgs } from "react-router";
-import { useActionData } from "react-router";
+import { ActionFunctionArgs, useActionData } from "react-router";
 
 import { AboutMe } from "~/components/sections/about-me";
 import { Contact, ContactFormAlert } from "~/components/sections/contact";
@@ -16,17 +15,31 @@ import { Languages } from "~/components/sections/languages";
 import { ServiceOffer } from "~/components/sections/service-offer";
 import { Skills } from "~/components/sections/skills";
 import { Testimonials } from "~/components/sections/testimonials";
-import { sendMail } from "~/services/mail.server";
+
+const ALERT_DURATION = 5000;
 
 export async function action({ request }: ActionFunctionArgs) {
 	const formData = await request.formData();
 	const name = formData.get("name") as string;
 	const email = formData.get("email") as string;
 	const message = formData.get("message") as string;
-	return await sendMail(name, email, message);
-}
 
-const ALERT_DURATION = 5000;
+	const baseUrl = request.url;
+
+	try {
+		await fetch(`${baseUrl}/form`, {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: `name=${name}&email=${email}&message=${message}&form-name=contact`,
+		});
+	}
+	catch (error) {
+		console.error("Error sending form data:", error);
+		return {success:false, personalEmail: process.env.PERSONAL_EMAIL };
+	}
+
+	return { success: true };
+}
 
 export default function Index() {
 	const data = useActionData<typeof action>();
@@ -42,7 +55,6 @@ export default function Index() {
 			}
 		}
 	}, [data]);
-
 	return (
 		<main className="overflow-x-hidden text-base font-normal">
 			<Header />
@@ -64,7 +76,7 @@ export default function Index() {
 			</div>
 			<AnimatePresence>
 				{isContactFormAlertVisible && (
-					<ContactFormAlert type={data?.success ? "success" : "error"} />
+					<ContactFormAlert type={data?.success ? "success" : "error"} personalEmail={data?.personalEmail ?? ""} />
 				)}
 			</AnimatePresence>
 		</main>

@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
+import posthog from "posthog-js";
 import React, { useEffect, useRef, useState } from "react";
 import type { ChangeEvent, MouseEvent } from "react";
 import { Form } from "react-router";
@@ -9,6 +10,7 @@ import { Section } from "../shared/section";
 
 import { ExternalRedirect } from "~/components/shared/external-redirect";
 import CloseIcon from "~/images/x.svg";
+import { useEffectUnsafe } from "~/hooks/unsafe-hookst";
 
 export const Contact = () => {
 	return (
@@ -22,12 +24,11 @@ export const Contact = () => {
 				}}
 				className="mx-auto flex flex-wrap justify-center gap-9"
 			>
-				{/*<div className="flex flex-wrap justify-center gap-9">*/}
-				{/*	<ContactButton contactInformation={ContactInformation[0]} />*/}
-				{/*	<ContactButton contactInformation={ContactInformation[1]} />*/}
-				{/*</div>*/}
 				<div className="flex flex-wrap justify-center gap-9">
+					<ContactButton contactInformation={ContactInformation[0]} />
 					<ContactButton contactInformation={ContactInformation[1]} />
+				</div>
+				<div className="flex flex-wrap justify-center gap-9">
 					<ContactButton contactInformation={ContactInformation[2]} />
 					<ContactButton contactInformation={ContactInformation[3]} />
 				</div>
@@ -42,7 +43,7 @@ export const ContactButton = ({
 	contactInformation: ContactInformationType;
 }) => {
 	const [isContactFormVisible, setIsContactFormVisible] = useState(false);
-	const isContactFormButton = contactInformation.alt === "email";
+	const isContactFormButton = contactInformation.alt === "message";
 
 	const ButtonContent = () => {
 		return (
@@ -88,7 +89,7 @@ export const ContactButton = ({
 							<ButtonContent />
 						</button>
 					) : (
-						<ExternalRedirect to={contactInformation.href}>
+						<ExternalRedirect to={contactInformation.href ?? ""}>
 							<ButtonContent />
 						</ExternalRedirect>
 					)}
@@ -115,6 +116,23 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 	const [message, setMessage] = useState("");
 	const [hasTriedToSubmit, setHasTriedToSubmit] = useState(false);
 	const isAnimatingError = useRef(false);
+
+	useEffectUnsafe(() => {
+		const handleBeforeUnload = () => {
+			posthog.capture("contact_form_close_browser",
+				{
+					name: name,
+					email: email,
+					message: message,
+				},
+			);
+		};
+
+		window.addEventListener("beforeunload", handleBeforeUnload);
+		return () => {
+			window.removeEventListener("beforeunload", handleBeforeUnload);
+		};
+	}, []);
 
 	useEffect(() => {
 		const animateErrorChange = (newError: string) => {
@@ -165,7 +183,14 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 			></motion.div>
 			<div
 				aria-hidden="true"
-				onClick={onClose}
+				onClick={() => {
+					posthog.capture("contact_form_close", {
+						name: name,
+						email: email,
+						message: message,
+					});
+					onClose();
+				}}
 				className="fixed top-0 left-0 z-50 flex h-screen w-screen overscroll-contain"
 			>
 				<motion.div
@@ -184,7 +209,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 						whileHover={{ scale: 1.1 }}
 						onClick={onClose}
 						aria-label="close"
-						className="absolute top-1 right-1 p-3"
+						className="absolute top-1 right-1 cursor-pointer p-3"
 					>
 						<img src={CloseIcon} alt="" width={15} height={15} />
 					</motion.button>
@@ -192,8 +217,14 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 						className="flex flex-col gap-5 text-left sm:w-fit"
 						method="post"
 						action="/?index"
+						onSubmit={() => {
+							posthog.capture("contact_form_submit", {
+								name: name,
+								email: email,
+								message: message,
+							});
+						}}
 					>
-						<input type="hidden" name="subject" value="Contact Form" />
 						<Textbox
 							label="Full Name"
 							type="text"
@@ -266,6 +297,7 @@ export interface Props {
 	name: string;
 	onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
+
 export const Textbox = ({ label, type, name, onChange }: Props) => {
 	return (
 		<label className="flex flex-col">
@@ -286,8 +318,10 @@ export const Textbox = ({ label, type, name, onChange }: Props) => {
 
 export interface ContactFormAlertProps {
 	type: "success" | "error";
+	personalEmail: string
 }
-export const ContactFormAlert = ({ type }: ContactFormAlertProps) => {
+
+export const ContactFormAlert = ({ type,personalEmail }: ContactFormAlertProps) => {
 	const ErrorMessage = () => {
 		return type === "success" ? (
 			<>
@@ -300,9 +334,9 @@ export const ContactFormAlert = ({ type }: ContactFormAlertProps) => {
 				email to&nbsp;
 				<a
 					className="text-primary font-bold underline"
-					href="test@email.com"
+					href={`mailto:${personalEmail}`}
 				>
-					test@email.com
+					{personalEmail}
 				</a>
 			</>
 		);
