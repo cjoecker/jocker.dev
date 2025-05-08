@@ -10,6 +10,7 @@ import { CoreValues } from "~/components/sections/core-values";
 import { CoursesAndConferences } from "~/components/sections/courses-and-conferences";
 import { ExperienceAndEducation } from "~/components/sections/experience-and-education";
 import { Facts } from "~/components/sections/facts";
+import { Footer } from "~/components/sections/footer";
 import { Header } from "~/components/sections/header";
 import { Languages } from "~/components/sections/languages";
 import { ServiceOffer } from "~/components/sections/service-offer";
@@ -58,6 +59,7 @@ export default function Index() {
 					<CoursesAndConferences />
 					<AboutMe />
 					<Contact />
+					<Footer />
 				</div>
 			</div>
 			<AnimatePresence>

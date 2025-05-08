@@ -15,10 +15,12 @@
 		"format:all": "pnpm format --write ."
 	},
 	"dependencies": {
+		"@neptune.digital/sentry-netlify-v2": "^1.2.0",
 		"@netlify/functions": "^3.1.2",
 		"@netlify/vite-plugin-react-router": "^1.0.1",
 		"@react-router/node": "^7.5.0",
 		"@react-router/serve": "^7.5.0",
+		"@sentry/react-router": "^9.15.0",
 		"@splidejs/react-splide": "^0.7.12",
 		"@tailwindcss/vite": "^4.1.4",
 		"binode": "^1.0.5",

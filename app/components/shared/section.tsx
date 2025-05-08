@@ -1,13 +1,53 @@
+import { useInView } from "framer-motion";
+import posthog from "posthog-js";
+import { RefObject, useEffect, useRef } from "react";
+import { useHydrated } from "remix-utils/use-hydrated";
+
+export function useCaptureSeenSection(
+	ref: RefObject<HTMLElement | null>,
+	title: string,
+) {
+	const isInView = useInView(ref);
+	const isHydrated = useHydrated();
+	const hasBeenSeen = useRef(false);
+
+	useEffect(() => {
+		if (!hasBeenSeen.current && isInView) {
+			hasBeenSeen.current = true;
+		}
+		if (isHydrated && hasBeenSeen.current) {
+			const sectionName = title.toLowerCase().replaceAll(" ", "_");
+			posthog.capture("user_sees_section", {
+				is_visible: isInView,
+				section_name: sectionName,
+			});
+		}
+	}, [isHydrated, isInView, title]);
+}
+
 export interface Props {
-	title?: string;
+	title: string;
+	hideTitle?: boolean;
 	children: React.ReactNode;
 	className?: string;
+	isLast?: boolean;
 }
-export const Section = ({ title, children, className }: Props) => {
-	return (
-		<section className={`mx-4 mb-[30vh] max-w-[100vw] last:mb-12 ${className}`}>
-			{title && <h2 className="mb-12 text-xl font-bold">{title}</h2>}
+export const Section = ({
+	title,
+	hideTitle,
+	children,
+	className,
+	isLast,
+}: Props) => {
+	const ref = useRef<HTMLDivElement | null>(null);
+	useCaptureSeenSection(ref, title || "default");
 
+	return (
+		<section
+			className={`mx-4 ${isLast ? "mb-12" : "mb-[30vh]"} max-w-[100vw] ${className}`}
+			ref={ref}
+		>
+			{!hideTitle && <h2 className="mb-12 text-xl font-bold">{title}</h2>}
 			{children}
 		</section>
 	);
