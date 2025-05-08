@@ -29,7 +29,7 @@ export async function action({ request }: ActionFunctionArgs) {
 	await fetch(`${baseUrl}/form.html`, {
 		method: "POST",
 		headers: { "Content-Type": "application/x-www-form-urlencoded" },
-		body: new URLSearchParams(formData).toString()
+		body: `name=${name}&email=${email}&message=${message}`,
 	})
 		.then(() =>{
 			return {success: true};
