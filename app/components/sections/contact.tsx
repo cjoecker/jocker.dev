@@ -187,13 +187,14 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 					>
 						<img src={CloseIcon} alt="" width={15} height={15} />
 					</motion.button>
-					<Form
+					<form
 						className="flex flex-col gap-5 text-left sm:w-fit"
 						name="contact"
 						method="POST"
 						data-netlify="true"
 						netlify-honeypot="bot-field"
 					>
+						<input type="hidden" name="form-name" value="contact" />
 						<input type="hidden" name="subject" value="Contact Form" />
 						<Textbox
 							label="Full Name"
@@ -254,7 +255,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 								</motion.button>
 							</div>
 						</div>
-					</Form>
+					</form>
 				</motion.div>
 			</div>
 		</>
