@@ -193,6 +193,7 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 						method="POST"
 						data-netlify="true"
 						netlify-honeypot="bot-field"
+						action={"/?index"}
 					>
 						<input type="hidden" name="form-name" value="contact" />
 						<Textbox
