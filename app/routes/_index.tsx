@@ -32,10 +32,9 @@ export async function action({ request }: ActionFunctionArgs) {
 			headers: { "Content-Type": "application/x-www-form-urlencoded" },
 			body: `name=${name}&email=${email}&message=${message}&form-name=contact`,
 		});
-	}
-	catch (error) {
+	} catch (error) {
 		console.error("Error sending form data:", error);
-		return {success:false, personalEmail: process.env.PERSONAL_EMAIL };
+		return { success: false, personalEmail: process.env.PERSONAL_EMAIL };
 	}
 
 	return { success: true };
@@ -76,7 +75,10 @@ export default function Index() {
 			</div>
 			<AnimatePresence>
 				{isContactFormAlertVisible && (
-					<ContactFormAlert type={data?.success ? "success" : "error"} personalEmail={data?.personalEmail ?? ""} />
+					<ContactFormAlert
+						type={data?.success ? "success" : "error"}
+						personalEmail={data?.personalEmail ?? ""}
+					/>
 				)}
 			</AnimatePresence>
 		</main>
