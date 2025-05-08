@@ -24,14 +24,22 @@ export async function action({ request }: ActionFunctionArgs) {
 	const email = formData.get("email") as string;
 	const message = formData.get("message") as string;
 
-	const baseUrl = request.url
+	const baseUrl = request.url;
 
-	await fetch(`${baseUrl}/form`, {
-		method: "POST",
-		headers: { "Content-Type": "application/x-www-form-urlencoded" },
-		body: `name=${name}&email=${email}&message=${message}&form-name=contact`,
-	})
-	return {success: true};
+	try {
+		await fetch(`${baseUrl}/form`, {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: `name=${name}&email=${email}&message=${message}&form-name=contact`,
+		});
+		throw new Error("Form submission failed");
+	}
+	catch (error) {
+		console.error("Error sending form data:", error);
+		return {success:false, personalEmail: process.env.PERSONAL_EMAIL };
+	}
+
+	return { success: true };
 }
 
 export default function Index() {
@@ -69,7 +77,7 @@ export default function Index() {
 			</div>
 			<AnimatePresence>
 				{isContactFormAlertVisible && (
-					<ContactFormAlert type={data?.success ? "success" : "error"} />
+					<ContactFormAlert type={data?.success ? "success" : "error"} personalEmail={data?.personalEmail ?? ""} />
 				)}
 			</AnimatePresence>
 		</main>

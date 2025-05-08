@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
+import posthog from "posthog-js";
 import React, { useEffect, useRef, useState } from "react";
 import type { ChangeEvent, MouseEvent } from "react";
 import { Form } from "react-router";
@@ -9,7 +10,7 @@ import { Section } from "../shared/section";
 
 import { ExternalRedirect } from "~/components/shared/external-redirect";
 import CloseIcon from "~/images/x.svg";
-import posthog from "posthog-js";
+import { useEffectUnsafe } from "~/hooks/unsafe-hookst";
 
 export const Contact = () => {
 	return (
@@ -88,7 +89,7 @@ export const ContactButton = ({
 							<ButtonContent />
 						</button>
 					) : (
-						<ExternalRedirect to={contactInformation?.href ?? ""}>
+						<ExternalRedirect to={contactInformation.href ?? ""}>
 							<ButtonContent />
 						</ExternalRedirect>
 					)}
@@ -115,6 +116,23 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 	const [message, setMessage] = useState("");
 	const [hasTriedToSubmit, setHasTriedToSubmit] = useState(false);
 	const isAnimatingError = useRef(false);
+
+	useEffectUnsafe(() => {
+		const handleBeforeUnload = () => {
+			posthog.capture("contact_form_close_browser",
+				{
+					name: name,
+					email: email,
+					message: message,
+				},
+			);
+		};
+
+		window.addEventListener("beforeunload", handleBeforeUnload);
+		return () => {
+			window.removeEventListener("beforeunload", handleBeforeUnload);
+		};
+	}, []);
 
 	useEffect(() => {
 		const animateErrorChange = (newError: string) => {
@@ -300,9 +318,10 @@ export const Textbox = ({ label, type, name, onChange }: Props) => {
 
 export interface ContactFormAlertProps {
 	type: "success" | "error";
+	personalEmail: string
 }
 
-export const ContactFormAlert = ({ type }: ContactFormAlertProps) => {
+export const ContactFormAlert = ({ type,personalEmail }: ContactFormAlertProps) => {
 	const ErrorMessage = () => {
 		return type === "success" ? (
 			<>
@@ -315,9 +334,9 @@ export const ContactFormAlert = ({ type }: ContactFormAlertProps) => {
 				email to&nbsp;
 				<a
 					className="text-primary font-bold underline"
-					href="c.jocker@hotmail.com"
+					href={`mailto:${personalEmail}`}
 				>
-					c.jocker@hotmail.com
+					{personalEmail}
 				</a>
 			</>
 		);
