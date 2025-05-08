@@ -26,7 +26,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
 	const baseUrl = request.url
 
-	fetch("/", {
+	await fetch(`${baseUrl}/form.html`, {
 		method: "POST",
 		headers: { "Content-Type": "application/x-www-form-urlencoded" },
 		body: new URLSearchParams(formData).toString()
