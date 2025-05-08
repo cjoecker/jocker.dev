@@ -42,6 +42,7 @@ export default function Index() {
 			}
 		}
 	}, [data]);
+	throw new Error("Error in client");
 	return (
 		<main className="overflow-x-hidden text-base font-normal">
 			<Header />
