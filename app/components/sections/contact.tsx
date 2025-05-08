@@ -42,7 +42,7 @@ export const ContactButton = ({
 	contactInformation: ContactInformationType;
 }) => {
 	const [isContactFormVisible, setIsContactFormVisible] = useState(false);
-	const isContactFormButton = contactInformation.alt === "email";
+	const isContactFormButton = contactInformation.alt === "message";
 
 	const ButtonContent = () => {
 		return (
@@ -88,7 +88,7 @@ export const ContactButton = ({
 							<ButtonContent />
 						</button>
 					) : (
-						<ExternalRedirect to={contactInformation.href}>
+						<ExternalRedirect to={contactInformation?.href ?? ""}>
 							<ButtonContent />
 						</ExternalRedirect>
 					)}
