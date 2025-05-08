@@ -189,10 +189,20 @@ export const ContactForm = ({ onClose }: { onClose: VoidFunction }) => {
 					</motion.button>
 					<form
 						className="flex flex-col gap-5 text-left sm:w-fit"
-						name="contact"
-						method="POST"
-						data-netlify="true"
-						netlify-honeypot="bot-field"
+						onSubmit={(event) => {
+							event.preventDefault();
+
+							const myForm = event.target;
+							const formData = new FormData(myForm);
+
+							fetch("/", {
+								method: "POST",
+								headers: { "Content-Type": "application/x-www-form-urlencoded" },
+								body: new URLSearchParams(formData).toString()
+							})
+								.then(() => console.log("success"))
+								.catch(error => console.log(error));
+						}}
 					>
 						<input type="hidden" name="form-name" value="contact" />
 						<input type="hidden" name="subject" value="Contact Form" />

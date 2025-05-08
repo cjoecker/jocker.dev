@@ -23,7 +23,19 @@ export async function action({ request }: ActionFunctionArgs) {
 	const name = formData.get("name") as string;
 	const email = formData.get("email") as string;
 	const message = formData.get("message") as string;
-	return {success: true};
+
+	fetch("/", {
+		method: "POST",
+		headers: { "Content-Type": "application/x-www-form-urlencoded" },
+		body: new URLSearchParams(formData).toString()
+	})
+		.then(() =>{
+			return {success: true};
+		})
+		.catch(error =>{
+			console.log(error)
+		});
+	return {success: false};
 }
 
 export default function Index() {
