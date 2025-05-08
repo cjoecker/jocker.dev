@@ -26,18 +26,12 @@ export async function action({ request }: ActionFunctionArgs) {
 
 	const baseUrl = request.url
 
-	await fetch(`${baseUrl}/form.html`, {
+	await fetch(`${baseUrl}/form`, {
 		method: "POST",
 		headers: { "Content-Type": "application/x-www-form-urlencoded" },
-		body: `name=${name}&email=${email}&message=${message}`,
+		body: `name=${name}&email=${email}&message=${message}&form-name=contact`,
 	})
-		.then(() =>{
-			return {success: true};
-		})
-		.catch(error =>{
-			console.log(error)
-		});
-	return {success: false};
+	return {success: true};
 }
 
 export default function Index() {
