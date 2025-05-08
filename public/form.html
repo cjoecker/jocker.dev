@@ -1,9 +1,16 @@
 <body>
 <form name="contact" method="POST" netlify>
 	<input type="hidden" name="form-name" value="contact" />
-	<input type="text" name="name" required />
-	<input type="text" name="email" required />
-	<input type="text" name="message" required />
+	<label for="name">Name
+		<input type="text" name="name" required id="name" />
+	</label>
+	<label for="email">Email
+		<input type="email" name="email" required id="email" />
+	</label>
+	<label for="message">Message
+		<textarea name="message" required id="message"></textarea>
+	</label>
+
 	<button type="submit">Send Message</button>
 </form>
 </body>
