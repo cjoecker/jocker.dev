@@ -1,6 +1,5 @@
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import type { ActionFunctionArgs } from "react-router";
 import { useActionData } from "react-router";
 
 import { AboutMe } from "~/components/sections/about-me";
@@ -16,33 +15,23 @@ import { Languages } from "~/components/sections/languages";
 import { ServiceOffer } from "~/components/sections/service-offer";
 import { Skills } from "~/components/sections/skills";
 import { Testimonials } from "~/components/sections/testimonials";
-import { sendMail } from "~/services/mail.server";
-
-export async function action({ request }: ActionFunctionArgs) {
-	const formData = await request.formData();
-	const name = formData.get("name") as string;
-	const email = formData.get("email") as string;
-	const message = formData.get("message") as string;
-	return await sendMail(name, email, message);
-}
 
 const ALERT_DURATION = 5000;
 
 export default function Index() {
-	const data = useActionData<typeof action>();
+
 	const [isContactFormAlertVisible, setIsContactFormAlertVisible] =
 		useState(false);
-	useEffect(() => {
-		if (data && "success" in data) {
-			setIsContactFormAlertVisible(true);
-			if (data.success) {
-				setTimeout(() => {
-					setIsContactFormAlertVisible(false);
-				}, ALERT_DURATION);
-			}
-		}
-	}, [data]);
-
+	// useEffect(() => {
+	// 	if (data && "success" in data) {
+	// 		setIsContactFormAlertVisible(true);
+	// 		if (data.success) {
+	// 			setTimeout(() => {
+	// 				setIsContactFormAlertVisible(false);
+	// 			}, ALERT_DURATION);
+	// 		}
+	// 	}
+	// }, [data]);
 	return (
 		<main className="overflow-x-hidden text-base font-normal">
 			<Header />
@@ -63,9 +52,9 @@ export default function Index() {
 				</div>
 			</div>
 			<AnimatePresence>
-				{isContactFormAlertVisible && (
-					<ContactFormAlert type={data?.success ? "success" : "error"} />
-				)}
+				{/*{isContactFormAlertVisible && (*/}
+				{/*	<ContactFormAlert type={data?.success ? "success" : "error"} />*/}
+				{/*)}*/}
 			</AnimatePresence>
 		</main>
 	);
