@@ -1,5 +1,5 @@
 import DavidPhoto from "../images/david.webp";
-import MaibornWolffLogo from "../images/maibornwolff.svg";
+import NewspectiveLogo from "../images/newspective-logo.svg";
 import PaulaPhoto from "../images/paula.webp";
 import SlectedMeLogo from "../images/slected-me.svg";
 import SmartCube360Logo from "../images/smart-cube-360.svg";
@@ -33,10 +33,10 @@ export const testimonials: TestimonialsType[] = [
     Both his creativity and entrepreneurial mindset bring his projects and the company forward.`,
 		person: "Paula Montesa Rausell",
 		photo: PaulaPhoto,
-		company: "MaibornWolff GmbH",
-		companyLogo: MaibornWolffLogo,
-		companyHeight: 50,
-		title: "Lead Digital Design Engineer",
+		company: "Newspective",
+		companyLogo: NewspectiveLogo,
+		companyHeight: 80,
+		title: "Head of Strategy",
 	},
 ];
 

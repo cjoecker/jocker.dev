@@ -6,6 +6,7 @@ import {
 	isRouteErrorResponse,
 	LinksFunction,
 	MetaFunction,
+	redirect,
 } from "react-router";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import { useHydrated } from "remix-utils/use-hydrated";
@@ -133,6 +134,18 @@ export const links: LinksFunction = () => {
 		},
 	];
 };
+
+export function loader({ request }: Route.LoaderArgs) {
+	const { pathname, search } = new URL(request.url);
+
+	if (pathname.endsWith("/") && pathname !== "/") {
+		// Redirect to the same URL without a trailing slash
+		// eslint-disable-next-line @typescript-eslint/only-throw-error
+		throw redirect(`${pathname.slice(0, -1)}${search}`, 301);
+	}
+
+	return null;
+}
 
 function PosthogInit() {
 	const isHydrated = useHydrated();

@@ -5,7 +5,7 @@
 		"**/*.tsx",
 		".react-router/types/**/*"
 	],
-	"exclude": ["node_modules", "build", "public"],
+	"exclude": ["node_modules", "build", "public", ".react-router"],
 	"compilerOptions": {
 		"lib": ["DOM", "DOM.Iterable", "ES2022"],
 		"isolatedModules": true,
