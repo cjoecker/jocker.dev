@@ -4,3 +4,9 @@
 
 [dev]
   command = "react-router dev"
+
+[[redirects]]
+  from = "/*/"
+  to = "/:splat"
+  status = 301
+  force = true
