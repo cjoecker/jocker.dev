@@ -3,6 +3,10 @@ import * as Sentry from "@sentry/react-router";
 import { renderToPipeableStream } from "react-dom/server";
 import { HandleErrorFunction, ServerRouter } from "react-router";
 
+import { sentryConfig } from "~/constants/misc";
+
+Sentry.init(sentryConfig);
+
 const handleRequest = Sentry.createSentryHandleRequest({
 	ServerRouter,
 	renderToPipeableStream,
