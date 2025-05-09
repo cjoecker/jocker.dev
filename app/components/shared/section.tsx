@@ -3,6 +3,8 @@ import posthog from "posthog-js";
 import { RefObject, useEffect, useRef } from "react";
 import { useHydrated } from "remix-utils/use-hydrated";
 
+import useVisibleSection from "~/hooks/use-visible-section";
+
 export function useCaptureSeenSection(
 	ref: RefObject<HTMLElement | null>,
 	title: string,
@@ -10,6 +12,7 @@ export function useCaptureSeenSection(
 	const isInView = useInView(ref);
 	const isHydrated = useHydrated();
 	const hasBeenSeen = useRef(false);
+	const { setVisibleSection } = useVisibleSection();
 
 	useEffect(() => {
 		if (!hasBeenSeen.current && isInView) {
@@ -21,8 +24,11 @@ export function useCaptureSeenSection(
 				is_visible: isInView,
 				section_name: sectionName,
 			});
+			if (isInView) {
+				setVisibleSection(sectionName);
+			}
 		}
-	}, [isHydrated, isInView, title]);
+	}, [isHydrated, isInView, setVisibleSection, title]);
 }
 
 export interface Props {

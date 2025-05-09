@@ -6,7 +6,7 @@ import VideoCallIcon from "../images/video-call.svg";
 export interface ContactInformationType {
 	alt: string;
 	text: string;
-	href?: string;
+	href: string;
 	image: string;
 }
 export const ContactInformation: ContactInformationType[] = [
@@ -19,6 +19,7 @@ export const ContactInformation: ContactInformationType[] = [
 	{
 		alt: "message",
 		text: "send a message",
+		href: "/contact",
 		image: EmailIcon,
 	},
 	{
