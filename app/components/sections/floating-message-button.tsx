@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useAnimation, Variants } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router";
 import { useLocation } from "react-use";
@@ -8,61 +8,89 @@ import { ContactInformation } from "~/constants/contact-information";
 import useVisibleSection from "~/hooks/use-visible-section";
 
 const hiddenMessageButtonSections = new Set([
-// empty string is the header section
+	// empty string is the header section
 	"",
 	"what_i_can_do_for_you",
 	"contact_me!",
 ]);
 
+const animationVariants: Variants = {
+	hidden: {
+		opacity: 0,
+		y: 100,
+		x: 0,
+		transition: {
+			type: "easeOut",
+			duration: 0.3,
+		},
+	},
+	visible: {
+		opacity: 1,
+		y: 0,
+		x: 0,
+		transition: {
+			type: "spring",
+			bounce: 0.65,
+			duration: 1.2,
+		},
+	},
+	shake: {
+		opacity: 1,
+		y: 0,
+		x: [-20, 20, -15, 15, -10, 0],
+		transition: {
+			type: "easeInOut",
+			duration: 0.7,
+		},
+	},
+};
+
 export const MessageFloatingButton = () => {
 	const { visibleSection } = useVisibleSection();
-	const [isVisible, setIsVisible] = useState(false);
 	const navigate = useNavigate();
 	const contactInformation = ContactInformation.find((contact) => {
 		return contact.alt === "message";
 	});
 	// get current path from remix
 	const location = useLocation();
+	const controls = useAnimation();
 
 	useEffect(() => {
 		if (
 			hiddenMessageButtonSections.has(visibleSection) ||
 			location.pathname === "/contact"
 		) {
-			setIsVisible(false);
-		} else {
-			setIsVisible(true);
+			void controls.start("hidden");
+		} else if(visibleSection.includes("testimonials")) {
+			void controls.start("shake");
+		}else{
+			void controls.start("visible");
 		}
-	}, [visibleSection, location]);
+		console.log("visibleSection", visibleSection);
+	}, [visibleSection, location, controls]);
 
 	if (!contactInformation) {
 		return null;
 	}
 
 	return (
-		<AnimatePresence>
-			{isVisible && (
-				<motion.div
-					className="fixed right-2 bottom-2 z-50"
-					initial={{ y: 100, opacity: 0 }}
-					animate={{ y: 0, opacity: 1 }}
-					exit={{ y: 100, opacity: 0 }}
-					transition={{ type: "spring", bounce: 0.65, duration: 1.2 }}
-				>
-					<Button
-						iconButton
-						ariaLabel={contactInformation.text}
-						onClick={() => {
-							void navigate("/contact", { preventScrollReset: true });
-						}}
-					>
-						<ButtonIcon
-							alt={contactInformation.alt}
-							src={contactInformation.image}
-						/>
-					</Button>
-				</motion.div>
-			)}
-		</AnimatePresence>
+		<motion.div
+			className="fixed right-2 bottom-2 z-50"
+			animate={controls}
+			variants={animationVariants}
+		>
+			<Button
+				iconButton
+				ariaLabel={contactInformation.text}
+				onClick={() => {
+					void navigate("/contact", { preventScrollReset: true });
+				}}
+			>
+				<ButtonIcon
+					alt={contactInformation.alt}
+					src={contactInformation.image}
+				/>
+			</Button>
+		</motion.div>
 	);
 };
