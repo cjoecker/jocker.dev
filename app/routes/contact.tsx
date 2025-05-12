@@ -98,7 +98,7 @@ export default function Contact() {
 			<div
 				aria-hidden="true"
 				onClick={submitSuccess === undefined ? undefined : handleClose}
-				className="fixed top-0 left-0 z-50 flex h-screen w-screen overscroll-contain"
+				className="fixed top-0 left-0 z-50 flex h-dvh w-screen overscroll-contain"
 			>
 				<motion.div
 					initial={{ scale: 0, opacity: 0 }}
