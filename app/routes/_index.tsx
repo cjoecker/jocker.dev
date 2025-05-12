@@ -19,8 +19,8 @@ import { Testimonials } from "~/components/sections/testimonials";
 
 export default function Index() {
 	return (
-		<main className="overflow-x-hidden text-base font-normal relative">
-			<LoadingBar/>
+		<main className="relative overflow-x-hidden text-base font-normal">
+			<LoadingBar />
 			<Header />
 			<div className="flex w-full flex-col">
 				<div className="">
@@ -44,8 +44,6 @@ export default function Index() {
 	);
 }
 
-
-
 export const LoadingBar: React.FC = () => {
 	const navigation = useNavigation();
 	const isLoading = navigation.state != "idle";
@@ -55,9 +53,13 @@ export const LoadingBar: React.FC = () => {
 	}
 
 	return (
-		<div className={"fixed top-0 left-0 w-screen right-0 z-50 h-1 overflow-hidden bg-grey"}>
+		<div
+			className={
+				"bg-grey fixed top-0 right-0 left-0 z-50 h-1 w-screen overflow-hidden"
+			}
+		>
 			<motion.div
-				className="h-full bg-primary"
+				className="bg-primary h-full"
 				initial={{ x: "-100%" }}
 				animate={{
 					x: "100%",
