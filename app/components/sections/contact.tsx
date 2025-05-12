@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import React from "react";
 import { useNavigate } from "react-router";
 
-import { ContactInformation } from "../../constants/contact-information";
-import type { ContactInformationType } from "../../constants/contact-information";
 import { Section } from "../shared/section";
 
 import { Button, ButtonIcon } from "~/components/shared/button";
 import { ExternalRedirect } from "~/components/shared/external-redirect";
+import type { ContactInformationType } from "~/constants/contact-information";
+import { ContactInformation } from "~/constants/contact-information";
 
 export const Contact = () => {
 	return (

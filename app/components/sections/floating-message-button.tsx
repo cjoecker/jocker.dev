@@ -53,7 +53,6 @@ export const MessageFloatingButton = () => {
 	const contactInformation = ContactInformation.find((contact) => {
 		return contact.alt === "message";
 	});
-	// get current path from remix
 	const location = useLocation();
 	const controls = useAnimation();
 
