@@ -1,5 +1,6 @@
+import { motion } from "framer-motion";
 import React from "react";
-import { Outlet } from "react-router";
+import { Outlet, useNavigation } from "react-router";
 
 import { AboutMe } from "~/components/sections/about-me";
 import { Contact } from "~/components/sections/contact";
@@ -18,7 +19,8 @@ import { Testimonials } from "~/components/sections/testimonials";
 
 export default function Index() {
 	return (
-		<main className="overflow-x-hidden text-base font-normal">
+		<main className="overflow-x-hidden text-base font-normal relative">
+			<LoadingBar/>
 			<Header />
 			<div className="flex w-full flex-col">
 				<div className="">
@@ -41,3 +43,31 @@ export default function Index() {
 		</main>
 	);
 }
+
+
+
+export const LoadingBar: React.FC = () => {
+	const navigation = useNavigation();
+	const isLoading = navigation.state != "idle";
+
+	if (!isLoading) {
+		return null;
+	}
+
+	return (
+		<div className={"fixed top-0 left-0 w-screen right-0 z-50 h-1 overflow-hidden bg-grey"}>
+			<motion.div
+				className="h-full bg-primary"
+				initial={{ x: "-100%" }}
+				animate={{
+					x: "100%",
+				}}
+				transition={{
+					repeat: Infinity,
+					duration: 1.5,
+					ease: "easeInOut",
+				}}
+			/>
+		</div>
+	);
+};
