@@ -57,7 +57,7 @@ export const ContactButton = ({
 					src={contactInformation.image}
 				/>
 			) : (
-				<ExternalRedirect className="flex" to={contactInformation.href}>
+				<ExternalRedirect className="flex h-full w-full" to={contactInformation.href}>
 					<ButtonIcon
 						alt={contactInformation.alt}
 						src={contactInformation.image}
