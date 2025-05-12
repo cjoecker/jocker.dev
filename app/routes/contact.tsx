@@ -29,11 +29,16 @@ export async function action({ request }: ActionFunctionArgs) {
 	const baseUrl = request.url;
 
 	try {
-		await fetch(`${baseUrl}/form`, {
+		const response = await fetch(`/form`, {
 			method: "POST",
 			headers: { "Content-Type": "application/x-www-form-urlencoded" },
 			body: formParams.toString(),
 		});
+
+		if (!response.ok) {
+			console.error("Form submission failed:", response.status, response.statusText);
+			return { success: false, personalEmail: process.env.PERSONAL_EMAIL };
+		}
 	} catch (error) {
 		console.error("Error sending form data:", error);
 		return { success: false, personalEmail: process.env.PERSONAL_EMAIL };
