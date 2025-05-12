@@ -1,6 +1,6 @@
-import { AnimatePresence, motion, useAnimation, Variants } from "framer-motion";
-import React, { useEffect, useState } from "react";
-import { Outlet, useNavigate } from "react-router";
+import { motion, useAnimation, Variants } from "framer-motion";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router";
 import { useLocation } from "react-use";
 
 import { Button, ButtonIcon } from "~/components/shared/button";
@@ -63,11 +63,11 @@ export const MessageFloatingButton = () => {
 			location.pathname === "/contact"
 		) {
 			void controls.start("hidden");
-		} else if(visibleSection.includes("community_contributions")) {
+		} else if (visibleSection.includes("community_contributions")) {
 			setTimeout(() => {
 				void controls.start("shake");
 			}, SHAKE_TIMEOUT);
-		}else{
+		} else {
 			void controls.start("visible");
 		}
 	}, [visibleSection, location, controls]);
