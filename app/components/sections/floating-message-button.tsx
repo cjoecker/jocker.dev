@@ -36,7 +36,7 @@ const animationVariants: Variants = {
 	},
 	shake: {
 		opacity: 1,
-		y: 0,
+		y: -100,
 		x: [-20, 20, -15, 15, -10, 0],
 		transition: {
 			type: "easeInOut",
