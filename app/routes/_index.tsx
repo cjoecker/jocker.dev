@@ -23,8 +23,8 @@ export default function Index() {
 			<div className="flex w-full flex-col">
 				<div className="">
 					<ServiceOffer />
-					<Skills />
 					<Facts />
+					<Skills />
 					<CoreValues />
 					<Testimonials />
 					<ExperienceAndEducation />
