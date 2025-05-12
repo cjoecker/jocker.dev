@@ -45,6 +45,8 @@ const animationVariants: Variants = {
 	},
 };
 
+const SHAKE_TIMEOUT = 2000;
+
 export const MessageFloatingButton = () => {
 	const { visibleSection } = useVisibleSection();
 	const navigate = useNavigate();
@@ -61,12 +63,13 @@ export const MessageFloatingButton = () => {
 			location.pathname === "/contact"
 		) {
 			void controls.start("hidden");
-		} else if(visibleSection.includes("testimonials")) {
-			void controls.start("shake");
+		} else if(visibleSection.includes("community_contributions")) {
+			setTimeout(() => {
+				void controls.start("shake");
+			}, SHAKE_TIMEOUT);
 		}else{
 			void controls.start("visible");
 		}
-		console.log("visibleSection", visibleSection);
 	}, [visibleSection, location, controls]);
 
 	if (!contactInformation) {

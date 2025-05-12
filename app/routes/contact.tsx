@@ -109,7 +109,7 @@ export default function Contact() {
 					onClick={(event) => {
 						event.stopPropagation();
 					}}
-					className="shadow-sm-purple border-secondary/10 from-neutral to-neutral-dark relative mx-4 my-auto w-full max-w-7xl rounded-2xl border-2 border-solid bg-linear-to-br p-6 sm:m-auto sm:w-fit"
+					className="shadow-sm-purple border-secondary/10 from-neutral/50 to-neutral-dark relative/50 backdrop-blur mx-4 my-auto w-full max-w-7xl rounded-2xl border-2 border-solid bg-linear-to-br p-6 sm:m-auto sm:w-fit"
 				>
 					<motion.button
 						whileTap={{ scale: 1 }}
