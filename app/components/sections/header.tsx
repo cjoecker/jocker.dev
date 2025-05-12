@@ -7,7 +7,7 @@ import {
 	useScroll,
 	useTransform,
 } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useMouse } from "react-use";
 
 import MeshBlue from "../../images/mesh-blue.svg";
@@ -28,11 +28,6 @@ export const Header = () => {
 	const { elX, elY } = useMouse(ref as never);
 	const mouseX = useMotionValue(0);
 	const mouseY = useMotionValue(0);
-	const [isIphone, setIsIphone] = useState(false);
-
-	useEffect(() => {
-		setIsIphone(globalThis.navigator.userAgent.includes("iPhone"));
-	}, []);
 
 	const onDiscoverMoreClick = (e: React.MouseEvent) => {
 		(e.target as HTMLButtonElement).blur();
@@ -55,9 +50,7 @@ export const Header = () => {
 				mouseX.set(elX / 8);
 				mouseY.set(elY / 8);
 			}}
-			className={`relative flex w-full items-center ${
-				isIphone ? "h-ios-screen" : "h-screen"
-			}`}
+			className={"relative flex h-dvh w-full items-center"}
 			ref={ref}
 		>
 			<Background mouseX={mouseX} mouseY={mouseY} />
@@ -120,7 +113,7 @@ export const Background = ({ mouseX, mouseY }: Props) => {
 				alt=""
 				aria-hidden="true"
 				style={{ x: blueMeshX, y: blueMeshY }}
-				className="absolute top-[-5vh] right-[-45vw] h-[120vh] w-[120vw]"
+				className="absolute top-[-30vh] right-[-45vw] h-[120vh] w-[120vw] md:top-[-5vh]"
 				src={MeshTurquoise}
 			/>
 			<motion.img

@@ -15,10 +15,10 @@ export const ExternalRedirect = ({
 				(e.target as HTMLLinkElement).blur();
 				e.stopPropagation();
 			}}
-			className={className}
+			className={`cursor-pointer ${className}`}
 			rel="noreferrer"
 		>
-			<div className="pointer-events-none">{children}</div>
+			{children}
 		</a>
 	);
 };
