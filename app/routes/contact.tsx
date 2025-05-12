@@ -26,14 +26,18 @@ export async function action({ request }: ActionFunctionArgs) {
 	formParams.append("message", formData.get("message") as string);
 	formParams.append("form-name", "contact");
 
-	const baseUrl = request.url;
-
+	const url = new URL(request.url);
+	const baseUrl = url.origin;
 	try {
-		await fetch(`${baseUrl}/form`, {
+		const response = await fetch(`${baseUrl}/form.html`, {
 			method: "POST",
 			headers: { "Content-Type": "application/x-www-form-urlencoded" },
 			body: formParams.toString(),
 		});
+
+		if (!response.ok) {
+			throw new Error("Network response was not ok");
+		}
 	} catch (error) {
 		console.error("Error sending form data:", error);
 		return { success: false, personalEmail: process.env.PERSONAL_EMAIL };
