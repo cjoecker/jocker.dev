@@ -7,4 +7,5 @@ export const sentryConfig: BrowserOptions | NodeOptions = {
 	sendDefaultPii: true,
 	integrations: [],
 	enabled: !import.meta.env.DEV,
+	ignoreErrors: ["No route matches URL"],
 };

@@ -262,13 +262,11 @@ export const Textbox = ({ label, type, name, onChange }: Props) => {
 export const SubmitSuccess = () => {
 	return (
 		<div className="flex gap-4">
-			<div>
-				<Lottie
-					className="mt-1 h-16"
-					animationData={AnimatedCheck}
-					loop={false}
-				/>
-			</div>
+			<Lottie
+				className="mt-1 h-16 w-16"
+				animationData={AnimatedCheck}
+				loop={false}
+			/>
 			<div className="m-auto flex flex-1 flex-col gap-2 text-left">
 				<div className="text-green text-md font-bold">Message Sent!</div>
 				<div>
@@ -285,7 +283,7 @@ export const SubmitError = ({ personalEmail }: { personalEmail: string }) => {
 		<div className="flex gap-4">
 			<div className="-mt-2">
 				<Lottie
-					className="my-auto mt-1 h-16"
+					className="my-auto mt-1 h-16 w-16"
 					animationData={AnimatedX}
 					loop={false}
 				/>
