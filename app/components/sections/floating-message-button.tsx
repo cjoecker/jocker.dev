@@ -17,7 +17,7 @@ const hiddenMessageButtonSections = new Set([
 const animationVariants: Variants = {
 	hidden: {
 		opacity: 0,
-		y: 100,
+		y: 0,
 		x: 0,
 		transition: {
 			type: "easeOut",
@@ -26,7 +26,7 @@ const animationVariants: Variants = {
 	},
 	visible: {
 		opacity: 1,
-		y: 0,
+		y: -100,
 		x: 0,
 		transition: {
 			type: "spring",
@@ -78,7 +78,7 @@ export const MessageFloatingButton = () => {
 
 	return (
 		<motion.div
-			className="fixed right-2 bottom-2 z-50"
+			className="fixed right-2 bottom-[-92px] z-50"
 			animate={controls}
 			variants={animationVariants}
 		>
