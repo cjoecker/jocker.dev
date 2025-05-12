@@ -166,14 +166,6 @@ img {
 	-webkit-backdrop-filter: blur(24px);
 	backdrop-filter: blur(24px);
 }
-.h-ios-screen {
-	min-height: 100vh;
-	min-height: -webkit-fill-available;
-	max-height: 100vh;
-	max-height: -webkit-fill-available;
-	height: 100vh;
-	height: -webkit-fill-available;
-}
 
 .splide__pagination__page {
 	margin: 10px !important;

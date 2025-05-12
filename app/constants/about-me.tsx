@@ -18,9 +18,8 @@ export const AboutMeData = (
 			In my previous role as a consultant, I specialized in developing custom
 			web applications. There, I had the opportunity to work for big companies
 			across various industries like automotive, tourism, airlines, robotics,
-			and medicine. Unfortunately, my previous projects were confidential.
-			That&#39;s why I don&#39;t have a portfolio here yet. After years of
-			experience in large corporations, I&#39;ve ventured into freelance work.
+			and medicine. After years of experience in large corporations, I&#39;ve
+			ventured into freelance work.
 		</Paragraph>
 		<Paragraph>
 			I would love to hear from you and discuss our next project!
