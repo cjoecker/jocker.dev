@@ -1,6 +1,10 @@
 import type en from "./en";
 
 export default {
-	title: "remix-i18next (es)",
-	description: "Un ejemplo de Remix + Vite + remix-i18next",
+	greeting: "Hi, ich bin Christian Jöcker,",
+	fullStackDeveloper: "Full-Stack Entwickler.",
+	fullStackDeveloperPrefix: "ein",
+	uxUiDesigner: "UX/UI Designer.",
+	headerDescription: "Ich programmiere nicht nur Features, ich helfe dir dabei, skalierbare Apps mit großartigen Benutzererlebnissen und hochwertigem Code zu erstellen!",
+	discoverMore: "Mehr Entdecken!"
 } satisfies typeof en;
