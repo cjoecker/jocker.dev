@@ -11,7 +11,11 @@ export function useTranslationWithMarkdown() {
 	const tMarkdown = React.useCallback(
 		(key: TranslationKey, options?: TOptions) => {
 			return (
-				<Markdown remarkPlugins={[remarkGfm]}>{t(key, options ?? {})}</Markdown>
+				<div className="markdown">
+					<Markdown remarkPlugins={[remarkGfm]}>
+						{t(key, options ?? {})}
+					</Markdown>
+				</div>
 			);
 		},
 		[t],

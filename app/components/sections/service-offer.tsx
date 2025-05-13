@@ -126,7 +126,7 @@ const CardContent = ({
 	return (
 		<motion.div
 			layout={isExpandable}
-			className={`border-secondary/10 from-neutral to-neutral-dark relative flex cursor-pointer rounded-2xl border-2 border-solid bg-linear-to-br p-4 text-left whitespace-pre-wrap ${
+			className={`border-secondary/10 from-neutral to-neutral-dark relative flex cursor-pointer rounded-2xl border-2 border-solid bg-linear-to-br p-4 text-left ${
 				isOpen && isExpandable
 					? "from-neutral/70 to-neutral-dark/70 m-auto h-auto w-full max-w-lg flex-wrap bg-linear-to-br backdrop-blur-sm"
 					: "h-64 w-64 flex-col md:h-56 md:w-56"

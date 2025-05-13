@@ -10,7 +10,8 @@ export default {
 	skills: "Skills",
 	coreValues: "Core Values",
 	excellence: "Excellence",
-	sustainableArchitecture: "Sustainable architecture, clean code, and great UX are my mantras",
+	sustainableArchitecture:
+		"Sustainable architecture, clean code, and great UX are my mantras",
 	accountable: "Accountable",
 	standForDecisions: "I stand for my decisions, achievements and mistakes",
 	passion: "Passion",
@@ -58,14 +59,17 @@ export default {
 	augsburgGermany: "Augsburg, Germany",
 	munichGermany: "Munich, Germany",
 	valenciaSpain: "Valencia, Spain",
-	davidTestimonial: "Christian is a very creative person with attention to details. He really puts effort in developing what makes sense for the end user. He is also a fan of clean code and good architecture.",
+	davidTestimonial:
+		"Christian is a very creative person with attention to details. He really puts effort in developing what makes sense for the end user. He is also a fan of clean code and good architecture.",
 	slectedMe: "Slected.me GmbH",
-	thomasTestimonial: "Christian is always reliable! He not only tackles his tasks with determination, but also consistently offers suggestions on how to make our software even more user-friendly. All with complete cost transparency! Anyone who gets to work with him is truly lucky!",
+	thomasTestimonial:
+		"Christian is always reliable! He not only tackles his tasks with determination, but also consistently offers suggestions on how to make our software even more user-friendly. All with complete cost transparency! Anyone who gets to work with him is truly lucky!",
 	smartCube360: "smart cube 360 GmbH",
-	paulaTestimonial: "He perfectly embodies the role of a skilled developer, who not only masters his technologies but also has amazing UX know-how. Both his creativity and entrepreneurial mindset bring his projects and the company forward.",
+	paulaTestimonial:
+		"He perfectly embodies the role of a skilled developer, who not only masters his technologies but also has amazing UX know-how. Both his creativity and entrepreneurial mindset bring his projects and the company forward.",
 	newspective: "Newspective",
-	openSourceContributions:"Open Source Contributions",
-	myApps:"My Apps",
+	openSourceContributions: "Open Source Contributions",
+	myApps: "My Apps",
 	reputation: "Reputation",
 	english: "English",
 	german: "German",
@@ -73,4 +77,12 @@ export default {
 	portuguese: "Portuguese",
 	fluent: "Fluent",
 	goodCommand: "Good command",
+	aboutMeData:
+		"Hi, my name is Christian, but my friends call me &#34;Joker&#34;. Feel free to do the same. But I need to tell you that I&#39;m bad at telling jokes.\n" +
+		"\n" +
+		"I discovered my passion for programming when I was 9 after my father gave away my beloved dog. To honor his memory, I built a website filled with pictures of him. That&#39;s where my love affair with coding began. During high school, I took several graphic design courses and developed a strong interest also in UI design.\n" +
+		"\n" +
+		"In my previous role as a consultant, I specialized in developing custom web applications. There, I had the opportunity to work for big companies across various industries like automotive, tourism, airlines, robotics, and medicine. After years of experience in large corporations, I&#39;ve ventured into freelance work.\n" +
+		"\n" +
+		"I would love to hear from you and discuss our next project!",
 } as const;

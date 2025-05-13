@@ -7,10 +7,14 @@ import { Section } from "../shared/section";
 
 import { AboutMeData } from "~/constants/about-me";
 import { POSTHOG_IGNORE_KEY } from "~/constants/misc";
+import { useTranslationWithMarkdown } from "~/hooks/use-translation-with-markdown";
+import { useTranslation } from "react-i18next";
 
 const CLICKS_THRESHOLD = 5;
 
 export const AboutMe = () => {
+	const {t} = useTranslation();
+	const { tm } = useTranslationWithMarkdown();
 	const sectionClicks = useRef(0);
 	const handleSectionClick = () => {
 		sectionClicks.current += 1;
@@ -24,7 +28,7 @@ export const AboutMe = () => {
 		alert("posthog ignore set to true");
 	};
 	return (
-		<Section titleKey="aboutMe">
+		<Section titleKey="aboutMe" hideTitle>
 			<motion.div
 				onClick={handleSectionClick}
 				initial="hidden"
@@ -48,8 +52,8 @@ export const AboutMe = () => {
 					/>
 				</div>
 				<div className="col-span-1 my-auto text-left sm:col-span-3">
-					<h3 className="mb-4 text-xl font-semibold">About me</h3>
-					<div className="text-base">{AboutMeData}</div>
+					<h3 className="mb-4 text-xl font-semibold">{t("aboutMe")}</h3>
+					<div className="text-base">{tm("aboutMeData")}</div>
 					<img
 						loading="lazy"
 						className="mt-4"
