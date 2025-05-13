@@ -1,81 +1,88 @@
 import type en from "./en";
 
 export default {
-	greeting: "Hi, ich bin Christian Jöcker, ein",
+	greeting: "Hallo, ich bin Christian Jöcker,",
 	fullStackDeveloper: "Full-Stack Entwickler.",
 	fullStackDeveloperPrefix: "ein",
 	uxUiDesigner: "UX/UI Designer.",
 	headerDescription:
-		"Ich programmiere nicht nur Features. Ich helfe dir dabei, skalierbare Apps mit großartigen Benutzererlebnissen und hochwertigem Code zu erstellen!",
-	discoverMore: "Mehr Entdecken",
-	serviceOfferTitle: "Was ich für dich tun kann",
+		"Ich programmiere nicht nur Funktionen. Ich helfe dir dabei, skalierbare Apps mit großartigen Benutzererlebnissen und Code zu erstellen, der Bestand hat!",
+	discoverMore: "Mehr Entdecken!",
+	serviceOfferTitle: "Was Ich für Dich Tun Kann",
 	skills: "Fähigkeiten",
 	coreValues: "Kernwerte",
 	excellence: "Exzellenz",
-	sustainableArchitecture: "Nachhaltige Architektur, sauberer Code und großartige UX sind meine Mantras.",
+	sustainableArchitecture:
+		"Nachhaltige Architektur, sauberer Code und großartige UX sind meine Mantras",
 	accountable: "Verantwortungsbewusst",
-	standForDecisions: "Ich stehe zu meinen Entscheidungen, Erfolgen und Fehlern.",
+	standForDecisions: "Ich stehe zu meinen Entscheidungen, Erfolgen und Fehlern",
 	passion: "Leidenschaft",
-	loveWhatIDo: "Ich liebe was ich tue und das wirst du merken!",
+	loveWhatIDo: "Ich liebe was ich tue und du wirst es merken",
 	kindness: "Freundlichkeit",
-	eagerToHelp: "Immer bereit zu helfen und die andere Seite zu verstehen.",
+	eagerToHelp: "Immer bereit zu helfen und die andere Seite zu verstehen",
 	testimonials: "Referenzen",
 	experienceAndEducation: "Ausbildung und Berufserfahrung",
-	contributions: "Community Beiträge",
-	coursesAndConferences: "Zuletzt besuchte Kurse und Konferenzen",
+	contributions: "Community-Beiträge",
+	coursesAndConferences: "Zuletzt Besuchte Kurse und Konferenzen",
 	languages: "Sprachen",
-	aboutMe: "Über mich",
+	aboutMe: "Über Mich",
 	contact: "Kontakt",
 	facts: "Fakten",
 	webApplicationsTitle: "Web-Anwendungen",
 	getReadyForPlatform:
-		"Bereite dich auf eine Plattform vor, die nicht nur gut aussieht, sondern auch Bestand hat!\n\nIch nehme deine Idee von der Konzeption bis zum Launch und liefere eine skalierbare Lösung für dein Unternehmen.\n\nVerabschiede dich von umständlichen Web-Anwendungen und freue dich auf ein digitales Erlebnis, das deine Nutzer begeistern wird!",
+		"Mach dich bereit für eine Plattform, die nicht nur gut aussieht, sondern auch für die Ewigkeit gebaut ist!\n\nLass mich deine Idee vom Konzept bis zum Launch begleiten und eine skalierbare Lösung liefern, die auf dein Unternehmen zugeschnitten ist.\n\nVerabschiede dich von umständlichen Web-Anwendungen mit einem digitalen Erlebnis, das deine Nutzer begeistern wird!",
 	uxUiDesignTitle: "UX/UI Design",
 	turnDigitalDreams:
-		"Ich verwandle deine digitalen Träume in pixelgenaue Realitäten, die nicht nur gut aussehen, sondern sich auch gut anfühlen!\n\nIch stelle sicher, dass jeder Klick, Tipp und Wisch ein angenehmes Erlebnis für deine Kunden ist.\n\nLehne dich zurück, entspanne dich und genieße die Magie!",
+		"Ich nehme deine digitalen Träume und verwandle sie in pixelgenaue Realitäten, die nicht nur gut aussehen, sondern sich auch gut anfühlen!\n\nIch stelle sicher, dass jeder Klick, Tipp und Wisch ein wunderbares Erlebnis für deine Kunden ist.\n\nLehn dich zurück, entspann dich und lass die Magie beginnen!",
 	iotPlatformsTitle: "IoT-Plattformen",
 	stepIntoFuture:
-		"Betrete die Zukunft mit meiner IoT-Plattform-Expertise!\n\nLass uns deine Ideen in zukunftsweisende Lösungen verwandeln, die die physische mit der digitalen Welt verbinden.\n\nEgal ob du deine Geräte vernetzen, dein Unternehmen revolutionieren oder deinen inneren Tech-Spezialisten entfesseln möchtest!",
+		"Betritt die Zukunft mit meiner IoT-Plattform-Expertise!\n\nLass uns deine Ideen in zukunftsweisende Lösungen verwandeln, die die physische mit der digitalen Welt verbinden\n\nEgal ob du deine Geräte verbinden, dein Geschäft revolutionieren oder deinen inneren Tech-Spezialisten entfesseln möchtest!",
 	lowCodeAppsTitle: "Low-Code Apps",
 	whyReinventWheel:
-		"Warum das Rad neu erfinden? Nicht jede App muss von Grund auf neu gebaut werden!\n\nIch helfe dir zu entscheiden, ob ein Low-Code-Tool wie Mendix oder Bubble zu deiner Idee passt.\n\nDann bauen wir es schnell und richtig - einfach, kosteneffektiv und auf deine Bedürfnisse zugeschnitten!",
+		"Warum das Rad neu erfinden? Nicht jede App muss von Grund auf neu gebaut werden?\n\nIch helfe dir zu entscheiden, ob ein Low-Code-Tool wie Mendix oder Bubble zu deiner Idee passt.\n\nDann bauen wir es schnell und richtig, etwas Einfaches, Kosteneffektives und auf deine Bedürfnisse zugeschnittenes!",
 	digitalStrategyTitle: "Digitale Strategieberatung",
 	withYearsExperience:
-		"Mit über {{years}} Jahren Erfahrung in der Tech-Branche und erfolgreichen digitalen Produkten in verschiedenen Branchen habe ich die Expertise für deinen Erfolg!\n\nOb du ein neues Produkt auf den Markt bringen, ein bestehendes Produkt neu beleben oder dein Spiel verbessern möchtest - ich helfe dir, eine Roadmap zum Erfolg zu erstellen!",
+		"Mit über {{years}} Jahren Erfahrung in der Tech-Branche und einer Erfolgsbilanz mit digitalen Produkten in verschiedenen Branchen habe ich die Expertise, die du für deinen Erfolg brauchst!\n\nEgal ob du ein neues Produkt lancieren, ein bestehendes neu beleben oder einfach dein Spiel verbessern möchtest, ich helfe dir, einen Weg zum Erfolg zu planen!",
 	yearsOfExperience: "Jahre Erfahrung",
 	developedApps: "Entwickelte Apps",
 	happyCustomers: "Zufriedene Kunden",
-	webDevelopment: "Web Entwicklung",
+	webDevelopment: "Web-Entwicklung",
 	uxUiDesign: "UX/UI Design",
-	// Education translations
 	mechanicalEngineering: "Maschinenbau (B. Eng.)",
 	wildauGermany: "Wildau, Deutschland",
 	masterBusinessEngineering: "Master of Business Engineering (MBE®)",
 	filderstadtGermany: "Filderstadt, Deutschland",
-	// Work experience translations
-	kukaSoftwareEngineer: "Software Engineer - Virtuelle Inbetriebnahme",
+	kukaSoftwareEngineer: "Software-Ingenieur - Virtuelle Inbetriebnahme",
 	kukaAreaManager: "Bereichsleiter - Virtuelle Inbetriebnahme",
-	maibornwolffSeniorEngineer: "Senior Software Engineer",
+	maibornwolffSeniorEngineer: "Senior Software-Ingenieur",
 	freelanceDeveloper: "Freelance Full-Stack Entwickler & UX/UI Designer",
 	augsburgGermany: "Augsburg, Deutschland",
 	munichGermany: "München, Deutschland",
 	valenciaSpain: "Valencia, Spanien",
-	// David's testimonial
-	davidTestimonial: "Christian ist eine sehr kreative Person mit Augenmerk auf Details. Er setzt sich wirklich dafür ein, das zu entwickeln, was für den Endnutzer Sinn macht. Er ist auch ein Fan von sauberem Code und guter Architektur.",
+	davidTestimonial:
+		"Christian ist eine sehr kreative Person mit Augenmerk auf Details. Er setzt sich wirklich dafür ein, das zu entwickeln, was für den Endnutzer Sinn macht. Er ist auch ein Fan von sauberem Code und guter Architektur.",
 	slectedMe: "Slected.me GmbH",
-	// Thomas's testimonial
-	thomasTestimonial: "Christian ist immer zuverlässig! Er geht seine Aufgaben nicht nur mit Entschlossenheit an, sondern macht auch ständig Vorschläge, wie wir unsere Software noch benutzerfreundlicher gestalten können. Alles mit vollständiger Kostentransparenz! Wer mit ihm zusammenarbeiten darf, hat wirklich Glück!",
+	thomasTestimonial:
+		"Christian ist immer zuverlässig! Er geht nicht nur seine Aufgaben mit Entschlossenheit an, sondern bietet auch ständig Vorschläge an, wie wir unsere Software noch benutzerfreundlicher gestalten können. Alles mit vollständiger Kostentransparenz! Wer mit ihm zusammenarbeiten darf, ist wirklich glücklich!",
 	smartCube360: "smart cube 360 GmbH",
-	// Paula's testimonial
-	paulaTestimonial: "Er verkörpert perfekt die Rolle eines versierten Entwicklers, der nicht nur seine Technologien beherrscht, sondern auch über erstaunliches UX-Know-how verfügt. Sowohl seine Kreativität als auch sein unternehmerisches Denken bringen seine Projekte und das Unternehmen voran.",
+	paulaTestimonial:
+		"Er verkörpert perfekt die Rolle eines erfahrenen Entwicklers, der nicht nur seine Technologien beherrscht, sondern auch über erstaunliches UX-Wissen verfügt. Sowohl seine Kreativität als auch seine unternehmerische Denkweise bringen seine Projekte und das Unternehmen voran.",
 	newspective: "Newspective",
-	openSourceContributions: "Open Source Beiträge",
+	openSourceContributions: "Open-Source-Beiträge",
 	myApps: "Meine Apps",
-	reputation: "Ruf",
-	english: "English",
-	german: "German",
-	spanish: "Spanish",
-	portuguese: "Portuguese",
-	fluent: "Fluent",
-	goodCommand: "Good command",
+	reputation: "Reputation",
+	english: "Englisch",
+	german: "Deutsch",
+	spanish: "Spanisch",
+	portuguese: "Portugiesisch",
+	fluent: "Fließend",
+	goodCommand: "Gute Kenntnisse",
+	aboutMeData:
+		"Hallo, mein Name ist Christian, aber meine Freunde nennen mich \"Joker\". Du kannst das gerne auch tun. Aber ich muss dir sagen, dass ich schlecht im Witze erzählen bin.\n\n" +
+		"Ich entdeckte meine Leidenschaft für das Programmieren, als ich 9 war, nachdem mein Vater meinen geliebten Hund weggegeben hatte. Um sein Andenken zu ehren, baute ich eine Website mit Bildern von ihm. Dort begann meine Liebesbeziehung mit dem Programmieren. Während der Schulzeit nahm ich mehrere Grafikdesign-Kurse und entwickelte auch ein starkes Interesse am UI-Design.\n\n" +
+		"In meiner vorherigen Rolle als Berater spezialisierte ich mich auf die Entwicklung individueller Web-Anwendungen. Dort hatte ich die Gelegenheit, für große Unternehmen in verschiedenen Branchen wie Automobil, Tourismus, Fluggesellschaften, Robotik und Medizin zu arbeiten. Nach Jahren der Erfahrung in großen Unternehmen habe ich mich in die Freiberuflichkeit gewagt.\n\n" +
+		"Ich würde gerne von dir hören und unser nächstes Projekt besprechen!",
+	designedAndCodedPrefix: "Gestaltet und programmiert mit",
+	designedAndCodedSuffix: "von mir.",
+	love: "Liebe",
 } satisfies typeof en;

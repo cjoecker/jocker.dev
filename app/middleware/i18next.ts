@@ -34,74 +34,11 @@ export const [i18nextMiddleware, getLocale, getInstance] =
 declare module "i18next" {
 	interface CustomTypeOptions {
 		resources: {
-			translation: typeof en;
+			translation: Record<keyof typeof en, string>;
 		};
 		keySeparator: false;
 		nsSeparator: false;
-		translation: {
-			greeting: string;
-			fullStackDeveloper: string;
-			fullStackDeveloperPrefix: string;
-			uxUiDesigner: string;
-			headerDescription: string;
-			discoverMore: string;
-			serviceOfferTitle: string;
-			skills: string;
-			coreValues: string;
-			excellence: string;
-			sustainableArchitecture: string;
-			accountable: string;
-			standForDecisions: string;
-			passion: string;
-			loveWhatIDo: string;
-			kindness: string;
-			eagerToHelp: string;
-			testimonials: string;
-			experienceAndEducation: string;
-			contributions: string;
-			coursesAndConferences: string;
-			languages: string;
-			aboutMe: string;
-			contact: string;
-			facts: string;
-			// Service offer translations
-			webApplicationsTitle: string;
-			getReadyForPlatform: string;
-			uxUiDesignTitle: string;
-			turnDigitalDreams: string;
-			iotPlatformsTitle: string;
-			stepIntoFuture: string;
-			lowCodeAppsTitle: string;
-			whyReinventWheel: string;
-			digitalStrategyTitle: string;
-			withYearsExperience: string;
-			yearsOfExperience: string;
-			developedApps: string;
-			happyCustomers: string;
-			webDevelopment: string;
-			uxUiDesign: string;
-			// Education translations
-			mechanicalEngineering: string;
-			wildauGermany: string;
-			masterBusinessEngineering: string;
-			filderstadtGermany: string;
-			// Work experience translations
-			kukaSoftwareEngineer: string;
-			kukaAreaManager: string;
-			maibornwolffSeniorEngineer: string;
-			freelanceDeveloper: string;
-			augsburgGermany: string;
-			munichGermany: string;
-			valenciaSpain: string;
-			// Testimonials
-			davidTestimonial: string;
-			slectedMe: string;
-			thomasTestimonial: string;
-			smartCube360: string;
-			paulaTestimonial: string;
-			newspective: string;
-		};
 	}
 }
-export type TranslationKey =
-	keyof CustomTypeOptions["resources"]["translation"];
+
+export type TranslationKey = keyof typeof en;
