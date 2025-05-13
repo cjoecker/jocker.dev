@@ -7,11 +7,15 @@ import {
 	LinksFunction,
 	MetaFunction,
 	redirect,
+	data,
 } from "react-router";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import { useHydrated } from "remix-utils/use-hydrated";
+import { useChangeLanguage } from "remix-i18next/react";
+import { useTranslation } from "react-i18next";
 
 import { Route } from "./+types/root";
+import { i18nextMiddleware, getLocale } from "~/middleware/i18next";
 
 import { POSTHOG_IGNORE_KEY } from "~/constants/misc";
 import RalewayFont600Woff from "~/fonts/raleway-v28-latin-600.woff";
@@ -135,8 +139,12 @@ export const links: LinksFunction = () => {
 	];
 };
 
-export function loader({ request }: Route.LoaderArgs) {
+export const unstable_middleware = [i18nextMiddleware];
+
+export async function loader({ request, context }: Route.LoaderArgs) {
 	const { pathname, search } = new URL(request.url);
+	// @ts-expect-error - The context type from react-router doesn't match the middleware type
+	const locale = getLocale(context);
 
 	if (pathname.endsWith("/") && pathname !== "/") {
 		// Redirect to the same URL without a trailing slash
@@ -144,7 +152,7 @@ export function loader({ request }: Route.LoaderArgs) {
 		throw redirect(`${pathname.slice(0, -1)}${search}`, 301);
 	}
 
-	return null;
+	return data({ locale });
 }
 
 function PosthogInit() {
@@ -164,9 +172,11 @@ function PosthogInit() {
 	return null;
 }
 
-export default function Root() {
+export default function Root({ loaderData }: Route.ComponentProps) {
+	const { i18n } = useTranslation();
+	useChangeLanguage(loaderData.locale);
 	return (
-		<html lang="en">
+		<html lang={i18n.language} dir={i18n.dir(i18n.language)}>
 			<head>
 				<Meta />
 				<Links />
