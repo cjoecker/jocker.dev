@@ -51,12 +51,15 @@ export const Mesh = () => {
 const StackOverflow = () => {
 	const [profilesData, setProfilesData] =
 		useState<StackOverflowResponse | null>(null);
-	const profile = profilesData?.items[0];
+	const profile = profilesData?.items?.[0];
 
 	useEffect(() => {
 		try {
 			void fetch(STACK_OVERFLOW_API)
 				.then((res) => {
+					if (!res.ok) {
+						throw new Error("Network response was not ok");
+					}
 					return res.json();
 				})
 				.then((res) => {
@@ -245,10 +248,10 @@ const STACK_OVERFLOW_API =
 	"https://api.stackexchange.com/2.3/users/4934446?order=desc&sort=reputation&site=stackoverflow";
 
 export interface StackOverflowResponse {
-	items: Item[];
-	has_more: boolean;
-	quota_max: number;
-	quota_remaining: number;
+	items?: Item[];
+	has_more?: boolean;
+	quota_max?: number;
+	quota_remaining?: number;
 }
 
 export interface Item {
