@@ -1,11 +1,11 @@
 import * as Sentry from "@sentry/react-router";
-import Fetch from "i18next-fetch-backend";
 import i18next from "i18next";
+import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
+import Fetch from "i18next-fetch-backend";
 import { startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
 import { I18nextProvider, initReactI18next } from "react-i18next";
 import { HydratedRouter } from "react-router/dom";
-import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
 import { getInitialNamespaces } from "remix-i18next/client";
 
 import { sentryConfig } from "~/constants/misc";
@@ -31,9 +31,12 @@ async function main() {
 				<StrictMode>
 					<HydratedRouter />
 				</StrictMode>
-			</I18nextProvider>
+			</I18nextProvider>,
 		);
 	});
 }
 
-main().catch((error) => console.error(error));
+// eslint-disable-next-line unicorn/prefer-top-level-await, @typescript-eslint/use-unknown-in-catch-callback-variable
+main().catch((error) => {
+	console.error(error);
+});

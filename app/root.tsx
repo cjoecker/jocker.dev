@@ -2,6 +2,8 @@ import * as Sentry from "@sentry/react-router";
 import SplideStyles from "@splidejs/splide/dist/css/splide.min.css?url";
 import posthog from "posthog-js";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import {
 	isRouteErrorResponse,
 	LinksFunction,
@@ -9,13 +11,10 @@ import {
 	redirect,
 	data,
 } from "react-router";
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
-import { useHydrated } from "remix-utils/use-hydrated";
 import { useChangeLanguage } from "remix-i18next/react";
-import { useTranslation } from "react-i18next";
+import { useHydrated } from "remix-utils/use-hydrated";
 
 import { Route } from "./+types/root";
-import { i18nextMiddleware, getLocale } from "~/middleware/i18next";
 
 import { POSTHOG_IGNORE_KEY } from "~/constants/misc";
 import RalewayFont600Woff from "~/fonts/raleway-v28-latin-600.woff";
@@ -24,6 +23,7 @@ import RalewayFont800Woff from "~/fonts/raleway-v28-latin-800.woff";
 import RalewayFont800Woff2 from "~/fonts/raleway-v28-latin-800.woff2";
 import RalewayFontRegularWoff from "~/fonts/raleway-v28-latin-regular.woff";
 import RalewayFontRegularWoff2 from "~/fonts/raleway-v28-latin-regular.woff2";
+import { i18nextMiddleware, getLocale } from "~/middleware/i18next";
 import MainStyles from "~/styles/main.css?url";
 
 export const meta: MetaFunction = () => {
@@ -141,7 +141,7 @@ export const links: LinksFunction = () => {
 
 export const unstable_middleware = [i18nextMiddleware];
 
-export async function loader({ request, context }: Route.LoaderArgs) {
+export function loader({ request, context }: Route.LoaderArgs) {
 	const { pathname, search } = new URL(request.url);
 	// @ts-expect-error - The context type from react-router doesn't match the middleware type
 	const locale = getLocale(context);
