@@ -68,18 +68,18 @@ export const ServiceOfferData: ServiceOfferType[] = [
 	},
 	{
 		logo: RocketImg,
-		title: "Rapid Application Development",
+		title: "Low-Code Apps",
 		description: (
 			<>
 				<Paragraph>
-					With a focus on speed and efficiency, I&#39;ll take your ideas and
-					turn them into fully-functional, scalable solutions before you can say
-					&#34;launch day&#34;.
+					Why reinvent the wheel? Not every app needs to be built from scratch.
 				</Paragraph>
 				<Paragraph>
-					Perfect for proof of concepts or MVPs, my solutions will help you
-					validate your ideas and get to market faster than you ever thought
-					possible.
+					I help you decide if a low-code tool like Mendix or Bubble fits your
+					idea. Then we will build it fast and right!
+				</Paragraph>
+				<Paragraph>
+					Simple, cost-effective, and tailored to your needs.
 				</Paragraph>
 			</>
 		),
