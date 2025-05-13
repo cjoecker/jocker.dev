@@ -11,7 +11,7 @@ import { ContactInformation } from "~/constants/contact-information";
 
 export const Contact = () => {
 	return (
-		<Section title="Contact Me!" isLast>
+		<Section titleKey="contact" isLast>
 			<motion.div
 				initial="hidden"
 				whileInView="visible"

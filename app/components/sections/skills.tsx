@@ -5,7 +5,7 @@ import { Section } from "../shared/section";
 
 export const Skills = () => {
 	return (
-		<Section title="Skills" className="mx-8 flex flex-col sm:mx-16">
+		<Section titleKey="skills" className="mx-8 flex flex-col sm:mx-16">
 			<div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-16 gap-y-20 md:grid-cols-2">
 				<Tags skills={DevSkills} title="Web Development" />
 				<Tags skills={UxSkills} title="UX/UI Design" />

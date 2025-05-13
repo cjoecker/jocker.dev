@@ -18,7 +18,7 @@ export const CoursesAndConferences = () => {
 		},
 	);
 	return (
-		<Section title="Last Attended Courses and Conferences">
+		<Section titleKey="coursesAndConferences">
 			<div className="mx-0 flex w-full flex-col sm:mx-2">
 				<div className="relative mx-auto flex max-w-6xl">
 					<img

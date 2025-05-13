@@ -14,7 +14,7 @@ import { ExternalRedirect } from "~/components/shared/external-redirect";
 
 export const Contributions = () => {
 	return (
-		<Section title="Community Contributions">
+		<Section titleKey="contributions">
 			<div className="flex">
 				<div className="mx-auto flex flex-wrap justify-center gap-x-24 gap-y-36">
 					<div className="relative flex min-w-[250px] flex-col">

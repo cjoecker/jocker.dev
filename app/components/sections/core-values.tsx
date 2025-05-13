@@ -8,7 +8,7 @@ import { Section } from "../shared/section";
 
 export const CoreValues = () => {
 	return (
-		<Section title="Core Values">
+		<Section titleKey="coreValues">
 			<div className="relative flex flex-col">
 				<div className="relative mx-auto flex">
 					<img

@@ -15,7 +15,7 @@ import OfficeImg from "~/images/office.svg";
 
 export const ExperienceAndEducation = () => {
 	return (
-		<Section title="Education and Work Experience">
+		<Section titleKey="experienceAndEducation">
 			<WorkExperience />
 		</Section>
 	);

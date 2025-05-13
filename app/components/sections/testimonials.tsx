@@ -58,7 +58,7 @@ export function Testimonials() {
 	}, [autoplay, goToPage]);
 
 	return (
-		<Section title="Testimonials" className="relative mx-auto max-w-[900px]">
+		<Section titleKey="testimonials" className="relative mx-auto max-w-[900px]">
 			<Splide
 				ref={splideRef}
 				hasTrack={false}

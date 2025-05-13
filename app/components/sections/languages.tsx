@@ -7,7 +7,7 @@ import { getAltTextFromFileName } from "../shared/utils";
 
 export const Languages = () => {
 	return (
-		<Section title="Languages" className="flex flex-col">
+		<Section titleKey="languages" className="flex flex-col">
 			<div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-32 gap-y-20 md:grid-cols-4">
 				{LanguagesData.map((language) => {
 					return (
