@@ -4,9 +4,9 @@ import { z } from "zod";
 
 import { Route } from "./+types/locales";
 
+import deTranslation from "~/locales/de";
 import enTranslation from "~/locales/en";
 import esTranslation from "~/locales/es";
-import deTranslation from "~/locales/de";
 
 const resources = {
 	en: { translation: enTranslation },

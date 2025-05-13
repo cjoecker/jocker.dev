@@ -144,9 +144,13 @@ const SPACE_CHAR = "\u00A0";
 function AnimatedWord() {
 	const { t } = useTranslation();
 	const [wordIndex, setWordIndex] = useState(0);
-	const animatedText = t(ANIMATED_WORDS[wordIndex]) as string;
+	const animatedText = t(ANIMATED_WORDS[wordIndex]);
 	const textLength = animatedText.length;
-	const ariaLabel = ANIMATED_WORDS.map((key: TranslationKey) => {return t(key)}).join(" and ").replaceAll(".", "");
+	const ariaLabel = ANIMATED_WORDS.map((key: TranslationKey) => {
+		return t(key);
+	})
+		.join(" and ")
+		.replaceAll(".", "");
 	const controls = useAnimation();
 	const [animationStarted, setAnimationStarted] = useState(false);
 

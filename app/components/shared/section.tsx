@@ -11,7 +11,7 @@ type TranslationKey = keyof typeof en;
 
 function convertToSnakeCase(str: string): string {
 	return str
-		.replace(/([A-Z])/g, "_$1")
+		.replaceAll(/([A-Z])/g, "_$1")
 		.toLowerCase()
 		.replace(/^_/, "");
 }

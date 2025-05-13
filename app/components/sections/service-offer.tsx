@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import type { ServiceOfferType } from "../../constants/service-offer";
 import { ServiceOfferData } from "../../constants/service-offer";
@@ -9,7 +10,9 @@ import MeshPurpleTurquoise from "../../images/mesh-purple-turquoise.svg";
 import { Section } from "../shared/section";
 import { getAltTextFromFileName } from "../shared/utils";
 
+import { EXPERIENCE_YEARS } from "~/constants/experience-and-education";
 import { useNarrowView } from "~/hooks/use-narrow-view";
+import { useTranslationWithMarkdown } from "~/hooks/use-translation-with-markdown";
 
 export const ServiceOffer = () => {
 	const { isNarrowView } = useNarrowView();
@@ -24,7 +27,7 @@ export const ServiceOffer = () => {
 				whileInView: "visible",
 			};
 	return (
-		<Section titleKey="serviceOffer" className={"mt-16"}>
+		<Section titleKey="serviceOfferTitle" className={"mt-16"}>
 			<div className="relative flex">
 				<img
 					alt=""
@@ -39,7 +42,7 @@ export const ServiceOffer = () => {
 					{ServiceOfferData.map((offer) => {
 						return (
 							<Card
-								key={offer.title}
+								key={offer.titleKey}
 								offer={offer}
 								isNarrowView={isNarrowView}
 							/>
@@ -88,7 +91,7 @@ const Card = ({
 				hidden: { opacity: 0 },
 			}}
 			transition={{ ease: "easeInOut", duration: 0.8 }}
-			key={offer.title}
+			key={offer.titleKey}
 			{...appearAnimation}
 		>
 			{isOpen && (
@@ -117,6 +120,9 @@ const CardContent = ({
 	offer: ServiceOfferType;
 	isOpen: boolean;
 }) => {
+	const { t } = useTranslation();
+	const { tm } = useTranslationWithMarkdown();
+
 	return (
 		<motion.div
 			layout={isExpandable}
@@ -164,11 +170,11 @@ const CardContent = ({
 						isOpen ? "mt-2 mr-4 mb-3 text-lg font-semibold" : "mb-1 text-lg"
 					}
 				>
-					{offer.title}
+					{t(offer.titleKey)}
 				</motion.h3>
 				{isOpen && (
 					<motion.div className="my-2 text-base">
-						{offer.description}
+						{tm(offer.descriptionTranslationKey, { years: EXPERIENCE_YEARS })}
 					</motion.div>
 				)}
 			</motion.div>
