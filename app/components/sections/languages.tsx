@@ -4,14 +4,16 @@ import { LanguagesData } from "../../constants/languages";
 import MeshPurple from "../../images/mesh-purple.svg";
 import { Section } from "../shared/section";
 import { getAltTextFromFileName } from "../shared/utils";
+import { useTranslation } from "react-i18next";
 
 export const Languages = () => {
+	const {t} = useTranslation();
 	return (
 		<Section titleKey="languages" className="flex flex-col">
 			<div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-32 gap-y-20 md:grid-cols-4">
 				{LanguagesData.map((language) => {
 					return (
-						<div className="relative col-span-1 m-auto" key={language.language}>
+						<div className="relative col-span-1 m-auto" key={language.languageKey}>
 							<img
 								alt=""
 								aria-hidden="true"
@@ -36,8 +38,8 @@ export const Languages = () => {
 								alt={getAltTextFromFileName(language.icon)}
 								src={language.icon}
 							/>
-							<div className="text-md font-bold">{language.language}</div>
-							<div className="mt-1 text-base">{language.level}</div>
+							<div className="text-md font-bold">{t(language.languageKey)}</div>
+							<div className="mt-1 text-base">{t(language.levelKey)}</div>
 						</div>
 					);
 				})}

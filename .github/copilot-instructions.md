@@ -8,5 +8,5 @@
 **Commit Instructions**
 
 - Use the following verbs at the beginning of the commits in lower case: "add", "update", "remove", "fix", "refactor", "test"
-- Provide a short description of the changes in the commit message
+- Provide a short descriptionKey of the changes in the commit message
 - Prefer short and descriptive commit messages of less than seven words

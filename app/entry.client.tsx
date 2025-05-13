@@ -36,7 +36,7 @@ async function main() {
 	});
 }
 
-// eslint-disable-next-line unicorn/prefer-top-level-await, @typescript-eslint/use-unknown-in-catch-callback-variable
+// eslint-disable-next-line unicorn/prefer-top-levelKey-await, @typescript-eslint/use-unknown-in-catch-callback-variable
 main().catch((error) => {
 	console.error(error);
 });

@@ -2,32 +2,33 @@ import FeijoadaIcon from "../images/feijoada.svg";
 import HamburguerIcon from "../images/hamburguer.svg";
 import PaellaIcon from "../images/paella.svg";
 import PretzelIcon from "../images/pretzel.svg";
+import { TranslationKey } from "~/middleware/i18next";
 
 export const LanguagesData: LanguagesType[] = [
 	{
-		language: "English",
-		level: "Fluent",
+		languageKey: "english",
+		levelKey: "fluent",
 		icon: HamburguerIcon,
 	},
 	{
-		language: "German",
-		level: "Fluent",
+		languageKey: "german",
+		levelKey: "fluent",
 		icon: PretzelIcon,
 	},
 	{
-		language: "Spanish",
-		level: "Fluent",
+		languageKey: "spanish",
+		levelKey: "fluent",
 		icon: PaellaIcon,
 	},
 	{
-		language: "Portuguese",
-		level: "Good command",
+		languageKey: "portuguese",
+		levelKey: "goodCommand",
 		icon: FeijoadaIcon,
 	},
 ];
 
 export interface LanguagesType {
-	language: string;
-	level: string;
+	languageKey: TranslationKey;
+	levelKey: TranslationKey;
 	icon: string;
 }

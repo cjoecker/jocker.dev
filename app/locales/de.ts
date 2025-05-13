@@ -69,4 +69,13 @@ export default {
 	// Paula's testimonial
 	paulaTestimonial: "Er verkörpert perfekt die Rolle eines versierten Entwicklers, der nicht nur seine Technologien beherrscht, sondern auch über erstaunliches UX-Know-how verfügt. Sowohl seine Kreativität als auch sein unternehmerisches Denken bringen seine Projekte und das Unternehmen voran.",
 	newspective: "Newspective",
+	openSourceContributions: "Open Source Beiträge",
+	myApps: "Meine Apps",
+	reputation: "Ruf",
+	english: "English",
+	german: "German",
+	spanish: "Spanish",
+	portuguese: "Portuguese",
+	fluent: "Fluent",
+	goodCommand: "Good command",
 } satisfies typeof en;

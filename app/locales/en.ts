@@ -58,13 +58,19 @@ export default {
 	augsburgGermany: "Augsburg, Germany",
 	munichGermany: "Munich, Germany",
 	valenciaSpain: "Valencia, Spain",
-	// David's testimonial
 	davidTestimonial: "Christian is a very creative person with attention to details. He really puts effort in developing what makes sense for the end user. He is also a fan of clean code and good architecture.",
 	slectedMe: "Slected.me GmbH",
-	// Thomas's testimonial
 	thomasTestimonial: "Christian is always reliable! He not only tackles his tasks with determination, but also consistently offers suggestions on how to make our software even more user-friendly. All with complete cost transparency! Anyone who gets to work with him is truly lucky!",
 	smartCube360: "smart cube 360 GmbH",
-	// Paula's testimonial
 	paulaTestimonial: "He perfectly embodies the role of a skilled developer, who not only masters his technologies but also has amazing UX know-how. Both his creativity and entrepreneurial mindset bring his projects and the company forward.",
 	newspective: "Newspective",
+	openSourceContributions:"Open Source Contributions",
+	myApps:"My Apps",
+	reputation: "Reputation",
+	english: "English",
+	german: "German",
+	spanish: "Spanish",
+	portuguese: "Portuguese",
+	fluent: "Fluent",
+	goodCommand: "Good command",
 } as const;

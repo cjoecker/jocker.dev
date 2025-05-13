@@ -11,6 +11,7 @@ import StackOverflowLogo from "../../images/stack-overflow.svg";
 import { Section } from "../shared/section";
 
 import { ExternalRedirect } from "~/components/shared/external-redirect";
+import { useTranslation } from "react-i18next";
 
 export const Contributions = () => {
 	return (
@@ -148,9 +149,10 @@ const Badge = ({ color, number }: { color: string; number: number }) => {
 };
 
 const OpenSource = () => {
+	const {t} = useTranslation();
 	return (
 		<>
-			<h3 className="mb-6 text-lg font-semibold">Open Source Contributions</h3>
+			<h3 className="mb-6 text-lg font-semibold">{t("openSourceContributions")}</h3>
 			<motion.div
 				initial="hidden"
 				whileInView="visible"
@@ -194,9 +196,10 @@ const OpenSource = () => {
 };
 
 const MyApps = () => {
+	const {t} = useTranslation();
 	return (
 		<>
-			<h3 className="mb-8 text-lg font-semibold">My Apps</h3>
+			<h3 className="mb-8 text-lg font-semibold">{t("myApps")}</h3>
 			<div className="flex">
 				<motion.div
 					className="m-auto grid grid-cols-2 gap-8"

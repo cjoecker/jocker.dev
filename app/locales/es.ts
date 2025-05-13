@@ -72,4 +72,13 @@ export default {
 	augsburgGermany: "Augsburgo, Alemania",
 	munichGermany: "Múnich, Alemania",
 	valenciaSpain: "Valencia, España",
+	openSourceContributions:"Contribuciones de Open Source",
+	myApps:"Mis Apps",
+	reputation: "Reputación",
+	english: "English",
+	german: "German",
+	spanish: "Spanish",
+	portuguese: "Portuguese",
+	fluent: "Fluent",
+	goodCommand: "Good command",
 } satisfies typeof en;
