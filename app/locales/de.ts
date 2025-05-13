@@ -6,7 +6,7 @@ export default {
 	fullStackDeveloperPrefix: "ein",
 	uxUiDesigner: "UX/UI Designer.",
 	headerDescription:
-		"Ich programmiere nicht nur Features, ich helfe dir dabei, skalierbare Apps mit großartigen Benutzererlebnissen und hochwertigem Code zu erstellen!",
+		"Ich programmiere nicht nur Features. Ich helfe dir dabei, skalierbare Apps mit großartigen Benutzererlebnissen und hochwertigem Code zu erstellen!",
 	discoverMore: "Mehr Entdecken",
 	serviceOfferTitle: "Was ich für dich tun kann",
 	skills: "Fähigkeiten",
