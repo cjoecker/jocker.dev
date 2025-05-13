@@ -49,13 +49,13 @@ declare module "i18next" {
 			skills: string;
 			coreValues: string;
 			excellence: string;
-			sustainableArchitectureCleanCodeAndGreatUxAreMyMantras: string;
+			sustainableArchitecture: string;
 			accountable: string;
-			iStandForMyDecisionsAchievementsAndMistakes: string;
+			standForDecisions: string;
 			passion: string;
-			iLoveWhatIDoAndYouWillNoticeIt: string;
+			loveWhatIDo: string;
 			kindness: string;
-			alwaysEagerToHelpAndUnderstandTheOtherSide: string;
+			eagerToHelp: string;
 			testimonials: string;
 			experienceAndEducation: string;
 			contributions: string;
@@ -75,13 +75,29 @@ declare module "i18next" {
 			whyReinventWheel: string;
 			digitalStrategyTitle: string;
 			withYearsExperience: string;
-			// David's testimonial
+			yearsOfExperience: string;
+			developedApps: string;
+			happyCustomers: string;
+			webDevelopment: string;
+			uxUiDesign: string;
+			// Education translations
+			mechanicalEngineering: string;
+			wildauGermany: string;
+			masterBusinessEngineering: string;
+			filderstadtGermany: string;
+			// Work experience translations
+			kukaSoftwareEngineer: string;
+			kukaAreaManager: string;
+			maibornwolffSeniorEngineer: string;
+			freelanceDeveloper: string;
+			augsburgGermany: string;
+			munichGermany: string;
+			valenciaSpain: string;
+			// Testimonials
 			davidTestimonial: string;
 			slectedMe: string;
-			// Thomas's testimonial
 			thomasTestimonial: string;
 			smartCube360: string;
-			// Paula's testimonial
 			paulaTestimonial: string;
 			newspective: string;
 		};

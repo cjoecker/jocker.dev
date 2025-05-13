@@ -1,5 +1,6 @@
 import { differenceInMonths, format } from "date-fns";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 import type { ExperiencAndEductionType } from "../../constants/experience-and-education";
 import {
@@ -8,12 +9,16 @@ import {
 } from "../../constants/experience-and-education";
 import { Section } from "../shared/section";
 import { getAltTextFromFileName } from "../shared/utils";
+import type en from "~/locales/en";
+
+type TranslationKey = keyof typeof en;
 
 import { ExternalRedirect } from "~/components/shared/external-redirect";
 import GraduateCap from "~/images/graduate-cap.svg";
 import OfficeImg from "~/images/office.svg";
 
 export const ExperienceAndEducation = () => {
+	const { t } = useTranslation();
 	return (
 		<Section titleKey="experienceAndEducation">
 			<WorkExperience />
@@ -37,7 +42,7 @@ const WorkExperience = () => {
 				return (
 					<div
 						className="mx-4 flex"
-						key={`${experienceItem.title}${experienceItem.logo}`}
+						key={`${experienceItem.titleKey}${experienceItem.logo}`}
 					>
 						<div className="min-w-0 flex-1">
 							{!isOdd && <ExperienceItem isOdd={isOdd} item={experienceItem} />}
@@ -103,6 +108,7 @@ const ExperienceItem = ({
 	item: ExperiencAndEductionType;
 	isOdd: boolean;
 }) => {
+	const { t } = useTranslation();
 	const variants = {
 		visible: { opacity: 1, x: 0 },
 		hidden: { opacity: 0, x: isOdd ? 100 : -100 },
@@ -140,13 +146,13 @@ const ExperienceItem = ({
 					className="mb-0.5 font-semibold break-words"
 					style={{ lineHeight: "1.3rem" }}
 				>
-					{item.title}
+					{t(item.titleKey as TranslationKey)}
 				</div>
 				<div className="text-sm leading-tight opacity-80 md:text-base">
 					{formatTimePeriod(item.startDate, item.endDate)}
 				</div>
 				<div className="text-sm leading-tight opacity-80 md:text-base">
-					{item.location}
+					{t(item.locationKey as TranslationKey)}
 				</div>
 			</div>
 		</motion.div>

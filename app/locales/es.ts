@@ -59,4 +59,17 @@ export default {
 	happyCustomers: "Clientes Satisfechos",
 	webDevelopment: "Desarrollo Web",
 	uxUiDesign: "Diseño UX/UI",
+	// Education translations
+	mechanicalEngineering: "Ingeniería Mecánica (B. Eng.)",
+	wildauGermany: "Wildau, Alemania",
+	masterBusinessEngineering: "Master of Business Engineering (MBE®)",
+	filderstadtGermany: "Filderstadt, Alemania",
+	// Work experience translations
+	kukaSoftwareEngineer: "Ingeniero de Software - Puesta en Marcha Virtual",
+	kukaAreaManager: "Gerente de Área - Puesta en Marcha Virtual",
+	maibornwolffSeniorEngineer: "Ingeniero de Software Senior",
+	freelanceDeveloper: "Desarrollador Full-Stack Freelance & Diseñador UX/UI",
+	augsburgGermany: "Augsburgo, Alemania",
+	munichGermany: "Múnich, Alemania",
+	valenciaSpain: "Valencia, España",
 } satisfies typeof en;

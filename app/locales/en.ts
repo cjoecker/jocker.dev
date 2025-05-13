@@ -45,6 +45,19 @@ export default {
 	happyCustomers: "Happy Customers",
 	webDevelopment: "Web Development",
 	uxUiDesign: "UX/UI Design",
+	// Education translations
+	mechanicalEngineering: "Mechanical Engineering (B. Eng.)",
+	wildauGermany: "Wildau, Germany",
+	masterBusinessEngineering: "Master of Business Engineering (MBE®)",
+	filderstadtGermany: "Filderstadt, Germany",
+	// Work experience translations
+	kukaSoftwareEngineer: "Software Engineer - Virtual Commissioning",
+	kukaAreaManager: "Area Manager - Virtual Commissioning",
+	maibornwolffSeniorEngineer: "Senior Software Engineer",
+	freelanceDeveloper: "Freelance Full-Stack Developer & UX/UI Designer",
+	augsburgGermany: "Augsburg, Germany",
+	munichGermany: "Munich, Germany",
+	valenciaSpain: "Valencia, Spain",
 	// David's testimonial
 	davidTestimonial: "Christian is a very creative person with attention to details. He really puts effort in developing what makes sense for the end user. He is also a fan of clean code and good architecture.",
 	slectedMe: "Slected.me GmbH",
