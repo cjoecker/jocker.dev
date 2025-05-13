@@ -7,33 +7,28 @@ import ThomasPhoto from "../images/thomas.png";
 
 export const testimonials: TestimonialsType[] = [
 	{
-		testimonial: `Christian is a very creative person with attention to details. 
-    He really puts effort in developing what makes sense for the end user. 
-    He is also a fan of clean code and good architecture.`,
+		testimonialKey: "davidTestimonial",
 		person: "David Forino",
 		photo: DavidPhoto,
-		company: "Slected.me GmbH",
+		companyKey: "slectedMe",
 		companyLogo: SlectedMeLogo,
 		companyHeight: 70,
 		title: "CTO and co-founder",
 	},
 	{
-		testimonial: `Christian is always reliable! He not only tackles his tasks with determination, but also consistently offers suggestions on how to make our software even more user-friendly. 
-		All with complete cost transparency! Anyone who gets to work with him is truly lucky!`,
+		testimonialKey: "thomasTestimonial",
 		person: "Thomas Kirner",
 		photo: ThomasPhoto,
-		company: "smart cube 360 GmbH",
+		companyKey: "smartCube360",
 		companyLogo: SmartCube360Logo,
 		companyHeight: 70,
 		title: "CEO and co-founder",
 	},
 	{
-		testimonial: `He perfectly embodies the role of a skilled developer, 
-    who not only masters his technologies but also has amazing UX know-how. 
-    Both his creativity and entrepreneurial mindset bring his projects and the company forward.`,
+		testimonialKey: "paulaTestimonial",
 		person: "Paula Montesa Rausell",
 		photo: PaulaPhoto,
-		company: "Newspective",
+		companyKey: "newspective",
 		companyLogo: NewspectiveLogo,
 		companyHeight: 80,
 		title: "Head of Strategy",
@@ -41,10 +36,10 @@ export const testimonials: TestimonialsType[] = [
 ];
 
 export interface TestimonialsType {
-	testimonial: string;
+	testimonialKey: string;
 	person: string;
 	photo: string;
-	company: string;
+	companyKey: string;
 	companyLogo: string;
 	companyHeight: number;
 	title: string;

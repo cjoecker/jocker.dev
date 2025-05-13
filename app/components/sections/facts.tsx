@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 import { EXPERIENCE_YEARS } from "../../constants/experience-and-education";
 import HappyIcon from "../../images/happy.svg";
@@ -7,26 +8,28 @@ import MeshPurple from "../../images/mesh-purple.svg";
 import SmartphoneIcon from "../../images/smartphone.svg";
 import StrongIcon from "../../images/strong.svg";
 import { Section } from "../shared/section";
+
 export const Facts = () => {
+	const { t } = useTranslation();
 	return (
 		<Section titleKey="facts">
 			<div className="relative mt-52 flex">
 				<div className="mx-auto grid grid-cols-1 flex-wrap justify-between gap-x-12 gap-y-8 lg:grid-cols-3">
 					<Fact
 						number={EXPERIENCE_YEARS}
-						label={"Years of Experience"}
+						label={t("yearsOfExperience")}
 						icon={StrongIcon}
 						alt="strong"
 					/>
 					<Fact
 						number={23}
-						label={"Developed Apps"}
+						label={t("developedApps")}
 						icon={SmartphoneIcon}
 						alt="smartphone"
 					/>
 					<Fact
 						number={13}
-						label={"Happy Customers"}
+						label={t("happyCustomers")}
 						icon={HappyIcon}
 						alt="happy face"
 					/>

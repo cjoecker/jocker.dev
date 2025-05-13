@@ -9,6 +9,14 @@ export default {
 	serviceOfferTitle: "What I Can Do for You",
 	skills: "Skills",
 	coreValues: "Core Values",
+	excellence: "Excellence",
+	sustainableArchitecture: "Sustainable architecture, clean code, and great UX are my mantras",
+	accountable: "Accountable",
+	standForDecisions: "I stand for my decisions, achievements and mistakes",
+	passion: "Passion",
+	loveWhatIDo: "I love what I do and you will notice it",
+	kindness: "Kindness",
+	eagerToHelp: "Always eager to help and understand the other side",
 	testimonials: "Testimonials",
 	experienceAndEducation: "Education and Work Experience",
 	contributions: "Community Contributions",
@@ -32,4 +40,18 @@ export default {
 	digitalStrategyTitle: "Digital Strategy Consulting",
 	withYearsExperience:
 		"With over {{years}} years of experience in the tech industry and a track record of success with digital products across multiple industries, I've got the expertise you need to succeed!\n\nWhether you're looking to launch a new product, reinvigorate an existing one, or simply up your game, I'll help you map out a roadmap for success!",
-};
+	yearsOfExperience: "Years of Experience",
+	developedApps: "Developed Apps",
+	happyCustomers: "Happy Customers",
+	webDevelopment: "Web Development",
+	uxUiDesign: "UX/UI Design",
+	// David's testimonial
+	davidTestimonial: "Christian is a very creative person with attention to details. He really puts effort in developing what makes sense for the end user. He is also a fan of clean code and good architecture.",
+	slectedMe: "Slected.me GmbH",
+	// Thomas's testimonial
+	thomasTestimonial: "Christian is always reliable! He not only tackles his tasks with determination, but also consistently offers suggestions on how to make our software even more user-friendly. All with complete cost transparency! Anyone who gets to work with him is truly lucky!",
+	smartCube360: "smart cube 360 GmbH",
+	// Paula's testimonial
+	paulaTestimonial: "He perfectly embodies the role of a skilled developer, who not only masters his technologies but also has amazing UX know-how. Both his creativity and entrepreneurial mindset bring his projects and the company forward.",
+	newspective: "Newspective",
+} as const;

@@ -1,5 +1,6 @@
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import DoubleQuotesIcon from "../../images/double-quotes.svg";
 import { Section } from "../shared/section";
@@ -9,8 +10,10 @@ import { colors } from "~/constants/colors";
 import { testimonials } from "~/constants/testimonials";
 import ArrowLeft from "~/images/arrow-left.svg";
 import ArrowRight from "~/images/arrow-right.svg";
+import { TranslationKey } from "~/middleware/i18next";
 
 export function Testimonials() {
+	const { t } = useTranslation();
 	const [autoplay, setAutoplay] = useState(true);
 	const splideRef = useRef(null);
 	const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -79,7 +82,7 @@ export function Testimonials() {
 				<SplideTrack className="mask-swiper-narrow">
 					{testimonials.map((testimonial) => {
 						return (
-							<SplideSlide key={testimonial.testimonial}>
+							<SplideSlide key={testimonial.testimonialKey}>
 								<div
 									className={
 										"shadow-sm-turquoise border-secondary/10 from-neutral to-neutral-dark mx-4 my-6 flex h-full flex-1 cursor-grab flex-col rounded-xl border-2 border-solid bg-linear-to-br p-5 select-none"
@@ -106,7 +109,7 @@ export function Testimonials() {
 											alt="double quotes"
 											src={DoubleQuotesIcon}
 										/>
-										<div className="text-base">{testimonial.testimonial}</div>
+										<div className="text-base">{t(testimonial.testimonialKey as TranslationKey)}</div>
 									</div>
 									<div className="mx-auto my-2 flex justify-end text-left">
 										<img
@@ -122,7 +125,7 @@ export function Testimonials() {
 												{testimonial.person}
 											</div>
 											<div className="text-base">{testimonial.title}</div>
-											<div className="text-sm">{testimonial.company}</div>
+											<div className="text-sm">{t(testimonial.companyKey as TranslationKey)}</div>
 										</div>
 									</div>
 								</div>
@@ -152,7 +155,7 @@ export function Testimonials() {
 					{testimonials.map((testimonial, index) => {
 						return (
 							<button
-								key={testimonial.testimonial}
+								key={testimonial.testimonialKey}
 								aria-label={`see page ${index + 1}`}
 								className="h-12 w-12 cursor-pointer"
 								onClick={() => {

@@ -48,6 +48,14 @@ declare module "i18next" {
 			serviceOfferTitle: string;
 			skills: string;
 			coreValues: string;
+			excellence: string;
+			sustainableArchitectureCleanCodeAndGreatUxAreMyMantras: string;
+			accountable: string;
+			iStandForMyDecisionsAchievementsAndMistakes: string;
+			passion: string;
+			iLoveWhatIDoAndYouWillNoticeIt: string;
+			kindness: string;
+			alwaysEagerToHelpAndUnderstandTheOtherSide: string;
 			testimonials: string;
 			experienceAndEducation: string;
 			contributions: string;
@@ -67,6 +75,15 @@ declare module "i18next" {
 			whyReinventWheel: string;
 			digitalStrategyTitle: string;
 			withYearsExperience: string;
+			// David's testimonial
+			davidTestimonial: string;
+			slectedMe: string;
+			// Thomas's testimonial
+			thomasTestimonial: string;
+			smartCube360: string;
+			// Paula's testimonial
+			paulaTestimonial: string;
+			newspective: string;
 		};
 	}
 }

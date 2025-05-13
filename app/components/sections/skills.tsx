@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 import { DevSkills, UxSkills } from "../../constants/skills";
 import { Section } from "../shared/section";
 
 export const Skills = () => {
+	const { t } = useTranslation();
 	return (
 		<Section titleKey="skills" className="mx-8 flex flex-col sm:mx-16">
 			<div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-16 gap-y-20 md:grid-cols-2">
-				<Tags skills={DevSkills} title="Web Development" />
-				<Tags skills={UxSkills} title="UX/UI Design" />
+				<Tags skills={DevSkills} title={t("webDevelopment")} />
+				<Tags skills={UxSkills} title={t("uxUiDesign")} />
 			</div>
 		</Section>
 	);

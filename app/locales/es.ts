@@ -12,7 +12,26 @@ export default {
 	serviceOfferTitle: "Lo que puedo hacer por ti",
 	skills: "Habilidades",
 	coreValues: "Valores fundamentales",
+	excellence: "Excelencia",
+	sustainableArchitecture: "La arquitectura sostenible, el código limpio y una gran UX son mis mantras.",
+	accountable: "Responsable",
+	standForDecisions: "Me hago cargo de mis decisiones, logros y errores.",
+	passion: "Pasión",
+	loveWhatIDo: "Me encanta lo que hago y lo notarás.",
+	kindness: "Amabilidad",
+	eagerToHelp: "Siempre dispuesto a ayudar y entender al otro lado.",
 	testimonials: "Testimonios",
+	// David's testimonial
+	davidTestimonial: "Christian es una persona muy creativa con atención al detalle. Realmente se esfuerza en desarrollar lo que tiene sentido para el usuario final. También es un fanático del código limpio y la buena arquitectura.",
+	slectedMe: "Slected.me GmbH",
+	// Thomas's testimonial
+	thomasTestimonial: "¡Christian es siempre confiable! No solo aborda sus tareas con determinación, sino que también ofrece constantemente sugerencias sobre cómo hacer que nuestro software sea aún más fácil de usar. ¡Todo con total transparencia en los costos! ¡Cualquiera que tenga la oportunidad de trabajar con él es realmente afortunado!",
+	smartCube360: "smart cube 360 GmbH",
+	// Paula's testimonial
+	paulaTestimonial: "Encarna perfectamente el papel de un desarrollador experto, que no solo domina sus tecnologías sino que también tiene un increíble conocimiento de UX. Tanto su creatividad como su mentalidad empresarial impulsan sus proyectos y la empresa hacia adelante.",
+	paulaName: "Paula Montesa Rausell",
+	paulaTitle: "Head of Strategy",
+	newspective: "Newspective",
 	experienceAndEducation: "Educación y experiencia laboral",
 	contributions: "Contribuciones a la comunidad",
 	coursesAndConferences: "Últimos cursos y conferencias",
@@ -35,4 +54,9 @@ export default {
 	digitalStrategyTitle: "Consultoría de Estrategia Digital",
 	withYearsExperience:
 		"Con más de {{years}} años de experiencia en la industria tecnológica y un historial de éxito con productos digitales en múltiples industrias, tengo la experiencia que necesitas para triunfar!\n\nYa sea que estés buscando lanzar un nuevo producto, revitalizar uno existente o simplemente mejorar tu juego, te ayudaré a trazar un camino hacia el éxito!",
+	yearsOfExperience: "Años de Experiencia",
+	developedApps: "Aplicaciones Desarrolladas",
+	happyCustomers: "Clientes Satisfechos",
+	webDevelopment: "Desarrollo Web",
+	uxUiDesign: "Diseño UX/UI",
 } satisfies typeof en;

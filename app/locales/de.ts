@@ -11,6 +11,14 @@ export default {
 	serviceOfferTitle: "Was ich für dich tun kann",
 	skills: "Fähigkeiten",
 	coreValues: "Kernwerte",
+	excellence: "Exzellenz",
+	sustainableArchitecture: "Nachhaltige Architektur, sauberer Code und großartige UX sind meine Mantras.",
+	accountable: "Verantwortungsbewusst",
+	standForDecisions: "Ich stehe zu meinen Entscheidungen, Erfolgen und Fehlern.",
+	passion: "Leidenschaft",
+	loveWhatIDo: "Ich liebe was ich tue und das wirst du merken!",
+	kindness: "Freundlichkeit",
+	eagerToHelp: "Immer bereit zu helfen und die andere Seite zu verstehen.",
 	testimonials: "Referenzen",
 	experienceAndEducation: "Ausbildung und Berufserfahrung",
 	contributions: "Community Beiträge",
@@ -34,4 +42,18 @@ export default {
 	digitalStrategyTitle: "Digitale Strategieberatung",
 	withYearsExperience:
 		"Mit über {{years}} Jahren Erfahrung in der Tech-Branche und erfolgreichen digitalen Produkten in verschiedenen Branchen habe ich die Expertise für deinen Erfolg!\n\nOb du ein neues Produkt auf den Markt bringen, ein bestehendes Produkt neu beleben oder dein Spiel verbessern möchtest - ich helfe dir, eine Roadmap zum Erfolg zu erstellen!",
+	yearsOfExperience: "Jahre Erfahrung",
+	developedApps: "Entwickelte Apps",
+	happyCustomers: "Zufriedene Kunden",
+	webDevelopment: "Web Entwicklung",
+	uxUiDesign: "UX/UI Design",
+	// David's testimonial
+	davidTestimonial: "Christian ist eine sehr kreative Person mit Augenmerk auf Details. Er setzt sich wirklich dafür ein, das zu entwickeln, was für den Endnutzer Sinn macht. Er ist auch ein Fan von sauberem Code und guter Architektur.",
+	slectedMe: "Slected.me GmbH",
+	// Thomas's testimonial
+	thomasTestimonial: "Christian ist immer zuverlässig! Er geht seine Aufgaben nicht nur mit Entschlossenheit an, sondern macht auch ständig Vorschläge, wie wir unsere Software noch benutzerfreundlicher gestalten können. Alles mit vollständiger Kostentransparenz! Wer mit ihm zusammenarbeiten darf, hat wirklich Glück!",
+	smartCube360: "smart cube 360 GmbH",
+	// Paula's testimonial
+	paulaTestimonial: "Er verkörpert perfekt die Rolle eines versierten Entwicklers, der nicht nur seine Technologien beherrscht, sondern auch über erstaunliches UX-Know-how verfügt. Sowohl seine Kreativität als auch sein unternehmerisches Denken bringen seine Projekte und das Unternehmen voran.",
+	newspective: "Newspective",
 } satisfies typeof en;
