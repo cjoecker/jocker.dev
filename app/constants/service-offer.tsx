@@ -9,27 +9,27 @@ import { TranslationKey } from "~/middleware/i18next";
 export const ServiceOfferData: ServiceOfferType[] = [
 	{
 		logo: FaceWithSunglassesImg,
-		titleKey: "webApplicationsTitle",
+		titleKey: "webApplications",
 		descriptionTranslationKey: "getReadyForPlatform",
 	},
 	{
 		logo: ArtistImg,
-		titleKey: "uxUiDesignTitle",
+		titleKey: "uxUiDesign",
 		descriptionTranslationKey: "turnDigitalDreams",
 	},
 	{
 		logo: RobotImg,
-		titleKey: "iotPlatformsTitle",
+		titleKey: "iotPlatforms",
 		descriptionTranslationKey: "stepIntoFuture",
 	},
 	{
 		logo: RocketImg,
-		titleKey: "lowCodeAppsTitle",
+		titleKey: "lowCodeApps",
 		descriptionTranslationKey: "whyReinventWheel",
 	},
 	{
 		logo: StrategyImg,
-		titleKey: "digitalStrategyTitle",
+		titleKey: "digitalStrategy",
 		descriptionTranslationKey: "withYearsExperience",
 	},
 ];

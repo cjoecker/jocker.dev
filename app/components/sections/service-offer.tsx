@@ -27,7 +27,7 @@ export const ServiceOffer = () => {
 				whileInView: "visible",
 			};
 	return (
-		<Section titleKey="serviceOfferTitle" className={"mt-16"}>
+		<Section titleKey="whatICanDoForYou" className={"mt-16"}>
 			<div className="relative flex">
 				<img
 					alt=""

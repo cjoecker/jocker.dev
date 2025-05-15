@@ -67,14 +67,14 @@ export const Header = () => {
 					style={{ y: titleY }}
 					className="mx-2 mb-8 text-2xl font-bold sm:text-3xl"
 				>
-					<span>{t("greeting")}</span>
+					<span>{t("hiImChristian")}</span>
 					<AnimatedWord />
 				</motion.h1>
 				<motion.p
 					style={{ y: subtitleY }}
 					className="text-md mr-4 mb-16 font-normal sm:mb-28 sm:text-lg md:mr-[25vw]"
 				>
-					{t("headerDescription")}
+					{t("iDontJustProgramFeatures")}
 				</motion.p>
 				<motion.button
 					style={{ y: buttonY, boxShadow: "0px 0px 90px -15px #00DFD8" }}

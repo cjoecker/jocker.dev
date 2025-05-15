@@ -11,7 +11,7 @@ const hiddenMessageButtonSections = new Set([
 	// empty string is the header section
 	"",
 	"what_i_can_do_for_you",
-	"contact_me!",
+	"contact",
 ]);
 
 const animationVariants: Variants = {

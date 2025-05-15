@@ -54,7 +54,7 @@ export const WorkExperienceData: ExperiencAndEductionType[] = [
 		logo: MaibornWolffLogo,
 		logoHeight: 50,
 		link: "https://www.maibornwolff.de",
-		titleKey: "maibornwolffSeniorEngineer",
+		titleKey: "seniorSoftwareEngineer",
 		startDate: new Date("2019-05"),
 		endDate: new Date("2023-02"),
 		locationKey: "munichGermany",

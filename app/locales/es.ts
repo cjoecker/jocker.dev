@@ -1,16 +1,16 @@
 import type en from "./en";
 
 export default {
-	greeting: "Hola, soy Christian Jöcker,",
+	hiImChristian: "Hola, soy Christian Jöcker,",
 	fullStackDeveloper: "Desarrollador Full-Stack.",
 	fullStackDeveloperPrefix: "un",
 	uxUiDesigner: "Diseñador UX/UI.",
-	headerDescription:
+	iDontJustProgramFeatures:
 		"No solo programo funciones. Te ayudo a construir aplicaciones escalables con experiencias de usuario increíbles y código que perdura.",
 	discoverMore: "¡Descubre Más!",
-	serviceOfferTitle: "Lo Que Puedo Hacer por Ti",
+	whatICanDoForYou: "Lo Que Puedo Hacer por Ti",
 	skills: "Habilidades",
-	coreValues: "Valores Fundamentales",
+	coreValues: "Valores",
 	excellence: "Excelencia",
 	sustainableArchitecture:
 		"La arquitectura sostenible, el código limpio y una gran UX son mis mantras",
@@ -20,54 +20,50 @@ export default {
 	loveWhatIDo: "Me encanta lo que hago y lo notarás",
 	kindness: "Amabilidad",
 	eagerToHelp: "Siempre dispuesto a ayudar y entender al otro lado",
-	testimonials: "Testimonios",
+	testimonials: "Referencias",
 	experienceAndEducation: "Educación y Experiencia Laboral",
 	contributions: "Contribuciones a la Comunidad",
 	coursesAndConferences: "Últimos Cursos y Conferencias Asistidas",
 	languages: "Idiomas",
 	aboutMe: "Sobre Mí",
-	contact: "Contacto",
+	contact: "Contactáctame!",
 	facts: "Datos",
-	webApplicationsTitle: "Aplicaciones Web",
+	webApplications: "Aplicaciones Web",
 	getReadyForPlatform:
 		"¡Prepárate para una plataforma que no solo es bonita, sino construida para durar!\n\nPermíteme llevar tu idea desde el concepto hasta el lanzamiento, entregando una solución escalable adaptada a tu negocio.\n\n¡Di adiós a las aplicaciones web torpes con una experiencia digital que hará que tus usuarios digan ¡WOW!",
-	uxUiDesignTitle: "Diseño UX/UI",
+	uxUiDesign: "Diseño UX/UI",
 	turnDigitalDreams:
 		"¡Tomaré tus sueños digitales y los convertiré en realidades perfectas que no solo se ven bien, sino que también se sienten geniales!\n\nMe aseguraré de que cada clic, toque y deslizamiento sea una experiencia deliciosa para tus clientes.\n\n¡Siéntate, relájate y deja que comience la magia!",
-	iotPlatformsTitle: "Plataformas IoT",
+	iotPlatforms: "Plataformas IoT",
 	stepIntoFuture:
 		"¡Adéntrate en el futuro con mi experiencia en plataformas IoT!\n\nConvirtamos tus ideas en soluciones de vanguardia que conecten el mundo físico con el digital\n\n¡Ya sea que quieras conectar tus dispositivos, revolucionar tu negocio o desatar tu sabio tecnológico interior!",
-	lowCodeAppsTitle: "Aplicaciones Low-Code",
+	lowCodeApps: "Aplicaciones Low-Code",
 	whyReinventWheel:
 		"¿Por qué reinventar la rueda? ¿No todas las aplicaciones necesitan ser construidas desde cero?\n\nTe ayudo a decidir si una herramienta low-code como Mendix o Bubble se ajusta a tu idea.\n\n¡Luego lo construimos rápido y bien, creando algo simple, rentable y adaptado a tus necesidades!",
-	digitalStrategyTitle: "Consultoría de Estrategia Digital",
+	digitalStrategy: "Consultoría de Estrategia Digital",
 	withYearsExperience:
 		"¡Con más de {{years}} años de experiencia en la industria tecnológica y un historial de éxito con productos digitales en múltiples industrias, tengo la experiencia que necesitas para triunfar!\n\n¡Ya sea que busques lanzar un nuevo producto, revitalizar uno existente o simplemente mejorar tu juego, te ayudaré a trazar un camino hacia el éxito!",
 	yearsOfExperience: "Años de Experiencia",
 	developedApps: "Aplicaciones Desarrolladas",
 	happyCustomers: "Clientes Satisfechos",
 	webDevelopment: "Desarrollo Web",
-	uxUiDesign: "Diseño UX/UI",
 	mechanicalEngineering: "Ingeniería Mecánica (B. Eng.)",
 	wildauGermany: "Wildau, Alemania",
 	masterBusinessEngineering: "Máster en Ingeniería de Negocios (MBE®)",
 	filderstadtGermany: "Filderstadt, Alemania",
 	kukaSoftwareEngineer: "Ingeniero de Software - Comisionamiento Virtual",
 	kukaAreaManager: "Gerente de Área - Comisionamiento Virtual",
-	maibornwolffSeniorEngineer: "Ingeniero de Software Senior",
+	seniorSoftwareEngineer: "Ingeniero de Software Senior",
 	freelanceDeveloper: "Desarrollador Full-Stack Freelance y Diseñador UX/UI",
 	augsburgGermany: "Augsburgo, Alemania",
 	munichGermany: "Múnich, Alemania",
 	valenciaSpain: "Valencia, España",
-	davidTestimonial:
+	christianIsAVery:
 		"Christian es una persona muy creativa con atención al detalle. Realmente se esfuerza en desarrollar lo que tiene sentido para el usuario final. También es un fanático del código limpio y la buena arquitectura.",
-	slectedMe: "Slected.me GmbH",
-	thomasTestimonial:
+	christianIsAlwaysReliable:
 		"¡Christian es siempre confiable! No solo aborda sus tareas con determinación, sino que también ofrece constantemente sugerencias sobre cómo hacer que nuestro software sea aún más fácil de usar. ¡Todo con total transparencia en los costos! ¡Cualquiera que tenga la oportunidad de trabajar con él es verdaderamente afortunado!",
-	smartCube360: "smart cube 360 GmbH",
-	paulaTestimonial:
+	hePerfectlyEmbodies:
 		"Encarna perfectamente el papel de un desarrollador experto, que no solo domina sus tecnologías sino que también tiene un increíble conocimiento de UX. Tanto su creatividad como su mentalidad empresarial impulsan sus proyectos y la empresa.",
-	newspective: "Newspective",
 	openSourceContributions: "Contribuciones de Código Abierto",
 	myApps: "Mis Aplicaciones",
 	reputation: "Reputación",
@@ -91,4 +87,5 @@ export default {
 	present: "Presente",
 	yearAbbreviation: "A",
 	monthAbbreviation: "m",
+	notFound: "404 - No encontrado",
 } satisfies typeof en;

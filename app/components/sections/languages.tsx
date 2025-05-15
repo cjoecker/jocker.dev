@@ -7,13 +7,16 @@ import { Section } from "../shared/section";
 import { getAltTextFromFileName } from "../shared/utils";
 
 export const Languages = () => {
-	const {t} = useTranslation();
+	const { t } = useTranslation();
 	return (
 		<Section titleKey="languages" className="flex flex-col">
 			<div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-32 gap-y-20 md:grid-cols-4">
 				{LanguagesData.map((language) => {
 					return (
-						<div className="relative col-span-1 m-auto" key={language.languageKey}>
+						<div
+							className="relative col-span-1 m-auto"
+							key={language.languageKey}
+						>
 							<img
 								alt=""
 								aria-hidden="true"

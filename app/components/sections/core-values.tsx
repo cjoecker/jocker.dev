@@ -67,8 +67,12 @@ const CoreValue = ({ coreValue }: { coreValue: CoreValuesType }) => {
 			}}
 			className="col-span-1 flex max-w-[190px] flex-col align-top"
 		>
-			<h3 className="text-md font-semibold">{t(coreValue.coreValueKey as TranslationKey)}</h3>
-			<p className="mt-0.5 opacity-90">{t(coreValue.explanationKey as TranslationKey)}</p>
+			<h3 className="text-md font-semibold">
+				{t(coreValue.coreValueKey as TranslationKey)}
+			</h3>
+			<p className="mt-0.5 opacity-90">
+				{t(coreValue.explanationKey as TranslationKey)}
+			</p>
 		</motion.div>
 	);
 };

@@ -149,10 +149,12 @@ const Badge = ({ color, number }: { color: string; number: number }) => {
 };
 
 const OpenSource = () => {
-	const {t} = useTranslation();
+	const { t } = useTranslation();
 	return (
 		<>
-			<h3 className="mb-6 text-lg font-semibold">{t("openSourceContributions")}</h3>
+			<h3 className="mb-6 text-lg font-semibold">
+				{t("openSourceContributions")}
+			</h3>
 			<motion.div
 				initial="hidden"
 				whileInView="visible"
@@ -196,7 +198,7 @@ const OpenSource = () => {
 };
 
 const MyApps = () => {
-	const {t} = useTranslation();
+	const { t } = useTranslation();
 	return (
 		<>
 			<h3 className="mb-8 text-lg font-semibold">{t("myApps")}</h3>

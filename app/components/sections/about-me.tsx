@@ -12,7 +12,7 @@ import { useTranslationWithMarkdown } from "~/hooks/use-translation-with-markdow
 const CLICKS_THRESHOLD = 5;
 
 export const AboutMe = () => {
-	const {t} = useTranslation();
+	const { t } = useTranslation();
 	const { tm } = useTranslationWithMarkdown();
 	const sectionClicks = useRef(0);
 	const handleSectionClick = () => {

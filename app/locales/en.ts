@@ -1,12 +1,12 @@
 export default {
-	greeting: "Hi, I'm Christian Jöcker,",
+	hiImChristian: "Hi, I'm Christian Jöcker,",
 	fullStackDeveloper: "Full-Stack Developer.",
 	fullStackDeveloperPrefix: "a",
 	uxUiDesigner: "UX/UI Designer.",
-	headerDescription:
+	iDontJustProgramFeatures:
 		"I don't just code features. I help you build scalable apps with amazing user experiences and code that holds up!",
 	discoverMore: "Discover More!",
-	serviceOfferTitle: "What I Can Do for You",
+	whatICanDoForYou: "What I Can Do for You",
 	skills: "Skills",
 	coreValues: "Core Values",
 	excellence: "Excellence",
@@ -24,48 +24,44 @@ export default {
 	coursesAndConferences: "Last Attended Courses and Conferences",
 	languages: "Languages",
 	aboutMe: "About Me",
-	contact: "Contact",
+	contact: "Contact me!",
 	facts: "Facts",
-	webApplicationsTitle: "Web Applications",
+	webApplications: "Web Applications",
 	getReadyForPlatform:
 		"Get ready for a platform that's not just good-looking, but built to last!\n\nLet me take your idea from concept to launch, delivering a scalable solution tailored to your business.\n\nSay goodbye to clumsy web applications with a digital experience that will make your users say WOW!",
-	uxUiDesignTitle: "UX/UI Design",
+	uxUiDesign: "UX/UI Design",
 	turnDigitalDreams:
 		"I'll take your digital dreams and turn them into pixel-perfect realities that not only look good but feel great too!\n\nI'll make sure that every click, tap, and swipe is a delightful experience for your customers.\n\nSit back, relax, and let the magic begin!",
-	iotPlatformsTitle: "IoT Platforms",
+	iotPlatforms: "IoT Platforms",
 	stepIntoFuture:
 		"Step into the future with my IoT platform expertise!\n\nLet's turn your ideas into cutting-edge solutions that connect the physical world to the digital one\n\nWhether you want to connect your devices, revolutionize your business, or unleash your inner tech-savant!",
-	lowCodeAppsTitle: "Low-Code Apps",
+	lowCodeApps: "Low-Code Apps",
 	whyReinventWheel:
 		"Why reinvent the wheel? Not every app needs to be built from scratch?\n\nI help you decide if a low-code tool like Mendix or Bubble fits your idea.\n\nThen we build it fast and right, creating something simple, cost-effective, and tailored to your needs!",
-	digitalStrategyTitle: "Digital Strategy Consulting",
+	digitalStrategy: "Digital Strategy Consulting",
 	withYearsExperience:
 		"With over {{years}} years of experience in the tech industry and a track record of success with digital products across multiple industries, I've got the expertise you need to succeed!\n\nWhether you're looking to launch a new product, reinvigorate an existing one, or simply up your game, I'll help you map out a roadmap for success!",
 	yearsOfExperience: "Years of Experience",
 	developedApps: "Developed Apps",
 	happyCustomers: "Happy Customers",
 	webDevelopment: "Web Development",
-	uxUiDesign: "UX/UI Design",
 	mechanicalEngineering: "Mechanical Engineering (B. Eng.)",
 	wildauGermany: "Wildau, Germany",
 	masterBusinessEngineering: "Master of Business Engineering (MBE®)",
 	filderstadtGermany: "Filderstadt, Germany",
 	kukaSoftwareEngineer: "Software Engineer - Virtual Commissioning",
 	kukaAreaManager: "Area Manager - Virtual Commissioning",
-	maibornwolffSeniorEngineer: "Senior Software Engineer",
+	seniorSoftwareEngineer: "Senior Software Engineer",
 	freelanceDeveloper: "Freelance Full-Stack Developer & UX/UI Designer",
 	augsburgGermany: "Augsburg, Germany",
 	munichGermany: "Munich, Germany",
 	valenciaSpain: "Valencia, Spain",
-	davidTestimonial:
+	christianIsAVery:
 		"Christian is a very creative person with attention to details. He really puts effort in developing what makes sense for the end user. He is also a fan of clean code and good architecture.",
-	slectedMe: "Slected.me GmbH",
-	thomasTestimonial:
+	christianIsAlwaysReliable:
 		"Christian is always reliable! He not only tackles his tasks with determination, but also consistently offers suggestions on how to make our software even more user-friendly. All with complete cost transparency! Anyone who gets to work with him is truly lucky!",
-	smartCube360: "smart cube 360 GmbH",
-	paulaTestimonial:
+	hePerfectlyEmbodies:
 		"He perfectly embodies the role of a skilled developer, who not only masters his technologies but also has amazing UX know-how. Both his creativity and entrepreneurial mindset bring his projects and the company forward.",
-	newspective: "Newspective",
 	openSourceContributions: "Open Source Contributions",
 	myApps: "My Apps",
 	reputation: "Reputation",
@@ -89,4 +85,5 @@ export default {
 	present: "Present",
 	yearAbbreviation: "Y",
 	monthAbbreviation: "m",
+	notFound: "404 - Not Found",
 };

@@ -5,12 +5,13 @@ import { useTranslation } from "react-i18next";
 const locales = {
 	en: enUS,
 	de,
-	es
+	es,
 };
 
 export function useFormatDates() {
 	const { i18n, t } = useTranslation();
 
+	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 	const locale = locales[i18n.language as keyof typeof locales] || enUS;
 
 	const formatDate = (date: Date) => {
@@ -20,7 +21,8 @@ export function useFormatDates() {
 	const formatTimePeriod = (startDate: Date, endDate: Date | "today") => {
 		const newEndDate = endDate === "today" ? new Date() : endDate;
 
-		const distanceInYears = (differenceInMonths(newEndDate, startDate) + 1) / 12;
+		const distanceInYears =
+			(differenceInMonths(newEndDate, startDate) + 1) / 12;
 
 		const numberFormatter = new Intl.NumberFormat(i18n.language, {
 			maximumFractionDigits: 1,

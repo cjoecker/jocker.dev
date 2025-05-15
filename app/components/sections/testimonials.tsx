@@ -109,7 +109,9 @@ export function Testimonials() {
 											alt="double quotes"
 											src={DoubleQuotesIcon}
 										/>
-										<div className="text-base">{t(testimonial.testimonialKey)}</div>
+										<div className="text-base">
+											{t(testimonial.testimonialKey)}
+										</div>
 									</div>
 									<div className="mx-auto my-2 flex justify-end text-left">
 										<img
@@ -125,7 +127,9 @@ export function Testimonials() {
 												{testimonial.person}
 											</div>
 											<div className="text-base">{t(testimonial.titleKey)}</div>
-											<div className="text-sm">{t(testimonial.company as TranslationKey)}</div>
+											<div className="text-sm">
+												{t(testimonial.company as TranslationKey)}
+											</div>
 										</div>
 									</div>
 								</div>
@@ -190,7 +194,10 @@ export interface Props {
 export const ChangeButton = ({ onClick, orientation }: Props) => {
 	const isLeft = orientation === "left";
 	return (
-		<button className="h-full w-full max-w-[200px] cursor-pointer" onClick={onClick}>
+		<button
+			className="h-full w-full max-w-[200px] cursor-pointer"
+			onClick={onClick}
+		>
 			<span
 				className={`bg-grey/80 flex h-12 w-12 cursor-pointer rounded-full ${
 					isLeft ? "mr-auto ml-4" : "mr-4 ml-auto"

@@ -9,9 +9,8 @@ export default function Component() {
 	const { t } = useTranslation("translation");
 
 	return (
-		<div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-			<h1>{t("title")}</h1>
-			<p>{t("description")}</p>
+		<div className="flex h-screen w-full items-center justify-center">
+			<h1 className="text-lg">{t("notFound")}</h1>
 		</div>
 	);
 }

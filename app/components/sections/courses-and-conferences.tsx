@@ -62,7 +62,7 @@ export const CoursesAndConferences = () => {
 	);
 };
 const CourseItem = ({ course }: { course: CourseType }) => {
-	const {formatDate} = useFormatDates();
+	const { formatDate } = useFormatDates();
 	return (
 		<>
 			<img
@@ -84,7 +84,7 @@ const CourseItem = ({ course }: { course: CourseType }) => {
 };
 
 const ConferenceItem = ({ conference }: { conference: ConferenceType }) => {
-	const {formatDate} = useFormatDates();
+	const { formatDate } = useFormatDates();
 	return (
 		<>
 			<img
@@ -97,9 +97,7 @@ const ConferenceItem = ({ conference }: { conference: ConferenceType }) => {
 			/>
 			<div className="overflow-hidden">
 				<div className="truncate text-base">{conference.name}</div>
-				<div className="text-sm opacity-80">
-					{formatDate(conference.date)}
-				</div>
+				<div className="text-sm opacity-80">{formatDate(conference.date)}</div>
 			</div>
 		</>
 	);

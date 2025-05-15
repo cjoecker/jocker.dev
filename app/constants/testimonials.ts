@@ -9,7 +9,7 @@ import { TranslationKey } from "~/middleware/i18next";
 
 export const testimonials: TestimonialsType[] = [
 	{
-		testimonialKey: "davidTestimonial",
+		testimonialKey: "christianIsAVery",
 		person: "David Forino",
 		photo: DavidPhoto,
 		company: "slectedMe",
@@ -18,7 +18,7 @@ export const testimonials: TestimonialsType[] = [
 		titleKey: "ctoAndCoFounder",
 	},
 	{
-		testimonialKey: "thomasTestimonial",
+		testimonialKey: "christianIsAlwaysReliable",
 		person: "Thomas Kirner",
 		photo: ThomasPhoto,
 		company: "smartCube360",
@@ -27,7 +27,7 @@ export const testimonials: TestimonialsType[] = [
 		titleKey: "ceoAndCoFounder",
 	},
 	{
-		testimonialKey: "paulaTestimonial",
+		testimonialKey: "hePerfectlyEmbodies",
 		person: "Paula Montesa Rausell",
 		photo: PaulaPhoto,
 		company: "newspective",
