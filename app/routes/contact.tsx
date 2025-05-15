@@ -214,7 +214,7 @@ export const ContactForm = ({ formRef }: ContactFormProps) => {
 				></textarea>
 			</label>
 
-			<div className="mt-2 flex">
+			<div className="mt-2 flex gap-2">
 				<div className="flex-1">
 					<AnimatePresence>
 						{error !== "" && hasTriedToSubmit && (
@@ -224,7 +224,7 @@ export const ContactForm = ({ formRef }: ContactFormProps) => {
 								animate={{ y: 0, opacity: 1 }}
 								exit={{ y: 20, opacity: 0 }}
 								transition={{ duration: ERROR_ANIMATION_DURATION }}
-								className="text-primary"
+								className="text-primary max-w-[200px] wrap-break-word"
 							>
 								{error}
 							</motion.div>
