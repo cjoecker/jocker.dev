@@ -2,17 +2,55 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import type { ServiceOfferType } from "../../constants/service-offer";
-import { ServiceOfferData } from "../../constants/service-offer";
 import CollapseIcon from "../../images/collapse.svg?url";
 import ExpandIcon from "../../images/expand.svg?url";
 import MeshPurpleTurquoise from "../../images/mesh-purple-turquoise.svg";
 import { Section } from "../shared/section";
 import { getAltTextFromFileName } from "../shared/utils";
 
-import { EXPERIENCE_YEARS } from "~/constants/experience-and-education";
+import { EXPERIENCE_YEARS } from "~/components/sections/experience-and-education";
 import { useNarrowView } from "~/hooks/use-narrow-view";
 import { useTranslationWithMarkdown } from "~/hooks/use-translation-with-markdown";
+import ArtistImg from "~/images/artist.svg";
+import FaceWithSunglassesImg from "~/images/face-with-sunglasses.svg";
+import RobotImg from "~/images/robot.svg";
+import RocketImg from "~/images/rocket.svg";
+import StrategyImg from "~/images/strategy.svg";
+import { TranslationKey } from "~/middleware/i18next";
+
+export const ServiceOfferData: ServiceOfferType[] = [
+	{
+		logo: FaceWithSunglassesImg,
+		titleKey: "webApplications",
+		descriptionTranslationKey: "getReadyForPlatform",
+	},
+	{
+		logo: ArtistImg,
+		titleKey: "uxUiDesign",
+		descriptionTranslationKey: "turnDigitalDreams",
+	},
+	{
+		logo: RobotImg,
+		titleKey: "iotPlatforms",
+		descriptionTranslationKey: "stepIntoFuture",
+	},
+	{
+		logo: RocketImg,
+		titleKey: "lowCodeApps",
+		descriptionTranslationKey: "whyReinventWheel",
+	},
+	{
+		logo: StrategyImg,
+		titleKey: "digitalStrategy",
+		descriptionTranslationKey: "withYearsExperience",
+	},
+];
+
+export interface ServiceOfferType {
+	logo: string;
+	titleKey: TranslationKey;
+	descriptionTranslationKey: TranslationKey;
+}
 
 export const ServiceOffer = () => {
 	const { isNarrowView } = useNarrowView();

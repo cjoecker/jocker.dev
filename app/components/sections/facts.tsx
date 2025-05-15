@@ -2,12 +2,13 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-import { EXPERIENCE_YEARS } from "../../constants/experience-and-education";
 import HappyIcon from "../../images/happy.svg";
 import MeshPurple from "../../images/mesh-purple.svg";
 import SmartphoneIcon from "../../images/smartphone.svg";
 import StrongIcon from "../../images/strong.svg";
 import { Section } from "../shared/section";
+
+import { EXPERIENCE_YEARS } from "~/components/sections/experience-and-education";
 
 export const Facts = () => {
 	const { t } = useTranslation();

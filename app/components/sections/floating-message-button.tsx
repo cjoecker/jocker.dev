@@ -3,8 +3,8 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useLocation } from "react-use";
 
+import { ContactInformation } from "~/components/sections/contact";
 import { Button, ButtonIcon } from "~/components/shared/button";
-import { ContactInformation } from "~/constants/contact-information";
 import useVisibleSection from "~/hooks/use-visible-section";
 
 const hiddenMessageButtonSections = new Set([

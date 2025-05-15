@@ -1,10 +1,44 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-import { LanguagesData } from "../../constants/languages";
 import MeshPurple from "../../images/mesh-purple.svg";
 import { Section } from "../shared/section";
 import { getAltTextFromFileName } from "../shared/utils";
+
+import FeijoadaIcon from "~/images/feijoada.svg";
+import HamburguerIcon from "~/images/hamburguer.svg";
+import PaellaIcon from "~/images/paella.svg";
+import PretzelIcon from "~/images/pretzel.svg";
+import { TranslationKey } from "~/middleware/i18next";
+
+export const LanguagesData: LanguagesType[] = [
+	{
+		languageKey: "english",
+		levelKey: "fluent",
+		icon: HamburguerIcon,
+	},
+	{
+		languageKey: "german",
+		levelKey: "fluent",
+		icon: PretzelIcon,
+	},
+	{
+		languageKey: "spanish",
+		levelKey: "fluent",
+		icon: PaellaIcon,
+	},
+	{
+		languageKey: "portuguese",
+		levelKey: "goodCommand",
+		icon: FeijoadaIcon,
+	},
+];
+
+export interface LanguagesType {
+	languageKey: TranslationKey;
+	levelKey: TranslationKey;
+	icon: string;
+}
 
 export const Languages = () => {
 	const { t } = useTranslation();

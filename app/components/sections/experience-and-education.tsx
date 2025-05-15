@@ -1,21 +1,99 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-import type { ExperiencAndEductionType } from "../../constants/experience-and-education";
-import {
-	education,
-	WorkExperienceData,
-} from "../../constants/experience-and-education";
 import { Section } from "../shared/section";
 import { getAltTextFromFileName } from "../shared/utils";
-
-type TranslationKey = keyof typeof en;
 
 import { ExternalRedirect } from "~/components/shared/external-redirect";
 import { useFormatDates } from "~/hooks/use-format-dates";
 import GraduateCap from "~/images/graduate-cap.svg";
+import KukaLogo from "~/images/kuka.svg";
+import MaibornWolffLogo from "~/images/maibornwolff.svg";
+import MeWithMacbookImg from "~/images/me-with-macbook.webp";
 import OfficeImg from "~/images/office.svg";
+import ScmtLogo from "~/images/scmt.svg";
+import ThWildauLogo from "~/images/th-wildau.svg";
 import type en from "~/locales/en";
+
+type TranslationKey = keyof typeof en;
+
+export const EXPERIENCE_YEARS =
+	new Date().getFullYear() - new Date("2015-02").getFullYear();
+export const education: ExperiencAndEductionType[] = [
+	{
+		logo: ThWildauLogo,
+		logoHeight: 55,
+		link: "https://www.th-wildau.de",
+		titleKey: "mechanicalEngineering",
+		locationKey: "wildauGermany",
+		startDate: new Date("2011-09"),
+		endDate: new Date("2014-08"),
+		type: "education",
+	},
+	{
+		logo: ScmtLogo,
+		logoHeight: 60,
+		link: "https://www.scmt.com/home.html",
+		titleKey: "masterBusinessEngineering",
+		locationKey: "filderstadtGermany",
+		startDate: new Date("2016-02"),
+		endDate: new Date("2018-04"),
+		type: "education",
+	},
+];
+export const WorkExperienceData: ExperiencAndEductionType[] = [
+	{
+		logo: KukaLogo,
+		logoHeight: 20,
+		link: "https://www.kuka.com",
+		titleKey: "kukaSoftwareEngineer",
+		startDate: new Date("2015-02"),
+		endDate: new Date("2018-04"),
+		locationKey: "augsburgGermany",
+		type: "work",
+	},
+	{
+		logo: KukaLogo,
+		logoHeight: 20,
+		link: "https://www.kuka.com",
+		titleKey: "kukaAreaManager",
+		startDate: new Date("2018-04"),
+		endDate: new Date("2019-05"),
+		locationKey: "augsburgGermany",
+		type: "work",
+	},
+	{
+		logo: MaibornWolffLogo,
+		logoHeight: 50,
+		link: "https://www.maibornwolff.de",
+		titleKey: "seniorSoftwareEngineer",
+		startDate: new Date("2019-05"),
+		endDate: new Date("2023-02"),
+		locationKey: "munichGermany",
+		type: "work",
+	},
+	{
+		logo: MeWithMacbookImg,
+		logoHeight: 50,
+		link: "https://www.linkedin.com/in/christianjoecker",
+		titleKey: "freelanceDeveloper",
+		startDate: new Date("2023-02"),
+		endDate: "today",
+		locationKey: "valenciaSpain",
+		type: "work",
+	},
+];
+
+export interface ExperiencAndEductionType {
+	logo: string;
+	logoHeight: number;
+	link: string;
+	titleKey: string;
+	locationKey: string;
+	startDate: Date;
+	endDate: Date | "today";
+	type: "education" | "work";
+}
 
 export const ExperienceAndEducation = () => {
 	return (
@@ -24,7 +102,6 @@ export const ExperienceAndEducation = () => {
 		</Section>
 	);
 };
-// TODO rename course icon
 
 const WorkExperience = () => {
 	const workAndEducation = [...WorkExperienceData, ...education].sort(

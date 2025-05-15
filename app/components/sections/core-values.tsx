@@ -1,13 +1,35 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-import type { CoreValuesType } from "../../constants/core-values";
-import { CoreValuesData } from "../../constants/core-values";
 import MeditatingImage from "../../images/meditating.webp";
 import MeshPurpleTurquoise from "../../images/mesh-purple-turquoise.svg";
 import { Section } from "../shared/section";
 
 import { TranslationKey } from "~/middleware/i18next";
+
+export const CoreValuesData: CoreValuesType[] = [
+	{
+		coreValueKey: "excellence",
+		explanationKey: "sustainableArchitecture",
+	},
+	{
+		coreValueKey: "accountable",
+		explanationKey: "standForDecisions",
+	},
+	{
+		coreValueKey: "passion",
+		explanationKey: "loveWhatIDo",
+	},
+	{
+		coreValueKey: "kindness",
+		explanationKey: "eagerToHelp",
+	},
+];
+
+export interface CoreValuesType {
+	coreValueKey: string;
+	explanationKey: string;
+}
 
 export const CoreValues = () => {
 	return (
