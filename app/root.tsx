@@ -182,9 +182,10 @@ function PosthogInit() {
 export default function Root() {
 	const { locale } = useLoaderData<typeof loader>();
 	const { i18n } = useTranslation();
+	console.log("locale", locale);
 	useChangeLanguage(locale);
 	return (
-		<html lang={locale} dir={i18n.dir()}>
+		<html lang={locale}>
 			<head>
 				<Meta />
 				<Links />
