@@ -5,9 +5,6 @@ import { useTranslation } from "react-i18next";
 import { useHydrated } from "remix-utils/use-hydrated";
 
 import useVisibleSection from "~/hooks/use-visible-section";
-import type en from "~/locales/en";
-
-type TranslationKey = keyof typeof en;
 
 function convertToSnakeCase(str: string): string {
 	return str
@@ -18,7 +15,7 @@ function convertToSnakeCase(str: string): string {
 
 export function useCaptureSeenSection(
 	ref: RefObject<HTMLElement | null>,
-	titleKey: TranslationKey,
+	titleKey: string,
 ) {
 	const isInView = useInView(ref);
 	const isHydrated = useHydrated();
@@ -43,7 +40,7 @@ export function useCaptureSeenSection(
 }
 
 export interface Props {
-	titleKey: TranslationKey;
+	titleKey: string;
 	hideTitle?: boolean;
 	children: React.ReactNode;
 	className?: string;

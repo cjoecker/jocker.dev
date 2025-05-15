@@ -17,8 +17,6 @@ import MeshTurquoise from "../../images/mesh-turquoise.svg";
 
 import { useEffectUnsafe } from "~/hooks/unsafe-hookst";
 
-type TranslationKey = "fullStackDeveloper" | "uxUiDesigner";
-
 export const Header = () => {
 	const { t } = useTranslation();
 	const ref = useRef<HTMLDivElement>(null);
@@ -134,7 +132,7 @@ function useParallax(scrollY: MotionValue<number>, multiplicator: number) {
 	});
 }
 
-const ANIMATED_WORDS: TranslationKey[] = ["fullStackDeveloper", "uxUiDesigner"];
+const ANIMATED_WORDS: string[] = ["fullStackDeveloper", "uxUiDesigner"];
 const STAGGER_DURATION = 0.03;
 
 const READING_TIME = 2500;
@@ -146,7 +144,7 @@ function AnimatedWord() {
 	const [wordIndex, setWordIndex] = useState(0);
 	const animatedText = t(ANIMATED_WORDS[wordIndex]);
 	const textLength = animatedText.length;
-	const ariaLabel = ANIMATED_WORDS.map((key: TranslationKey) => {
+	const ariaLabel = ANIMATED_WORDS.map((key: string) => {
 		return t(key);
 	})
 		.join(" and ")

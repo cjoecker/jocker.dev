@@ -1,19 +1,19 @@
+// eslint-disable-next-line unicorn/import-style
+import { resolve } from "node:path";
 import { PassThrough } from "node:stream";
 
 import { createReadableStreamFromReadable } from "@react-router/node";
 import * as Sentry from "@sentry/react-router";
+import { createInstance } from "i18next";
+import Backend from "i18next-fs-backend";
 import { isbot } from "isbot";
 import type { RenderToPipeableStreamOptions } from "react-dom/server";
 import { renderToPipeableStream } from "react-dom/server";
-import { I18nextProvider } from "react-i18next";
-import type {
-	EntryContext,
-	unstable_RouterContextProvider,
-} from "react-router";
-import { ServerRouter } from "react-router";
-import { HandleErrorFunction } from "react-router";
+import { I18nextProvider, initReactI18next } from "react-i18next";
+import { EntryContext, HandleErrorFunction, ServerRouter } from "react-router";
 
-import { getInstance } from "./middleware/i18next";
+import i18n from "./i18n";
+import i18next from "./services/i18next.server";
 
 import { sentryConfig } from "~/constants/misc";
 
@@ -30,8 +30,20 @@ const baseHandleRequest = {
 		responseStatusCode: number,
 		responseHeaders: Headers,
 		entryContext: EntryContext,
-		routerContext: unstable_RouterContextProvider,
 	) {
+		const instance = createInstance();
+		const lng = await i18next.getLocale(request);
+		const ns = i18next.getRouteNamespaces(entryContext);
+
+		await instance
+			.use(initReactI18next)
+			.use(Backend)
+			.init({
+				...i18n,
+				lng,
+				ns,
+				backend: { loadPath: resolve("./public/locales/{{lng}}/{{ns}}.json") },
+			});
 		return new Promise((resolve, reject) => {
 			let shellRendered = false;
 			const userAgent = request.headers.get("user-agent");
@@ -42,7 +54,7 @@ const baseHandleRequest = {
 					: "onShellReady";
 
 			const { pipe, abort } = renderToPipeableStream(
-				<I18nextProvider i18n={getInstance(routerContext)}>
+				<I18nextProvider i18n={instance}>
 					<ServerRouter context={entryContext} url={request.url} />
 				</I18nextProvider>,
 				{

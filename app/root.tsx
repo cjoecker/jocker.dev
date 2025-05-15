@@ -3,7 +3,14 @@ import SplideStyles from "@splidejs/splide/dist/css/splide.min.css?url";
 import posthog from "posthog-js";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import {
+	Links,
+	Meta,
+	Outlet,
+	Scripts,
+	ScrollRestoration,
+	useLoaderData,
+} from "react-router";
 import {
 	isRouteErrorResponse,
 	LinksFunction,
@@ -23,8 +30,12 @@ import RalewayFont800Woff from "~/fonts/raleway-v28-latin-800.woff";
 import RalewayFont800Woff2 from "~/fonts/raleway-v28-latin-800.woff2";
 import RalewayFontRegularWoff from "~/fonts/raleway-v28-latin-regular.woff";
 import RalewayFontRegularWoff2 from "~/fonts/raleway-v28-latin-regular.woff2";
-import { i18nextMiddleware, getLocale } from "~/middleware/i18next";
+import i18next from "~/services/i18next.server";
 import MainStyles from "~/styles/main.css?url";
+
+export const handle = {
+	i18n: "common",
+};
 
 export const meta: MetaFunction = () => {
 	// eslint-disable-next-line react-hooks/rules-of-hooks
@@ -139,19 +150,15 @@ export const links: LinksFunction = () => {
 	];
 };
 
-export const unstable_middleware = [i18nextMiddleware];
-
-export function loader({ request, context }: Route.LoaderArgs) {
+export async function loader({ request }: Route.LoaderArgs) {
 	const { pathname, search } = new URL(request.url);
-	// @ts-expect-error - The context type from react-router doesn't match the middleware type
-	const locale = getLocale(context);
+	const locale = await i18next.getLocale(request);
 
 	if (pathname.endsWith("/") && pathname !== "/") {
 		// Redirect to the same URL without a trailing slash
 		// eslint-disable-next-line @typescript-eslint/only-throw-error
 		throw redirect(`${pathname.slice(0, -1)}${search}`, 301);
 	}
-
 	return data({ locale });
 }
 
@@ -172,11 +179,12 @@ function PosthogInit() {
 	return null;
 }
 
-export default function Root({ loaderData }: Route.ComponentProps) {
+export default function Root() {
+	const { locale } = useLoaderData<typeof loader>();
 	const { i18n } = useTranslation();
-	useChangeLanguage(loaderData.locale);
+	useChangeLanguage(locale);
 	return (
-		<html lang={i18n.language} dir={i18n.dir(i18n.language)}>
+		<html lang={locale} dir={i18n.dir()}>
 			<head>
 				<Meta />
 				<Links />

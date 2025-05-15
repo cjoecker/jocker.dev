@@ -13,9 +13,6 @@ import MeWithMacbookImg from "~/images/me-with-macbook.webp";
 import OfficeImg from "~/images/office.svg";
 import ScmtLogo from "~/images/scmt.svg";
 import ThWildauLogo from "~/images/th-wildau.svg";
-import type en from "~/locales/en";
-
-type TranslationKey = keyof typeof en;
 
 export const EXPERIENCE_YEARS =
 	new Date().getFullYear() - new Date("2015-02").getFullYear();
@@ -223,13 +220,13 @@ const ExperienceItem = ({
 					className="mb-0.5 font-semibold break-words"
 					style={{ lineHeight: "1.3rem" }}
 				>
-					{t(item.titleKey as TranslationKey)}
+					{t(item.titleKey)}
 				</div>
 				<div className="text-sm leading-tight opacity-80 md:text-base">
 					{formatTimePeriod(item.startDate, item.endDate)}
 				</div>
 				<div className="text-sm leading-tight opacity-80 md:text-base">
-					{t(item.locationKey as TranslationKey)}
+					{t(item.locationKey)}
 				</div>
 			</div>
 		</motion.div>

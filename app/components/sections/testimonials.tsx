@@ -15,7 +15,6 @@ import PaulaPhoto from "~/images/paula.webp";
 import QuantedLogo from "~/images/quanted-logo.png";
 import SmartCube360Logo from "~/images/smart-cube-360.svg";
 import ThomasPhoto from "~/images/thomas.png";
-import { TranslationKey } from "~/middleware/i18next";
 
 export const testimonials: TestimonialsType[] = [
 	{
@@ -48,13 +47,13 @@ export const testimonials: TestimonialsType[] = [
 ];
 
 export interface TestimonialsType {
-	testimonialKey: TranslationKey;
+	testimonialKey: string;
 	person: string;
 	photo: string;
 	company: string;
 	companyLogo: string;
 	companyHeight: number;
-	titleKey: TranslationKey;
+	titleKey: string;
 }
 
 export default function Testimonials() {
@@ -172,9 +171,7 @@ export default function Testimonials() {
 												{testimonial.person}
 											</div>
 											<div className="text-base">{t(testimonial.titleKey)}</div>
-											<div className="text-sm">
-												{t(testimonial.company as TranslationKey)}
-											</div>
+											<div className="text-sm">{t(testimonial.company)}</div>
 										</div>
 									</div>
 								</div>

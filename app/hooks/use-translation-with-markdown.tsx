@@ -4,12 +4,10 @@ import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-import { TranslationKey } from "~/middleware/i18next";
-
 export function useTranslationWithMarkdown() {
 	const { t, ...rest } = useTranslation();
 	const tMarkdown = React.useCallback(
-		(key: TranslationKey, options?: TOptions) => {
+		(key: string, options?: TOptions) => {
 			return (
 				<div className="markdown">
 					<Markdown remarkPlugins={[remarkGfm]}>

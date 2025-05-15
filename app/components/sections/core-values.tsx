@@ -5,8 +5,6 @@ import MeditatingImage from "../../images/meditating.webp";
 import MeshPurpleTurquoise from "../../images/mesh-purple-turquoise.svg";
 import { Section } from "../shared/section";
 
-import { TranslationKey } from "~/middleware/i18next";
-
 export const CoreValuesData: CoreValuesType[] = [
 	{
 		coreValueKey: "excellence",
@@ -89,12 +87,8 @@ const CoreValue = ({ coreValue }: { coreValue: CoreValuesType }) => {
 			}}
 			className="col-span-1 flex max-w-[190px] flex-col align-top"
 		>
-			<h3 className="text-md font-semibold">
-				{t(coreValue.coreValueKey as TranslationKey)}
-			</h3>
-			<p className="mt-0.5 opacity-90">
-				{t(coreValue.explanationKey as TranslationKey)}
-			</p>
+			<h3 className="text-md font-semibold">{t(coreValue.coreValueKey)}</h3>
+			<p className="mt-0.5 opacity-90">{t(coreValue.explanationKey)}</p>
 		</motion.div>
 	);
 };

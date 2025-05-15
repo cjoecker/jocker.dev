@@ -16,7 +16,6 @@ import FaceWithSunglassesImg from "~/images/face-with-sunglasses.svg";
 import RobotImg from "~/images/robot.svg";
 import RocketImg from "~/images/rocket.svg";
 import StrategyImg from "~/images/strategy.svg";
-import { TranslationKey } from "~/middleware/i18next";
 
 export const ServiceOfferData: ServiceOfferType[] = [
 	{
@@ -48,8 +47,8 @@ export const ServiceOfferData: ServiceOfferType[] = [
 
 export interface ServiceOfferType {
 	logo: string;
-	titleKey: TranslationKey;
-	descriptionTranslationKey: TranslationKey;
+	titleKey: string;
+	descriptionTranslationKey: string;
 }
 
 export const ServiceOffer = () => {
