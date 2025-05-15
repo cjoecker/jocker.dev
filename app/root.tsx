@@ -27,16 +27,16 @@ import { i18nextMiddleware, getLocale } from "~/middleware/i18next";
 import MainStyles from "~/styles/main.css?url";
 
 export const meta: MetaFunction = () => {
+	// eslint-disable-next-line react-hooks/rules-of-hooks
+	const { t } = useTranslation();
 	return [
 		{
-			title:
-				"Christian Jöcker - Freelance Full-Stack Developer and UX/UI designer",
+			title: t("pageTitle"),
 		},
 		{ charset: "utf-8" },
 		{
 			name: "description",
-			content:
-				"Passionate about creating great experiences with beautiful web applications. Happy customers, clean code, and sustainable architectures are my priority.",
+			content: t("pageDescription"),
 		},
 		{
 			name: "keywords",

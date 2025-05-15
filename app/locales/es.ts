@@ -88,4 +88,9 @@ export default {
 	yearAbbreviation: "A",
 	monthAbbreviation: "m",
 	notFound: "404 - No encontrado",
+	pageTitle: "Christian Jöcker - Desarrollador Full-Stack y diseñador UX/UI",
+	pageDescription:
+		"Apasionado por crear grandes experiencias con hermosas aplicaciones web. Clientes felices, código limpio y arquitecturas sostenibles son mis prioridades.",
+	pageKeyword:
+		"freelancer,independiente,contratista,autónomo,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,desarrollador,ingeniero,software,ux,ui,web,diseñador",
 } satisfies typeof en;
