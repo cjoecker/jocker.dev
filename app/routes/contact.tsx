@@ -53,6 +53,7 @@ export default function Contact() {
 	const submitSuccess = data?.success;
 	const navigate = useNavigate();
 	const formRef = useRef<HTMLFormElement>(null);
+	const { t } = useTranslation();
 
 	const captureFormData = () => {
 		const formElements = formRef.current?.elements;
@@ -120,7 +121,7 @@ export default function Contact() {
 						whileTap={{ scale: 1 }}
 						whileHover={{ scale: 1.1 }}
 						onClick={handleClose}
-						aria-label="close"
+						aria-label={t("close")}
 						className="absolute top-1 right-1 cursor-pointer p-3"
 					>
 						<img src={CloseIcon} alt="" width={15} height={15} />
