@@ -12,7 +12,7 @@ import ArrowRight from "~/images/arrow-right.svg";
 import DavidPhoto from "~/images/david.webp";
 import NewspectiveLogo from "~/images/newspective-logo.svg";
 import PaulaPhoto from "~/images/paula.webp";
-import SlectedMeLogo from "~/images/slected-me.svg";
+import QuantedLogo from "~/images/quanted-logo.png";
 import SmartCube360Logo from "~/images/smart-cube-360.svg";
 import ThomasPhoto from "~/images/thomas.png";
 import { TranslationKey } from "~/middleware/i18next";
@@ -22,8 +22,8 @@ export const testimonials: TestimonialsType[] = [
 		testimonialKey: "christianIsAVery",
 		person: "David Forino",
 		photo: DavidPhoto,
-		company: "slectedMe",
-		companyLogo: SlectedMeLogo,
+		company: "Quanted",
+		companyLogo: QuantedLogo,
 		companyHeight: 70,
 		titleKey: "ctoAndCoFounder",
 	},
@@ -31,7 +31,7 @@ export const testimonials: TestimonialsType[] = [
 		testimonialKey: "christianIsAlwaysReliable",
 		person: "Thomas Kirner",
 		photo: ThomasPhoto,
-		company: "smartCube360",
+		company: "smart cube 360 GmbH",
 		companyLogo: SmartCube360Logo,
 		companyHeight: 70,
 		titleKey: "ceoAndCoFounder",
@@ -40,7 +40,7 @@ export const testimonials: TestimonialsType[] = [
 		testimonialKey: "hePerfectlyEmbodies",
 		person: "Paula Montesa Rausell",
 		photo: PaulaPhoto,
-		company: "newspective",
+		company: "Newspective",
 		companyLogo: NewspectiveLogo,
 		companyHeight: 80,
 		titleKey: "headOfStrategy",

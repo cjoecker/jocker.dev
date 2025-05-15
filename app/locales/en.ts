@@ -37,7 +37,7 @@ export default {
 		"Step into the future with my IoT platform expertise!\n\nLet's turn your ideas into cutting-edge solutions that connect the physical world to the digital one\n\nWhether you want to connect your devices, revolutionize your business, or unleash your inner tech-savant!",
 	lowCodeApps: "Low-Code Apps",
 	whyReinventWheel:
-		"Why reinvent the wheel? Not every app needs to be built from scratch?\n\nI help you decide if a low-code tool like Mendix or Bubble fits your idea.\n\nThen we build it fast and right, creating something simple, cost-effective, and tailored to your needs!",
+		"Why reinvent the wheel? Not every app needs to be built from scratch.\n\nI help you decide if a low-code tool like Mendix or Bubble fits your idea.\n\nThen we build it fast and right, creating something simple, cost-effective, and tailored to your needs!",
 	digitalStrategy: "Digital Strategy Consulting",
 	withYearsExperience:
 		"With over {{years}} years of experience in the tech industry and a track record of success with digital products across multiple industries, I've got the expertise you need to succeed!\n\nWhether you're looking to launch a new product, reinvigorate an existing one, or simply up your game, I'll help you map out a roadmap for success!",
