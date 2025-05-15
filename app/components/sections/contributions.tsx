@@ -114,6 +114,7 @@ export const Mesh = () => {
 
 const StackOverflow = () => {
 	const { t } = useTranslation();
+
 	const [profilesData, setProfilesData] =
 		useState<StackOverflowResponse | null>(null);
 	const profile = profilesData?.items?.[0];
