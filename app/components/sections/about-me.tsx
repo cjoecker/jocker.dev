@@ -1,14 +1,13 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 import ChristianImg from "../../images/christian.jpg";
 import Signature from "../../images/signature.svg";
 import { Section } from "../shared/section";
 
-import { AboutMeData } from "~/constants/about-me";
 import { POSTHOG_IGNORE_KEY } from "~/constants/misc";
 import { useTranslationWithMarkdown } from "~/hooks/use-translation-with-markdown";
-import { useTranslation } from "react-i18next";
 
 const CLICKS_THRESHOLD = 5;
 

@@ -1,4 +1,3 @@
-import { differenceInMonths, format } from "date-fns";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
@@ -9,16 +8,17 @@ import {
 } from "../../constants/experience-and-education";
 import { Section } from "../shared/section";
 import { getAltTextFromFileName } from "../shared/utils";
-import type en from "~/locales/en";
+
 
 type TranslationKey = keyof typeof en;
 
 import { ExternalRedirect } from "~/components/shared/external-redirect";
+import { useFormatDates } from "~/hooks/use-format-dates";
 import GraduateCap from "~/images/graduate-cap.svg";
 import OfficeImg from "~/images/office.svg";
+import type en from "~/locales/en";
 
 export const ExperienceAndEducation = () => {
-	const { t } = useTranslation();
 	return (
 		<Section titleKey="experienceAndEducation">
 			<WorkExperience />
@@ -109,6 +109,7 @@ const ExperienceItem = ({
 	isOdd: boolean;
 }) => {
 	const { t } = useTranslation();
+	const {formatTimePeriod} = useFormatDates();
 	const variants = {
 		visible: { opacity: 1, x: 0 },
 		hidden: { opacity: 0, x: isOdd ? 100 : -100 },
@@ -159,20 +160,4 @@ const ExperienceItem = ({
 	);
 };
 
-function formatDate(date: Date, showDay = false) {
-	return showDay ? format(date, "MMM dd, yyyy") : format(date, "MMM, yyyy");
-}
 
-function formatTimePeriod(startDate: Date, endDate: Date | "today") {
-	const newEndDate = endDate === "today" ? new Date() : endDate;
-
-	const distanceInYears = (differenceInMonths(newEndDate, startDate) + 1) / 12;
-	const distance =
-		distanceInYears > 1
-			? `${distanceInYears.toFixed(1).replace(".0", "")}y`
-			: `${differenceInMonths(newEndDate, startDate)}m`;
-
-	return endDate === "today"
-		? `${formatDate(startDate)} - Present  (${distance})`
-		: `${formatDate(startDate)} - ${formatDate(endDate)}  (${distance})`;
-}

@@ -78,11 +78,17 @@ export default {
 	fluent: "Fluido",
 	goodCommand: "Buen dominio",
 	aboutMeData:
-		"Hola, mi nombre es Christian, pero mis amigos me llaman \"Joker\". Siéntete libre de hacer lo mismo. Pero debo decirte que soy malo contando chistes.\n\n" +
+		'Hola, mi nombre es Christian, pero mis amigos me llaman "Joker". Siéntete libre de hacer lo mismo. Pero debo decirte que soy malo contando chistes.\n\n' +
 		"Descubrí mi pasión por la programación cuando tenía 9 años después de que mi padre regalara a mi querido perro. Para honrar su memoria, construí un sitio web lleno de fotos de él. Ahí comenzó mi romance con la programación. Durante la escuela secundaria, tomé varios cursos de diseño gráfico y desarrollé un fuerte interés también en el diseño de UI.\n\n" +
 		"En mi rol anterior como consultor, me especialicé en desarrollar aplicaciones web personalizadas. Allí, tuve la oportunidad de trabajar para grandes empresas en diversas industrias como automotriz, turismo, aerolíneas, robótica y medicina. Después de años de experiencia en grandes corporaciones, me he aventurado en el trabajo freelance.\n\n" +
 		"¡Me encantaría saber de ti y discutir nuestro próximo proyecto!",
 	designedAndCodedPrefix: "Diseñado y programado con",
 	designedAndCodedSuffix: "por mí.",
 	love: "amor",
+	ctoAndCoFounder: "CTO y cofundador",
+	ceoAndCoFounder: "CEO y cofundador",
+	headOfStrategy: "Jefe de estrategia",
+	present: "Presente",
+	yearAbbreviation: "A",
+	monthAbbreviation: "m",
 } satisfies typeof en;

@@ -83,4 +83,10 @@ export default {
 	designedAndCodedPrefix: "Designed and coded with",
 	designedAndCodedSuffix: "by me.",
 	love: "love",
+	ctoAndCoFounder: "CTO and co-founder",
+	ceoAndCoFounder: "CEO and co-founder",
+	headOfStrategy: "Head of Strategy",
+	present: "Present",
+	yearAbbreviation: "Y",
+	monthAbbreviation: "m",
 };

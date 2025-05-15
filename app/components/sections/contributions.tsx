@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import {
 	OpenSourceContributions,
@@ -11,7 +12,6 @@ import StackOverflowLogo from "../../images/stack-overflow.svg";
 import { Section } from "../shared/section";
 
 import { ExternalRedirect } from "~/components/shared/external-redirect";
-import { useTranslation } from "react-i18next";
 
 export const Contributions = () => {
 	return (

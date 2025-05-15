@@ -181,6 +181,18 @@ export const Conferences: ConferenceType[] = [
 		name: "Scrum Day Stuttgart",
 		date: new Date("2020-05"),
 	},
+	{
+		name: "UXDX Berlin",
+		date: new Date("2025-05"),
+	},
+	{
+		name: "Greentech Festival",
+		date: new Date("2025-05"),
+	},
+	{
+		name: "GITEX Europe",
+		date: new Date("2025-05"),
+	},
 ];
 
 export interface CourseType {

@@ -5,42 +5,44 @@ import SlectedMeLogo from "../images/slected-me.svg";
 import SmartCube360Logo from "../images/smart-cube-360.svg";
 import ThomasPhoto from "../images/thomas.png";
 
+import { TranslationKey } from "~/middleware/i18next";
+
 export const testimonials: TestimonialsType[] = [
 	{
 		testimonialKey: "davidTestimonial",
 		person: "David Forino",
 		photo: DavidPhoto,
-		companyKey: "slectedMe",
+		company: "slectedMe",
 		companyLogo: SlectedMeLogo,
 		companyHeight: 70,
-		title: "CTO and co-founder",
+		titleKey: "ctoAndCoFounder",
 	},
 	{
 		testimonialKey: "thomasTestimonial",
 		person: "Thomas Kirner",
 		photo: ThomasPhoto,
-		companyKey: "smartCube360",
+		company: "smartCube360",
 		companyLogo: SmartCube360Logo,
 		companyHeight: 70,
-		title: "CEO and co-founder",
+		titleKey: "ceoAndCoFounder",
 	},
 	{
 		testimonialKey: "paulaTestimonial",
 		person: "Paula Montesa Rausell",
 		photo: PaulaPhoto,
-		companyKey: "newspective",
+		company: "newspective",
 		companyLogo: NewspectiveLogo,
 		companyHeight: 80,
-		title: "Head of Strategy",
+		titleKey: "headOfStrategy",
 	},
 ];
 
 export interface TestimonialsType {
-	testimonialKey: string;
+	testimonialKey: TranslationKey;
 	person: string;
 	photo: string;
-	companyKey: string;
+	company: string;
 	companyLogo: string;
 	companyHeight: number;
-	title: string;
+	titleKey: TranslationKey;
 }

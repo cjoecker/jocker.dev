@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 import { LanguagesData } from "../../constants/languages";
 import MeshPurple from "../../images/mesh-purple.svg";
 import { Section } from "../shared/section";
 import { getAltTextFromFileName } from "../shared/utils";
-import { useTranslation } from "react-i18next";
 
 export const Languages = () => {
 	const {t} = useTranslation();

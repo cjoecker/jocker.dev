@@ -6,6 +6,7 @@ import { CoreValuesData } from "../../constants/core-values";
 import MeditatingImage from "../../images/meditating.webp";
 import MeshPurpleTurquoise from "../../images/mesh-purple-turquoise.svg";
 import { Section } from "../shared/section";
+
 import { TranslationKey } from "~/middleware/i18next";
 
 export const CoreValues = () => {

@@ -2,6 +2,7 @@ import FeijoadaIcon from "../images/feijoada.svg";
 import HamburguerIcon from "../images/hamburguer.svg";
 import PaellaIcon from "../images/paella.svg";
 import PretzelIcon from "../images/pretzel.svg";
+
 import { TranslationKey } from "~/middleware/i18next";
 
 export const LanguagesData: LanguagesType[] = [

@@ -13,7 +13,7 @@ export const Facts = () => {
 	const { t } = useTranslation();
 	return (
 		<Section titleKey="facts">
-			<div className="relative mt-52 flex">
+			<div className="relative mt-12 flex">
 				<div className="mx-auto grid grid-cols-1 flex-wrap justify-between gap-x-12 gap-y-8 lg:grid-cols-3">
 					<Fact
 						number={EXPERIENCE_YEARS}

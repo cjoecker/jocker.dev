@@ -1,4 +1,3 @@
-import { format } from "date-fns";
 import { motion } from "framer-motion";
 
 import type {
@@ -10,6 +9,8 @@ import ConferenceImg from "../../images/conference.svg";
 import GraduateCapImg from "../../images/graduate-cap.svg";
 import MeshPurpleTurquoise from "../../images/mesh-purple-turquoise.svg";
 import { Section } from "../shared/section";
+
+import { useFormatDates } from "~/hooks/use-format-dates";
 
 export const CoursesAndConferences = () => {
 	const sortedCoursesAndConferences = [...Courses, ...Conferences].sort(
@@ -60,8 +61,8 @@ export const CoursesAndConferences = () => {
 		</Section>
 	);
 };
-const DATE_FORMAT = "MMM, y";
 const CourseItem = ({ course }: { course: CourseType }) => {
+	const {formatDate} = useFormatDates();
 	return (
 		<>
 			<img
@@ -75,7 +76,7 @@ const CourseItem = ({ course }: { course: CourseType }) => {
 			<div className="overflow-hidden">
 				<div className="truncate text-base">{course.name}</div>
 				<div className="text-sm opacity-80">
-					{`${course.instructor} – ${format(course.date, DATE_FORMAT)}`}
+					{`${course.instructor} – ${formatDate(course.date)}`}
 				</div>
 			</div>
 		</>
@@ -83,6 +84,7 @@ const CourseItem = ({ course }: { course: CourseType }) => {
 };
 
 const ConferenceItem = ({ conference }: { conference: ConferenceType }) => {
+	const {formatDate} = useFormatDates();
 	return (
 		<>
 			<img
@@ -96,7 +98,7 @@ const ConferenceItem = ({ conference }: { conference: ConferenceType }) => {
 			<div className="overflow-hidden">
 				<div className="truncate text-base">{conference.name}</div>
 				<div className="text-sm opacity-80">
-					{format(conference.date, DATE_FORMAT)}
+					{formatDate(conference.date)}
 				</div>
 			</div>
 		</>
