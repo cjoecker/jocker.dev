@@ -91,4 +91,15 @@ export default {
 		"Passionate about creating great experiences with beautiful web applications. Happy customers, clean code, and sustainable architectures are my priorities.",
 	pageKeyword:
 		"freelancer,independent,contractor,self-employed,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,developer,engineer,software,ux,ui,web,designer",
+	fullName: "Full Name",
+	email: "Email",
+	message: "Message",
+	sendMessage: "Send Message",
+	messageSent: "Message Sent!",
+	responseTime: "I'll get back to you within",
+	oneDay: "one day",
+	error: "Error!",
+	couldNotSend: "Your message could not be sent. Please send me an email to",
+	pleaseFillFields: "Please fill out all fields",
+	invalidEmail: "Please enter a valid email",
 };

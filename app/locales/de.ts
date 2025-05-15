@@ -93,4 +93,16 @@ export default {
 		"Entwickler von großartige Erlebnisse mit schönen Web-Anwendungen. Zufriedene Kunden, sauberer Code und nachhaltige Architekturen sind meine Prioritäten.",
 	pageKeyword:
 		"freelancer,selbstständig,auftragnehmer,freiberufler,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,entwickler,ingenieur,software,ux,ui,web,designer",
+	fullName: "Vollständiger Name",
+	email: "E-Mail",
+	message: "Nachricht",
+	sendMessage: "Nachricht senden",
+	messageSent: "Nachricht gesendet!",
+	responseTime: "Ich melde mich innerhalb von",
+	oneDay: "einem Tag",
+	error: "Fehler!",
+	couldNotSend:
+		"Deine Nachricht konnte nicht gesendet werden. Bitte sende mir eine E-Mail an",
+	pleaseFillFields: "Bitte fülle alle Felder aus",
+	invalidEmail: "Bitte gib eine gültige E-Mail-Adresse ein",
 } satisfies typeof en;

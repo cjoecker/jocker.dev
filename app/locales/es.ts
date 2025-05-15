@@ -93,4 +93,16 @@ export default {
 		"Apasionado por crear grandes experiencias con hermosas aplicaciones web. Clientes felices, código limpio y arquitecturas sostenibles son mis prioridades.",
 	pageKeyword:
 		"freelancer,independiente,contratista,autónomo,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,desarrollador,ingeniero,software,ux,ui,web,diseñador",
+	fullName: "Nombre completo",
+	email: "Correo electrónico",
+	message: "Mensaje",
+	sendMessage: "Enviar mensaje",
+	messageSent: "¡Mensaje enviado!",
+	responseTime: "Te responderé en",
+	oneDay: "un día",
+	error: "¡Error!",
+	couldNotSend:
+		"Tu mensaje no pudo ser enviado. Por favor, envíame un correo electrónico a",
+	pleaseFillFields: "Por favor, completa todos los campos",
+	invalidEmail: "Por favor, introduce un correo electrónico válido",
 } satisfies typeof en;

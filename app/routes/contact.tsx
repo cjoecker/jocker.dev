@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import posthog from "posthog-js";
 import React, { useRef, useState } from "react";
 import type { ChangeEvent, MouseEvent } from "react";
+import { useTranslation } from "react-i18next";
 import {
 	ActionFunctionArgs,
 	Form,
@@ -141,6 +142,7 @@ export interface ContactFormProps {
 	formRef: React.RefObject<HTMLFormElement | null>;
 }
 export const ContactForm = ({ formRef }: ContactFormProps) => {
+	const { t } = useTranslation();
 	const [error, setError] = useState("");
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
@@ -150,10 +152,10 @@ export const ContactForm = ({ formRef }: ContactFormProps) => {
 
 	const validateForm = () => {
 		if (name === "" || email === "" || message === "") {
-			setError("Please fill out all fields");
+			setError(t("pleaseFillFields"));
 			return true;
 		} else if (/^\S+@\S+\.\S+$/.exec(email) === null) {
-			setError("Please enter a valid email");
+			setError(t("invalidEmail"));
 			return true;
 		}
 		setError("");
@@ -185,23 +187,23 @@ export const ContactForm = ({ formRef }: ContactFormProps) => {
 			}}
 		>
 			<Textbox
-				label="Full Name"
+				label={t("fullName")}
 				type="text"
 				name="name"
-				onChange={(e) => {
+				onChange={(e: ChangeEvent<HTMLInputElement>) => {
 					setName(e.target.value);
 				}}
 			/>
 			<Textbox
-				label="Email"
+				label={t("email")}
 				type="email"
 				name="email"
-				onChange={(e) => {
+				onChange={(e: ChangeEvent<HTMLInputElement>) => {
 					setEmail(e.target.value);
 				}}
 			/>
 			<label className="flex w-full flex-col sm:w-[400px]">
-				Message
+				{t("message")}
 				<textarea
 					onChange={(e) => {
 						setMessage(e.target.value);
@@ -228,7 +230,7 @@ export const ContactForm = ({ formRef }: ContactFormProps) => {
 						)}
 					</AnimatePresence>
 				</div>
-				<Button onClick={onSendClick}>Send Message</Button>
+				<Button onClick={onSendClick}>{t("sendMessage")}</Button>
 			</div>
 		</Form>
 	);
@@ -238,10 +240,11 @@ export interface Props {
 	label: string;
 	type: string;
 	name: string;
+	ariaLabel?: string;
 	onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Textbox = ({ label, type, name, onChange }: Props) => {
+export const Textbox = ({ label, type, name, ariaLabel, onChange }: Props) => {
 	return (
 		<label className="flex flex-col">
 			{label}
@@ -254,12 +257,14 @@ export const Textbox = ({ label, type, name, onChange }: Props) => {
 				className="focus:text-secondary mt-2 max-w-[300px] rounded-lg bg-[#3b3b3b] p-2 focus:bg-[#3b3b3b] focus:filter-none"
 				type={type}
 				name={name}
+				aria-label={ariaLabel}
 			/>
 		</label>
 	);
 };
 
 export const SubmitSuccess = () => {
+	const { t } = useTranslation();
 	return (
 		<div className="flex gap-4">
 			<Lottie
@@ -268,10 +273,9 @@ export const SubmitSuccess = () => {
 				loop={false}
 			/>
 			<div className="m-auto flex flex-1 flex-col gap-2 text-left">
-				<div className="text-green text-md font-bold">Message Sent!</div>
+				<div className="text-green text-md font-bold">{t("messageSent")}</div>
 				<div>
-					I&#39;ll get back to you within{" "}
-					<span className="font-bold">one day</span>.
+					{t("responseTime")} <span className="font-bold">{t("oneDay")}</span>.
 				</div>
 			</div>
 		</div>
@@ -279,6 +283,7 @@ export const SubmitSuccess = () => {
 };
 
 export const SubmitError = ({ personalEmail }: { personalEmail: string }) => {
+	const { t } = useTranslation();
 	return (
 		<div className="flex gap-4">
 			<div className="-mt-2">
@@ -289,9 +294,9 @@ export const SubmitError = ({ personalEmail }: { personalEmail: string }) => {
 				/>
 			</div>
 			<div className="m-auto flex flex-1 flex-col gap-2 text-left">
-				<div className="text-md font-bold text-[#FF6347]">Error!</div>
+				<div className="text-md font-bold text-[#FF6347]">{t("error")}</div>
 				<div>
-					Your message could not be sent. Please send me an email to&nbsp;
+					{t("couldNotSend")}&nbsp;
 					<a
 						className="text-primary font-bold underline"
 						href={`mailto:${personalEmail}`}
