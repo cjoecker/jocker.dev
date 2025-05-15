@@ -172,7 +172,7 @@ const CardContent = ({
 		>
 			<motion.button
 				layout={isExpandable ? "preserve-aspect" : false}
-				aria-label={isOpen ? "expand" : "contract"}
+				aria-label={isOpen ? t("expand") : t("contract")}
 				className={`absolute top-2.5 right-2.5 cursor-pointer ${
 					isOpen ? "h-7 w-7" : "h-6 w-6"
 				}`}
@@ -181,8 +181,8 @@ const CardContent = ({
 					width={28}
 					height={28}
 					src={isOpen ? CollapseIcon : ExpandIcon}
-					aria-label={isOpen ? "expand" : "contract"}
-					alt={isOpen ? "expand" : "contract"}
+					aria-label={isOpen ? t("expand") : t("contract")}
+					alt={isOpen ? t("expand") : t("contract")}
 				/>
 			</motion.button>
 			<motion.img

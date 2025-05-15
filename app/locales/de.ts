@@ -105,4 +105,10 @@ export default {
 		"Deine Nachricht konnte nicht gesendet werden. Bitte sende mir eine E-Mail an",
 	pleaseFillFields: "Bitte fülle alle Felder aus",
 	invalidEmail: "Bitte gib eine gültige E-Mail-Adresse ein",
+	close: "schließen",
+	stackOverflowProfile: "stack overflow profil",
+	expand: "erweitern",
+	contract: "zusammenklappen",
+	seePage: "seite anzeigen",
+	website: "website",
 } satisfies typeof en;

@@ -102,4 +102,10 @@ export default {
 	couldNotSend: "Your message could not be sent. Please send me an email to",
 	pleaseFillFields: "Please fill out all fields",
 	invalidEmail: "Please enter a valid email",
+	close: "close",
+	stackOverflowProfile: "stack overflow profile",
+	expand: "expand",
+	contract: "contract",
+	seePage: "see page",
+	website: "website",
 };

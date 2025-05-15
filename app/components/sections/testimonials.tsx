@@ -57,7 +57,7 @@ export interface TestimonialsType {
 	titleKey: TranslationKey;
 }
 
-export function Testimonials() {
+export default function Testimonials() {
 	const { t } = useTranslation();
 	const [autoplay, setAutoplay] = useState(true);
 	const splideRef = useRef(null);
@@ -110,7 +110,7 @@ export function Testimonials() {
 			<Splide
 				ref={splideRef}
 				hasTrack={false}
-				aria-label="testimonials"
+				aria-label={t("testimonials")}
 				className="md:mask-swiper mx-auto max-w-5xl"
 				onMove={(_: never, newIndex: number) => {
 					setCurrentSlideIndex(newIndex);
@@ -205,7 +205,7 @@ export function Testimonials() {
 						return (
 							<button
 								key={testimonial.testimonialKey}
-								aria-label={`see page ${index + 1}`}
+								aria-label={`${t("seePage")} ${index + 1}`}
 								className="h-12 w-12 cursor-pointer"
 								onClick={() => {
 									setAutoplay(false);

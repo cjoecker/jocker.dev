@@ -104,5 +104,11 @@ export default {
 	couldNotSend:
 		"Tu mensaje no pudo ser enviado. Por favor, envíame un correo electrónico a",
 	pleaseFillFields: "Por favor, completa todos los campos",
-	invalidEmail: "Por favor, introduce un correo electrónico válido",
+	invalidEmail: "Por favor, introduce un email válido",
+	close: "cerrar",
+	stackOverflowProfile: "perfil de stack overflow",
+	expand: "expandir",
+	contract: "contraer",
+	seePage: "ver página",
+	website: "sitio web",
 } satisfies typeof en;

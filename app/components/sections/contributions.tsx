@@ -113,6 +113,7 @@ export const Mesh = () => {
 };
 
 const StackOverflow = () => {
+	const { t } = useTranslation();
 	const [profilesData, setProfilesData] =
 		useState<StackOverflowResponse | null>(null);
 	const profile = profilesData?.items?.[0];
@@ -150,7 +151,7 @@ const StackOverflow = () => {
 					viewport={{ amount: 0.9, once: true }}
 					initial="hidden"
 					whileInView="visible"
-					aria-label="stack overflow profile"
+					aria-label={t("stackOverflowProfile")}
 					className="border-secondary/10 from-neutral to-neutral-dark text-secondary mx-auto flex max-w-fit flex-col rounded-xl border-2 border-solid bg-linear-to-br px-4 py-2 hover:cursor-pointer"
 				>
 					<div className="flex">
@@ -238,7 +239,7 @@ const OpenSource = () => {
 									hidden: { opacity: 0 },
 								}}
 								className="hover:cursor-pointer"
-								aria-label={`${contribution.name} website`}
+								aria-label={`${contribution.name} ${t("website")}`}
 							>
 								<img
 									loading="lazy"
