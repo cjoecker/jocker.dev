@@ -1,14 +1,37 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
-import type { CoreValuesType } from "../../constants/core-values";
-import { CoreValuesData } from "../../constants/core-values";
 import MeditatingImage from "../../images/meditating.webp";
 import MeshPurpleTurquoise from "../../images/mesh-purple-turquoise.svg";
 import { Section } from "../shared/section";
 
+export const CoreValuesData: CoreValuesType[] = [
+	{
+		coreValueKey: "excellence",
+		explanationKey: "sustainableArchitecture",
+	},
+	{
+		coreValueKey: "accountable",
+		explanationKey: "standForDecisions",
+	},
+	{
+		coreValueKey: "passion",
+		explanationKey: "loveWhatIDo",
+	},
+	{
+		coreValueKey: "kindness",
+		explanationKey: "eagerToHelp",
+	},
+];
+
+export interface CoreValuesType {
+	coreValueKey: string;
+	explanationKey: string;
+}
+
 export const CoreValues = () => {
 	return (
-		<Section title="Core Values">
+		<Section titleKey="coreValues">
 			<div className="relative flex flex-col">
 				<div className="relative mx-auto flex">
 					<img
@@ -27,7 +50,7 @@ export const CoreValues = () => {
 						className="mx-auto grid grid-cols-1 gap-x-16 gap-y-12 sm:grid-cols-2"
 					>
 						{CoreValuesData.map((value) => {
-							return <CoreValue key={value.coreValue} coreValue={value} />;
+							return <CoreValue key={value.coreValueKey} coreValue={value} />;
 						})}
 					</motion.div>
 				</div>
@@ -55,6 +78,7 @@ export const CoreValues = () => {
 };
 
 const CoreValue = ({ coreValue }: { coreValue: CoreValuesType }) => {
+	const { t } = useTranslation();
 	return (
 		<motion.div
 			variants={{
@@ -63,8 +87,8 @@ const CoreValue = ({ coreValue }: { coreValue: CoreValuesType }) => {
 			}}
 			className="col-span-1 flex max-w-[190px] flex-col align-top"
 		>
-			<h3 className="text-md font-semibold">{coreValue.coreValue}</h3>
-			<p className="mt-0.5 opacity-90">{coreValue.explanation}</p>
+			<h3 className="text-md font-semibold">{t(coreValue.coreValueKey)}</h3>
+			<p className="mt-0.5 opacity-90">{t(coreValue.explanationKey)}</p>
 		</motion.div>
 	);
 };

@@ -26,9 +26,15 @@ export default defineConfig((config) => {
 		sentryConfig,
 		optimizeDeps: {
 			include: ["react-use", "@splidejs/react-splide"],
+			esbuildOptions: {
+				target: "esnext",
+			},
 		},
 		ssr: {
 			noExternal: ["react-use", "@splidejs/react-splide"],
+		},
+		build: {
+			target: "esnext",
 		},
 	};
 });

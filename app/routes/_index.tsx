@@ -15,7 +15,7 @@ import { Header } from "~/components/sections/header";
 import { Languages } from "~/components/sections/languages";
 import { ServiceOffer } from "~/components/sections/service-offer";
 import { Skills } from "~/components/sections/skills";
-import { Testimonials } from "~/components/sections/testimonials";
+import Testimonials from "~/components/sections/testimonials";
 
 export default function Index() {
 	return (

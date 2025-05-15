@@ -2,13 +2,23 @@ import * as Sentry from "@sentry/react-router";
 import SplideStyles from "@splidejs/splide/dist/css/splide.min.css?url";
 import posthog from "posthog-js";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import {
+	Links,
+	Meta,
+	Outlet,
+	Scripts,
+	ScrollRestoration,
+	useLoaderData,
+} from "react-router";
 import {
 	isRouteErrorResponse,
 	LinksFunction,
 	MetaFunction,
 	redirect,
+	data,
 } from "react-router";
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import { useChangeLanguage } from "remix-i18next/react";
 import { useHydrated } from "remix-utils/use-hydrated";
 
 import { Route } from "./+types/root";
@@ -20,19 +30,24 @@ import RalewayFont800Woff from "~/fonts/raleway-v28-latin-800.woff";
 import RalewayFont800Woff2 from "~/fonts/raleway-v28-latin-800.woff2";
 import RalewayFontRegularWoff from "~/fonts/raleway-v28-latin-regular.woff";
 import RalewayFontRegularWoff2 from "~/fonts/raleway-v28-latin-regular.woff2";
+import i18next from "~/services/i18next.server";
 import MainStyles from "~/styles/main.css?url";
 
+export const handle = {
+	i18n: "common",
+};
+
 export const meta: MetaFunction = () => {
+	// eslint-disable-next-line react-hooks/rules-of-hooks
+	const { t } = useTranslation();
 	return [
 		{
-			title:
-				"Christian Jöcker - Freelance Full-Stack Developer and UX/UI designer",
+			title: t("pageTitle"),
 		},
 		{ charset: "utf-8" },
 		{
 			name: "description",
-			content:
-				"Passionate about creating great experiences with beautiful web applications. Happy customers, clean code, and sustainable architectures are my priority.",
+			content: t("pageDescription"),
 		},
 		{
 			name: "keywords",
@@ -135,16 +150,16 @@ export const links: LinksFunction = () => {
 	];
 };
 
-export function loader({ request }: Route.LoaderArgs) {
+export async function loader({ request }: Route.LoaderArgs) {
 	const { pathname, search } = new URL(request.url);
+	const locale = await i18next.getLocale(request);
 
 	if (pathname.endsWith("/") && pathname !== "/") {
 		// Redirect to the same URL without a trailing slash
 		// eslint-disable-next-line @typescript-eslint/only-throw-error
 		throw redirect(`${pathname.slice(0, -1)}${search}`, 301);
 	}
-
-	return null;
+	return data({ locale });
 }
 
 function PosthogInit() {
@@ -165,8 +180,12 @@ function PosthogInit() {
 }
 
 export default function Root() {
+	const { locale } = useLoaderData<typeof loader>();
+	const { i18n } = useTranslation();
+	console.log("locale", locale);
+	useChangeLanguage(locale);
 	return (
-		<html lang="en">
+		<html lang={locale}>
 			<head>
 				<Meta />
 				<Links />

@@ -1,17 +1,55 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
-import { LanguagesData } from "../../constants/languages";
 import MeshPurple from "../../images/mesh-purple.svg";
 import { Section } from "../shared/section";
 import { getAltTextFromFileName } from "../shared/utils";
 
+import FeijoadaIcon from "~/images/feijoada.svg";
+import HamburguerIcon from "~/images/hamburguer.svg";
+import PaellaIcon from "~/images/paella.svg";
+import PretzelIcon from "~/images/pretzel.svg";
+
+export const LanguagesData: LanguagesType[] = [
+	{
+		languageKey: "english",
+		levelKey: "fluent",
+		icon: HamburguerIcon,
+	},
+	{
+		languageKey: "german",
+		levelKey: "fluent",
+		icon: PretzelIcon,
+	},
+	{
+		languageKey: "spanish",
+		levelKey: "fluent",
+		icon: PaellaIcon,
+	},
+	{
+		languageKey: "portuguese",
+		levelKey: "goodCommand",
+		icon: FeijoadaIcon,
+	},
+];
+
+export interface LanguagesType {
+	languageKey: string;
+	levelKey: string;
+	icon: string;
+}
+
 export const Languages = () => {
+	const { t } = useTranslation();
 	return (
-		<Section title="Languages" className="flex flex-col">
+		<Section titleKey="languages" className="flex flex-col">
 			<div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-32 gap-y-20 md:grid-cols-4">
 				{LanguagesData.map((language) => {
 					return (
-						<div className="relative col-span-1 m-auto" key={language.language}>
+						<div
+							className="relative col-span-1 m-auto"
+							key={language.languageKey}
+						>
 							<img
 								alt=""
 								aria-hidden="true"
@@ -36,8 +74,8 @@ export const Languages = () => {
 								alt={getAltTextFromFileName(language.icon)}
 								src={language.icon}
 							/>
-							<div className="text-md font-bold">{language.language}</div>
-							<div className="mt-1 text-base">{language.level}</div>
+							<div className="text-md font-bold">{t(language.languageKey)}</div>
+							<div className="mt-1 text-base">{t(language.levelKey)}</div>
 						</div>
 					);
 				})}
