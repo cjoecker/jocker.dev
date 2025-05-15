@@ -64,7 +64,7 @@ export default {
 		"¡Christian es siempre confiable! No solo aborda sus tareas con determinación, sino que también ofrece constantemente sugerencias sobre cómo hacer que nuestro software sea aún más fácil de usar. ¡Todo con total transparencia en los costos! ¡Cualquiera que tenga la oportunidad de trabajar con él es verdaderamente afortunado!",
 	hePerfectlyEmbodies:
 		"Encarna perfectamente el papel de un desarrollador experto, que no solo domina sus tecnologías sino que también tiene un increíble conocimiento de UX. Tanto su creatividad como su mentalidad empresarial impulsan sus proyectos y la empresa.",
-	openSourceContributions: "Contribuciones de Código Abierto",
+	openSourceContributions: "Contribuciones Open-Source",
 	myApps: "Mis Aplicaciones",
 	reputation: "Reputación",
 	english: "Inglés",
@@ -85,7 +85,7 @@ export default {
 	ceoAndCoFounder: "CEO y cofundador",
 	headOfStrategy: "Jefe de estrategia",
 	present: "Presente",
-	yearAbbreviation: "A",
+	yearAbbreviation: "a",
 	monthAbbreviation: "m",
 	notFound: "404 - No encontrado",
 	pageTitle: "Christian Jöcker - Desarrollador Full-Stack y diseñador UX/UI",
