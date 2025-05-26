@@ -1,11 +1,12 @@
 import { PassThrough } from "stream";
 
 import { createReadableStreamFromReadable } from "@react-router/node";
+import * as Sentry from "@sentry/react-router";
 import { createInstance } from "i18next";
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
 import { I18nextProvider, initReactI18next } from "react-i18next";
-import { EntryContext, ServerRouter } from "react-router";
+import { EntryContext, HandleErrorFunction, ServerRouter } from "react-router";
 
 import * as i18n from "~/config/i18n";
 import i18nServer from "~/modules/i18n.server";
@@ -65,3 +66,10 @@ export default async function handleRequest(
 		setTimeout(abort, ABORT_DELAY);
 	});
 }
+
+export const handleError: HandleErrorFunction = (error, { request }) => {
+	if (!request.signal.aborted) {
+		Sentry.captureException(error);
+		console.error(error);
+	}
+};

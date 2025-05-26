@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/react-router";
 import i18next from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { startTransition, StrictMode } from "react";
@@ -7,6 +8,9 @@ import { HydratedRouter } from "react-router/dom";
 import { getInitialNamespaces } from "remix-i18next/client";
 
 import * as i18n from "~/config/i18n";
+import { sentryConfig } from "~/constants/misc";
+
+Sentry.init(sentryConfig);
 
 async function hydrate() {
 	await i18next
