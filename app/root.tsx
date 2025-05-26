@@ -24,25 +24,21 @@ import MainStyles from "~/styles/main.css?url";
 import { useChangeLanguage } from "remix-i18next/react";
 import { useTranslation } from "react-i18next";
 import i18nServer from "~/modules/i18n.server";
-import { fallbackLng, setI18nLocale } from "~/config/i18n";
+import { fallbackLng, setI18nLocale, supportedLngs } from "~/config/i18n";
 
-export const meta: MetaFunction = () => {
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
 	return [
 		{
 			title:
-				"Christian Jöcker - Freelance Full-Stack Developer and UX/UI designer",
+			data?.pageTitle,
 		},
 		{ charset: "utf-8" },
 		{
 			name: "description",
-			content:
-				"Passionate about creating great experiences with beautiful web applications. Happy customers, clean code, and sustainable architectures are my priority.",
-		},
+			content:data?.pageDescription},
 		{
 			name: "keywords",
-			content:
-				"freelancer,independent,contractor,self-employed,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,developer,engineer,software,ux,ui,web,designer",
-		},
+			content: data?.pageKeywords},
 		{
 			name: "viewport",
 			content:
@@ -145,18 +141,24 @@ export async function loader({ request }: Route.LoaderArgs) {
 	const { pathname, search } = new URL(request.url);
 
 	const locale = await i18nServer.getLocale(request);
+	const localePath = pathname.split("/")[1];
 
 	const t = await i18nServer.getFixedT(request);
-	const pageTitle = t("areWelcome");
-	console.log("pageTitle", pageTitle);
+	const pageTitle = t("pageTitle");
+	const pageDescription = t("pageDescription");
+	const pageKeywords = t("pageKeywords");
+
+	if(!supportedLngs.includes(localePath)) {
+		// return to localized URL
+		return  redirect(`/${locale}${search}`, 301);
+	}
 
 	if (pathname.endsWith("/") && pathname !== "/") {
 		// Redirect to the same URL without a trailing slash
-		// eslint-disable-next-line @typescript-eslint/only-throw-error
-		throw redirect(`${pathname.slice(0, -1)}${search}`, 301);
+		return redirect(`${pathname.slice(0, -1)}${search}`, 301);
 	}
 
-	return {locale};
+	return {locale, pageTitle, pageDescription, pageKeywords};
 }
 
 function PosthogInit() {

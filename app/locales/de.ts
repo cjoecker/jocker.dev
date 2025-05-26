@@ -91,7 +91,7 @@ export default {
 	pageTitle: "Christian Jöcker - Full-Stack Entwickler und UX/UI Designer",
 	pageDescription:
 		"Entwickler von großartige Erlebnisse mit schönen Web-Anwendungen. Zufriedene Kunden, sauberer Code und nachhaltige Architekturen sind meine Prioritäten.",
-	pageKeyword:
+	pageKeywords:
 		"freelancer,selbstständig,auftragnehmer,freiberufler,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,entwickler,ingenieur,software,ux,ui,web,designer",
 	fullName: "Vollständiger Name",
 	email: "E-Mail",
