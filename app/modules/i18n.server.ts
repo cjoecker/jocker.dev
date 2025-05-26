@@ -7,6 +7,11 @@ export default new RemixI18Next({
 	detection: {
 		supportedLanguages: i18n.supportedLngs,
 		fallbackLanguage: i18n.fallbackLng,
+		async findLocale(request) {
+			const pathname = new URL(request.url).pathname;
+			const locale = pathname.split("/").at(1);
+			return locale ?? null;
+		},
 	},
 	// This is the configuration for i18next used
 	// when translating messages server-side only
