@@ -1,3 +1,5 @@
+import type en from "./en";
+
 export default {
 	hiImChristian: "Hi, ich bin Christian Jöcker,",
 	fullStackDeveloper: "Full-Stack Entwickler.",
@@ -109,4 +111,4 @@ export default {
 	contract: "zusammenklappen",
 	seePage: "seite anzeigen",
 	website: "website",
-};
+} satisfies typeof en;
