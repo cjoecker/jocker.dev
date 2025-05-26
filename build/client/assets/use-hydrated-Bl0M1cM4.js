@@ -1786,14 +1786,12 @@ var Sa = /^\s*at (\S+?)(?::(\d+))(?::(\d+))\s*$/i,
 				var f = Array.from(p);
 				return (
 					f.reverse(),
-					f
-						.slice(0, Hs)
-						.map((v) =>
-							y({}, v, {
-								filename: v.filename || Ra(f).filename,
-								function: v.function || rt,
-							}),
-						)
+					f.slice(0, Hs).map((v) =>
+						y({}, v, {
+							filename: v.filename || Ra(f).filename,
+							function: v.function || rt,
+						}),
+					)
 				);
 			})(a);
 		};

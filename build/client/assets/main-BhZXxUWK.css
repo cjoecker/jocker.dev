@@ -1020,7 +1020,7 @@
 		) !important;
 	}
 	.from-neutral\/50 {
-		--tw-gradient-from: oklab(24.7631% 0.0272332 -0.0341979/.5) !important;
+		--tw-gradient-from: oklab(24.7631% 0.0272332 -0.0341979/0.5) !important;
 		--tw-gradient-stops: var(
 			--tw-gradient-via-stops,
 			var(--tw-gradient-position),
@@ -1029,7 +1029,7 @@
 		) !important;
 	}
 	.from-neutral\/70 {
-		--tw-gradient-from: oklab(24.7631% 0.0272332 -0.0341979/.7) !important;
+		--tw-gradient-from: oklab(24.7631% 0.0272332 -0.0341979/0.7) !important;
 		--tw-gradient-stops: var(
 			--tw-gradient-via-stops,
 			var(--tw-gradient-position),
@@ -1074,7 +1074,7 @@
 		) !important;
 	}
 	.to-neutral-dark\/70 {
-		--tw-gradient-to: oklab(17.2537% 0.0151546 -0.0187699/.7) !important;
+		--tw-gradient-to: oklab(17.2537% 0.0151546 -0.0187699/0.7) !important;
 		--tw-gradient-stops: var(
 			--tw-gradient-via-stops,
 			var(--tw-gradient-position),
