@@ -1,20 +1,84 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
-import {
-	OpenSourceContributions,
-	OwnApps,
-	StackOverflowDefaults,
-} from "../../constants/contributions";
 import MeshPurple from "../../images/mesh-purple.svg";
 import StackOverflowLogo from "../../images/stack-overflow.svg";
 import { Section } from "../shared/section";
 
 import { ExternalRedirect } from "~/components/shared/external-redirect";
+import ThreePointEstimatorIcon from "~/images/3-point-estimator.svg";
+import CoreValuesFinderIcon from "~/images/core-values-finder.svg";
+import CurriculumGeneratorIcon from "~/images/curriculum-generator.svg";
+import DcideIcon from "~/images/d-cide.svg";
+import FramerMotionIcon from "~/images/framer-motion.svg";
+import MuiIcon from "~/images/mui.svg";
+
+export const StackOverflowDefaults: StackOverflowDefaultsType = {
+	reputation: 4453,
+	goldBadge: 1,
+	silverBadge: 34,
+	bronzeBadge: 40,
+	profileUrl: "https://stackoverflow.com/users/4934446",
+};
+export const OpenSourceContributions: OpenSourceContributionsType[] = [
+	{
+		name: "MUI (Material-UI)",
+		link: "https://mui.com/",
+		icon: MuiIcon,
+	},
+	{
+		name: "Framer Motion",
+		link: "https://www.framer.com/motion/",
+		icon: FramerMotionIcon,
+	},
+];
+export const OwnApps: OwnAppsType[] = [
+	{
+		name: "d-cide",
+		link: "https://d-cide.me/",
+		icon: DcideIcon,
+	},
+	{
+		name: "Core Values Finder",
+		link: "https://cjoecker.github.io/core-values-finder/",
+		icon: CoreValuesFinderIcon,
+	},
+	{
+		name: "3 Point Estimator",
+		link: "https://cjoecker.github.io/3-point-estimator/",
+		icon: ThreePointEstimatorIcon,
+	},
+	{
+		name: "Curriculum Generator",
+		link: "https://github.com/cjoecker/curriculum-generator",
+		icon: CurriculumGeneratorIcon,
+	},
+];
+
+export interface StackOverflowDefaultsType {
+	reputation: number;
+	goldBadge: number;
+	silverBadge: number;
+	bronzeBadge: number;
+	profileUrl: string;
+}
+
+export interface OwnAppsType {
+	name: string;
+	link: string;
+	icon: string;
+}
+
+export interface OpenSourceContributionsType {
+	name: string;
+	link: string;
+	icon: string;
+}
 
 export const Contributions = () => {
 	return (
-		<Section title="Community Contributions">
+		<Section titleKey="contributions">
 			<div className="flex">
 				<div className="mx-auto flex flex-wrap justify-center gap-x-24 gap-y-36">
 					<div className="relative flex min-w-[250px] flex-col">
@@ -49,6 +113,8 @@ export const Mesh = () => {
 };
 
 const StackOverflow = () => {
+	const { t } = useTranslation();
+
 	const [profilesData, setProfilesData] =
 		useState<StackOverflowResponse | null>(null);
 	const profile = profilesData?.items?.[0];
@@ -86,7 +152,7 @@ const StackOverflow = () => {
 					viewport={{ amount: 0.9, once: true }}
 					initial="hidden"
 					whileInView="visible"
-					aria-label="stack overflow profile"
+					aria-label={t("stackOverflowProfile")}
 					className="border-secondary/10 from-neutral to-neutral-dark text-secondary mx-auto flex max-w-fit flex-col rounded-xl border-2 border-solid bg-linear-to-br px-4 py-2 hover:cursor-pointer"
 				>
 					<div className="flex">
@@ -148,9 +214,12 @@ const Badge = ({ color, number }: { color: string; number: number }) => {
 };
 
 const OpenSource = () => {
+	const { t } = useTranslation();
 	return (
 		<>
-			<h3 className="mb-6 text-lg font-semibold">Open Source Contributions</h3>
+			<h3 className="mb-6 text-lg font-semibold">
+				{t("openSourceContributions")}
+			</h3>
 			<motion.div
 				initial="hidden"
 				whileInView="visible"
@@ -171,7 +240,7 @@ const OpenSource = () => {
 									hidden: { opacity: 0 },
 								}}
 								className="hover:cursor-pointer"
-								aria-label={`${contribution.name} website`}
+								aria-label={`${contribution.name} ${t("website")}`}
 							>
 								<img
 									loading="lazy"
@@ -194,9 +263,10 @@ const OpenSource = () => {
 };
 
 const MyApps = () => {
+	const { t } = useTranslation();
 	return (
 		<>
-			<h3 className="mb-8 text-lg font-semibold">My Apps</h3>
+			<h3 className="mb-8 text-lg font-semibold">{t("myApps")}</h3>
 			<div className="flex">
 				<motion.div
 					className="m-auto grid grid-cols-2 gap-8"

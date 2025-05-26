@@ -1,17 +1,42 @@
-import * as Sentry from "@sentry/react-router";
 import { startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
+import i18next from "i18next";
+import { I18nextProvider, initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+import { getInitialNamespaces } from "remix-i18next/client";
 import { HydratedRouter } from "react-router/dom";
+import * as i18n from "~/config/i18n";
 
-import { sentryConfig } from "~/constants/misc";
+async function hydrate() {
+	await i18next
+		.use(initReactI18next)
+		.use(LanguageDetector)
+		.init({
+			react: { useSuspense: false },
+			ns: getInitialNamespaces(),
+			detection: { order: ["htmlTag"], caches: [] },
+			backend: {
+				cache: "no-store",
+			},
+			...i18n,
+		})
 
-Sentry.init(sentryConfig);
+	startTransition(() => {
+		hydrateRoot(
+			document,
+			<I18nextProvider i18n={i18next}>
+				<StrictMode>
+					<HydratedRouter />
+				</StrictMode>
+			</I18nextProvider>
+		);
+	});
+}
 
-startTransition(() => {
-	hydrateRoot(
-		document,
-		<StrictMode>
-			<HydratedRouter />
-		</StrictMode>,
-	);
-});
+if (window.requestIdleCallback) {
+	window.requestIdleCallback(hydrate);
+} else {
+	// Safari doesn't support requestIdleCallback
+	// https://caniuse.com/requestidlecallback
+	window.setTimeout(hydrate, 1);
+}

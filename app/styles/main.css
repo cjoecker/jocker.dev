@@ -182,3 +182,7 @@ img {
 .splide__track {
 	padding-bottom: 90px !important;
 }
+
+.markdown p {
+	margin: 0 0 20px;
+}

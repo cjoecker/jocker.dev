@@ -1,16 +1,63 @@
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import DoubleQuotesIcon from "../../images/double-quotes.svg";
 import { Section } from "../shared/section";
 import { getAltTextFromFileName } from "../shared/utils";
 
 import { colors } from "~/constants/colors";
-import { testimonials } from "~/constants/testimonials";
 import ArrowLeft from "~/images/arrow-left.svg";
 import ArrowRight from "~/images/arrow-right.svg";
+import DavidPhoto from "~/images/david.webp";
+import NewspectiveLogo from "~/images/newspective-logo.svg";
+import PaulaPhoto from "~/images/paula.webp";
+import QuantedLogo from "~/images/quanted-logo.png";
+import SmartCube360Logo from "~/images/smart-cube-360.svg";
+import ThomasPhoto from "~/images/thomas.png";
+
+export const testimonials: TestimonialsType[] = [
+	{
+		testimonialKey: "christianIsAVery",
+		person: "David Forino",
+		photo: DavidPhoto,
+		company: "Quanted",
+		companyLogo: QuantedLogo,
+		companyHeight: 70,
+		titleKey: "ctoAndCoFounder",
+	},
+	{
+		testimonialKey: "christianIsAlwaysReliable",
+		person: "Thomas Kirner",
+		photo: ThomasPhoto,
+		company: "smart cube 360 GmbH",
+		companyLogo: SmartCube360Logo,
+		companyHeight: 70,
+		titleKey: "ceoAndCoFounder",
+	},
+	{
+		testimonialKey: "hePerfectlyEmbodies",
+		person: "Paula Montesa Rausell",
+		photo: PaulaPhoto,
+		company: "Newspective",
+		companyLogo: NewspectiveLogo,
+		companyHeight: 80,
+		titleKey: "headOfStrategy",
+	},
+];
+
+export interface TestimonialsType {
+	testimonialKey: string;
+	person: string;
+	photo: string;
+	company: string;
+	companyLogo: string;
+	companyHeight: number;
+	titleKey: string;
+}
 
 export function Testimonials() {
+	const { t } = useTranslation();
 	const [autoplay, setAutoplay] = useState(true);
 	const splideRef = useRef(null);
 	const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -58,11 +105,11 @@ export function Testimonials() {
 	}, [autoplay, goToPage]);
 
 	return (
-		<Section title="Testimonials" className="relative mx-auto max-w-[900px]">
+		<Section titleKey="testimonials" className="relative mx-auto max-w-[900px]">
 			<Splide
 				ref={splideRef}
 				hasTrack={false}
-				aria-label="testimonials"
+				aria-label={t("testimonials")}
 				className="md:mask-swiper mx-auto max-w-5xl"
 				onMove={(_: never, newIndex: number) => {
 					setCurrentSlideIndex(newIndex);
@@ -79,7 +126,7 @@ export function Testimonials() {
 				<SplideTrack className="mask-swiper-narrow">
 					{testimonials.map((testimonial) => {
 						return (
-							<SplideSlide key={testimonial.testimonial}>
+							<SplideSlide key={testimonial.testimonialKey}>
 								<div
 									className={
 										"shadow-sm-turquoise border-secondary/10 from-neutral to-neutral-dark mx-4 my-6 flex h-full flex-1 cursor-grab flex-col rounded-xl border-2 border-solid bg-linear-to-br p-5 select-none"
@@ -106,7 +153,9 @@ export function Testimonials() {
 											alt="double quotes"
 											src={DoubleQuotesIcon}
 										/>
-										<div className="text-base">{testimonial.testimonial}</div>
+										<div className="text-base">
+											{t(testimonial.testimonialKey)}
+										</div>
 									</div>
 									<div className="mx-auto my-2 flex justify-end text-left">
 										<img
@@ -121,8 +170,8 @@ export function Testimonials() {
 											<div className="text-md font-bold">
 												{testimonial.person}
 											</div>
-											<div className="text-base">{testimonial.title}</div>
-											<div className="text-sm">{testimonial.company}</div>
+											<div className="text-base">{t(testimonial.titleKey)}</div>
+											<div className="text-sm">{t(testimonial.company)}</div>
 										</div>
 									</div>
 								</div>
@@ -152,8 +201,8 @@ export function Testimonials() {
 					{testimonials.map((testimonial, index) => {
 						return (
 							<button
-								key={testimonial.testimonial}
-								aria-label={`see page ${index + 1}`}
+								key={testimonial.testimonialKey}
+								aria-label={`${t("seePage")} ${index + 1}`}
 								className="h-12 w-12 cursor-pointer"
 								onClick={() => {
 									setAutoplay(false);
@@ -187,7 +236,10 @@ export interface Props {
 export const ChangeButton = ({ onClick, orientation }: Props) => {
 	const isLeft = orientation === "left";
 	return (
-		<button className="h-full w-full max-w-[200px]" onClick={onClick}>
+		<button
+			className="h-full w-full max-w-[200px] cursor-pointer"
+			onClick={onClick}
+		>
 			<span
 				className={`bg-grey/80 flex h-12 w-12 cursor-pointer rounded-full ${
 					isLeft ? "mr-auto ml-4" : "mr-4 ml-auto"

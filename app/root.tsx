@@ -6,7 +6,7 @@ import {
 	isRouteErrorResponse,
 	LinksFunction,
 	MetaFunction,
-	redirect,
+	redirect, useLoaderData
 } from "react-router";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import { useHydrated } from "remix-utils/use-hydrated";
@@ -21,6 +21,10 @@ import RalewayFont800Woff2 from "~/fonts/raleway-v28-latin-800.woff2";
 import RalewayFontRegularWoff from "~/fonts/raleway-v28-latin-regular.woff";
 import RalewayFontRegularWoff2 from "~/fonts/raleway-v28-latin-regular.woff2";
 import MainStyles from "~/styles/main.css?url";
+import { useChangeLanguage } from "remix-i18next/react";
+import { useTranslation } from "react-i18next";
+import i18nServer from "~/modules/i18n.server";
+import { fallbackLng, setI18nLocale } from "~/config/i18n";
 
 export const meta: MetaFunction = () => {
 	return [
@@ -135,8 +139,16 @@ export const links: LinksFunction = () => {
 	];
 };
 
-export function loader({ request }: Route.LoaderArgs) {
+export const handle = { i18n: ["translation"] };
+
+export async function loader({ request }: Route.LoaderArgs) {
 	const { pathname, search } = new URL(request.url);
+
+	const locale = await i18nServer.getLocale(request);
+
+	const t = await i18nServer.getFixedT(request);
+	const pageTitle = t("areWelcome");
+	console.log("pageTitle", pageTitle);
 
 	if (pathname.endsWith("/") && pathname !== "/") {
 		// Redirect to the same URL without a trailing slash
@@ -144,7 +156,7 @@ export function loader({ request }: Route.LoaderArgs) {
 		throw redirect(`${pathname.slice(0, -1)}${search}`, 301);
 	}
 
-	return null;
+	return {locale};
 }
 
 function PosthogInit() {
@@ -165,8 +177,14 @@ function PosthogInit() {
 }
 
 export default function Root() {
+	const loaderData = useLoaderData<typeof loader>();
+	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+	const locale = loaderData?.locale ?? fallbackLng;
+	setI18nLocale(locale);
+	useChangeLanguage(locale);
+
 	return (
-		<html lang="en">
+		<html lang={locale}>
 			<head>
 				<Meta />
 				<Links />

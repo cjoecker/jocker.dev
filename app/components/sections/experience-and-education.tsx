@@ -1,31 +1,109 @@
-import { differenceInMonths, format } from "date-fns";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
-import type { ExperiencAndEductionType } from "../../constants/experience-and-education";
-import {
-	education,
-	WorkExperienceData,
-} from "../../constants/experience-and-education";
 import { Section } from "../shared/section";
 import { getAltTextFromFileName } from "../shared/utils";
 
 import { ExternalRedirect } from "~/components/shared/external-redirect";
+import { useFormatDates } from "~/hooks/use-format-dates";
 import GraduateCap from "~/images/graduate-cap.svg";
+import KukaLogo from "~/images/kuka.svg";
+import MaibornWolffLogo from "~/images/maibornwolff.svg";
+import MeWithMacbookImg from "~/images/me-with-macbook.webp";
 import OfficeImg from "~/images/office.svg";
+import ScmtLogo from "~/images/scmt.svg";
+import ThWildauLogo from "~/images/th-wildau.svg";
+
+export const EXPERIENCE_YEARS =
+	new Date().getFullYear() - new Date("2015-02").getFullYear();
+export const education: ExperiencAndEductionType[] = [
+	{
+		logo: ThWildauLogo,
+		logoHeight: 55,
+		link: "https://www.th-wildau.de",
+		titleKey: "mechanicalEngineering",
+		locationKey: "wildauGermany",
+		startDate: new Date("2011-09"),
+		endDate: new Date("2014-08"),
+		type: "education",
+	},
+	{
+		logo: ScmtLogo,
+		logoHeight: 60,
+		link: "https://www.scmt.com/home.html",
+		titleKey: "masterBusinessEngineering",
+		locationKey: "filderstadtGermany",
+		startDate: new Date("2016-02"),
+		endDate: new Date("2018-04"),
+		type: "education",
+	},
+];
+export const WorkExperienceData: ExperiencAndEductionType[] = [
+	{
+		logo: KukaLogo,
+		logoHeight: 20,
+		link: "https://www.kuka.com",
+		titleKey: "kukaSoftwareEngineer",
+		startDate: new Date("2015-02"),
+		endDate: new Date("2018-04"),
+		locationKey: "augsburgGermany",
+		type: "work",
+	},
+	{
+		logo: KukaLogo,
+		logoHeight: 20,
+		link: "https://www.kuka.com",
+		titleKey: "kukaAreaManager",
+		startDate: new Date("2018-04"),
+		endDate: new Date("2019-05"),
+		locationKey: "augsburgGermany",
+		type: "work",
+	},
+	{
+		logo: MaibornWolffLogo,
+		logoHeight: 50,
+		link: "https://www.maibornwolff.de",
+		titleKey: "seniorSoftwareEngineer",
+		startDate: new Date("2019-05"),
+		endDate: new Date("2023-02"),
+		locationKey: "munichGermany",
+		type: "work",
+	},
+	{
+		logo: MeWithMacbookImg,
+		logoHeight: 50,
+		link: "https://www.linkedin.com/in/christianjoecker",
+		titleKey: "freelanceDeveloper",
+		startDate: new Date("2023-02"),
+		endDate: "today",
+		locationKey: "valenciaSpain",
+		type: "work",
+	},
+];
+
+export interface ExperiencAndEductionType {
+	logo: string;
+	logoHeight: number;
+	link: string;
+	titleKey: string;
+	locationKey: string;
+	startDate: Date;
+	endDate: Date | "today";
+	type: "education" | "work";
+}
 
 export const ExperienceAndEducation = () => {
 	return (
-		<Section title="Education and Work Experience">
+		<Section titleKey="experienceAndEducation">
 			<WorkExperience />
 		</Section>
 	);
 };
-// TODO rename course icon
 
 const WorkExperience = () => {
 	const workAndEducation = [...WorkExperienceData, ...education].sort(
 		(a, b) => {
-			return a.startDate.getTime() - b.startDate.getTime();
+			return b.startDate.getTime() - a.startDate.getTime();
 		},
 	);
 	return (
@@ -37,7 +115,7 @@ const WorkExperience = () => {
 				return (
 					<div
 						className="mx-4 flex"
-						key={`${experienceItem.title}${experienceItem.logo}`}
+						key={`${experienceItem.titleKey}${experienceItem.logo}`}
 					>
 						<div className="min-w-0 flex-1">
 							{!isOdd && <ExperienceItem isOdd={isOdd} item={experienceItem} />}
@@ -103,6 +181,8 @@ const ExperienceItem = ({
 	item: ExperiencAndEductionType;
 	isOdd: boolean;
 }) => {
+	const { t } = useTranslation();
+	const { formatTimePeriod } = useFormatDates();
 	const variants = {
 		visible: { opacity: 1, x: 0 },
 		hidden: { opacity: 0, x: isOdd ? 100 : -100 },
@@ -140,33 +220,15 @@ const ExperienceItem = ({
 					className="mb-0.5 font-semibold break-words"
 					style={{ lineHeight: "1.3rem" }}
 				>
-					{item.title}
+					{t(item.titleKey)}
 				</div>
 				<div className="text-sm leading-tight opacity-80 md:text-base">
 					{formatTimePeriod(item.startDate, item.endDate)}
 				</div>
 				<div className="text-sm leading-tight opacity-80 md:text-base">
-					{item.location}
+					{t(item.locationKey)}
 				</div>
 			</div>
 		</motion.div>
 	);
 };
-
-function formatDate(date: Date, showDay = false) {
-	return showDay ? format(date, "MMM dd, yyyy") : format(date, "MMM, yyyy");
-}
-
-function formatTimePeriod(startDate: Date, endDate: Date | "today") {
-	const newEndDate = endDate === "today" ? new Date() : endDate;
-
-	const distanceInYears = (differenceInMonths(newEndDate, startDate) + 1) / 12;
-	const distance =
-		distanceInYears > 1
-			? `${distanceInYears.toFixed(1).replace(".0", "")}y`
-			: `${differenceInMonths(newEndDate, startDate)}m`;
-
-	return endDate === "today"
-		? `${formatDate(startDate)} - Present  (${distance})`
-		: `${formatDate(startDate)} - ${formatDate(endDate)}  (${distance})`;
-}
