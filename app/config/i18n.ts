@@ -3,7 +3,7 @@ import { es, de, enUS, Locale } from "date-fns/locale";
 
 import enTranslation from "~/locales/en";
 import esTranslation from "~/locales/es";
-import deTranslation from "~/locales/es";
+import deTranslation from "~/locales/de";
 
 export const supportedLngs = ["es", "en", "de"];
 
