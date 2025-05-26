@@ -30,7 +30,7 @@ import RalewayFont800Woff from "~/fonts/raleway-v28-latin-800.woff";
 import RalewayFont800Woff2 from "~/fonts/raleway-v28-latin-800.woff2";
 import RalewayFontRegularWoff from "~/fonts/raleway-v28-latin-regular.woff";
 import RalewayFontRegularWoff2 from "~/fonts/raleway-v28-latin-regular.woff2";
-import i18next from "~/services/i18next.server";
+import i18next from "./i18next.server";
 import MainStyles from "~/styles/main.css?url";
 
 export const handle = {
@@ -153,7 +153,7 @@ export const links: LinksFunction = () => {
 export async function loader({ request }: Route.LoaderArgs) {
 	const { pathname, search } = new URL(request.url);
 	const locale = await i18next.getLocale(request);
-
+	console.log("locale", locale);
 	if (pathname.endsWith("/") && pathname !== "/") {
 		// Redirect to the same URL without a trailing slash
 		// eslint-disable-next-line @typescript-eslint/only-throw-error
@@ -182,10 +182,9 @@ function PosthogInit() {
 export default function Root() {
 	const { locale } = useLoaderData<typeof loader>();
 	const { i18n } = useTranslation();
-	console.log("locale", locale);
 	useChangeLanguage(locale);
 	return (
-		<html lang={locale}>
+		<html lang={locale} dir={i18n.dir()}>
 			<head>
 				<Meta />
 				<Links />
