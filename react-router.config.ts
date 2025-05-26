@@ -6,7 +6,4 @@ export default {
 	buildEnd: async ({ viteConfig, reactRouterConfig, buildManifest }) => {
 		await sentryOnBuildEnd({ viteConfig, reactRouterConfig, buildManifest });
 	},
-	future:{
-		unstable_viteEnvironmentApi: true,
-	}
 } satisfies Config;
