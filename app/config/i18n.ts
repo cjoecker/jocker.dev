@@ -1,9 +1,9 @@
 import { setDefaultOptions } from "date-fns";
 import { es, de, enUS, Locale } from "date-fns/locale";
 
+import deTranslation from "~/locales/de";
 import enTranslation from "~/locales/en";
 import esTranslation from "~/locales/es";
-import deTranslation from "~/locales/de";
 
 export const supportedLngs = ["es", "en", "de"];
 

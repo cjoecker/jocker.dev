@@ -1,53 +1,314 @@
-
-!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="4ac59e19-0241-5eab-bd3e-cc17898c3a76")}catch(e){}}();
-import"./chunk-D4RADZKF-DVqrdyfo.js";import{g as s,s as t,e as l,d as c,a as d}from"./es-U_uln9Pb.js";function u(a){const o={},n=s();for(const e in n)Object.prototype.hasOwnProperty.call(n,e)&&(o[e]=n[e]);for(const e in a)Object.prototype.hasOwnProperty.call(a,e)&&(a[e]===void 0?delete o[e]:o[e]=a[e]);t(o)}const p={hiImChristian:"Hi, I'm Christian Jöcker,",fullStackDeveloper:"Full-Stack Developer.",fullStackDeveloperPrefix:"a",uxUiDesigner:"UX/UI Designer.",iDontJustProgramFeatures:"I don't just code features. I help you build scalable apps with amazing user experiences and code that holds up!",discoverMore:"Discover More!",whatICanDoForYou:"What I Can Do for You",skills:"Skills",coreValues:"Core Values",excellence:"Excellence",sustainableArchitecture:"Sustainable architecture, clean code, and great UX are my mantras",accountable:"Accountable",standForDecisions:"I stand for my decisions, achievements and mistakes",passion:"Passion",loveWhatIDo:"I love what I do and you will notice it",kindness:"Kindness",eagerToHelp:"Always eager to help and understand the other side",testimonials:"Testimonials",experienceAndEducation:"Education and Work Experience",contributions:"Community Contributions",coursesAndConferences:"Last Attended Courses and Conferences",languages:"Languages",aboutMe:"About Me",contact:"Contact me!",facts:"Facts",webApplications:"Web Applications",getReadyForPlatform:`Get ready for a platform that's not just good-looking, but built to last!
+!(function () {
+	try {
+		var e =
+				"undefined" != typeof window
+					? window
+					: "undefined" != typeof global
+						? global
+						: "undefined" != typeof globalThis
+							? globalThis
+							: "undefined" != typeof self
+								? self
+								: {},
+			n = new e.Error().stack;
+		n &&
+			((e._sentryDebugIds = e._sentryDebugIds || {}),
+			(e._sentryDebugIds[n] = "4ac59e19-0241-5eab-bd3e-cc17898c3a76"));
+	} catch (e) {}
+})();
+import "./chunk-D4RADZKF-DVqrdyfo.js";
+import { g as s, s as t, e as l, d as c, a as d } from "./es-U_uln9Pb.js";
+function u(a) {
+	const o = {},
+		n = s();
+	for (const e in n)
+		Object.prototype.hasOwnProperty.call(n, e) && (o[e] = n[e]);
+	for (const e in a)
+		Object.prototype.hasOwnProperty.call(a, e) &&
+			(a[e] === void 0 ? delete o[e] : (o[e] = a[e]));
+	t(o);
+}
+const p = {
+		hiImChristian: "Hi, I'm Christian Jöcker,",
+		fullStackDeveloper: "Full-Stack Developer.",
+		fullStackDeveloperPrefix: "a",
+		uxUiDesigner: "UX/UI Designer.",
+		iDontJustProgramFeatures:
+			"I don't just code features. I help you build scalable apps with amazing user experiences and code that holds up!",
+		discoverMore: "Discover More!",
+		whatICanDoForYou: "What I Can Do for You",
+		skills: "Skills",
+		coreValues: "Core Values",
+		excellence: "Excellence",
+		sustainableArchitecture:
+			"Sustainable architecture, clean code, and great UX are my mantras",
+		accountable: "Accountable",
+		standForDecisions: "I stand for my decisions, achievements and mistakes",
+		passion: "Passion",
+		loveWhatIDo: "I love what I do and you will notice it",
+		kindness: "Kindness",
+		eagerToHelp: "Always eager to help and understand the other side",
+		testimonials: "Testimonials",
+		experienceAndEducation: "Education and Work Experience",
+		contributions: "Community Contributions",
+		coursesAndConferences: "Last Attended Courses and Conferences",
+		languages: "Languages",
+		aboutMe: "About Me",
+		contact: "Contact me!",
+		facts: "Facts",
+		webApplications: "Web Applications",
+		getReadyForPlatform: `Get ready for a platform that's not just good-looking, but built to last!
 
 Let me take your idea from concept to launch, delivering a scalable solution tailored to your business.
 
-Say goodbye to clumsy web applications with a digital experience that will make your users say WOW!`,uxUiDesign:"UX/UI Design",turnDigitalDreams:`I'll take your digital dreams and turn them into pixel-perfect realities that not only look good but feel great too!
+Say goodbye to clumsy web applications with a digital experience that will make your users say WOW!`,
+		uxUiDesign: "UX/UI Design",
+		turnDigitalDreams: `I'll take your digital dreams and turn them into pixel-perfect realities that not only look good but feel great too!
 
 I'll make sure that every click, tap, and swipe is a delightful experience for your customers.
 
-Sit back, relax, and let the magic begin!`,iotPlatforms:"IoT Platforms",stepIntoFuture:`Step into the future with my IoT platform expertise!
+Sit back, relax, and let the magic begin!`,
+		iotPlatforms: "IoT Platforms",
+		stepIntoFuture: `Step into the future with my IoT platform expertise!
 
 Let's turn your ideas into cutting-edge solutions that connect the physical world to the digital one
 
-Whether you want to connect your devices, revolutionize your business, or unleash your inner tech-savant!`,lowCodeApps:"Low-Code Apps",whyReinventWheel:`Why reinvent the wheel? Not every app needs to be built from scratch.
+Whether you want to connect your devices, revolutionize your business, or unleash your inner tech-savant!`,
+		lowCodeApps: "Low-Code Apps",
+		whyReinventWheel: `Why reinvent the wheel? Not every app needs to be built from scratch.
 
 I help you decide if a low-code tool like Mendix or Bubble fits your idea.
 
-Then we build it fast and right, creating something simple, cost-effective, and tailored to your needs!`,digitalStrategy:"Digital Strategy Consulting",withYearsExperience:`With over {{years}} years of experience in the tech industry and a track record of success with digital products across multiple industries, I've got the expertise you need to succeed!
+Then we build it fast and right, creating something simple, cost-effective, and tailored to your needs!`,
+		digitalStrategy: "Digital Strategy Consulting",
+		withYearsExperience: `With over {{years}} years of experience in the tech industry and a track record of success with digital products across multiple industries, I've got the expertise you need to succeed!
 
-Whether you're looking to launch a new product, reinvigorate an existing one, or simply up your game, I'll help you map out a roadmap for success!`,yearsOfExperience:"Years of Experience",developedApps:"Developed Apps",happyCustomers:"Happy Customers",webDevelopment:"Web Development",mechanicalEngineering:"Mechanical Engineering (B. Eng.)",wildauGermany:"Wildau, Germany",masterBusinessEngineering:"Master of Business Engineering (MBE®)",filderstadtGermany:"Filderstadt, Germany",kukaSoftwareEngineer:"Software Engineer - Virtual Commissioning",kukaAreaManager:"Area Manager - Virtual Commissioning",seniorSoftwareEngineer:"Senior Software Engineer",freelanceDeveloper:"Freelance Full-Stack Developer & UX/UI Designer",augsburgGermany:"Augsburg, Germany",munichGermany:"Munich, Germany",valenciaSpain:"Valencia, Spain",christianIsAVery:"Christian is a very creative person with attention to details. He really puts effort in developing what makes sense for the end user. He is also a fan of clean code and good architecture.",christianIsAlwaysReliable:"Christian is always reliable! He not only tackles his tasks with determination, but also consistently offers suggestions on how to make our software even more user-friendly. All with complete cost transparency! Anyone who gets to work with him is truly lucky!",hePerfectlyEmbodies:"He perfectly embodies the role of a skilled developer, who not only masters his technologies but also has amazing UX know-how. Both his creativity and entrepreneurial mindset bring his projects and the company forward.",openSourceContributions:"Open Source Contributions",myApps:"My Apps",reputation:"Reputation",english:"English",german:"German",spanish:"Spanish",portuguese:"Portuguese",fluent:"Fluent",goodCommand:"Good command",aboutMeData:`Hi, my name is Christian, but my friends call me &#34;Joker&#34;. Feel free to do the same. But I need to tell you that I&#39;m bad at telling jokes.
+Whether you're looking to launch a new product, reinvigorate an existing one, or simply up your game, I'll help you map out a roadmap for success!`,
+		yearsOfExperience: "Years of Experience",
+		developedApps: "Developed Apps",
+		happyCustomers: "Happy Customers",
+		webDevelopment: "Web Development",
+		mechanicalEngineering: "Mechanical Engineering (B. Eng.)",
+		wildauGermany: "Wildau, Germany",
+		masterBusinessEngineering: "Master of Business Engineering (MBE®)",
+		filderstadtGermany: "Filderstadt, Germany",
+		kukaSoftwareEngineer: "Software Engineer - Virtual Commissioning",
+		kukaAreaManager: "Area Manager - Virtual Commissioning",
+		seniorSoftwareEngineer: "Senior Software Engineer",
+		freelanceDeveloper: "Freelance Full-Stack Developer & UX/UI Designer",
+		augsburgGermany: "Augsburg, Germany",
+		munichGermany: "Munich, Germany",
+		valenciaSpain: "Valencia, Spain",
+		christianIsAVery:
+			"Christian is a very creative person with attention to details. He really puts effort in developing what makes sense for the end user. He is also a fan of clean code and good architecture.",
+		christianIsAlwaysReliable:
+			"Christian is always reliable! He not only tackles his tasks with determination, but also consistently offers suggestions on how to make our software even more user-friendly. All with complete cost transparency! Anyone who gets to work with him is truly lucky!",
+		hePerfectlyEmbodies:
+			"He perfectly embodies the role of a skilled developer, who not only masters his technologies but also has amazing UX know-how. Both his creativity and entrepreneurial mindset bring his projects and the company forward.",
+		openSourceContributions: "Open Source Contributions",
+		myApps: "My Apps",
+		reputation: "Reputation",
+		english: "English",
+		german: "German",
+		spanish: "Spanish",
+		portuguese: "Portuguese",
+		fluent: "Fluent",
+		goodCommand: "Good command",
+		aboutMeData: `Hi, my name is Christian, but my friends call me &#34;Joker&#34;. Feel free to do the same. But I need to tell you that I&#39;m bad at telling jokes.
 
 I discovered my passion for programming when I was 9 after my father gave away my beloved dog. To honor his memory, I built a website filled with pictures of him. That&#39;s where my love affair with coding began. During high school, I took several graphic design courses and developed a strong interest also in UI design.
 
 In my previous role as a consultant, I specialized in developing custom web applications. There, I had the opportunity to work for big companies across various industries like automotive, tourism, airlines, robotics, and medicine. After years of experience in large corporations, I&#39;ve ventured into freelance work.
 
-I would love to hear from you and discuss our next project!`,designedAndCodedPrefix:"Designed and coded with",designedAndCodedSuffix:"by me.",love:"love",ctoAndCoFounder:"CTO and co-founder",ceoAndCoFounder:"CEO and co-founder",headOfStrategy:"Head of Strategy",present:"Present",yearAbbreviation:"Y",monthAbbreviation:"m",notFound:"404 - Not Found",pageTitle:"Christian Jöcker - Full-Stack Developer and UX/UI designer",pageDescription:"Passionate about creating great experiences with beautiful web applications. Happy customers, clean code, and sustainable architectures are my priorities.",pageKeyword:"freelancer,independent,contractor,self-employed,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,developer,engineer,software,ux,ui,web,designer",fullName:"Full Name",email:"Email",message:"Message",sendMessage:"Send Message",messageSent:"Message Sent!",responseTime:"I'll get back to you within",oneDay:"one day",error:"Error!",couldNotSend:"Your message could not be sent. Please send me an email to",pleaseFillFields:"Please fill out all fields",invalidEmail:"Please enter a valid email",close:"close",stackOverflowProfile:"stack overflow profile",expand:"expand",contract:"contract",seePage:"see page",website:"website"},i={hiImChristian:"Hey, soy Christian Jöcker,",fullStackDeveloper:"Desarrollador Full-Stack.",fullStackDeveloperPrefix:"un",uxUiDesigner:"Diseñador UX/UI.",iDontJustProgramFeatures:"No solo programo funciones. Te ayudo a construir aplicaciones escalables con experiencias de usuario increíbles y código que perdura.",discoverMore:"¡Descubre Más!",whatICanDoForYou:"Lo Que Puedo Hacer por Ti",skills:"Habilidades",coreValues:"Valores",excellence:"Excelencia",sustainableArchitecture:"La arquitectura sostenible, el código limpio y una gran UX son mis mantras",accountable:"Responsable",standForDecisions:"Me responsabilizo de mis decisiones, logros y errores",passion:"Pasión",loveWhatIDo:"Me encanta lo que hago y lo notarás",kindness:"Amabilidad",eagerToHelp:"Siempre dispuesto a ayudar y entender al otro lado",testimonials:"Referencias",experienceAndEducation:"Educación y Experiencia Laboral",contributions:"Contribuciones a la Comunidad",coursesAndConferences:"Últimos Cursos y Conferencias Asistidas",languages:"Idiomas",aboutMe:"Sobre Mí",contact:"Contáctame!",facts:"Datos",webApplications:"Aplicaciones Web",getReadyForPlatform:`¡Prepárate para una plataforma que no solo es bonita, sino construida para durar!
+I would love to hear from you and discuss our next project!`,
+		designedAndCodedPrefix: "Designed and coded with",
+		designedAndCodedSuffix: "by me.",
+		love: "love",
+		ctoAndCoFounder: "CTO and co-founder",
+		ceoAndCoFounder: "CEO and co-founder",
+		headOfStrategy: "Head of Strategy",
+		present: "Present",
+		yearAbbreviation: "Y",
+		monthAbbreviation: "m",
+		notFound: "404 - Not Found",
+		pageTitle: "Christian Jöcker - Full-Stack Developer and UX/UI designer",
+		pageDescription:
+			"Passionate about creating great experiences with beautiful web applications. Happy customers, clean code, and sustainable architectures are my priorities.",
+		pageKeyword:
+			"freelancer,independent,contractor,self-employed,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,developer,engineer,software,ux,ui,web,designer",
+		fullName: "Full Name",
+		email: "Email",
+		message: "Message",
+		sendMessage: "Send Message",
+		messageSent: "Message Sent!",
+		responseTime: "I'll get back to you within",
+		oneDay: "one day",
+		error: "Error!",
+		couldNotSend: "Your message could not be sent. Please send me an email to",
+		pleaseFillFields: "Please fill out all fields",
+		invalidEmail: "Please enter a valid email",
+		close: "close",
+		stackOverflowProfile: "stack overflow profile",
+		expand: "expand",
+		contract: "contract",
+		seePage: "see page",
+		website: "website",
+	},
+	i = {
+		hiImChristian: "Hey, soy Christian Jöcker,",
+		fullStackDeveloper: "Desarrollador Full-Stack.",
+		fullStackDeveloperPrefix: "un",
+		uxUiDesigner: "Diseñador UX/UI.",
+		iDontJustProgramFeatures:
+			"No solo programo funciones. Te ayudo a construir aplicaciones escalables con experiencias de usuario increíbles y código que perdura.",
+		discoverMore: "¡Descubre Más!",
+		whatICanDoForYou: "Lo Que Puedo Hacer por Ti",
+		skills: "Habilidades",
+		coreValues: "Valores",
+		excellence: "Excelencia",
+		sustainableArchitecture:
+			"La arquitectura sostenible, el código limpio y una gran UX son mis mantras",
+		accountable: "Responsable",
+		standForDecisions: "Me responsabilizo de mis decisiones, logros y errores",
+		passion: "Pasión",
+		loveWhatIDo: "Me encanta lo que hago y lo notarás",
+		kindness: "Amabilidad",
+		eagerToHelp: "Siempre dispuesto a ayudar y entender al otro lado",
+		testimonials: "Referencias",
+		experienceAndEducation: "Educación y Experiencia Laboral",
+		contributions: "Contribuciones a la Comunidad",
+		coursesAndConferences: "Últimos Cursos y Conferencias Asistidas",
+		languages: "Idiomas",
+		aboutMe: "Sobre Mí",
+		contact: "Contáctame!",
+		facts: "Datos",
+		webApplications: "Aplicaciones Web",
+		getReadyForPlatform: `¡Prepárate para una plataforma que no solo es bonita, sino construida para durar!
 
 Permíteme llevar tu idea desde el concepto hasta el lanzamiento, entregando una solución escalable adaptada a tu negocio.
 
-¡Di adiós a las aplicaciones web torpes con una experiencia digital que hará que tus usuarios digan ¡WOW!`,uxUiDesign:"Diseño UX/UI",turnDigitalDreams:`¡Tomaré tus sueños digitales y los convertiré en realidades perfectas que no solo se ven bien, sino que también se sienten geniales!
+¡Di adiós a las aplicaciones web torpes con una experiencia digital que hará que tus usuarios digan ¡WOW!`,
+		uxUiDesign: "Diseño UX/UI",
+		turnDigitalDreams: `¡Tomaré tus sueños digitales y los convertiré en realidades perfectas que no solo se ven bien, sino que también se sienten geniales!
 
 Me aseguraré de que cada clic y scroll sea una experiencia placentera para tus clientes.
 
-¡Siéntate, relájate y deja que comience la magia!`,iotPlatforms:"Plataformas IoT",stepIntoFuture:`¡Adéntrate en el futuro con mi experiencia en plataformas IoT!
+¡Siéntate, relájate y deja que comience la magia!`,
+		iotPlatforms: "Plataformas IoT",
+		stepIntoFuture: `¡Adéntrate en el futuro con mi experiencia en plataformas IoT!
 
 Convirtamos tus ideas en soluciones de vanguardia que conecten el mundo físico con el digital
 
-¡Ya sea que quieras conectar tus dispositivos, revolucionar tu negocio o desatar tu sabio tecnológico interior!`,lowCodeApps:"Aplicaciones Low-Code",whyReinventWheel:`¿Por qué reinventar la rueda? No todas las aplicaciones necesitan ser construidas desde cero.
+¡Ya sea que quieras conectar tus dispositivos, revolucionar tu negocio o desatar tu sabio tecnológico interior!`,
+		lowCodeApps: "Aplicaciones Low-Code",
+		whyReinventWheel: `¿Por qué reinventar la rueda? No todas las aplicaciones necesitan ser construidas desde cero.
 
 Te ayudo a decidir si una herramienta low-code como Mendix o Bubble se ajusta a tu idea.
 
-¡Luego la construimos rápido y bien, creando algo simple, rentable y adaptado a tus necesidades!`,digitalStrategy:"Consultoría de Estrategia Digital",withYearsExperience:`¡Con más de {{years}} años de experiencia en la industria tecnológica y un historial de éxito con productos digitales en múltiples industrias, tengo la experiencia que necesitas para triunfar!
+¡Luego la construimos rápido y bien, creando algo simple, rentable y adaptado a tus necesidades!`,
+		digitalStrategy: "Consultoría de Estrategia Digital",
+		withYearsExperience: `¡Con más de {{years}} años de experiencia en la industria tecnológica y un historial de éxito con productos digitales en múltiples industrias, tengo la experiencia que necesitas para triunfar!
 
-Ya sea que busques lanzar un nuevo producto, revitalizar uno existente o simplemente mejorar tu juego, te ayudaré a trazar un camino hacia el éxito.`,yearsOfExperience:"Años de Experiencia",developedApps:"Aplicaciones Desarrolladas",happyCustomers:"Clientes Satisfechos",webDevelopment:"Desarrollo Web",mechanicalEngineering:"Ingeniería Mecánica (B. Eng.)",wildauGermany:"Wildau, Alemania",masterBusinessEngineering:"Máster en Ingeniería de Negocios (MBE®)",filderstadtGermany:"Filderstadt, Alemania",kukaSoftwareEngineer:"Ingeniero de Software - Comisionamiento Virtual",kukaAreaManager:"Gerente de Área - Comisionamiento Virtual",seniorSoftwareEngineer:"Ingeniero de Software Senior",freelanceDeveloper:"Desarrollador Full-Stack Freelance y Diseñador UX/UI",augsburgGermany:"Augsburgo, Alemania",munichGermany:"Múnich, Alemania",valenciaSpain:"Valencia, España",christianIsAVery:"Christian es una persona muy creativa con atención al detalle. Realmente se esfuerza en desarrollar lo que tiene sentido para el usuario final. También es un fanático del código limpio y la buena arquitectura.",christianIsAlwaysReliable:"¡Christian es siempre confiable! No solo aborda sus tareas con determinación, sino que también ofrece constantemente sugerencias sobre cómo hacer que nuestro software sea aún más fácil de usar. ¡Todo con total transparencia en los costos! ¡Cualquiera que tenga la oportunidad de trabajar con él es verdaderamente afortunado!",hePerfectlyEmbodies:"Encarna perfectamente el papel de un desarrollador experto, que no solo domina sus tecnologías sino que también tiene un increíble conocimiento de UX. Tanto su creatividad como su mentalidad empresarial impulsan sus proyectos y la empresa.",openSourceContributions:"Contribuciones Open-Source",myApps:"Mis Aplicaciones",reputation:"Reputación",english:"Inglés",german:"Alemán",spanish:"Español",portuguese:"Portugués",fluent:"Fluido",goodCommand:"Buen dominio",aboutMeData:`Hola, mi nombre es Christian, pero mis amigos me llaman "Joker". Siéntete libre de hacer lo mismo. Pero debo decirte que soy malo contando chistes.
+Ya sea que busques lanzar un nuevo producto, revitalizar uno existente o simplemente mejorar tu juego, te ayudaré a trazar un camino hacia el éxito.`,
+		yearsOfExperience: "Años de Experiencia",
+		developedApps: "Aplicaciones Desarrolladas",
+		happyCustomers: "Clientes Satisfechos",
+		webDevelopment: "Desarrollo Web",
+		mechanicalEngineering: "Ingeniería Mecánica (B. Eng.)",
+		wildauGermany: "Wildau, Alemania",
+		masterBusinessEngineering: "Máster en Ingeniería de Negocios (MBE®)",
+		filderstadtGermany: "Filderstadt, Alemania",
+		kukaSoftwareEngineer: "Ingeniero de Software - Comisionamiento Virtual",
+		kukaAreaManager: "Gerente de Área - Comisionamiento Virtual",
+		seniorSoftwareEngineer: "Ingeniero de Software Senior",
+		freelanceDeveloper: "Desarrollador Full-Stack Freelance y Diseñador UX/UI",
+		augsburgGermany: "Augsburgo, Alemania",
+		munichGermany: "Múnich, Alemania",
+		valenciaSpain: "Valencia, España",
+		christianIsAVery:
+			"Christian es una persona muy creativa con atención al detalle. Realmente se esfuerza en desarrollar lo que tiene sentido para el usuario final. También es un fanático del código limpio y la buena arquitectura.",
+		christianIsAlwaysReliable:
+			"¡Christian es siempre confiable! No solo aborda sus tareas con determinación, sino que también ofrece constantemente sugerencias sobre cómo hacer que nuestro software sea aún más fácil de usar. ¡Todo con total transparencia en los costos! ¡Cualquiera que tenga la oportunidad de trabajar con él es verdaderamente afortunado!",
+		hePerfectlyEmbodies:
+			"Encarna perfectamente el papel de un desarrollador experto, que no solo domina sus tecnologías sino que también tiene un increíble conocimiento de UX. Tanto su creatividad como su mentalidad empresarial impulsan sus proyectos y la empresa.",
+		openSourceContributions: "Contribuciones Open-Source",
+		myApps: "Mis Aplicaciones",
+		reputation: "Reputación",
+		english: "Inglés",
+		german: "Alemán",
+		spanish: "Español",
+		portuguese: "Portugués",
+		fluent: "Fluido",
+		goodCommand: "Buen dominio",
+		aboutMeData: `Hola, mi nombre es Christian, pero mis amigos me llaman "Joker". Siéntete libre de hacer lo mismo. Pero debo decirte que soy malo contando chistes.
 
 Descubrí mi pasión por la programación cuando tenía 9 años después de que mi padre regalara a mi querido perro. Para honrar su memoria, construí un sitio web lleno de fotos de él. Ahí comenzó mi romance con la programación. Durante la escuela secundaria, tomé varios cursos de diseño gráfico y desarrollé un fuerte interés también en el diseño de UI.
 
 En mi rol anterior como consultor, me especialicé en desarrollar aplicaciones web personalizadas. Allí, tuve la oportunidad de trabajar para grandes empresas en diversas industrias como automotriz, turismo, aerolíneas, robótica y medicina. Después de años de experiencia en grandes corporaciones, me he aventurado en el trabajo freelance.
 
-¡Me encantaría saber de ti y discutir nuestro próximo proyecto!`,designedAndCodedPrefix:"Diseñado y programado con",designedAndCodedSuffix:"por mí.",love:"amor",ctoAndCoFounder:"CTO y cofundador",ceoAndCoFounder:"CEO y cofundador",headOfStrategy:"Jefe de estrategia",present:"Presente",yearAbbreviation:"a",monthAbbreviation:"m",notFound:"404 - No encontrado",pageTitle:"Christian Jöcker - Desarrollador Full-Stack y diseñador UX/UI",pageDescription:"Apasionado por crear grandes experiencias con hermosas aplicaciones web. Clientes felices, código limpio y arquitecturas sostenibles son mis prioridades.",pageKeyword:"freelancer,independiente,contratista,autónomo,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,desarrollador,ingeniero,software,ux,ui,web,diseñador",fullName:"Nombre completo",email:"Correo electrónico",message:"Mensaje",sendMessage:"Enviar mensaje",messageSent:"¡Mensaje enviado!",responseTime:"Te responderé en",oneDay:"un día",error:"¡Error!",couldNotSend:"Tu mensaje no pudo ser enviado. Por favor, envíame un correo electrónico a",pleaseFillFields:"Por favor, completa todos los campos",invalidEmail:"Por favor, introduce un email válido",close:"cerrar",stackOverflowProfile:"perfil de stack overflow",expand:"expandir",contract:"contraer",seePage:"ver página",website:"sitio web"},m=["es","en","de"],g="es",f="translation",h={en:{translation:p},es:{translation:i},de:{translation:i}},r={es:d,de:c,en:l};function y(a){const o=r[a??"en"];u({locale:o})}const w=Object.freeze(Object.defineProperty({__proto__:null,dateFnsLocales:r,defaultNS:f,fallbackLng:g,resources:h,setI18nLocale:y,supportedLngs:m},Symbol.toStringTag,{value:"Module"}));export{g as f,w as i,y as s};
+¡Me encantaría saber de ti y discutir nuestro próximo proyecto!`,
+		designedAndCodedPrefix: "Diseñado y programado con",
+		designedAndCodedSuffix: "por mí.",
+		love: "amor",
+		ctoAndCoFounder: "CTO y cofundador",
+		ceoAndCoFounder: "CEO y cofundador",
+		headOfStrategy: "Jefe de estrategia",
+		present: "Presente",
+		yearAbbreviation: "a",
+		monthAbbreviation: "m",
+		notFound: "404 - No encontrado",
+		pageTitle: "Christian Jöcker - Desarrollador Full-Stack y diseñador UX/UI",
+		pageDescription:
+			"Apasionado por crear grandes experiencias con hermosas aplicaciones web. Clientes felices, código limpio y arquitecturas sostenibles son mis prioridades.",
+		pageKeyword:
+			"freelancer,independiente,contratista,autónomo,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,desarrollador,ingeniero,software,ux,ui,web,diseñador",
+		fullName: "Nombre completo",
+		email: "Correo electrónico",
+		message: "Mensaje",
+		sendMessage: "Enviar mensaje",
+		messageSent: "¡Mensaje enviado!",
+		responseTime: "Te responderé en",
+		oneDay: "un día",
+		error: "¡Error!",
+		couldNotSend:
+			"Tu mensaje no pudo ser enviado. Por favor, envíame un correo electrónico a",
+		pleaseFillFields: "Por favor, completa todos los campos",
+		invalidEmail: "Por favor, introduce un email válido",
+		close: "cerrar",
+		stackOverflowProfile: "perfil de stack overflow",
+		expand: "expandir",
+		contract: "contraer",
+		seePage: "ver página",
+		website: "sitio web",
+	},
+	m = ["es", "en", "de"],
+	g = "es",
+	f = "translation",
+	h = {
+		en: { translation: p },
+		es: { translation: i },
+		de: { translation: i },
+	},
+	r = { es: d, de: c, en: l };
+function y(a) {
+	const o = r[a ?? "en"];
+	u({ locale: o });
+}
+const w = Object.freeze(
+	Object.defineProperty(
+		{
+			__proto__: null,
+			dateFnsLocales: r,
+			defaultNS: f,
+			fallbackLng: g,
+			resources: h,
+			setI18nLocale: y,
+			supportedLngs: m,
+		},
+		Symbol.toStringTag,
+		{ value: "Module" },
+	),
+);
+export { g as f, w as i, y as s };
 
 //# debugId=4ac59e19-0241-5eab-bd3e-cc17898c3a76

@@ -1,10 +1,11 @@
+import i18next from "i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
 import { startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
-import i18next from "i18next";
 import { I18nextProvider, initReactI18next } from "react-i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
-import { getInitialNamespaces } from "remix-i18next/client";
 import { HydratedRouter } from "react-router/dom";
+import { getInitialNamespaces } from "remix-i18next/client";
+
 import * as i18n from "~/config/i18n";
 
 async function hydrate() {
@@ -19,7 +20,7 @@ async function hydrate() {
 				cache: "no-store",
 			},
 			...i18n,
-		})
+		});
 
 	startTransition(() => {
 		hydrateRoot(
@@ -28,15 +29,18 @@ async function hydrate() {
 				<StrictMode>
 					<HydratedRouter />
 				</StrictMode>
-			</I18nextProvider>
+			</I18nextProvider>,
 		);
 	});
 }
 
-if (window.requestIdleCallback) {
-	window.requestIdleCallback(hydrate);
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+if (globalThis.requestIdleCallback) {
+	// eslint-disable-next-line @typescript-eslint/no-misused-promises
+	globalThis.requestIdleCallback(hydrate);
 } else {
 	// Safari doesn't support requestIdleCallback
 	// https://caniuse.com/requestidlecallback
-	window.setTimeout(hydrate, 1);
+	// eslint-disable-next-line @typescript-eslint/no-misused-promises
+	globalThis.setTimeout(hydrate, 1);
 }

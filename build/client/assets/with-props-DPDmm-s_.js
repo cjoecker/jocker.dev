@@ -1,5 +1,204 @@
-
-!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="9173a832-ad21-5583-ab37-bec4fc707093")}catch(e){}}();
-import{b as c,I as j,D as k,E as W,G as $,H as J,A as D,q as O,J as M,K as U}from"./chunk-D4RADZKF-DVqrdyfo.js";const q=(e,a,n,s)=>{var t,d,N,w;const o=[n,{code:a,...s||{}}];if((d=(t=e==null?void 0:e.services)==null?void 0:t.logger)!=null&&d.forward)return e.services.logger.forward(o,"warn","react-i18next::",!0);m(o[0])&&(o[0]=`react-i18next:: ${o[0]}`),(w=(N=e==null?void 0:e.services)==null?void 0:N.logger)!=null&&w.warn?e.services.logger.warn(...o):console!=null&&console.warn&&console.warn(...o)},v={},x=(e,a,n,s)=>{m(n)&&v[n]||(m(n)&&(v[n]=new Date),q(e,a,n,s))},F=(e,a)=>()=>{if(e.isInitialized)a();else{const n=()=>{setTimeout(()=>{e.off("initialized",n)},0),a()};e.on("initialized",n)}},C=(e,a,n)=>{e.loadNamespaces(a,F(e,n))},z=(e,a,n,s)=>{if(m(n)&&(n=[n]),e.options.preload&&e.options.preload.indexOf(a)>-1)return C(e,n,s);n.forEach(o=>{e.options.ns.indexOf(o)<0&&e.options.ns.push(o)}),e.loadLanguages(a,F(e,s))},B=(e,a,n={})=>!a.languages||!a.languages.length?(x(a,"NO_LANGUAGES","i18n.languages were undefined or empty",{languages:a.languages}),!0):a.hasLoadedNamespace(e,{lng:n.lng,precheck:(s,o)=>{var t;if(((t=n.bindI18n)==null?void 0:t.indexOf("languageChanging"))>-1&&s.services.backendConnector.backend&&s.isLanguageChangingTo&&!o(s.isLanguageChangingTo,e))return!1}}),m=e=>typeof e=="string",H=e=>typeof e=="object"&&e!==null,K=(e,a)=>{const n=c.useRef();return c.useEffect(()=>{n.current=e},[e,a]),n.current},G=(e,a,n,s)=>e.getFixedT(a,n,s),X=(e,a,n,s)=>c.useCallback(G(e,a,n,s),[e,a,n,s]),Q=(e,a={})=>{var R,A,L,P;const{i18n:n}=a,{i18n:s,defaultNS:o}=c.useContext(j)||{},t=n||s||k();if(t&&!t.reportNamespaces&&(t.reportNamespaces=new W),!t){x(t,"NO_I18NEXT_INSTANCE","useTranslation: You will need to pass in an i18next instance by using initReactI18next");const i=(l,f)=>m(f)?f:H(f)&&m(f.defaultValue)?f.defaultValue:Array.isArray(l)?l[l.length-1]:l,u=[i,{},!1];return u.t=i,u.i18n={},u.ready=!1,u}(R=t.options.react)!=null&&R.wait&&x(t,"DEPRECATED_OPTION","useTranslation: It seems you are still using the old wait option, you may migrate to the new useSuspense behaviour.");const d={...$(),...t.options.react,...a},{useSuspense:N,keyPrefix:w}=d;let r=e||o||((A=t.options)==null?void 0:A.defaultNS);r=m(r)?[r]:r||["translation"],(P=(L=t.reportNamespaces).addUsedNamespaces)==null||P.call(L,r);const g=(t.isInitialized||t.initializedStoreOnce)&&r.every(i=>B(i,t,d)),_=X(t,a.lng||null,d.nsMode==="fallback"?r:r[0],w),S=()=>_,T=()=>G(t,a.lng||null,d.nsMode==="fallback"?r:r[0],w),[b,h]=c.useState(S);let y=r.join();a.lng&&(y=`${a.lng}${y}`);const I=K(y),p=c.useRef(!0);c.useEffect(()=>{const{bindI18n:i,bindI18nStore:u}=d;p.current=!0,!g&&!N&&(a.lng?z(t,a.lng,r,()=>{p.current&&h(T)}):C(t,r,()=>{p.current&&h(T)})),g&&I&&I!==y&&p.current&&h(T);const l=()=>{p.current&&h(T)};return i&&(t==null||t.on(i,l)),u&&(t==null||t.store.on(u,l)),()=>{p.current=!1,t&&(i==null||i.split(" ").forEach(f=>t.off(f,l))),u&&t&&u.split(" ").forEach(f=>t.store.off(f,l))}},[t,y]),c.useEffect(()=>{p.current&&g&&h(S)},[t,w,g]);const E=[b,t,g];if(E.t=b,E.i18n=t,E.ready=g,g||!g&&!N)return E;throw new Promise(i=>{a.lng?z(t,a.lng,r,()=>i()):C(t,r,()=>i())})};function Z(e){return function(){const n={params:M(),loaderData:O(),actionData:D(),matches:J()};return c.createElement(e,n)}}function V(e){return function(){const n={params:M(),loaderData:O(),actionData:D(),error:U()};return c.createElement(e,n)}}export{V as a,Q as u,Z as w};
+!(function () {
+	try {
+		var e =
+				"undefined" != typeof window
+					? window
+					: "undefined" != typeof global
+						? global
+						: "undefined" != typeof globalThis
+							? globalThis
+							: "undefined" != typeof self
+								? self
+								: {},
+			n = new e.Error().stack;
+		n &&
+			((e._sentryDebugIds = e._sentryDebugIds || {}),
+			(e._sentryDebugIds[n] = "9173a832-ad21-5583-ab37-bec4fc707093"));
+	} catch (e) {}
+})();
+import {
+	b as c,
+	I as j,
+	D as k,
+	E as W,
+	G as $,
+	H as J,
+	A as D,
+	q as O,
+	J as M,
+	K as U,
+} from "./chunk-D4RADZKF-DVqrdyfo.js";
+const q = (e, a, n, s) => {
+		var t, d, N, w;
+		const o = [n, { code: a, ...(s || {}) }];
+		if (
+			(d = (t = e == null ? void 0 : e.services) == null ? void 0 : t.logger) !=
+				null &&
+			d.forward
+		)
+			return e.services.logger.forward(o, "warn", "react-i18next::", !0);
+		m(o[0]) && (o[0] = `react-i18next:: ${o[0]}`),
+			(w = (N = e == null ? void 0 : e.services) == null ? void 0 : N.logger) !=
+				null && w.warn
+				? e.services.logger.warn(...o)
+				: console != null && console.warn && console.warn(...o);
+	},
+	v = {},
+	x = (e, a, n, s) => {
+		(m(n) && v[n]) || (m(n) && (v[n] = new Date()), q(e, a, n, s));
+	},
+	F = (e, a) => () => {
+		if (e.isInitialized) a();
+		else {
+			const n = () => {
+				setTimeout(() => {
+					e.off("initialized", n);
+				}, 0),
+					a();
+			};
+			e.on("initialized", n);
+		}
+	},
+	C = (e, a, n) => {
+		e.loadNamespaces(a, F(e, n));
+	},
+	z = (e, a, n, s) => {
+		if (
+			(m(n) && (n = [n]),
+			e.options.preload && e.options.preload.indexOf(a) > -1)
+		)
+			return C(e, n, s);
+		n.forEach((o) => {
+			e.options.ns.indexOf(o) < 0 && e.options.ns.push(o);
+		}),
+			e.loadLanguages(a, F(e, s));
+	},
+	B = (e, a, n = {}) =>
+		!a.languages || !a.languages.length
+			? (x(a, "NO_LANGUAGES", "i18n.languages were undefined or empty", {
+					languages: a.languages,
+				}),
+				!0)
+			: a.hasLoadedNamespace(e, {
+					lng: n.lng,
+					precheck: (s, o) => {
+						var t;
+						if (
+							((t = n.bindI18n) == null
+								? void 0
+								: t.indexOf("languageChanging")) > -1 &&
+							s.services.backendConnector.backend &&
+							s.isLanguageChangingTo &&
+							!o(s.isLanguageChangingTo, e)
+						)
+							return !1;
+					},
+				}),
+	m = (e) => typeof e == "string",
+	H = (e) => typeof e == "object" && e !== null,
+	K = (e, a) => {
+		const n = c.useRef();
+		return (
+			c.useEffect(() => {
+				n.current = e;
+			}, [e, a]),
+			n.current
+		);
+	},
+	G = (e, a, n, s) => e.getFixedT(a, n, s),
+	X = (e, a, n, s) => c.useCallback(G(e, a, n, s), [e, a, n, s]),
+	Q = (e, a = {}) => {
+		var R, A, L, P;
+		const { i18n: n } = a,
+			{ i18n: s, defaultNS: o } = c.useContext(j) || {},
+			t = n || s || k();
+		if ((t && !t.reportNamespaces && (t.reportNamespaces = new W()), !t)) {
+			x(
+				t,
+				"NO_I18NEXT_INSTANCE",
+				"useTranslation: You will need to pass in an i18next instance by using initReactI18next",
+			);
+			const i = (l, f) =>
+					m(f)
+						? f
+						: H(f) && m(f.defaultValue)
+							? f.defaultValue
+							: Array.isArray(l)
+								? l[l.length - 1]
+								: l,
+				u = [i, {}, !1];
+			return (u.t = i), (u.i18n = {}), (u.ready = !1), u;
+		}
+		(R = t.options.react) != null &&
+			R.wait &&
+			x(
+				t,
+				"DEPRECATED_OPTION",
+				"useTranslation: It seems you are still using the old wait option, you may migrate to the new useSuspense behaviour.",
+			);
+		const d = { ...$(), ...t.options.react, ...a },
+			{ useSuspense: N, keyPrefix: w } = d;
+		let r = e || o || ((A = t.options) == null ? void 0 : A.defaultNS);
+		(r = m(r) ? [r] : r || ["translation"]),
+			(P = (L = t.reportNamespaces).addUsedNamespaces) == null || P.call(L, r);
+		const g =
+				(t.isInitialized || t.initializedStoreOnce) &&
+				r.every((i) => B(i, t, d)),
+			_ = X(t, a.lng || null, d.nsMode === "fallback" ? r : r[0], w),
+			S = () => _,
+			T = () => G(t, a.lng || null, d.nsMode === "fallback" ? r : r[0], w),
+			[b, h] = c.useState(S);
+		let y = r.join();
+		a.lng && (y = `${a.lng}${y}`);
+		const I = K(y),
+			p = c.useRef(!0);
+		c.useEffect(() => {
+			const { bindI18n: i, bindI18nStore: u } = d;
+			(p.current = !0),
+				!g &&
+					!N &&
+					(a.lng
+						? z(t, a.lng, r, () => {
+								p.current && h(T);
+							})
+						: C(t, r, () => {
+								p.current && h(T);
+							})),
+				g && I && I !== y && p.current && h(T);
+			const l = () => {
+				p.current && h(T);
+			};
+			return (
+				i && (t == null || t.on(i, l)),
+				u && (t == null || t.store.on(u, l)),
+				() => {
+					(p.current = !1),
+						t && (i == null || i.split(" ").forEach((f) => t.off(f, l))),
+						u && t && u.split(" ").forEach((f) => t.store.off(f, l));
+				}
+			);
+		}, [t, y]),
+			c.useEffect(() => {
+				p.current && g && h(S);
+			}, [t, w, g]);
+		const E = [b, t, g];
+		if (((E.t = b), (E.i18n = t), (E.ready = g), g || (!g && !N))) return E;
+		throw new Promise((i) => {
+			a.lng ? z(t, a.lng, r, () => i()) : C(t, r, () => i());
+		});
+	};
+function Z(e) {
+	return function () {
+		const n = { params: M(), loaderData: O(), actionData: D(), matches: J() };
+		return c.createElement(e, n);
+	};
+}
+function V(e) {
+	return function () {
+		const n = { params: M(), loaderData: O(), actionData: D(), error: U() };
+		return c.createElement(e, n);
+	};
+}
+export { V as a, Q as u, Z as w };
 
 //# debugId=9173a832-ad21-5583-ab37-bec4fc707093

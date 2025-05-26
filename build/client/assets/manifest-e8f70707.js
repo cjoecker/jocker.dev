@@ -1,3 +1,111 @@
-window.__reactRouterManifest={"entry":{"module":"/assets/entry.client-CkOIU9JT.js","imports":["/assets/chunk-D4RADZKF-DVqrdyfo.js","/assets/i18n-CcYMxFnS.js","/assets/es-U_uln9Pb.js"],"css":[]},"routes":{"root":{"id":"root","path":"","hasAction":false,"hasLoader":true,"hasClientAction":false,"hasClientLoader":false,"hasClientMiddleware":false,"hasErrorBoundary":true,"module":"/assets/root-D-xMKFFd.js","imports":["/assets/chunk-D4RADZKF-DVqrdyfo.js","/assets/i18n-CcYMxFnS.js","/assets/es-U_uln9Pb.js","/assets/with-props-DPDmm-s_.js","/assets/use-hydrated-Bl0M1cM4.js","/assets/misc-CkINB2q5.js"],"css":[]},"routes/_index":{"id":"routes/_index","parentId":"root","path":"/:locale","hasAction":false,"hasLoader":false,"hasClientAction":false,"hasClientLoader":false,"hasClientMiddleware":false,"hasErrorBoundary":false,"module":"/assets/_index-OIRC3iXb.js","imports":["/assets/with-props-DPDmm-s_.js","/assets/chunk-D4RADZKF-DVqrdyfo.js","/assets/use-hydrated-Bl0M1cM4.js","/assets/button-Wq5pn2Q5.js","/assets/misc-CkINB2q5.js","/assets/es-U_uln9Pb.js"],"css":[]},"routes/contact":{"id":"routes/contact","parentId":"routes/_index","path":"contact","hasAction":true,"hasLoader":false,"hasClientAction":false,"hasClientLoader":false,"hasClientMiddleware":false,"hasErrorBoundary":false,"module":"/assets/contact-DZG6Wt4L.js","imports":["/assets/with-props-DPDmm-s_.js","/assets/chunk-D4RADZKF-DVqrdyfo.js","/assets/use-hydrated-Bl0M1cM4.js","/assets/button-Wq5pn2Q5.js"],"css":[]},"routes/not-found":{"id":"routes/not-found","parentId":"root","path":"*","hasAction":false,"hasLoader":true,"hasClientAction":false,"hasClientLoader":false,"hasClientMiddleware":false,"hasErrorBoundary":false,"module":"/assets/not-found-8hKXd7jQ.js","imports":["/assets/with-props-DPDmm-s_.js","/assets/chunk-D4RADZKF-DVqrdyfo.js"],"css":[]}},"url":"/assets/manifest-e8f70707.js","version":"e8f70707"};
-!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="fd0c35de-9d78-56bd-9973-6e126217c843")}catch(e){}}();
+window.__reactRouterManifest = {
+	entry: {
+		module: "/assets/entry.client-CkOIU9JT.js",
+		imports: [
+			"/assets/chunk-D4RADZKF-DVqrdyfo.js",
+			"/assets/i18n-CcYMxFnS.js",
+			"/assets/es-U_uln9Pb.js",
+		],
+		css: [],
+	},
+	routes: {
+		root: {
+			id: "root",
+			path: "",
+			hasAction: false,
+			hasLoader: true,
+			hasClientAction: false,
+			hasClientLoader: false,
+			hasClientMiddleware: false,
+			hasErrorBoundary: true,
+			module: "/assets/root-D-xMKFFd.js",
+			imports: [
+				"/assets/chunk-D4RADZKF-DVqrdyfo.js",
+				"/assets/i18n-CcYMxFnS.js",
+				"/assets/es-U_uln9Pb.js",
+				"/assets/with-props-DPDmm-s_.js",
+				"/assets/use-hydrated-Bl0M1cM4.js",
+				"/assets/misc-CkINB2q5.js",
+			],
+			css: [],
+		},
+		"routes/_index": {
+			id: "routes/_index",
+			parentId: "root",
+			path: "/:locale",
+			hasAction: false,
+			hasLoader: false,
+			hasClientAction: false,
+			hasClientLoader: false,
+			hasClientMiddleware: false,
+			hasErrorBoundary: false,
+			module: "/assets/_index-OIRC3iXb.js",
+			imports: [
+				"/assets/with-props-DPDmm-s_.js",
+				"/assets/chunk-D4RADZKF-DVqrdyfo.js",
+				"/assets/use-hydrated-Bl0M1cM4.js",
+				"/assets/button-Wq5pn2Q5.js",
+				"/assets/misc-CkINB2q5.js",
+				"/assets/es-U_uln9Pb.js",
+			],
+			css: [],
+		},
+		"routes/contact": {
+			id: "routes/contact",
+			parentId: "routes/_index",
+			path: "contact",
+			hasAction: true,
+			hasLoader: false,
+			hasClientAction: false,
+			hasClientLoader: false,
+			hasClientMiddleware: false,
+			hasErrorBoundary: false,
+			module: "/assets/contact-DZG6Wt4L.js",
+			imports: [
+				"/assets/with-props-DPDmm-s_.js",
+				"/assets/chunk-D4RADZKF-DVqrdyfo.js",
+				"/assets/use-hydrated-Bl0M1cM4.js",
+				"/assets/button-Wq5pn2Q5.js",
+			],
+			css: [],
+		},
+		"routes/not-found": {
+			id: "routes/not-found",
+			parentId: "root",
+			path: "*",
+			hasAction: false,
+			hasLoader: true,
+			hasClientAction: false,
+			hasClientLoader: false,
+			hasClientMiddleware: false,
+			hasErrorBoundary: false,
+			module: "/assets/not-found-8hKXd7jQ.js",
+			imports: [
+				"/assets/with-props-DPDmm-s_.js",
+				"/assets/chunk-D4RADZKF-DVqrdyfo.js",
+			],
+			css: [],
+		},
+	},
+	url: "/assets/manifest-e8f70707.js",
+	version: "e8f70707",
+};
+!(function () {
+	try {
+		var e =
+				"undefined" != typeof window
+					? window
+					: "undefined" != typeof global
+						? global
+						: "undefined" != typeof globalThis
+							? globalThis
+							: "undefined" != typeof self
+								? self
+								: {},
+			n = new e.Error().stack;
+		n &&
+			((e._sentryDebugIds = e._sentryDebugIds || {}),
+			(e._sentryDebugIds[n] = "fd0c35de-9d78-56bd-9973-6e126217c843"));
+	} catch (e) {}
+})();
 //# debugId=fd0c35de-9d78-56bd-9973-6e126217c843

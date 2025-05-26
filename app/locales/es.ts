@@ -108,4 +108,4 @@ export default {
 	contract: "contraer",
 	seePage: "ver página",
 	website: "sitio web",
-}  satisfies typeof en;
+} satisfies typeof en;

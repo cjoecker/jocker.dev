@@ -6,13 +6,16 @@ import {
 	isRouteErrorResponse,
 	LinksFunction,
 	MetaFunction,
-	redirect, useLoaderData
+	redirect,
+	useLoaderData,
 } from "react-router";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import { useChangeLanguage } from "remix-i18next/react";
 import { useHydrated } from "remix-utils/use-hydrated";
 
 import { Route } from "./+types/root";
 
+import { fallbackLng, setI18nLocale, supportedLngs } from "~/config/i18n";
 import { POSTHOG_IGNORE_KEY } from "~/constants/misc";
 import RalewayFont600Woff from "~/fonts/raleway-v28-latin-600.woff";
 import RalewayFont600Woff2 from "~/fonts/raleway-v28-latin-600.woff2";
@@ -20,25 +23,23 @@ import RalewayFont800Woff from "~/fonts/raleway-v28-latin-800.woff";
 import RalewayFont800Woff2 from "~/fonts/raleway-v28-latin-800.woff2";
 import RalewayFontRegularWoff from "~/fonts/raleway-v28-latin-regular.woff";
 import RalewayFontRegularWoff2 from "~/fonts/raleway-v28-latin-regular.woff2";
-import MainStyles from "~/styles/main.css?url";
-import { useChangeLanguage } from "remix-i18next/react";
-import { useTranslation } from "react-i18next";
 import i18nServer from "~/modules/i18n.server";
-import { fallbackLng, setI18nLocale, supportedLngs } from "~/config/i18n";
+import MainStyles from "~/styles/main.css?url";
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
 	return [
 		{
-			title:
-			data?.pageTitle,
+			title: data?.pageTitle,
 		},
 		{ charset: "utf-8" },
 		{
 			name: "description",
-			content:data?.pageDescription},
+			content: data?.pageDescription,
+		},
 		{
 			name: "keywords",
-			content: data?.pageKeywords},
+			content: data?.pageKeywords,
+		},
 		{
 			name: "viewport",
 			content:
@@ -148,9 +149,9 @@ export async function loader({ request }: Route.LoaderArgs) {
 	const pageDescription = t("pageDescription");
 	const pageKeywords = t("pageKeywords");
 
-	if(!supportedLngs.includes(localePath)) {
+	if (!supportedLngs.includes(localePath)) {
 		// return to localized URL
-		return  redirect(`/${locale}${search}`, 301);
+		return redirect(`/${locale}${search}`, 301);
 	}
 
 	if (pathname.endsWith("/") && pathname !== "/") {
@@ -158,7 +159,7 @@ export async function loader({ request }: Route.LoaderArgs) {
 		return redirect(`${pathname.slice(0, -1)}${search}`, 301);
 	}
 
-	return {locale, pageTitle, pageDescription, pageKeywords};
+	return { locale, pageTitle, pageDescription, pageKeywords };
 }
 
 function PosthogInit() {
