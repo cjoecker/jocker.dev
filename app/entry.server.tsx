@@ -4,12 +4,10 @@ import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
 import { createInstance } from "i18next";
 import { I18nextProvider, initReactI18next } from "react-i18next";
-import Backend from "i18next-fs-backend";
-import { resolve } from "node:path";
-import * as i18n from "~/config/i18n";
-import { createReadableStreamFromReadable } from "@react-router/node";
 import { EntryContext, ServerRouter } from "react-router";
+import { createReadableStreamFromReadable } from "@react-router/node";
 import i18nServer from "~/modules/i18n.server";
+import * as i18n from "~/config/i18n";
 
 const ABORT_DELAY = 5000;
 
@@ -33,7 +31,9 @@ export default async function handleRequest(
 		let didError = false;
 
 		let { pipe, abort } = renderToPipeableStream(
-			<ServerRouter context={remixContext} url={request.url} />,
+			<I18nextProvider i18n={instance}>
+				<ServerRouter context={remixContext} url={request.url} />
+			</I18nextProvider>,
 			{
 				[callbackName]: () => {
 					let body = new PassThrough();
