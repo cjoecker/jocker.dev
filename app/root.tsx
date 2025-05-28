@@ -141,6 +141,8 @@ export const handle = { i18n: ["translation"] };
 export async function loader({ request }: Route.LoaderArgs) {
 	const { pathname, search } = new URL(request.url);
 
+	throw new Error("This is a test error for Sentry");
+
 	const locale = await i18nServer.getLocale(request);
 	const localePath = pathname.split("/")[1];
 
