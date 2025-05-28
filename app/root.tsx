@@ -75,7 +75,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 			"script:ld+json": {
 				"@context": "http://schema.org",
 				"@type": "Organization",
-				name: "Christian Jöcker - Freelance Full-Stack Developer and UX/UI designer",
+				name: data?.pageTitle,
 				url: "https://jocker.dev",
 				logo: "https://jocker.dev/favicons/android-chrome-256x256.png",
 			},
@@ -85,8 +85,6 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 
 export const links: LinksFunction = () => {
 	return [
-		{ rel: "preload", href: MainStyles, as: "style" },
-		{ rel: "preload", href: SplideStyles, as: "style" },
 		{
 			rel: "preload",
 			as: "image",
@@ -157,6 +155,8 @@ export const links: LinksFunction = () => {
 			sizes: "32x32",
 			href: "/favicon.png",
 		},
+		{ rel: "stylesheet", href: MainStyles, as: "style" },
+		{ rel: "stylesheet", href: SplideStyles, as: "style" },
 	];
 };
 
