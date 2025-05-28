@@ -23,11 +23,11 @@ import RalewayFont800Woff from "~/fonts/raleway-v28-latin-800.woff";
 import RalewayFont800Woff2 from "~/fonts/raleway-v28-latin-800.woff2";
 import RalewayFontRegularWoff from "~/fonts/raleway-v28-latin-regular.woff";
 import RalewayFontRegularWoff2 from "~/fonts/raleway-v28-latin-regular.woff2";
+import MeshBlue from "~/images/mesh-blue.svg";
+import MeshPurple from "~/images/mesh-purple.svg";
+import MeshTurquoise from "~/images/mesh-turquoise.svg";
 import i18nServer from "~/modules/i18n.server";
 import MainStyles from "~/styles/main.css?url";
-import MeshBlue from "../../images/mesh-blue.svg";
-import MeshPurple from "../../images/mesh-purple.svg";
-import MeshTurquoise from "../../images/mesh-turquoise.svg";
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
 	return [

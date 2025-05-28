@@ -3,21 +3,31 @@ import React from "react";
 
 export interface ButtonProps {
 	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+	href?: string;
 	children?: React.ReactNode;
 	iconButton?: boolean;
 	ariaLabel?: string;
 }
+
 export const Button = ({
 	onClick,
+	href,
 	children,
 	iconButton,
 	ariaLabel,
 }: ButtonProps) => {
+	const ButtonElement = onClick ? motion.button : motion.a;
+	if (href && onClick) {
+		throw new Error("Button cannot have both onClick and href props.");
+	}
+
 	return (
 		<div className="grow-0">
-			<motion.button
+			<ButtonElement
 				aria-label={ariaLabel}
-				onClick={onClick}
+				onClick={onClick as never}
+				href={href}
+				target={href ? "_blank" : undefined}
 				style={{ boxShadow: "0px 0px 30px -10px #00DFD866" }}
 				whileTap={{ scale: 1 }}
 				whileHover={{ scale: 1.05 }}
@@ -28,7 +38,7 @@ export const Button = ({
 				>
 					{children}
 				</div>
-			</motion.button>
+			</ButtonElement>
 		</div>
 	);
 };
@@ -37,6 +47,7 @@ export interface ButtonIconProps {
 	alt: string;
 	src: string;
 }
+
 export const ButtonIcon = ({ alt, src }: ButtonIconProps) => {
 	return (
 		<img

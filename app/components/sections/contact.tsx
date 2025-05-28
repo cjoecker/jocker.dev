@@ -4,7 +4,6 @@ import React from "react";
 import { Section } from "../shared/section";
 
 import { Button, ButtonIcon } from "~/components/shared/button";
-import { ExternalRedirect } from "~/components/shared/external-redirect";
 import { useNavigate } from "~/hooks/use-navigate";
 import EmailIcon from "~/images/email.svg";
 import GithubIcon from "~/images/github.svg";
@@ -76,32 +75,20 @@ export const ContactButton = ({
 }) => {
 	const isMessageButton = contactInformation.alt === "message";
 	const navigate = useNavigate();
+	const href = isMessageButton ? undefined : contactInformation.href;
+	const handleClick = isMessageButton
+		? () => {
+				void navigate("/contact", { preventScrollReset: true });
+			}
+		: undefined;
 	return (
 		<Button
 			iconButton
 			ariaLabel={contactInformation.text}
-			onClick={() => {
-				if (isMessageButton) {
-					void navigate("/contact", { preventScrollReset: true });
-				}
-			}}
+			onClick={handleClick}
+			href={href}
 		>
-			{isMessageButton ? (
-				<ButtonIcon
-					alt={contactInformation.alt}
-					src={contactInformation.image}
-				/>
-			) : (
-				<ExternalRedirect
-					className="flex h-full w-full"
-					to={contactInformation.href}
-				>
-					<ButtonIcon
-						alt={contactInformation.alt}
-						src={contactInformation.image}
-					/>
-				</ExternalRedirect>
-			)}
+			<ButtonIcon alt={contactInformation.alt} src={contactInformation.image} />
 		</Button>
 	);
 };
