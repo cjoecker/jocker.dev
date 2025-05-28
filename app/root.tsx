@@ -182,7 +182,6 @@ export async function loader({ request }: Route.LoaderArgs) {
 		// Redirect to the same URL without a trailing slash
 		return redirect(`${pathname.slice(0, -1)}${search}`, 301);
 	}
-
 	return { locale, pageTitle, pageDescription, pageKeywords };
 }
 

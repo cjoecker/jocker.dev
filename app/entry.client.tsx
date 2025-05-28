@@ -10,7 +10,7 @@ import { getInitialNamespaces } from "remix-i18next/client";
 import * as i18n from "~/config/i18n";
 import { sentryConfig } from "~/constants/misc";
 
-Sentry.init(sentryConfig);
+Sentry.init({ ...sentryConfig, integrations: [Sentry.replayIntegration()] });
 
 async function hydrate() {
 	await i18next
