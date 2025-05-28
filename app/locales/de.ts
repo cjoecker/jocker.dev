@@ -6,7 +6,7 @@ export default {
 	fullStackDeveloperPrefix: "ein",
 	uxUiDesigner: "UX/UI Designer.",
 	iDontJustProgramFeatures:
-		"Ich programmiere nicht nur Funktionen. Ich helfe dir dabei, skalierbare Apps mit großartigen Benutzererlebnissen zu erstellen, die Bestand hat!",
+		"Ich programmiere nicht nur Funktionen. Ich helfe dir, skalierbare Apps mit einem großartigen Nutzererlebnis zu bauen, die wirklich etwas taugen!",
 	discoverMore: "Mehr Entdecken!",
 	whatICanDoForYou: "Was Ich für Dich Tun Kann",
 	skills: "Skills",
@@ -40,7 +40,7 @@ export default {
 	lowCodeApps: "Low-Code Apps",
 	whyReinventWheel:
 		"Warum das Rad neu erfinden? Nicht jede App muss von Grund auf neu gebaut werden!\n\nIch helfe dir zu entscheiden, ob ein Low-Code-Tool wie Mendix oder Bubble zu deiner Idee passt. Dann bauen wir es schnell und richtig!\n\nEinfach, kosteneffektiv und auf deine Bedürfnisse zugeschnitten!",
-	digitalStrategy: "Digitale Strategieberatung",
+	digitalStrategy: "Digitale Strategie",
 	withYearsExperience:
 		"Mit über {{years}} Jahren Erfahrung in der Tech-Branche und einer Erfolgsbilanz mit digitalen Produkten in verschiedenen Branchen habe ich die Expertise, die du für deinen Erfolg brauchst!\n\nEgal ob du ein neues Produkt lancieren, ein bestehendes neu beleben oder einfach dein Spiel verbessern möchtest, ich helfe dir, einen Weg zum Erfolg zu planen!",
 	yearsOfExperience: "Jahre Erfahrung",
