@@ -8,4 +8,6 @@ export const sentryConfig: BrowserOptions | NodeOptions = {
 	integrations: [],
 	enabled: !import.meta.env.DEV,
 	ignoreErrors: ["No route matches URL"],
+	replaysSessionSampleRate: 0.1,
+	replaysOnErrorSampleRate: 1,
 };

@@ -8,6 +8,7 @@ import {
 	useTransform,
 } from "framer-motion";
 import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useMouse } from "react-use";
 
 import MeshBlue from "../../images/mesh-blue.svg";
@@ -17,6 +18,7 @@ import MeshTurquoise from "../../images/mesh-turquoise.svg";
 import { useEffectUnsafe } from "~/hooks/unsafe-hookst";
 
 export const Header = () => {
+	const { t } = useTranslation();
 	const ref = useRef<HTMLDivElement>(null);
 
 	const { scrollY } = useScroll({ target: ref });
@@ -63,16 +65,14 @@ export const Header = () => {
 					style={{ y: titleY }}
 					className="mx-2 mb-8 text-2xl font-bold sm:text-3xl"
 				>
-					Hi, I&#39;m Christian Jöcker,
-					<br />
+					<span>{t("hiImChristian")}</span>
 					<AnimatedWord />
 				</motion.h1>
 				<motion.p
 					style={{ y: subtitleY }}
 					className="text-md mr-4 mb-16 font-normal sm:mb-28 sm:text-lg md:mr-[25vw]"
 				>
-					I don&#39;t just code features, I help you build scalable apps with
-					amazing user experiences and code that holds up!
+					{t("iDontJustProgramFeatures")}
 				</motion.p>
 				<motion.button
 					style={{ y: buttonY, boxShadow: "0px 0px 90px -15px #00DFD8" }}
@@ -82,7 +82,7 @@ export const Header = () => {
 					className="from-turquoise to-blue text-secondary rounded-md bg-linear-to-br text-lg font-semibold select-none hover:cursor-pointer"
 				>
 					<div className="bg-neutral-dark/80 pointer-events-none m-[1px] rounded-md px-6 py-4">
-						Discover More
+						{t("discoverMore")}
 					</div>
 				</motion.button>
 			</div>
@@ -108,6 +108,7 @@ export const Background = ({ mouseX, mouseY }: Props) => {
 				style={{ x: mouseX, y: mouseY }}
 				className="absolute top-[-30vh] right-[-40vw] h-[85vh] w-[130vw]"
 				src={MeshPurple}
+				loading="eager"
 			/>
 			<motion.img
 				alt=""
@@ -115,12 +116,14 @@ export const Background = ({ mouseX, mouseY }: Props) => {
 				style={{ x: blueMeshX, y: blueMeshY }}
 				className="absolute top-[-30vh] right-[-45vw] h-[120vh] w-[120vw] md:top-[-5vh]"
 				src={MeshTurquoise}
+				loading="eager"
 			/>
 			<motion.img
 				alt=""
 				aria-hidden="true"
 				className="absolute top-[-10vh] left-[-35vw] h-[100vh] w-[100vw]"
 				src={MeshBlue}
+				loading="eager"
 			/>
 		</>
 	);
@@ -132,7 +135,7 @@ function useParallax(scrollY: MotionValue<number>, multiplicator: number) {
 	});
 }
 
-const ANIMATED_WORDS = ["Full-Stack Developer.", "UX/UI Designer."];
+const ANIMATED_WORDS: string[] = ["fullStackDeveloper", "uxUiDesigner"];
 const STAGGER_DURATION = 0.03;
 
 const READING_TIME = 2500;
@@ -140,10 +143,15 @@ const HIDE_TIME_OFFSET = 200;
 const SPACE_CHAR = "\u00A0";
 
 function AnimatedWord() {
+	const { t } = useTranslation();
 	const [wordIndex, setWordIndex] = useState(0);
-	const animatedText = ANIMATED_WORDS[wordIndex];
+	const animatedText = t(ANIMATED_WORDS[wordIndex]);
 	const textLength = animatedText.length;
-	const ariaLabel = ANIMATED_WORDS.join(" and ").replaceAll(".", "");
+	const ariaLabel = ANIMATED_WORDS.map((key: string) => {
+		return t(key);
+	})
+		.join(" and ")
+		.replaceAll(".", "");
 	const controls = useAnimation();
 	const [animationStarted, setAnimationStarted] = useState(false);
 
@@ -174,16 +182,16 @@ function AnimatedWord() {
 	const words = animatedText.split(" ");
 	return (
 		<span className="flex flex-wrap" aria-label={ariaLabel}>
-			{`a${SPACE_CHAR}`}
+			{`${t("fullStackDeveloperPrefix")}${SPACE_CHAR}`}
 			{/* Words split for wrapping them on narrow screens */}
-			{words.map((word, wordIndex) => {
+			{words.map((word: string, wordIndex: number) => {
 				const wordWithSpaces =
 					wordIndex + 1 === words.length ? word : word + SPACE_CHAR;
 				// eslint-disable-next-line @typescript-eslint/no-misused-spread
 				const letters = [...wordWithSpaces];
 				const prevWordsLength = words
 					.slice(0, wordIndex)
-					.reduce((acc, curr) => {
+					.reduce((acc: number, curr: string) => {
 						return acc + curr.length;
 					}, 0);
 

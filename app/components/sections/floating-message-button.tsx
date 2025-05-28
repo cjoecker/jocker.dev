@@ -1,17 +1,17 @@
 import { motion, useAnimation, Variants } from "framer-motion";
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router";
 import { useLocation } from "react-use";
 
+import { ContactInformation } from "~/components/sections/contact";
 import { Button, ButtonIcon } from "~/components/shared/button";
-import { ContactInformation } from "~/constants/contact-information";
+import { useNavigate } from "~/hooks/use-navigate";
 import useVisibleSection from "~/hooks/use-visible-section";
 
 const hiddenMessageButtonSections = new Set([
 	// empty string is the header section
 	"",
 	"what_i_can_do_for_you",
-	"contact_me!",
+	"contact",
 ]);
 
 const animationVariants: Variants = {
@@ -59,7 +59,7 @@ export const MessageFloatingButton = () => {
 	useEffect(() => {
 		if (
 			hiddenMessageButtonSections.has(visibleSection) ||
-			location.pathname === "/contact"
+			location.pathname?.endsWith("/contact")
 		) {
 			void controls.start("hidden");
 		} else if (visibleSection.includes("community_contributions")) {

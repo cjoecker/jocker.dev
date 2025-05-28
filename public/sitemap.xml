@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-        <loc>https://jocker.dev</loc>
+        <loc>https://jocker.dev/en</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://jocker.dev/en"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://jocker.dev/de"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://jocker.dev/es"/>
+    </url>
+    <url>
+        <loc>https://jocker.dev/de</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://jocker.dev/en"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://jocker.dev/de"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://jocker.dev/es"/>
+    </url>
+    <url>
+        <loc>https://jocker.dev/es</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://jocker.dev/en"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://jocker.dev/de"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://jocker.dev/es"/>
     </url>
 </urlset>

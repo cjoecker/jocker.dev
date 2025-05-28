@@ -2,6 +2,14 @@
 
 @config '../../tailwind.config.ts';
 
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+	input,
+	select,
+	textarea {
+		font-size: 16px;
+	}
+}
+
 /* raleway-regular - latin */
 @font-face {
 	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -181,4 +189,8 @@ img {
 
 .splide__track {
 	padding-bottom: 90px !important;
+}
+
+.markdown p {
+	margin: 0 0 20px;
 }
