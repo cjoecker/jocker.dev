@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { useNavigate } from "react-router";
 
 import { Section } from "../shared/section";
 
 import { Button, ButtonIcon } from "~/components/shared/button";
 import { ExternalRedirect } from "~/components/shared/external-redirect";
+import { useNavigate } from "~/hooks/use-navigate";
 import EmailIcon from "~/images/email.svg";
 import GithubIcon from "~/images/github.svg";
 import LinkedinIcon from "~/images/linkedin.svg";
