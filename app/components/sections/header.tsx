@@ -108,6 +108,7 @@ export const Background = ({ mouseX, mouseY }: Props) => {
 				style={{ x: mouseX, y: mouseY }}
 				className="absolute top-[-30vh] right-[-40vw] h-[85vh] w-[130vw]"
 				src={MeshPurple}
+				loading="eager"
 			/>
 			<motion.img
 				alt=""
@@ -115,12 +116,14 @@ export const Background = ({ mouseX, mouseY }: Props) => {
 				style={{ x: blueMeshX, y: blueMeshY }}
 				className="absolute top-[-30vh] right-[-45vw] h-[120vh] w-[120vw] md:top-[-5vh]"
 				src={MeshTurquoise}
+				loading="eager"
 			/>
 			<motion.img
 				alt=""
 				aria-hidden="true"
 				className="absolute top-[-10vh] left-[-35vw] h-[100vh] w-[100vw]"
 				src={MeshBlue}
+				loading="eager"
 			/>
 		</>
 	);

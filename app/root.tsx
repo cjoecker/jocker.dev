@@ -25,6 +25,9 @@ import RalewayFontRegularWoff from "~/fonts/raleway-v28-latin-regular.woff";
 import RalewayFontRegularWoff2 from "~/fonts/raleway-v28-latin-regular.woff2";
 import i18nServer from "~/modules/i18n.server";
 import MainStyles from "~/styles/main.css?url";
+import MeshBlue from "../../images/mesh-blue.svg";
+import MeshPurple from "../../images/mesh-purple.svg";
+import MeshTurquoise from "../../images/mesh-turquoise.svg";
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
 	return [
@@ -87,6 +90,21 @@ export const links: LinksFunction = () => {
 		{ rel: "stylesheet", href: SplideStyles },
 		{
 			rel: "preload",
+			as: "image",
+			href: MeshBlue,
+		},
+		{
+			rel: "preload",
+			as: "image",
+			href: MeshPurple,
+		},
+		{
+			rel: "preload",
+			as: "image",
+			href: MeshTurquoise,
+		},
+		{
+			rel: "preload",
 			as: "font",
 			href: RalewayFontRegularWoff2,
 			type: "font/woff2",
@@ -128,6 +146,13 @@ export const links: LinksFunction = () => {
 			crossOrigin: "anonymous",
 		},
 		{
+			rel: "preload",
+			as: "font",
+			href: RalewayFont800Woff,
+			type: "font/woff",
+			crossOrigin: "anonymous",
+		},
+		{
 			rel: "icon",
 			type: "image/png",
 			sizes: "32x32",
@@ -140,8 +165,6 @@ export const handle = { i18n: ["translation"] };
 
 export async function loader({ request }: Route.LoaderArgs) {
 	const { pathname, search } = new URL(request.url);
-
-	throw new Error("This is a test error for Sentry");
 
 	const locale = await i18nServer.getLocale(request);
 	const localePath = pathname.split("/")[1];
