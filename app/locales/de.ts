@@ -2,7 +2,7 @@ import type en from "./en";
 
 export default {
 	hiImChristian: "Hi, ich bin Christian Jöcker,",
-	fullStackDeveloper: "Full-Stack Entwickler.",
+	fullStackDeveloper: "Fullstack Entwickler.",
 	fullStackDeveloperPrefix: "ein",
 	uxUiDesigner: "UX/UI Designer.",
 	iDontJustProgramFeatures:
@@ -54,7 +54,7 @@ export default {
 	kukaSoftwareEngineer: "Software-Ingenieur - Virtuelle Inbetriebnahme",
 	kukaAreaManager: "Teamleiter - Virtuelle Inbetriebnahme",
 	seniorSoftwareEngineer: "Senior Software-Ingenieur",
-	freelanceDeveloper: "Freelance Full-Stack Entwickler & UX/UI Designer",
+	freelanceDeveloper: "Freelance Fullstack Entwickler & UX/UI Designer",
 	augsburgGermany: "Augsburg, Deutschland",
 	munichGermany: "München, Deutschland",
 	valenciaSpain: "Valencia, Spanien",
@@ -88,7 +88,7 @@ export default {
 	yearAbbreviation: "J",
 	monthAbbreviation: "M",
 	notFound: "404 - Nicht gefunden",
-	pageTitle: "Christian Jöcker - Full-Stack Entwickler und UX/UI Designer",
+	pageTitle: "Christian Jöcker - Fullstack Entwickler und UX/UI Designer",
 	pageDescription:
 		"Entwickler von großartige Erlebnisse mit schönen Web-Anwendungen. Zufriedene Kunden, sauberer Code und nachhaltige Architekturen sind meine Prioritäten.",
 	pageKeywords:
