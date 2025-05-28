@@ -85,8 +85,8 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 
 export const links: LinksFunction = () => {
 	return [
-		{ rel: "stylesheet", href: MainStyles },
-		{ rel: "stylesheet", href: SplideStyles },
+		{ rel: "stylesheet", href: MainStyles, as: "style" },
+		{ rel: "stylesheet", href: SplideStyles, as: "style" },
 		{
 			rel: "preload",
 			as: "image",
