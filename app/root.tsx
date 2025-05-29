@@ -16,7 +16,7 @@ import { useHydrated } from "remix-utils/use-hydrated";
 import { Route } from "./+types/root";
 
 import { fallbackLng, setI18nLocale, supportedLngs } from "~/config/i18n";
-import { POSTHOG_IGNORE_KEY } from "~/constants/misc";
+import { googleAnalyticsId, POSTHOG_IGNORE_KEY } from "~/constants/misc";
 import RalewayFont600Woff from "~/fonts/raleway-v28-latin-600.woff";
 import RalewayFont600Woff2 from "~/fonts/raleway-v28-latin-600.woff2";
 import RalewayFont800Woff from "~/fonts/raleway-v28-latin-800.woff";
@@ -212,6 +212,27 @@ export default function Root() {
 	return (
 		<html lang={locale}>
 			<head>
+				{process.env.NODE_ENV === "development" ? null : (
+					<>
+						<script
+							async
+							src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+						/>
+						<script
+							async
+							id="gtag-init"
+							dangerouslySetInnerHTML={{
+								__html: `
+							window.dataLayer = window.dataLayer || [];
+							function gtag(){dataLayer.push(arguments);}
+							gtag('js', new Date());
+
+							gtag('config', '${googleAnalyticsId}');
+              `,
+							}}
+						/>
+					</>
+				)}
 				<Meta />
 				<Links />
 			</head>

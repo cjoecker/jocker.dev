@@ -11,3 +11,5 @@ export const sentryConfig: BrowserOptions | NodeOptions = {
 	replaysSessionSampleRate: 0.1,
 	replaysOnErrorSampleRate: 1,
 };
+
+export const googleAnalyticsId = "G-942TBH82GN";
