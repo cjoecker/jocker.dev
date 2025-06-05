@@ -32,9 +32,6 @@ export default {
 	webApplications: "Aplicaciones Web",
 	getReadyForPlatform:
 		"¡Prepárate para una plataforma que no solo es bonita, sino construida para durar!\n\nPermíteme llevar tu idea desde el concepto hasta el lanzamiento, entregando una solución escalable adaptada a tu negocio.\n\n¡Di adiós a las aplicaciones web torpes con una experiencia digital que hará que tus usuarios digan ¡WOW!",
-	uxUiDesign: "Diseño UX/UI",
-	turnDigitalDreams:
-		"¡Tomaré tus sueños digitales y los convertiré en realidades perfectas que no solo se ven bien, sino que también se sienten geniales!\n\nMe aseguraré de que cada clic y scroll sea una experiencia placentera para tus clientes.\n\n¡Siéntate, relájate y deja que comience la magia!",
 	iotPlatforms: "Plataformas IoT",
 	stepIntoFuture:
 		"¡Adéntrate en el futuro con mi experiencia en plataformas IoT!\n\nConvirtamos tus ideas en soluciones de vanguardia que conecten el mundo físico con el digital\n\n¡Ya sea que quieras conectar tus dispositivos, revolucionar tu negocio o desatar tu sabio tecnológico interior!",
@@ -55,7 +52,7 @@ export default {
 	kukaSoftwareEngineer: "Ingeniero de Software - Comisionamiento Virtual",
 	kukaAreaManager: "Gerente de Área - Comisionamiento Virtual",
 	seniorSoftwareEngineer: "Ingeniero de Software Senior",
-	freelanceDeveloper: "Desarrollador Full-Stack y Diseñador UX/UI",
+	freelanceDeveloper: "Desarrollador Full-Stack",
 	augsburgGermany: "Augsburgo, Alemania",
 	munichGermany: "Múnich, Alemania",
 	valenciaSpain: "Valencia, España",
@@ -109,4 +106,7 @@ export default {
 	contract: "contraer",
 	seePage: "ver página",
 	website: "sitio web",
+	mvpInOneMonth: "MVP en 1 mes",
+	iBuildSolidMvps: "Desarrollo MVPs sólidos en solo un mes para que puedas probar tus funciones más valiosas desde el principio.\n\n"+
+		"No es algo desechable. Gracias a mi experiencia con tecnología escalable, tu MVP puede evolucionar hasta convertirse en el producto final sin tener que empezar desde cero."
 } satisfies typeof en;

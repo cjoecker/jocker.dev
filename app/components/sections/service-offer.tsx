@@ -24,19 +24,14 @@ export const ServiceOfferData: ServiceOfferType[] = [
 		descriptionTranslationKey: "getReadyForPlatform",
 	},
 	{
-		logo: ArtistImg,
-		titleKey: "uxUiDesign",
-		descriptionTranslationKey: "turnDigitalDreams",
+		logo: RocketImg,
+		titleKey: "mvpInOneMonth",
+		descriptionTranslationKey: "iBuildSolidMvps",
 	},
 	{
 		logo: RobotImg,
 		titleKey: "iotPlatforms",
 		descriptionTranslationKey: "stepIntoFuture",
-	},
-	{
-		logo: RocketImg,
-		titleKey: "lowCodeApps",
-		descriptionTranslationKey: "whyReinventWheel",
 	},
 	{
 		logo: StrategyImg,

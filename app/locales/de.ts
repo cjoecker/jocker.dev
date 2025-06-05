@@ -31,9 +31,6 @@ export default {
 	webApplications: "Web-Anwendungen",
 	getReadyForPlatform:
 		"Mach dich bereit für eine Plattform, die nicht nur gut aussieht, sondern auch für die Ewigkeit gebaut ist!\n\nLass mich deine Idee vom Konzept bis zum Launch begleiten und eine skalierbare Lösung liefern, die auf dein Unternehmen zugeschnitten ist.\n\nVerabschiede dich von umständlichen Web-Anwendungen mit einem digitalen Erlebnis, das deine Nutzer begeistern wird!",
-	uxUiDesign: "UX/UI Design",
-	turnDigitalDreams:
-		"Ich nehme deine digitalen Träume und verwandle sie in pixelgenaue Realitäten, die nicht nur gut aussehen, sondern sich auch gut anfühlen!\n\nIch stelle sicher, dass jeder Klick, Tipp und Wisch ein wunderbares Erlebnis für deine Kunden ist.\n\nLehn dich zurück, entspann dich und lass die Magie beginnen!",
 	iotPlatforms: "IoT-Plattformen",
 	stepIntoFuture:
 		"Betritt die Zukunft mit meiner IoT-Plattform-Expertise!\n\nLass uns deine Ideen in zukunftsweisende Lösungen verwandeln, die die physische mit der digitalen Welt verbinden\n\nEgal ob du deine Geräte verbinden, dein Geschäft revolutionieren oder deinen inneren Tech-Spezialisten entfesseln möchtest!",
@@ -54,7 +51,7 @@ export default {
 	kukaSoftwareEngineer: "Software-Ingenieur - Virtuelle Inbetriebnahme",
 	kukaAreaManager: "Teamleiter - Virtuelle Inbetriebnahme",
 	seniorSoftwareEngineer: "Senior Software-Ingenieur",
-	freelanceDeveloper: "Freelance Fullstack Entwickler & UX/UI Designer",
+	freelanceDeveloper: "Freelance Fullstack Entwickler",
 	augsburgGermany: "Augsburg, Deutschland",
 	munichGermany: "München, Deutschland",
 	valenciaSpain: "Valencia, Spanien",
@@ -111,4 +108,7 @@ export default {
 	contract: "zusammenklappen",
 	seePage: "seite anzeigen",
 	website: "website",
+	mvpInOneMonth: "MVP in 1 Monat",
+	iBuildSolidMvps: "Ich entwickle stabile MVPs in nur einem Monat, damit du deine wichtigsten Funktionen frühzeitig testen kannst.\n\n"+
+	"Es ist kein Wegwerfprodukt. Dank meiner Erfahrung mit skalierbaren Technologien kann dein MVP direkt zur finalen Lösung weiterentwickelt werden – ohne von vorne anfangen zu müssen."
 } satisfies typeof en;
