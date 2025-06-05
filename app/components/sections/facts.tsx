@@ -29,7 +29,7 @@ export const Facts = () => {
 						alt="smartphone"
 					/>
 					<Fact
-						number={13}
+						number={27}
 						label={t("happyCustomers")}
 						icon={HappyIcon}
 						alt="happy face"
