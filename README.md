@@ -1,6 +1,6 @@
 # https://jocker.dev/
 
-## Personal Working Website
+## Personal Website
 
 ![screen record](https://jocker.dev/preview-recording.gif "screen recordinf")
 

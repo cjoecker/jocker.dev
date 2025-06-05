@@ -1,10 +1,10 @@
 export default {
 	hiImChristian: "Hi, I'm Christian Jöcker,",
 	fullStackDeveloper: "Full-Stack Developer.",
+	webDeveloper: "Web Developer.",
 	fullStackDeveloperPrefix: "a",
-	uxUiDesigner: "UX/UI Designer.",
 	iDontJustProgramFeatures:
-		"I don't just code features. I help you build scalable apps with amazing user experiences and code that holds up!",
+		"I don’t just code features. I help you build scalable apps with amazing user experiences that hold up.",
 	discoverMore: "Discover More!",
 	whatICanDoForYou: "What I Can Do for You",
 	skills: "Skills",
@@ -29,9 +29,6 @@ export default {
 	webApplications: "Web Applications",
 	getReadyForPlatform:
 		"Get ready for a platform that's not just good-looking, but built to last!\n\nLet me take your idea from concept to launch, delivering a scalable solution tailored to your business.\n\nSay goodbye to clumsy web applications with a digital experience that will make your users say WOW!",
-	uxUiDesign: "UX/UI Design",
-	turnDigitalDreams:
-		"I'll take your digital dreams and turn them into pixel-perfect realities that not only look good but feel great too!\n\nI'll make sure that every click, tap, and swipe is a delightful experience for your customers.\n\nSit back, relax, and let the magic begin!",
 	iotPlatforms: "IoT Platforms",
 	stepIntoFuture:
 		"Step into the future with my IoT platform expertise!\n\nLet's turn your ideas into cutting-edge solutions that connect the physical world to the digital one\n\nWhether you want to connect your devices, revolutionize your business, or unleash your inner tech-savant!",
@@ -44,7 +41,6 @@ export default {
 	yearsOfExperience: "Years of Experience",
 	developedApps: "Developed Apps",
 	happyCustomers: "Happy Customers",
-	webDevelopment: "Web Development",
 	mechanicalEngineering: "Mechanical Engineering (B. Eng.)",
 	wildauGermany: "Wildau, Germany",
 	masterBusinessEngineering: "Master of Business Engineering (MBE®)",
@@ -52,7 +48,7 @@ export default {
 	kukaSoftwareEngineer: "Software Engineer - Virtual Commissioning",
 	kukaAreaManager: "Area Manager - Virtual Commissioning",
 	seniorSoftwareEngineer: "Senior Software Engineer",
-	freelanceDeveloper: "Freelance Full-Stack Developer & UX/UI Designer",
+	freelanceDeveloper: "Freelance Full-Stack Developer",
 	augsburgGermany: "Augsburg, Germany",
 	munichGermany: "Munich, Germany",
 	valenciaSpain: "Valencia, Spain",
@@ -83,7 +79,7 @@ export default {
 	yearAbbreviation: "Y",
 	monthAbbreviation: "m",
 	notFound: "404 - Not Found",
-	pageTitle: "Christian Jöcker - Full-Stack Developer and UX/UI designer",
+	pageTitle: "Christian Jöcker - Full-Stack Developer",
 	pageDescription:
 		"Passionate about creating great experiences with beautiful web applications. Happy customers, clean code, and sustainable architectures are my priorities.",
 	pageKeywords:
@@ -105,4 +101,8 @@ export default {
 	contract: "contract",
 	seePage: "see page",
 	website: "website",
+	mvpInOneMonth: "MVP in 1 month",
+	iBuildSolidMvps:
+		"I build solid MVPs in just one month so you can test your most valuable features early.\n\n" +
+		"It’s not a throwaway. Thanks to my experience with scalable tech, your MVP can grow into the final product without needing to start over.",
 };

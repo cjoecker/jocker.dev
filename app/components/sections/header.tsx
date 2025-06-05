@@ -135,7 +135,7 @@ function useParallax(scrollY: MotionValue<number>, multiplicator: number) {
 	});
 }
 
-const ANIMATED_WORDS: string[] = ["fullStackDeveloper", "uxUiDesigner"];
+const ANIMATED_WORDS: string[] = ["fullStackDeveloper", "webDeveloper"];
 const STAGGER_DURATION = 0.03;
 
 const READING_TIME = 2500;
