@@ -26,12 +26,12 @@ export default function Index() {
 				<div className="">
 					<ServiceOffer />
 					<Facts />
-					<Skills />
 					<CoreValues />
 					<Testimonials />
 					<ExperienceAndEducation />
 					<Contributions />
 					<CoursesAndConferences />
+					<Skills />
 					<Languages />
 					<AboutMe />
 					<Contact />

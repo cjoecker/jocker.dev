@@ -9,7 +9,7 @@ export default {
 		"No solo programo funciones. Te ayudo a crear apps escalables con experiencias de usuario increíbles que realmente funcionan.",
 	discoverMore: "¡Descubre Más!",
 	whatICanDoForYou: "Lo Que Puedo Hacer por Ti",
-	skills: "Conocimientos",
+	skills: "Skills",
 	coreValues: "Valores",
 	excellence: "Excelencia",
 	sustainableArchitecture:
@@ -44,7 +44,6 @@ export default {
 	yearsOfExperience: "Años de Experiencia",
 	developedApps: "Aplicaciones Desarrolladas",
 	happyCustomers: "Clientes Satisfechos",
-	webDevelopment: "Desarrollo Web",
 	mechanicalEngineering: "Ingeniería Mecánica (B. Eng.)",
 	wildauGermany: "Wildau, Alemania",
 	masterBusinessEngineering: "Máster en Ingeniería de Negocios (MBE®)",
@@ -107,6 +106,7 @@ export default {
 	seePage: "ver página",
 	website: "sitio web",
 	mvpInOneMonth: "MVP en 1 mes",
-	iBuildSolidMvps: "Desarrollo MVPs sólidos en solo un mes para que puedas probar tus funciones más valiosas desde el principio.\n\n"+
-		"No es algo desechable. Gracias a mi experiencia con tecnología escalable, tu MVP puede evolucionar hasta convertirse en el producto final sin tener que empezar desde cero."
+	iBuildSolidMvps:
+		"Desarrollo MVPs sólidos en solo un mes para que puedas probar tus funciones más valiosas desde el principio.\n\n" +
+		"No es algo desechable. Gracias a mi experiencia con tecnología escalable, tu MVP puede evolucionar hasta convertirse en el producto final sin tener que empezar desde cero.",
 } satisfies typeof en;

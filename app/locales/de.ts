@@ -43,7 +43,6 @@ export default {
 	yearsOfExperience: "Jahre Erfahrung",
 	developedApps: "Entwickelte Apps",
 	happyCustomers: "Zufriedene Kunden",
-	webDevelopment: "Web-Entwicklung",
 	mechanicalEngineering: "Maschinenbau (B. Eng.)",
 	wildauGermany: "Wildau, Deutschland",
 	masterBusinessEngineering: "Master of Business Engineering (MBE®)",
@@ -109,6 +108,7 @@ export default {
 	seePage: "seite anzeigen",
 	website: "website",
 	mvpInOneMonth: "MVP in 1 Monat",
-	iBuildSolidMvps: "Ich entwickle stabile MVPs in nur einem Monat, damit du deine wichtigsten Funktionen frühzeitig testen kannst.\n\n"+
-	"Es ist kein Wegwerfprodukt. Dank meiner Erfahrung mit skalierbaren Technologien kann dein MVP direkt zur finalen Lösung weiterentwickelt werden – ohne von vorne anfangen zu müssen."
+	iBuildSolidMvps:
+		"Ich entwickle stabile MVPs in nur einem Monat, damit du deine wichtigsten Funktionen frühzeitig testen kannst.\n\n" +
+		"Es ist kein Wegwerfprodukt. Dank meiner Erfahrung mit skalierbaren Technologien kann dein MVP direkt zur finalen Lösung weiterentwickelt werden – ohne von vorne anfangen zu müssen.",
 } satisfies typeof en;

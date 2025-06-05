@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
 
 import { Section } from "../shared/section";
 
@@ -8,9 +7,13 @@ export const DevSkills: string[] = [
 	"Angular",
 	"TypeScript",
 	"Javascript",
-	"Remix",
+	"Remix / React Router",
 	"Next.js",
 	"Node.js",
+	"Python",
+	"FastAPI",
+	"Java",
+	"Spring Boot",
 	"Zustand",
 	"CI/CD",
 	"RESTful API design",
@@ -40,56 +43,12 @@ export const DevSkills: string[] = [
 	"MQTT",
 	"Embedded C",
 	"STM32",
+	"UX/UI Design",
 ];
-export const UxSkills: string[] = [
-	"Figma",
-	"AdobeXD",
-	"Photoshop",
-	"Illustrator",
-	"Affinity Designer",
-	"Animate",
-	"After Effects",
-	"Premiere Pro",
-	"user tests",
-	"wireframes and prototypes",
-	"User-Centered-Design",
-	"user journey map",
-	"user centered design (UCD)",
-	"information architecture",
-	"personas",
-	"accessibility",
-	"red routes",
-	"card sorting",
-	"responsive design",
-	"interaction design",
-	"UX writing",
-	"UX research",
-	"A/B testing",
-	"cross-cultural design",
-	"ideation workshops",
-];
-export const Skills = () => {
-	const { t } = useTranslation();
-	return (
-		<Section titleKey="skills" className="mx-8 flex flex-col sm:mx-16">
-			<div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-16 gap-y-20 md:grid-cols-2">
-				<Tags skills={DevSkills} title={t("webDevelopment")} />
-				<Tags skills={UxSkills} title={t("uxUiDesign")} />
-			</div>
-		</Section>
-	);
-};
 
-export const Tags = ({
-	skills,
-	title,
-}: {
-	skills: string[];
-	title: string;
-}) => {
+export const Skills = () => {
 	return (
-		<div className="col-span-1 mt-4">
-			<h3 className="mb-4 text-left text-lg font-semibold">{title}</h3>
+		<Section titleKey="skills" className="mx-auto max-w-2xl px-2 md:px-6">
 			<motion.div
 				initial="hidden"
 				whileInView="visible"
@@ -97,9 +56,9 @@ export const Tags = ({
 				transition={{
 					staggerChildren: 0.1,
 				}}
-				className="flex flex-wrap gap-2 text-left"
+				className="flex flex-wrap justify-center gap-2"
 			>
-				{skills.map((skill) => {
+				{DevSkills.map((skill) => {
 					return (
 						<motion.div
 							key={skill}
@@ -107,17 +66,15 @@ export const Tags = ({
 								visible: { scale: 1 },
 								hidden: { scale: 0 },
 							}}
-							className={`${
-								title === "Web Development"
-									? "shadow-xs-turquoise"
-									: "shadow-xs-purple"
-							} border-secondary/10 from-neutral to-neutral-dark inline-block rounded-full border-2 border-solid bg-linear-to-br px-3 py-1 capitalize`}
+							className={
+								"shadow-xs-turquoise border-secondary/10 from-neutral to-neutral-dark inline-block rounded-full border-2 border-solid bg-linear-to-br px-3 py-1 capitalize"
+							}
 						>
 							{skill}
 						</motion.div>
 					);
 				})}
 			</motion.div>
-		</div>
+		</Section>
 	);
 };

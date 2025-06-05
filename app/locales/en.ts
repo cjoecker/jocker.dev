@@ -7,7 +7,7 @@ export default {
 		"I don’t just code features. I help you build scalable apps with amazing user experiences that hold up.",
 	discoverMore: "Discover More!",
 	whatICanDoForYou: "What I Can Do for You",
-	skills: "Skills",
+	skills: "Conocimientos",
 	coreValues: "Core Values",
 	excellence: "Excellence",
 	sustainableArchitecture:
@@ -41,7 +41,6 @@ export default {
 	yearsOfExperience: "Years of Experience",
 	developedApps: "Developed Apps",
 	happyCustomers: "Happy Customers",
-	webDevelopment: "Web Development",
 	mechanicalEngineering: "Mechanical Engineering (B. Eng.)",
 	wildauGermany: "Wildau, Germany",
 	masterBusinessEngineering: "Master of Business Engineering (MBE®)",
@@ -102,7 +101,8 @@ export default {
 	contract: "contract",
 	seePage: "see page",
 	website: "website",
-	mvpInOneMonth:"MVP in 1 month",
-	iBuildSolidMvps: "I build solid MVPs in just one month so you can test your most valuable features early.\n\n" +
-		"It’s not a throwaway. Thanks to my experience with scalable tech, your MVP can grow into the final product without needing to start over."
+	mvpInOneMonth: "MVP in 1 month",
+	iBuildSolidMvps:
+		"I build solid MVPs in just one month so you can test your most valuable features early.\n\n" +
+		"It’s not a throwaway. Thanks to my experience with scalable tech, your MVP can grow into the final product without needing to start over.",
 };

@@ -11,7 +11,6 @@ import { getAltTextFromFileName } from "../shared/utils";
 import { EXPERIENCE_YEARS } from "~/components/sections/experience-and-education";
 import { useNarrowView } from "~/hooks/use-narrow-view";
 import { useTranslationWithMarkdown } from "~/hooks/use-translation-with-markdown";
-import ArtistImg from "~/images/artist.svg";
 import FaceWithSunglassesImg from "~/images/face-with-sunglasses.svg";
 import RobotImg from "~/images/robot.svg";
 import RocketImg from "~/images/rocket.svg";
