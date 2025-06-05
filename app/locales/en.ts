@@ -7,7 +7,7 @@ export default {
 		"I don’t just code features. I help you build scalable apps with amazing user experiences that hold up.",
 	discoverMore: "Discover More!",
 	whatICanDoForYou: "What I Can Do for You",
-	skills: "Conocimientos",
+	skills: "Skills",
 	coreValues: "Core Values",
 	excellence: "Excellence",
 	sustainableArchitecture:

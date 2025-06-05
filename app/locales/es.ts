@@ -9,7 +9,7 @@ export default {
 		"No solo programo funciones. Te ayudo a crear apps escalables con experiencias de usuario increíbles que realmente funcionan.",
 	discoverMore: "¡Descubre Más!",
 	whatICanDoForYou: "Lo Que Puedo Hacer por Ti",
-	skills: "Skills",
+	skills: "Conocimientos",
 	coreValues: "Valores",
 	excellence: "Excelencia",
 	sustainableArchitecture:
