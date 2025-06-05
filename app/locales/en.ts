@@ -1,10 +1,10 @@
 export default {
 	hiImChristian: "Hi, I'm Christian Jöcker,",
 	fullStackDeveloper: "Full-Stack Developer.",
+	webDeveloper: "Web Developer.",
 	fullStackDeveloperPrefix: "a",
-	uxUiDesigner: "UX/UI Designer.",
 	iDontJustProgramFeatures:
-		"I don't just code features. I help you build scalable apps with amazing user experiences and code that holds up!",
+		"I don’t just code features. I help you build scalable apps with amazing user experiences that hold up.",
 	discoverMore: "Discover More!",
 	whatICanDoForYou: "What I Can Do for You",
 	skills: "Skills",
@@ -83,7 +83,7 @@ export default {
 	yearAbbreviation: "Y",
 	monthAbbreviation: "m",
 	notFound: "404 - Not Found",
-	pageTitle: "Christian Jöcker - Full-Stack Developer and UX/UI designer",
+	pageTitle: "Christian Jöcker - Full-Stack Developer",
 	pageDescription:
 		"Passionate about creating great experiences with beautiful web applications. Happy customers, clean code, and sustainable architectures are my priorities.",
 	pageKeywords:

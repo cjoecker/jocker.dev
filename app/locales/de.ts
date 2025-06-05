@@ -3,10 +3,10 @@ import type en from "./en";
 export default {
 	hiImChristian: "Hi, ich bin Christian Jöcker,",
 	fullStackDeveloper: "Fullstack Entwickler.",
+	webDeveloper: "Web Entwickler.",
 	fullStackDeveloperPrefix: "ein",
-	uxUiDesigner: "UX/UI Designer.",
 	iDontJustProgramFeatures:
-		"Ich programmiere nicht nur Funktionen. Ich helfe dir, skalierbare Apps mit einem großartigen Nutzererlebnis zu bauen, die wirklich etwas taugen!",
+		"Ich entwickle nicht einfach nur Features. Ich helfe dir, skalierbare Apps mit großartigen Nutzererlebnissen zu bauen, die wirklich überzeugen.",
 	discoverMore: "Mehr Entdecken!",
 	whatICanDoForYou: "Was Ich für Dich Tun Kann",
 	skills: "Skills",
@@ -88,7 +88,7 @@ export default {
 	yearAbbreviation: "J",
 	monthAbbreviation: "M",
 	notFound: "404 - Nicht gefunden",
-	pageTitle: "Christian Jöcker - Fullstack Entwickler und UX/UI Designer",
+	pageTitle: "Christian Jöcker - Fullstack Entwickler",
 	pageDescription:
 		"Entwickler von großartige Erlebnisse mit schönen Web-Anwendungen. Zufriedene Kunden, sauberer Code und nachhaltige Architekturen sind meine Prioritäten.",
 	pageKeywords:
