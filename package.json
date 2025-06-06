@@ -61,6 +61,7 @@
 		"@types/react": "^19.1.5",
 		"@types/react-dom": "^19.1.5",
 		"@typescript-eslint/parser": "^8.32.1",
+		"ai": "^4.3.16",
 		"autoprefixer": "^10.4.21",
 		"cross-env": "^7.0.3",
 		"eslint": "^9.27.0",

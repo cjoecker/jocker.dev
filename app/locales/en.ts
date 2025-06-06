@@ -26,18 +26,6 @@ export default {
 	aboutMe: "About Me",
 	contact: "Contact me!",
 	facts: "Facts",
-	webApplications: "Web Applications",
-	getReadyForPlatform:
-		"Get ready for a platform that's not just good-looking, but built to last!\n\nLet me take your idea from concept to launch, delivering a scalable solution tailored to your business.\n\nSay goodbye to clumsy web applications with a digital experience that will make your users say WOW!",
-	iotPlatforms: "IoT Platforms",
-	stepIntoFuture:
-		"Step into the future with my IoT platform expertise!\n\nLet's turn your ideas into cutting-edge solutions that connect the physical world to the digital one\n\nWhether you want to connect your devices, revolutionize your business, or unleash your inner tech-savant!",
-	lowCodeApps: "Low-Code Apps",
-	whyReinventWheel:
-		"Why reinvent the wheel? Not every app needs to be built from scratch.\n\nI help you decide if a low-code tool like Mendix or Bubble fits your idea.\n\nThen we build it fast and right, creating something simple, cost-effective, and tailored to your needs!",
-	digitalStrategy: "Digital Strategy Consulting",
-	withYearsExperience:
-		"With over {{years}} years of experience in the tech industry and a track record of success with digital products across multiple industries, I've got the expertise you need to succeed!\n\nWhether you're looking to launch a new product, reinvigorate an existing one, or simply up your game, I'll help you map out a roadmap for success!",
 	yearsOfExperience: "Years of Experience",
 	developedApps: "Developed Apps",
 	happyCustomers: "Happy Customers",
@@ -101,8 +89,14 @@ export default {
 	contract: "contract",
 	seePage: "see page",
 	website: "website",
+	webApplications: "Web Applications",
 	mvpInOneMonth: "MVP in 1 month",
-	iBuildSolidMvps:
-		"I build solid MVPs in just one month so you can test your most valuable features early.\n\n" +
-		"It’s not a throwaway. Thanks to my experience with scalable tech, your MVP can grow into the final product without needing to start over.",
+	aiIntegrations: "AI Integrations",
+	iotPlatforms: "IoT Platforms",
+	free30MinConsultation: "Free 30-Min Consultation",
+	getAFastElegant:"Get a fast, elegant, and future-proof cloud-native application built with proven cloud technologies.\n\nWith over {{years}} years of experience, I know what tech works best for your business needs.",
+	youWillGetASolid: "You’ll get a solid MVP in just one month so you can test your most valuable features early.\n\nIt’s not a throwaway — your MVP can grow into the final product without needing to start over.",
+	wantToAddAi: "Want to add AI to your product? Or adapt your UX for new AI features? I got you.\n\nI also integrate real-time, context-aware data using MCP servers for smarter results.",
+	asAMechanicalEngineer: "As a mechanical engineer with years in robotics, connecting devices to the cloud is second nature.\n\nYou’ll be able to monitor and control your devices reliably — fast.",
+	stuckOrJustHave: "Stuck or just have questions for an expert? Book a free 30-min call with me — no strings attached."
 };

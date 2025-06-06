@@ -28,18 +28,6 @@ export default {
 	aboutMe: "Über Mich",
 	contact: "Kontakt",
 	facts: "Fakten",
-	webApplications: "Web-Anwendungen",
-	getReadyForPlatform:
-		"Mach dich bereit für eine Plattform, die nicht nur gut aussieht, sondern auch für die Ewigkeit gebaut ist!\n\nLass mich deine Idee vom Konzept bis zum Launch begleiten und eine skalierbare Lösung liefern, die auf dein Unternehmen zugeschnitten ist.\n\nVerabschiede dich von umständlichen Web-Anwendungen mit einem digitalen Erlebnis, das deine Nutzer begeistern wird!",
-	iotPlatforms: "IoT-Plattformen",
-	stepIntoFuture:
-		"Betritt die Zukunft mit meiner IoT-Plattform-Expertise!\n\nLass uns deine Ideen in zukunftsweisende Lösungen verwandeln, die die physische mit der digitalen Welt verbinden\n\nEgal ob du deine Geräte verbinden, dein Geschäft revolutionieren oder deinen inneren Tech-Spezialisten entfesseln möchtest!",
-	lowCodeApps: "Low-Code Apps",
-	whyReinventWheel:
-		"Warum das Rad neu erfinden? Nicht jede App muss von Grund auf neu gebaut werden!\n\nIch helfe dir zu entscheiden, ob ein Low-Code-Tool wie Mendix oder Bubble zu deiner Idee passt. Dann bauen wir es schnell und richtig!\n\nEinfach, kosteneffektiv und auf deine Bedürfnisse zugeschnitten!",
-	digitalStrategy: "Digitale Strategie",
-	withYearsExperience:
-		"Mit über {{years}} Jahren Erfahrung in der Tech-Branche und einer Erfolgsbilanz mit digitalen Produkten in verschiedenen Branchen habe ich die Expertise, die du für deinen Erfolg brauchst!\n\nEgal ob du ein neues Produkt lancieren, ein bestehendes neu beleben oder einfach dein Spiel verbessern möchtest, ich helfe dir, einen Weg zum Erfolg zu planen!",
 	yearsOfExperience: "Jahre Erfahrung",
 	developedApps: "Entwickelte Apps",
 	happyCustomers: "Zufriedene Kunden",
@@ -107,8 +95,4 @@ export default {
 	contract: "zusammenklappen",
 	seePage: "seite anzeigen",
 	website: "website",
-	mvpInOneMonth: "MVP in 1 Monat",
-	iBuildSolidMvps:
-		"Ich entwickle stabile MVPs in nur einem Monat, damit du deine wichtigsten Funktionen frühzeitig testen kannst.\n\n" +
-		"Es ist kein Wegwerfprodukt. Dank meiner Erfahrung mit skalierbaren Technologien kann dein MVP direkt zur finalen Lösung weiterentwickelt werden – ohne von vorne anfangen zu müssen.",
-} satisfies typeof en;
+	} satisfies typeof en;
