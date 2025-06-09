@@ -94,9 +94,14 @@ export default {
 	aiIntegrations: "AI Integrations",
 	iotPlatforms: "IoT Platforms",
 	free30MinConsultation: "Free 30-Min Consultation",
-	getAFastElegant:"Get a fast, elegant, and future-proof cloud-native application built with proven cloud technologies.\n\nWith over {{years}} years of experience, I know what tech works best for your business needs.",
-	youWillGetASolid: "You’ll get a solid MVP in just one month so you can test your most valuable features early.\n\nIt’s not a throwaway — your MVP can grow into the final product without needing to start over.",
-	wantToAddAi: "Want to add AI to your product? Or adapt your UX for new AI features? I got you.\n\nI also integrate real-time, context-aware data using MCP servers for smarter results.",
-	asAMechanicalEngineer: "As a mechanical engineer with years in robotics, connecting devices to the cloud is second nature.\n\nYou’ll be able to monitor and control your devices reliably — fast.",
-	stuckOrJustHave: "Stuck or just have questions for an expert? Book a free 30-min call with me — no strings attached."
+	getAFastElegant:
+		"Get a fast, elegant, and future-proof cloud-native application built with proven cloud technologies.\n\nWith over {{years}} years of experience, I know what tech works best for your business needs.",
+	youWillGetASolid:
+		"You’ll get a solid MVP in just one month so you can test your most valuable features early.\n\nIt’s not a throwaway — your MVP can grow into the final product without needing to start over.",
+	wantToAddAi:
+		"Want to add AI to your product? Or adapt your UX for new AI features? I got you.\n\nI also integrate real-time, context-aware data using MCP servers for smarter results.",
+	asAMechanicalEngineer:
+		"As a mechanical engineer with years in robotics, connecting devices to the cloud is second nature.\n\nYou’ll be able to monitor and control your devices reliably — fast.",
+	stuckOrJustHave:
+		"Stuck or just have questions for an expert? Book a free 30-min call with me — no strings attached.",
 };
