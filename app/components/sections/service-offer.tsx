@@ -15,27 +15,33 @@ import FaceWithSunglassesImg from "~/images/face-with-sunglasses.svg";
 import RobotImg from "~/images/robot.svg";
 import RocketImg from "~/images/rocket.svg";
 import StrategyImg from "~/images/strategy.svg";
+import AiChipImg from "~/images/ai-chip.svg";
 
 export const ServiceOfferData: ServiceOfferType[] = [
 	{
 		logo: FaceWithSunglassesImg,
 		titleKey: "webApplications",
-		descriptionTranslationKey: "getReadyForPlatform",
+		descriptionTranslationKey: "getAFastElegant",
 	},
 	{
 		logo: RocketImg,
 		titleKey: "mvpInOneMonth",
-		descriptionTranslationKey: "iBuildSolidMvps",
+		descriptionTranslationKey: "youWillGetASolid",
 	},
 	{
 		logo: RobotImg,
 		titleKey: "iotPlatforms",
-		descriptionTranslationKey: "stepIntoFuture",
+		descriptionTranslationKey: "asAMechanicalEngineer",
+	},
+	{
+		logo: AiChipImg,
+		titleKey: "aiIntegrations",
+		descriptionTranslationKey: "wantToAddAi",
 	},
 	{
 		logo: StrategyImg,
-		titleKey: "digitalStrategy",
-		descriptionTranslationKey: "withYearsExperience",
+		titleKey: "free30MinConsultation",
+		descriptionTranslationKey: "stuckOrJustHave",
 	},
 ];
 
