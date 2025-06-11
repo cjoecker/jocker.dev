@@ -56,7 +56,7 @@ export const Skills = () => {
 				transition={{
 					staggerChildren: 0.1,
 				}}
-				className="flex flex-wrap justify-center gap-2"
+				className="flex flex-wrap justify-center gap-2 max-w-2xl mx-auto"
 			>
 				{DevSkills.map((skill) => {
 					return (
