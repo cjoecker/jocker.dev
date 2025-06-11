@@ -16,33 +16,34 @@ import RobotImg from "~/images/robot.svg";
 import RocketImg from "~/images/rocket.svg";
 import StrategyImg from "~/images/strategy.svg";
 import AiChipImg from "~/images/ai-chip.svg";
+import FreeImg from "~/images/free.svg";
 
 export const ServiceOfferData: ServiceOfferType[] = [
 	{
 		logo: FaceWithSunglassesImg,
 		titleKey: "webApplications",
-		descriptionTranslationKey: "getAFastElegant",
+		descriptionTranslationKey: "getAFastElegant"
 	},
 	{
 		logo: RocketImg,
 		titleKey: "mvpInOneMonth",
-		descriptionTranslationKey: "youWillGetASolid",
+		descriptionTranslationKey: "youWillGetASolid"
 	},
 	{
 		logo: RobotImg,
 		titleKey: "iotPlatforms",
-		descriptionTranslationKey: "asAMechanicalEngineer",
+		descriptionTranslationKey: "asAMechanicalEngineer"
 	},
 	{
 		logo: AiChipImg,
 		titleKey: "aiIntegrations",
-		descriptionTranslationKey: "wantToAddAi",
+		descriptionTranslationKey: "wantToAddAi"
 	},
 	{
 		logo: StrategyImg,
 		titleKey: "free30MinConsultation",
-		descriptionTranslationKey: "stuckOrJustHave",
-	},
+		descriptionTranslationKey: "stuckOrJustHave"
+	}
 ];
 
 export interface ServiceOfferType {
@@ -56,13 +57,13 @@ export const ServiceOffer = () => {
 	const staggerAnimation = isNarrowView
 		? {}
 		: {
-				viewport: { amount: 0.2, once: true },
-				transition: {
-					staggerChildren: 0.25,
-				},
-				initial: "hidden",
-				whileInView: "visible",
-			};
+			viewport: { amount: 0.2, once: true },
+			transition: {
+				staggerChildren: 0.25
+			},
+			initial: "hidden",
+			whileInView: "visible"
+		};
 	return (
 		<Section titleKey="whatICanDoForYou" className={"mt-16"}>
 			<div className="relative flex">
@@ -92,9 +93,9 @@ export const ServiceOffer = () => {
 };
 
 const Card = ({
-	offer,
-	isNarrowView,
-}: {
+	              offer,
+	              isNarrowView
+              }: {
 	offer: ServiceOfferType;
 	isNarrowView: boolean;
 }) => {
@@ -115,22 +116,24 @@ const Card = ({
 	};
 	const appearAnimation = isNarrowView
 		? {
-				initial: "hidden",
-				whileInView: "visible",
-				viewport: { amount: 0.5, once: true },
-			}
+			initial: "hidden",
+			whileInView: "visible",
+			viewport: { amount: 0.5, once: true }
+		}
 		: {};
 
 	return (
 		<motion.div
 			variants={{
 				visible: { opacity: 1 },
-				hidden: { opacity: 0 },
+				hidden: { opacity: 0 }
 			}}
 			transition={{ ease: "easeInOut", duration: 0.8 }}
 			key={offer.titleKey}
 			{...appearAnimation}
+			className="relative"
 		>
+
 			{isOpen && (
 				<div className="relative z-0">
 					<CardContent offer={offer} isOpen={isOpen} />
@@ -149,72 +152,84 @@ const Card = ({
 };
 
 const CardContent = ({
-	isExpandable,
-	offer,
-	isOpen,
-}: {
+	                     isExpandable,
+	                     offer,
+	                     isOpen
+                     }: {
 	isExpandable?: boolean;
 	offer: ServiceOfferType;
 	isOpen: boolean;
 }) => {
 	const { t } = useTranslation();
 	const { tm } = useTranslationWithMarkdown();
+	const isFree = offer.titleKey === "free30MinConsultation";
 
 	return (
-		<motion.div
-			layout={isExpandable}
-			className={`border-secondary/10 from-neutral to-neutral-dark relative flex cursor-pointer rounded-2xl border-2 border-solid bg-linear-to-br p-4 text-left ${
-				isOpen && isExpandable
-					? "from-neutral/70 to-neutral-dark/70 m-auto h-auto w-full max-w-lg flex-wrap bg-linear-to-br backdrop-blur-sm"
-					: "h-64 w-64 flex-col md:h-56 md:w-56"
-			} ${isOpen && !isExpandable ? "invisible" : "visible"}`}
-		>
-			<motion.button
-				layout={isExpandable ? "preserve-aspect" : false}
-				aria-label={isOpen ? t("expand") : t("contract")}
-				className={`absolute top-2.5 right-2.5 cursor-pointer ${
-					isOpen ? "h-7 w-7" : "h-6 w-6"
-				}`}
-			>
-				<img
-					width={28}
-					height={28}
-					src={isOpen ? CollapseIcon : ExpandIcon}
-					aria-label={isOpen ? t("expand") : t("contract")}
-					alt={isOpen ? t("expand") : t("contract")}
-				/>
-			</motion.button>
-			<motion.img
-				layout={isExpandable ? "preserve-aspect" : false}
-				loading="lazy"
-				alt={getAltTextFromFileName(offer.logo)}
-				width={"70"}
-				height={"70"}
-				src={offer.logo}
-				className={`pointer-events-none select-none ${
-					isOpen
-						? "mx-4 mt-4 mb-auto h-[170px] w-[170px]"
-						: "my-4 h-[105px] w-[105px] md:h-[70px] md:w-[70px]"
-				}`}
-			/>
+		<>
 			<motion.div
-				className={`flex-1 ${isOpen ? "min-w-[230px]" : "min-w-0"}`}
 				layout={isExpandable}
+				className={`border-secondary/10 from-neutral to-neutral-dark relative flex cursor-pointer rounded-2xl border-2 border-solid bg-linear-to-br p-4 text-left ${
+					isOpen && isExpandable
+						? "from-neutral/70 to-neutral-dark/70 m-auto h-auto w-full max-w-lg flex-wrap bg-linear-to-br backdrop-blur-sm"
+						: "h-64 w-64 flex-col md:h-56 md:w-56"
+				} ${isOpen && !isExpandable ? "invisible" : "visible"}`}
 			>
-				<motion.h3
+				<motion.button
 					layout={isExpandable ? "preserve-aspect" : false}
-					className={
-						isOpen ? "mt-2 mr-4 mb-3 text-lg font-semibold" : "mb-1 text-lg"
-					}
+					aria-label={isOpen ? t("expand") : t("contract")}
+					className={`absolute top-2.5 right-2.5 cursor-pointer ${
+						isOpen ? "h-7 w-7" : "h-6 w-6"
+					}`}
 				>
-					{t(offer.titleKey)}
-				</motion.h3>
-				{isOpen && (
-					<motion.div className="my-2 text-base">
-						{tm(offer.descriptionTranslationKey, { years: EXPERIENCE_YEARS })}
-					</motion.div>
-				)}
+					<img
+						width={28}
+						height={28}
+						src={isOpen ? CollapseIcon : ExpandIcon}
+						aria-label={isOpen ? t("expand") : t("contract")}
+						alt={isOpen ? t("expand") : t("contract")}
+					/>
+				</motion.button>
+				<motion.img
+					layout={isExpandable ? "preserve-aspect" : false}
+					loading="lazy"
+					alt={getAltTextFromFileName(offer.logo)}
+					width={"70"}
+					height={"70"}
+					src={offer.logo}
+					className={`pointer-events-none select-none ${
+						isOpen
+							? "mx-4 mt-4 mb-auto h-[170px] w-[170px]"
+							: "my-4 h-[105px] w-[105px] md:h-[70px] md:w-[70px]"
+					}`}
+				/>
+				<motion.div
+					className={`flex-1 ${isOpen ? "min-w-[230px]" : "min-w-0"}`}
+					layout={isExpandable}
+				>
+					<motion.h3
+						layout={isExpandable ? "preserve-aspect" : false}
+						className={
+							isOpen ? "mt-2 mr-4 mb-3 text-lg font-semibold" : "mb-1 text-lg"
+						}
+					>
+						{t(offer.titleKey)}
+					</motion.h3>
+					{isOpen && (
+						<motion.div className="my-2 text-base">
+							{tm(offer.descriptionTranslationKey, { years: EXPERIENCE_YEARS })}
+						</motion.div>
+					)}
+				</motion.div>
 			</motion.div>
-		</motion.div>
+			{isFree && (<motion.img
+				layout={isExpandable ? "preserve-aspect" : false}
+				alt={"free"}
+				width={"80"}
+				height={"80"}
+				src={FreeImg}
+				className={`absolute pointer-events-none select-none -top-4 -right-4 rotate-20`}
+			/>)}
+
+		</>
 	);
 };
