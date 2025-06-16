@@ -169,12 +169,15 @@ const CardContent = ({
 	const containerRef = useRef(null);
 	const { elX, elY } = useMouse(containerRef as never);
 	const [isHovering, setIsHovering] = useState(false);
+	const { isNarrowView } = useNarrowView();
 
 	return (
 		<>
 			<motion.div
 				onMouseEnter={() => {
-					setIsHovering(true);
+					if (!isNarrowView) {
+						setIsHovering(true);
+					}
 				}}
 				onMouseLeave={() => {
 					setIsHovering(false);
@@ -187,21 +190,24 @@ const CardContent = ({
 						: "h-64 w-64 flex-col md:h-56 md:w-56"
 				} ${isOpen && !isExpandable ? "invisible" : "visible"}`}
 			>
-				<motion.div
-					animate={{ opacity: isHovering ? 1 : 0 }}
-					transition={{ duration: 0.3 }}
-					className="absolute -m-4 h-full w-full overflow-hidden rounded-2xl"
-				>
-					<motion.img
-						alt=""
-						aria-hidden="true"
-						style={{ x: elX - 300, y: elY - 250 }}
-						transition={{ duration: 0.7 }}
-						src={MeshPurpleTurquoise}
-						className="z-0 min-h-[500px] min-w-[600px]"
-						loading="eager"
-					/>
-				</motion.div>
+				{!isNarrowView && (
+					<motion.div
+						animate={{ opacity: isHovering ? 1 : 0 }}
+						transition={{ duration: 0.3 }}
+						className="absolute -m-4 h-full w-full overflow-hidden rounded-2xl"
+					>
+						<motion.img
+							alt=""
+							aria-hidden="true"
+							style={{ x: elX - 300, y: elY - 250 }}
+							transition={{ duration: 0.7 }}
+							src={MeshPurpleTurquoise}
+							className="z-0 min-h-[500px] min-w-[600px]"
+							loading="eager"
+						/>
+					</motion.div>
+				)}
+
 				<motion.button
 					layout={isExpandable ? "preserve-aspect" : false}
 					aria-label={isOpen ? t("expand") : t("contract")}

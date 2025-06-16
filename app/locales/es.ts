@@ -101,11 +101,11 @@ export default {
 	getAFastElegant:
 		"Obtén una aplicación cloud-native rápida, elegante y preparada para el futuro, construida con tecnologías cloud probadas.\n\nCon más de {{years}} años de experiencia, sé qué tecnología funciona mejor para las necesidades de tu negocio.",
 	youWillGetASolid:
-		"Obtendrás un MVP sólido en tan solo un mes para que puedas testear tus features más valiosas desde el principio.\n\nNo es algo desechable — tu MVP puede crecer hasta convertirse en el producto final sin necesidad de empezar de cero.",
+		"Obtendrás un MVP sólido en tan solo un mes para que puedas testear tus features más valiosas desde el principio.\n\nNo es algo desechable. Tu MVP puede crecer hasta convertirse en el producto final sin necesidad de empezar de cero.",
 	wantToAddAi:
 		"¿Quieres añadir IA a tu producto? ¿O adaptar tu UX para nuevas funcionalidades de IA? Yo te ayudo.\n\nTambién integro datos en tiempo real y context-aware usando servidores MCP para resultados más inteligentes.",
 	asAMechanicalEngineer:
-		"Como ingeniero mecánico con años en robótica, conectar dispositivos a la nube es algo natural.\n\nPodrás monitorear y controlar tus dispositivos de forma fiable y rápida.",
+		"Como ingeniero mecánico con años en robótica, conectar dispositivos a la nube es para mi algo fácil.\n\nPodrás monitorear y controlar tus dispositivos de forma fiable y rápida.",
 	stuckOrJustHave:
 		"¿Atascado o simplemente tienes preguntas para un experto? Agenda una llamada gratuita de 30 minutos conmigo, sin compromiso!",
 	scheduleCall: "¡Agenda una Llamada!",

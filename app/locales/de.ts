@@ -98,13 +98,13 @@ export default {
 	iotPlatforms: "IoT Plattformen",
 	free30MinConsultation: "Kostenlose 30-Minuten-Beratung",
 	getAFastElegant:
-		"Erhalten Sie eine schnelle, elegante und zukunftssichere Cloud-Native-Anwendung, gebaut mit bewährten Cloud-Technologien.\n\nMit über {{years}} Jahren Erfahrung weiß ich, welche Tech am besten für Ihre Business-Bedürfnisse funktioniert.",
+		"Erhalten eine schnelle, elegante und zukunftssichere Cloud-Native-Anwendung, gebaut mit bewährten Cloud-Technologien.\n\nMit über {{years}} Jahren Erfahrung weiß ich, welche Tech am besten für deine Business-Bedürfnisse funktioniert.",
 	youWillGetASolid:
-		"Du erhältst ein solides MVP in nur einem Monat, damit du deine wichtigsten Features frühzeitig testen kannst.\n\nEs ist kein Wegwerfprodukt – dein MVP kann zum finalen Produkt heranwachsen, ohne dass du von vorne anfangen musst.",
+		"Du erhältst ein solides MVP in nur einem Monat, damit du deine wichtigsten Features frühzeitig testen kannst.\n\nEs ist kein Wegwerfprodukt. Dein MVP kann zum finalen Produkt heranwachsen, ohne dass du von vorne anfangen musst.",
 	wantToAddAi:
 		"Du möchtest KI in dein Produkt integrieren? Oder deine UX für neue KI-Features anpassen? Ich helfe dir dabei.\n\nIch integriere auch Real-Time, Context-Aware Daten mithilfe von MCP-Servern für intelligentere Ergebnisse.",
 	asAMechanicalEngineer:
-		"Als Maschinenbauingenieur mit jahrelanger Erfahrung in der Robotik ist die Anbindung von Geräten an die Cloud für mich selbstverständlich.\n\nDu kannst deine Geräte zuverlässig überwachen und steuern – schnell.",
+		"Als Maschinenbauingenieur mit jahrelanger Erfahrung in der Robotik ist die Anbindung von Geräten an die Cloud für mich selbstverständlich.\n\nDu kannst deine Geräte zuverlässig überwachen und steuern.",
 	stuckOrJustHave:
 		"Festgefahren oder einfach nur Fragen an einen Experten? Buche ein kostenloses 30-minütiges Gespräch mit mir, unverbindlich!",
 	scheduleCall: "Vereinbare einen Call!",

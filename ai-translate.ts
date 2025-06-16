@@ -14,6 +14,12 @@ const targetLocales = supportedLngs.filter((lng) => {
 
 type Translations = Record<string, string>;
 
+const languagesNames: Record<string, string> = {
+	de: "German",
+	es: "Spanish",
+	en: "English",
+};
+
 async function readTranslations(
 	locale: string,
 ): Promise<Record<string, string>> {
@@ -35,7 +41,8 @@ async function translateText(
 	targetLang: string,
 ): Promise<string> {
 	const prompt = `Translate the following text to ${targetLang}. 
-    Keep the same tone and style. 
+    Keep the same tone and style.
+    In German use "Du" form.
     If there are placeholders like {{variable}}, keep them exactly as is.
     Only return the translation, nothing else.
     The text is for my personal website as a freelance full-stack developer.
@@ -58,16 +65,13 @@ async function updateTranslationsFile(
 
 	let fileContent = 'import type en from "./en";\n\nexport default {\n';
 
-	// Add each translation key-value pair with proper escaping
 	Object.entries(translations).forEach(([key, value]) => {
-		// Escape double quotes in the value
 		const escapedValue = value
 			.replaceAll('"', String.raw`\"`)
 			.replaceAll("\n", String.raw`\n`);
 		fileContent += `\t${key}: "${escapedValue}",\n`;
 	});
 
-	// Close the object and add the type assertion
 	fileContent += "} satisfies typeof en;\n";
 
 	await fs.writeFile(filePath, fileContent, "utf-8");
@@ -101,8 +105,7 @@ async function main() {
 				console.info(`Translating: ${key}`);
 				const translation = await translateText(
 					sourceTranslations[key],
-					// TODO make object
-					targetLocale === "es" ? "Spanish" : "German",
+					languagesNames[targetLocale] || targetLocale,
 				);
 				targetTranslations[key] = translation.replaceAll(/\n+$/g, "");
 			}
