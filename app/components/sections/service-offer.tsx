@@ -9,16 +9,16 @@ import { Section } from "../shared/section";
 import { getAltTextFromFileName } from "../shared/utils";
 
 import { EXPERIENCE_YEARS } from "~/components/sections/experience-and-education";
+import { Button } from "~/components/shared/button";
+import { calendlyUrl } from "~/constants/misc";
 import { useNarrowView } from "~/hooks/use-narrow-view";
 import { useTranslationWithMarkdown } from "~/hooks/use-translation-with-markdown";
+import AiChipImg from "~/images/ai-chip.svg";
 import FaceWithSunglassesImg from "~/images/face-with-sunglasses.svg";
+import FreeImg from "~/images/free.svg";
 import RobotImg from "~/images/robot.svg";
 import RocketImg from "~/images/rocket.svg";
 import StrategyImg from "~/images/strategy.svg";
-import AiChipImg from "~/images/ai-chip.svg";
-import FreeImg from "~/images/free.svg";
-import { Button } from "~/components/shared/button";
-import { calendlyUrl } from "~/constants/misc";
 
 export const ServiceOfferData: ServiceOfferType[] = [
 	{
@@ -198,7 +198,9 @@ const CardContent = ({
 						width={"80"}
 						height={"80"}
 						src={FreeImg}
-						className={"pointer-events-none absolute -top-6 -right-6 select-none"}
+						className={
+							"pointer-events-none absolute -top-6 -right-6 select-none"
+						}
 					/>
 				)}
 
@@ -236,7 +238,9 @@ const CardContent = ({
 							</div>
 							{offer.isFree && (
 								<div className="ml-auto flex">
-									<Button color={"orange"} href={calendlyUrl}>{t("scheduleCall")}</Button>
+									<Button color={"orange"} href={calendlyUrl}>
+										{t("scheduleCall")}
+									</Button>
 								</div>
 							)}
 						</motion.div>
@@ -246,4 +250,3 @@ const CardContent = ({
 		</>
 	);
 };
-

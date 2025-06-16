@@ -4,12 +4,12 @@ import React from "react";
 import { Section } from "../shared/section";
 
 import { Button, ButtonIcon } from "~/components/shared/button";
+import { calendlyUrl } from "~/constants/misc";
 import { useNavigate } from "~/hooks/use-navigate";
 import EmailIcon from "~/images/email.svg";
 import GithubIcon from "~/images/github.svg";
 import LinkedinIcon from "~/images/linkedin.svg";
 import VideoCallIcon from "~/images/video-call.svg";
-import { calendlyUrl } from "~/constants/misc";
 
 export interface ContactInformationType {
 	alt: string;

@@ -22,7 +22,8 @@ export const Button = ({
 	if (href && onClick) {
 		throw new Error("Button cannot have both onClick and href props.");
 	}
-	const gradientColor = color === "orange" ? "from-orange to-yellow" : "from-turquoise to-blue";
+	const gradientColor =
+		color === "orange" ? "from-orange to-yellow" : "from-turquoise to-blue";
 	return (
 		<div className="grow-0">
 			<ButtonElement

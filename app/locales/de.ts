@@ -5,13 +5,15 @@ export default {
 	fullStackDeveloper: "Fullstack Entwickler.",
 	webDeveloper: "Web Entwickler.",
 	fullStackDeveloperPrefix: "ein",
-	iDontJustProgramFeatures: "Ich entwickle nicht einfach nur Features. Ich helfe dir, skalierbare Apps mit großartigen Nutzererlebnissen zu bauen, die wirklich überzeugen.",
+	iDontJustProgramFeatures:
+		"Ich entwickle nicht einfach nur Features. Ich helfe dir, skalierbare Apps mit großartigen Nutzererlebnissen zu bauen, die wirklich überzeugen.",
 	discoverMore: "Mehr Entdecken!",
 	whatICanDoForYou: "Was Ich für Dich Tun Kann",
 	skills: "Skills",
 	coreValues: "Kernwerte",
 	excellence: "Exzellenz",
-	sustainableArchitecture: "Nachhaltige Architektur, sauberer Code und großartige UX sind meine Mantras",
+	sustainableArchitecture:
+		"Nachhaltige Architektur, sauberer Code und großartige UX sind meine Mantras",
 	accountable: "Zuverlässig",
 	standForDecisions: "Ich stehe zu meinen Entscheidungen, Erfolgen und Fehlern",
 	passion: "Leidenschaft",
@@ -40,9 +42,12 @@ export default {
 	augsburgGermany: "Augsburg, Deutschland",
 	munichGermany: "München, Deutschland",
 	valenciaSpain: "Valencia, Spanien",
-	christianIsAVery: "Christian ist eine sehr kreative Person mit Augenmerk auf Details. Er setzt sich wirklich dafür ein, das zu entwickeln, was für den Endnutzer Sinn macht. Er ist auch ein Fan von sauberem Code und guter Architektur.",
-	christianIsAlwaysReliable: "Auf Christian ist stets Verlass! Er arbeitet nicht nur seine Themen zielstrebig ab, sondern gibt stets Empfehlungen wie unsere Software noch bedienerfreundlicher wird und das bei kompletter Kostentransparenz! Jeder der mit ihm zusammen arbeiten darf, kann sich glücklich schätzen!",
-	hePerfectlyEmbodies: "Er verkörpert perfekt die Rolle eines erfahrenen Entwicklers, der nicht nur seine Technologien beherrscht, sondern auch über erstaunliches UX-Wissen verfügt. Sowohl seine Kreativität als auch seine unternehmerische Denkweise bringen seine Projekte und das Unternehmen voran.",
+	christianIsAVery:
+		"Christian ist eine sehr kreative Person mit Augenmerk auf Details. Er setzt sich wirklich dafür ein, das zu entwickeln, was für den Endnutzer Sinn macht. Er ist auch ein Fan von sauberem Code und guter Architektur.",
+	christianIsAlwaysReliable:
+		"Auf Christian ist stets Verlass! Er arbeitet nicht nur seine Themen zielstrebig ab, sondern gibt stets Empfehlungen wie unsere Software noch bedienerfreundlicher wird und das bei kompletter Kostentransparenz! Jeder der mit ihm zusammen arbeiten darf, kann sich glücklich schätzen!",
+	hePerfectlyEmbodies:
+		"Er verkörpert perfekt die Rolle eines erfahrenen Entwicklers, der nicht nur seine Technologien beherrscht, sondern auch über erstaunliches UX-Wissen verfügt. Sowohl seine Kreativität als auch seine unternehmerische Denkweise bringen seine Projekte und das Unternehmen voran.",
 	openSourceContributions: "Open-Source Beiträge",
 	myApps: "Meine Apps",
 	reputation: "Reputation",
@@ -52,7 +57,8 @@ export default {
 	portuguese: "Portugiesisch",
 	fluent: "Fließend",
 	goodCommand: "Gute Kenntnisse",
-	aboutMeData: "Hallo, mein Name ist Christian, aber meine Freunde nennen mich \"Joker\". Du kannst das gerne auch tun. Aber ich muss dir sagen, dass ich schlecht im Witze erzählen bin.\n\nIch entdeckte meine Leidenschaft für das Programmieren, als ich 9 war, nachdem mein Vater meinen geliebten Hund weggegeben hatte. Um sein Andenken zu ehren, baute ich eine Website mit Bildern von ihm. Dort begann meine Liebesbeziehung mit dem Programmieren. Während der Schulzeit nahm ich mehrere Grafikdesign-Kurse und entwickelte auch ein starkes Interesse am UI-Design.\n\nIn meiner vorherigen Rolle als Berater spezialisierte ich mich auf die Entwicklung individueller Web-Anwendungen. Dort hatte ich die Gelegenheit, für große Unternehmen in verschiedenen Branchen wie Automobil, Tourismus, Fluggesellschaften, Robotik und Medizin zu arbeiten. Nach Jahren der Erfahrung in großen Unternehmen habe ich mich in die Freiberuflichkeit gewagt.\n\nIch würde gerne von dir hören und unser nächstes Projekt besprechen!",
+	aboutMeData:
+		'Hallo, mein Name ist Christian, aber meine Freunde nennen mich "Joker". Du kannst das gerne auch tun. Aber ich muss dir sagen, dass ich schlecht im Witze erzählen bin.\n\nIch entdeckte meine Leidenschaft für das Programmieren, als ich 9 war, nachdem mein Vater meinen geliebten Hund weggegeben hatte. Um sein Andenken zu ehren, baute ich eine Website mit Bildern von ihm. Dort begann meine Liebesbeziehung mit dem Programmieren. Während der Schulzeit nahm ich mehrere Grafikdesign-Kurse und entwickelte auch ein starkes Interesse am UI-Design.\n\nIn meiner vorherigen Rolle als Berater spezialisierte ich mich auf die Entwicklung individueller Web-Anwendungen. Dort hatte ich die Gelegenheit, für große Unternehmen in verschiedenen Branchen wie Automobil, Tourismus, Fluggesellschaften, Robotik und Medizin zu arbeiten. Nach Jahren der Erfahrung in großen Unternehmen habe ich mich in die Freiberuflichkeit gewagt.\n\nIch würde gerne von dir hören und unser nächstes Projekt besprechen!',
 	designedAndCodedPrefix: "Gestaltet und programmiert mit",
 	designedAndCodedSuffix: "von mir.",
 	love: "Liebe",
@@ -64,8 +70,10 @@ export default {
 	monthAbbreviation: "M",
 	notFound: "404 - Nicht gefunden",
 	pageTitle: "Christian Jöcker - Fullstack Entwickler",
-	pageDescription: "Entwickler von großartige Erlebnisse mit schönen Web-Anwendungen. Zufriedene Kunden, sauberer Code und nachhaltige Architekturen sind meine Prioritäten.",
-	pageKeywords: "freelancer,selbstständig,auftragnehmer,freiberufler,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,entwickler,ingenieur,software,ux,ui,web,designer",
+	pageDescription:
+		"Entwickler von großartige Erlebnisse mit schönen Web-Anwendungen. Zufriedene Kunden, sauberer Code und nachhaltige Architekturen sind meine Prioritäten.",
+	pageKeywords:
+		"freelancer,selbstständig,auftragnehmer,freiberufler,full-stack,full,stack,fullstack,back-end,backend,frontend,front-end,entwickler,ingenieur,software,ux,ui,web,designer",
 	fullName: "Vollständiger Name",
 	email: "E-Mail",
 	message: "Nachricht",
@@ -74,7 +82,8 @@ export default {
 	responseTime: "Ich melde mich innerhalb von",
 	oneDay: "einem Tag",
 	error: "Fehler!",
-	couldNotSend: "Deine Nachricht konnte nicht gesendet werden. Bitte sende mir eine E-Mail an",
+	couldNotSend:
+		"Deine Nachricht konnte nicht gesendet werden. Bitte sende mir eine E-Mail an",
 	pleaseFillFields: "Bitte fülle alle Felder aus",
 	invalidEmail: "Bitte gib eine gültige E-Mail-Adresse ein",
 	close: "schließen",
@@ -88,10 +97,15 @@ export default {
 	aiIntegrations: "KI-Integrationen",
 	iotPlatforms: "IoT Plattformen",
 	free30MinConsultation: "Kostenlose 30-Minuten-Beratung",
-	getAFastElegant: "Erhalten Sie eine schnelle, elegante und zukunftssichere Cloud-Native-Anwendung, gebaut mit bewährten Cloud-Technologien.\n\nMit über {{years}} Jahren Erfahrung weiß ich, welche Tech am besten für Ihre Business-Bedürfnisse funktioniert.",
-	youWillGetASolid: "Du erhältst ein solides MVP in nur einem Monat, damit du deine wichtigsten Features frühzeitig testen kannst.\n\nEs ist kein Wegwerfprodukt – dein MVP kann zum finalen Produkt heranwachsen, ohne dass du von vorne anfangen musst.",
-	wantToAddAi: "Du möchtest KI in dein Produkt integrieren? Oder deine UX für neue KI-Features anpassen? Ich helfe dir dabei.\n\nIch integriere auch Real-Time, Context-Aware Daten mithilfe von MCP-Servern für intelligentere Ergebnisse.",
-	asAMechanicalEngineer: "Als Maschinenbauingenieur mit jahrelanger Erfahrung in der Robotik ist die Anbindung von Geräten an die Cloud für mich selbstverständlich.\n\nDu kannst deine Geräte zuverlässig überwachen und steuern – schnell.",
-	stuckOrJustHave: "Festgefahren oder einfach nur Fragen an einen Experten? Buche ein kostenloses 30-minütiges Gespräch mit mir, unverbindlich!",
+	getAFastElegant:
+		"Erhalten Sie eine schnelle, elegante und zukunftssichere Cloud-Native-Anwendung, gebaut mit bewährten Cloud-Technologien.\n\nMit über {{years}} Jahren Erfahrung weiß ich, welche Tech am besten für Ihre Business-Bedürfnisse funktioniert.",
+	youWillGetASolid:
+		"Du erhältst ein solides MVP in nur einem Monat, damit du deine wichtigsten Features frühzeitig testen kannst.\n\nEs ist kein Wegwerfprodukt – dein MVP kann zum finalen Produkt heranwachsen, ohne dass du von vorne anfangen musst.",
+	wantToAddAi:
+		"Du möchtest KI in dein Produkt integrieren? Oder deine UX für neue KI-Features anpassen? Ich helfe dir dabei.\n\nIch integriere auch Real-Time, Context-Aware Daten mithilfe von MCP-Servern für intelligentere Ergebnisse.",
+	asAMechanicalEngineer:
+		"Als Maschinenbauingenieur mit jahrelanger Erfahrung in der Robotik ist die Anbindung von Geräten an die Cloud für mich selbstverständlich.\n\nDu kannst deine Geräte zuverlässig überwachen und steuern – schnell.",
+	stuckOrJustHave:
+		"Festgefahren oder einfach nur Fragen an einen Experten? Buche ein kostenloses 30-minütiges Gespräch mit mir, unverbindlich!",
 	scheduleCall: "Vereinbare einen Call!",
 } satisfies typeof en;
