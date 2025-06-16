@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useMouse } from "react-use";
 
 import CollapseIcon from "../../images/collapse.svg?url";
 import ExpandIcon from "../../images/expand.svg?url";
@@ -95,7 +96,6 @@ export const ServiceOffer = () => {
 		</Section>
 	);
 };
-
 const Card = ({
 	offer,
 	isNarrowView,
@@ -166,9 +166,20 @@ const CardContent = ({
 	const { t } = useTranslation();
 	const { tm } = useTranslationWithMarkdown();
 
+	const containerRef = useRef(null);
+	const { elX, elY } = useMouse(containerRef as never);
+	const [isHovering, setIsHovering] = useState(false);
+
 	return (
 		<>
 			<motion.div
+				onMouseEnter={() => {
+					setIsHovering(true);
+				}}
+				onMouseLeave={() => {
+					setIsHovering(false);
+				}}
+				ref={containerRef}
 				layout={isExpandable}
 				className={`border-secondary/10 from-neutral to-neutral-dark relative flex cursor-pointer rounded-2xl border-2 border-solid bg-linear-to-br p-4 text-left ${
 					isOpen && isExpandable
@@ -176,10 +187,25 @@ const CardContent = ({
 						: "h-64 w-64 flex-col md:h-56 md:w-56"
 				} ${isOpen && !isExpandable ? "invisible" : "visible"}`}
 			>
+				<motion.div
+					animate={{ opacity: isHovering ? 1 : 0 }}
+					transition={{ duration: 0.3 }}
+					className="absolute -m-4 h-full w-full overflow-hidden rounded-2xl"
+				>
+					<motion.img
+						alt=""
+						aria-hidden="true"
+						style={{ x: elX - 300, y: elY - 250 }}
+						transition={{ duration: 0.7 }}
+						src={MeshPurpleTurquoise}
+						className="z-0 min-h-[500px] min-w-[600px]"
+						loading="eager"
+					/>
+				</motion.div>
 				<motion.button
 					layout={isExpandable ? "preserve-aspect" : false}
 					aria-label={isOpen ? t("expand") : t("contract")}
-					className={`absolute top-2.5 right-2.5 cursor-pointer ${
+					className={`absolute top-2.5 right-2.5 z-10 cursor-pointer ${
 						isOpen ? "h-7 w-7" : "h-6 w-6"
 					}`}
 				>
@@ -199,7 +225,7 @@ const CardContent = ({
 						height={"80"}
 						src={FreeImg}
 						className={
-							"pointer-events-none absolute -top-6 -right-6 select-none"
+							"pointer-events-none absolute -top-6 -right-6 z-20 select-none"
 						}
 					/>
 				)}
@@ -211,14 +237,14 @@ const CardContent = ({
 					width={"70"}
 					height={"70"}
 					src={offer.logo}
-					className={`pointer-events-none select-none ${
+					className={`pointer-events-none z-10 select-none ${
 						isOpen
 							? "mx-4 mt-4 mb-auto h-[170px] w-[170px]"
 							: "my-4 h-[105px] w-[105px] md:h-[70px] md:w-[70px]"
 					}`}
 				/>
 				<motion.div
-					className={`flex-1 ${isOpen ? "min-w-[230px]" : "min-w-0"}`}
+					className={`z-10 flex-1 ${isOpen ? "min-w-[230px]" : "min-w-0"}`}
 					layout={isExpandable}
 				>
 					<motion.h3
