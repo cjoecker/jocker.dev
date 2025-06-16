@@ -92,7 +92,7 @@ export default {
 	contract: "zusammenklappen",
 	seePage: "seite anzeigen",
 	website: "website",
-	webApplications: "Webanwendungen",
+	webApplications: "Web-Anwendungen",
 	mvpInOneMonth: "MVP in 1 Monat",
 	aiIntegrations: "KI-Integrationen",
 	iotPlatforms: "IoT Plattformen",
