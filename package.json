@@ -12,9 +12,12 @@
 		"lint": "eslint --max-warnings=0",
 		"lint-fix:all": "pnpm lint --fix .",
 		"format": "prettier",
-		"format:all": "pnpm format --write ."
+		"format:all": "pnpm format --write .",
+		"ai-translate": "dotenv tsx ai-translate.ts"
 	},
 	"dependencies": {
+		"@ai-sdk/google": "^1.2.19",
+		"@google/generative-ai": "^0.24.1",
 		"@neptune.digital/sentry-netlify-v2": "^1.2.0",
 		"@netlify/functions": "^3.1.9",
 		"@netlify/vite-plugin-react-router": "^1.0.1",
@@ -35,6 +38,7 @@
 		"isbot": "^5.1.28",
 		"lottie-react": "^2.4.1",
 		"mailgun.js": "^12.0.1",
+		"openai": "^5.1.1",
 		"posthog-js": "^1.246.0",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
@@ -47,6 +51,7 @@
 		"remix-i18next": "^7.2.1",
 		"remix-utils": "^8.7.0",
 		"tiny-invariant": "^1.3.3",
+		"tsx": "^4.19.4",
 		"web-vitals": "^5.0.1",
 		"zustand": "^5.0.5"
 	},
@@ -61,6 +66,7 @@
 		"@types/react": "^19.1.5",
 		"@types/react-dom": "^19.1.5",
 		"@typescript-eslint/parser": "^8.32.1",
+		"ai": "^4.3.16",
 		"autoprefixer": "^10.4.21",
 		"cross-env": "^7.0.3",
 		"eslint": "^9.27.0",

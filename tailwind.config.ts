@@ -16,6 +16,8 @@ export default {
 			green: colors.green,
 			neutral: colors.neutral,
 			grey: colors.grey,
+			orange: colors.orange,
+			yellow: colors.yellow,
 			"neutral-dark": colors["neutral-dark"],
 		},
 		fontFamily: {

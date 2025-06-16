@@ -28,18 +28,6 @@ export default {
 	aboutMe: "Über Mich",
 	contact: "Kontakt",
 	facts: "Fakten",
-	webApplications: "Web-Anwendungen",
-	getReadyForPlatform:
-		"Mach dich bereit für eine Plattform, die nicht nur gut aussieht, sondern auch für die Ewigkeit gebaut ist!\n\nLass mich deine Idee vom Konzept bis zum Launch begleiten und eine skalierbare Lösung liefern, die auf dein Unternehmen zugeschnitten ist.\n\nVerabschiede dich von umständlichen Web-Anwendungen mit einem digitalen Erlebnis, das deine Nutzer begeistern wird!",
-	iotPlatforms: "IoT-Plattformen",
-	stepIntoFuture:
-		"Betritt die Zukunft mit meiner IoT-Plattform-Expertise!\n\nLass uns deine Ideen in zukunftsweisende Lösungen verwandeln, die die physische mit der digitalen Welt verbinden\n\nEgal ob du deine Geräte verbinden, dein Geschäft revolutionieren oder deinen inneren Tech-Spezialisten entfesseln möchtest!",
-	lowCodeApps: "Low-Code Apps",
-	whyReinventWheel:
-		"Warum das Rad neu erfinden? Nicht jede App muss von Grund auf neu gebaut werden!\n\nIch helfe dir zu entscheiden, ob ein Low-Code-Tool wie Mendix oder Bubble zu deiner Idee passt. Dann bauen wir es schnell und richtig!\n\nEinfach, kosteneffektiv und auf deine Bedürfnisse zugeschnitten!",
-	digitalStrategy: "Digitale Strategie",
-	withYearsExperience:
-		"Mit über {{years}} Jahren Erfahrung in der Tech-Branche und einer Erfolgsbilanz mit digitalen Produkten in verschiedenen Branchen habe ich die Expertise, die du für deinen Erfolg brauchst!\n\nEgal ob du ein neues Produkt lancieren, ein bestehendes neu beleben oder einfach dein Spiel verbessern möchtest, ich helfe dir, einen Weg zum Erfolg zu planen!",
 	yearsOfExperience: "Jahre Erfahrung",
 	developedApps: "Entwickelte Apps",
 	happyCustomers: "Zufriedene Kunden",
@@ -70,10 +58,7 @@ export default {
 	fluent: "Fließend",
 	goodCommand: "Gute Kenntnisse",
 	aboutMeData:
-		'Hallo, mein Name ist Christian, aber meine Freunde nennen mich "Joker". Du kannst das gerne auch tun. Aber ich muss dir sagen, dass ich schlecht im Witze erzählen bin.\n\n' +
-		"Ich entdeckte meine Leidenschaft für das Programmieren, als ich 9 war, nachdem mein Vater meinen geliebten Hund weggegeben hatte. Um sein Andenken zu ehren, baute ich eine Website mit Bildern von ihm. Dort begann meine Liebesbeziehung mit dem Programmieren. Während der Schulzeit nahm ich mehrere Grafikdesign-Kurse und entwickelte auch ein starkes Interesse am UI-Design.\n\n" +
-		"In meiner vorherigen Rolle als Berater spezialisierte ich mich auf die Entwicklung individueller Web-Anwendungen. Dort hatte ich die Gelegenheit, für große Unternehmen in verschiedenen Branchen wie Automobil, Tourismus, Fluggesellschaften, Robotik und Medizin zu arbeiten. Nach Jahren der Erfahrung in großen Unternehmen habe ich mich in die Freiberuflichkeit gewagt.\n\n" +
-		"Ich würde gerne von dir hören und unser nächstes Projekt besprechen!",
+		'Hallo, mein Name ist Christian, aber meine Freunde nennen mich "Joker". Du kannst das gerne auch tun. Aber ich muss dir sagen, dass ich schlecht im Witze erzählen bin.\n\nIch entdeckte meine Leidenschaft für das Programmieren, als ich 9 war, nachdem mein Vater meinen geliebten Hund weggegeben hatte. Um sein Andenken zu ehren, baute ich eine Website mit Bildern von ihm. Dort begann meine Liebesbeziehung mit dem Programmieren. Während der Schulzeit nahm ich mehrere Grafikdesign-Kurse und entwickelte auch ein starkes Interesse am UI-Design.\n\nIn meiner vorherigen Rolle als Berater spezialisierte ich mich auf die Entwicklung individueller Web-Anwendungen. Dort hatte ich die Gelegenheit, für große Unternehmen in verschiedenen Branchen wie Automobil, Tourismus, Fluggesellschaften, Robotik und Medizin zu arbeiten. Nach Jahren der Erfahrung in großen Unternehmen habe ich mich in die Freiberuflichkeit gewagt.\n\nIch würde gerne von dir hören und unser nächstes Projekt besprechen!',
 	designedAndCodedPrefix: "Gestaltet und programmiert mit",
 	designedAndCodedSuffix: "von mir.",
 	love: "Liebe",
@@ -107,8 +92,20 @@ export default {
 	contract: "zusammenklappen",
 	seePage: "seite anzeigen",
 	website: "website",
+	webApplications: "Web-Anwendungen",
 	mvpInOneMonth: "MVP in 1 Monat",
-	iBuildSolidMvps:
-		"Ich entwickle stabile MVPs in nur einem Monat, damit du deine wichtigsten Funktionen frühzeitig testen kannst.\n\n" +
-		"Es ist kein Wegwerfprodukt. Dank meiner Erfahrung mit skalierbaren Technologien kann dein MVP direkt zur finalen Lösung weiterentwickelt werden – ohne von vorne anfangen zu müssen.",
+	aiIntegrations: "KI-Integrationen",
+	iotPlatforms: "IoT Plattformen",
+	free30MinConsultation: "Kostenlose 30-Minuten-Beratung",
+	getAFastElegant:
+		"Erhalten eine schnelle, elegante und zukunftssichere Cloud-Native-Anwendung, gebaut mit bewährten Cloud-Technologien.\n\nMit über {{years}} Jahren Erfahrung weiß ich, welche Tech am besten für deine Business-Bedürfnisse funktioniert.",
+	youWillGetASolid:
+		"Du erhältst ein solides MVP in nur einem Monat, damit du deine wichtigsten Features frühzeitig testen kannst.\n\nEs ist kein Wegwerfprodukt. Dein MVP kann zum finalen Produkt heranwachsen, ohne dass du von vorne anfangen musst.",
+	wantToAddAi:
+		"Du möchtest KI in dein Produkt integrieren? Oder deine UX für neue KI-Features anpassen? Ich helfe dir dabei.\n\nIch integriere auch Real-Time, Context-Aware Daten mithilfe von MCP-Servern für intelligentere Ergebnisse.",
+	asAMechanicalEngineer:
+		"Als Maschinenbauingenieur mit jahrelanger Erfahrung in der Robotik ist die Anbindung von Geräten an die Cloud für mich selbstverständlich.\n\nDu kannst deine Geräte zuverlässig überwachen und steuern.",
+	stuckOrJustHave:
+		"Festgefahren oder einfach nur Fragen an einen Experten? Buche ein kostenloses 30-minütiges Gespräch mit mir, unverbindlich!",
+	scheduleCall: "Call vereinbaren!",
 } satisfies typeof en;

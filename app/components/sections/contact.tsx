@@ -4,6 +4,7 @@ import React from "react";
 import { Section } from "../shared/section";
 
 import { Button, ButtonIcon } from "~/components/shared/button";
+import { calendlyUrl } from "~/constants/misc";
 import { useNavigate } from "~/hooks/use-navigate";
 import EmailIcon from "~/images/email.svg";
 import GithubIcon from "~/images/github.svg";
@@ -21,7 +22,7 @@ export const ContactInformation: ContactInformationType[] = [
 	{
 		alt: "video-call",
 		text: "schedule a video call",
-		href: "https://calendly.com/jockerdev/30min",
+		href: calendlyUrl,
 		image: VideoCallIcon,
 	},
 	{

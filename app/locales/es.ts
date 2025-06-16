@@ -29,18 +29,6 @@ export default {
 	aboutMe: "Sobre Mí",
 	contact: "Contáctame!",
 	facts: "Datos",
-	webApplications: "Aplicaciones Web",
-	getReadyForPlatform:
-		"¡Prepárate para una plataforma que no solo es bonita, sino construida para durar!\n\nPermíteme llevar tu idea desde el concepto hasta el lanzamiento, entregando una solución escalable adaptada a tu negocio.\n\n¡Di adiós a las aplicaciones web torpes con una experiencia digital que hará que tus usuarios digan ¡WOW!",
-	iotPlatforms: "Plataformas IoT",
-	stepIntoFuture:
-		"¡Adéntrate en el futuro con mi experiencia en plataformas IoT!\n\nConvirtamos tus ideas en soluciones de vanguardia que conecten el mundo físico con el digital\n\n¡Ya sea que quieras conectar tus dispositivos, revolucionar tu negocio o desatar tu sabio tecnológico interior!",
-	lowCodeApps: "Aplicaciones Low-Code",
-	whyReinventWheel:
-		"¿Por qué reinventar la rueda? No todas las aplicaciones necesitan ser construidas desde cero.\n\nTe ayudo a decidir si una herramienta low-code como Mendix o Bubble se ajusta a tu idea.\n\n¡Luego la construimos rápido y bien, creando algo simple, rentable y adaptado a tus necesidades!",
-	digitalStrategy: "Consultoría de Estrategia Digital",
-	withYearsExperience:
-		"¡Con más de {{years}} años de experiencia en la industria tecnológica y un historial de éxito con productos digitales en múltiples industrias, tengo la experiencia que necesitas para triunfar!\n\nYa sea que busques lanzar un nuevo producto, revitalizar uno existente o simplemente mejorar tu juego, te ayudaré a trazar un camino hacia el éxito.",
 	yearsOfExperience: "Años de Experiencia",
 	developedApps: "Aplicaciones Desarrolladas",
 	happyCustomers: "Clientes Satisfechos",
@@ -105,8 +93,20 @@ export default {
 	contract: "contraer",
 	seePage: "ver página",
 	website: "sitio web",
+	webApplications: "Aplicaciones Web",
 	mvpInOneMonth: "MVP en 1 mes",
-	iBuildSolidMvps:
-		"Desarrollo MVPs sólidos en solo un mes para que puedas probar tus funciones más valiosas desde el principio.\n\n" +
-		"No es algo desechable. Gracias a mi experiencia con tecnología escalable, tu MVP puede evolucionar hasta convertirse en el producto final sin tener que empezar desde cero.",
+	aiIntegrations: "Integraciones con IA",
+	iotPlatforms: "Plataformas IoT",
+	free30MinConsultation: "Consulta gratuita de 30 minutos",
+	getAFastElegant:
+		"Obtén una aplicación cloud-native rápida, elegante y preparada para el futuro, construida con tecnologías cloud probadas.\n\nCon más de {{years}} años de experiencia, sé qué tecnología funciona mejor para las necesidades de tu negocio.",
+	youWillGetASolid:
+		"Obtendrás un MVP sólido en tan solo un mes para que puedas testear tus features más valiosas desde el principio.\n\nNo es algo desechable. Tu MVP puede crecer hasta convertirse en el producto final sin necesidad de empezar de cero.",
+	wantToAddAi:
+		"¿Quieres añadir IA a tu producto? ¿O adaptar tu UX para nuevas funcionalidades de IA? Yo te ayudo.\n\nTambién integro datos en tiempo real y context-aware usando servidores MCP para resultados más inteligentes.",
+	asAMechanicalEngineer:
+		"Como ingeniero mecánico con años en robótica, conectar dispositivos a la nube es para mi algo fácil.\n\nPodrás monitorear y controlar tus dispositivos de forma fiable y rápida.",
+	stuckOrJustHave:
+		"¿Atascado o simplemente tienes preguntas para un experto? Agenda una llamada gratuita de 30 minutos conmigo, sin compromiso!",
+	scheduleCall: "Agendar llamada!",
 } satisfies typeof en;

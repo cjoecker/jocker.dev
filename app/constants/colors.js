@@ -8,5 +8,7 @@ export const colors = {
 	green: "#00FFA3",
 	grey: "#656565",
 	neutral: "#271b31",
+	orange: "#ff8800",
+	yellow: "#ffcf2c",
 	"neutral-dark": "#130d18",
 };
