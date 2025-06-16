@@ -13,3 +13,5 @@ export const sentryConfig: BrowserOptions | NodeOptions = {
 };
 
 export const googleAnalyticsId = "G-942TBH82GN";
+
+export const calendlyUrl = "https://calendly.com/jockerdev/30min";

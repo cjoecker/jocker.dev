@@ -9,6 +9,7 @@ import EmailIcon from "~/images/email.svg";
 import GithubIcon from "~/images/github.svg";
 import LinkedinIcon from "~/images/linkedin.svg";
 import VideoCallIcon from "~/images/video-call.svg";
+import { calendlyUrl } from "~/constants/misc";
 
 export interface ContactInformationType {
 	alt: string;
@@ -21,7 +22,7 @@ export const ContactInformation: ContactInformationType[] = [
 	{
 		alt: "video-call",
 		text: "schedule a video call",
-		href: "https://calendly.com/jockerdev/30min",
+		href: calendlyUrl,
 		image: VideoCallIcon,
 	},
 	{

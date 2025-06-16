@@ -103,5 +103,6 @@ export default {
 	asAMechanicalEngineer:
 		"As a mechanical engineer with years in robotics, connecting devices to the cloud is second nature.\n\nYou’ll be able to monitor and control your devices reliably — fast.",
 	stuckOrJustHave:
-		"Stuck or just have questions for an expert? Book a free 30-min call with me — no strings attached.",
+		"Stuck or just have questions for an expert? Book a free 30-min call with me, no strings attached!",
+	scheduleCall: "Schedule a Call!",
 };

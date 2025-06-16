@@ -7,6 +7,7 @@ export interface ButtonProps {
 	children?: React.ReactNode;
 	iconButton?: boolean;
 	ariaLabel?: string;
+	color?: "orange" | "blue";
 }
 
 export const Button = ({
@@ -15,12 +16,13 @@ export const Button = ({
 	children,
 	iconButton,
 	ariaLabel,
+	color = "blue",
 }: ButtonProps) => {
 	const ButtonElement = onClick ? motion.button : motion.a;
 	if (href && onClick) {
 		throw new Error("Button cannot have both onClick and href props.");
 	}
-
+	const gradientColor = color === "orange" ? "from-orange to-yellow" : "from-turquoise to-blue";
 	return (
 		<div className="grow-0">
 			<ButtonElement
@@ -31,7 +33,7 @@ export const Button = ({
 				style={{ boxShadow: "0px 0px 30px -10px #00DFD866" }}
 				whileTap={{ scale: 1 }}
 				whileHover={{ scale: 1.05 }}
-				className={`from-turquoise to-blue text-secondary ml-auto flex items-center bg-linear-to-br p-[2px] align-middle font-semibold select-none hover:cursor-pointer ${iconButton ? "h-20 w-20 rounded-full" : "rounded-md"}`}
+				className={`${gradientColor} text-secondary ml-auto flex items-center bg-linear-to-br p-[2px] align-middle font-semibold select-none hover:cursor-pointer ${iconButton ? "h-20 w-20 rounded-full" : "rounded-md"}`}
 			>
 				<div
 					className={`bg-neutral-dark/80 flex h-full w-full px-4 py-3 ${iconButton ? "rounded-full" : "rounded-md"}`}
