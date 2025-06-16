@@ -108,5 +108,5 @@ export default {
 		"Como ingeniero mecánico con años en robótica, conectar dispositivos a la nube es para mi algo fácil.\n\nPodrás monitorear y controlar tus dispositivos de forma fiable y rápida.",
 	stuckOrJustHave:
 		"¿Atascado o simplemente tienes preguntas para un experto? Agenda una llamada gratuita de 30 minutos conmigo, sin compromiso!",
-	scheduleCall: "¡Agenda una Llamada!",
+	scheduleCall: "Agendar llamada!",
 } satisfies typeof en;

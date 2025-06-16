@@ -107,5 +107,5 @@ export default {
 		"Als Maschinenbauingenieur mit jahrelanger Erfahrung in der Robotik ist die Anbindung von Geräten an die Cloud für mich selbstverständlich.\n\nDu kannst deine Geräte zuverlässig überwachen und steuern.",
 	stuckOrJustHave:
 		"Festgefahren oder einfach nur Fragen an einen Experten? Buche ein kostenloses 30-minütiges Gespräch mit mir, unverbindlich!",
-	scheduleCall: "Vereinbare einen Call!",
+	scheduleCall: "Call vereinbaren!",
 } satisfies typeof en;
