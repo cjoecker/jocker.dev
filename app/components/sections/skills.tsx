@@ -103,7 +103,7 @@ const Skill = ({ skill, level }: SkillProps) => {
 
 export const Skills = () => {
 	return (
-		<Section titleKey="skills" className="mx-auto max-w-2xl px-2 md:px-6">
+		<Section titleKey="technicalSkills" className="mx-auto max-w-2xl px-2 md:px-6">
 			<motion.div
 				initial="hidden"
 				whileInView="visible"
