@@ -18,7 +18,7 @@ export const DevSkills: SkillItem[] = [
 	{ skill: "Python", level: 6 },
 	{ skill: "FastAPI", level: 6 },
 	{ skill: "Java", level: 3 },
-	{ skill: "Spring Boot", level: 3 },
+	{ skill: "Spring Boot", level: 2 },
 	{ skill: "Zustand", level: 10 },
 	{ skill: "React Context", level: 7 },
 	{ skill: "Redux", level: 3 },
@@ -49,9 +49,9 @@ export const DevSkills: SkillItem[] = [
 	{ skill: "VBA", level: 9 },
 	{ skill: "Scrum", level: 9 },
 	{ skill: "Agile", level: 10 },
-	{ skill: "Internet of Things (IoT)", level: 10 },
+	{ skill: "Internet of Things (IoT)", level: 9 },
 	{ skill: "MQTT", level: 7 },
-	{ skill: "Embedded C", level: 3 },
+	{ skill: "Embedded C", level: 5 },
 	{ skill: "STM32", level: 3 },
 	{ skill: "A11Y", level: 8 },
 	{ skill: "UX/UI Design", level: 9 },
@@ -79,14 +79,14 @@ const Skill = ({ skill, level }: SkillProps) => {
 			onHoverStart={handleHoverStart}
 			onTap={handleHoverStart}
 			className={
-				"shadow-xs-turquoise border-secondary/10 from-neutral to-neutral-dark relative inline-block cursor-pointer overflow-hidden rounded-full border-2 border-solid bg-linear-to-br px-3 py-1 capitalize"
+				"inset-shadow shadow-xs-turquoise border-secondary/10 from-neutral to-neutral-dark relative inline-block cursor-pointer overflow-hidden rounded-full border-2 border-solid bg-linear-to-br px-3 py-1 capitalize"
 			}
 		>
 			<motion.div
 				style={{
 					x: "-4px",
 				}}
-				className="from-primary/60 to-blue/50 absolute inset-0 bg-linear-to-br"
+				className="from-primary/70 to-blue/30 absolute inset-0 bg-linear-to-br"
 				initial={{ width: 0 }}
 				animate={controls}
 				transition={{
@@ -103,7 +103,10 @@ const Skill = ({ skill, level }: SkillProps) => {
 
 export const Skills = () => {
 	return (
-		<Section titleKey="technicalSkills" className="mx-auto max-w-2xl px-2 md:px-6">
+		<Section
+			titleKey="technicalSkills"
+			className="mx-auto max-w-2xl px-2 md:px-6"
+		>
 			<motion.div
 				initial="hidden"
 				whileInView="visible"
@@ -113,13 +116,15 @@ export const Skills = () => {
 				}}
 				className="mx-auto flex max-w-2xl flex-wrap justify-center gap-2"
 			>
-				{DevSkills.map((skillItem) => (
-					<Skill
-						key={skillItem.skill}
-						skill={skillItem.skill}
-						level={skillItem.level}
-					/>
-				))}
+				{DevSkills.map((skillItem) => {
+					return (
+						<Skill
+							key={skillItem.skill}
+							skill={skillItem.skill}
+							level={skillItem.level}
+						/>
+					);
+				})}
 			</motion.div>
 		</Section>
 	);
