@@ -65,7 +65,7 @@ interface SkillProps {
 const Skill = ({ skill, level }: SkillProps) => {
 	const controls = useAnimationControls();
 
-	const handleHoverStart = () => {
+	const showLevel = () => {
 		const percentage = (level / 10) * 100;
 		void controls.start({ width: `${percentage}%` });
 	};
@@ -76,8 +76,8 @@ const Skill = ({ skill, level }: SkillProps) => {
 				visible: { scale: 1 },
 				hidden: { scale: 0 },
 			}}
-			onHoverStart={handleHoverStart}
-			onTap={handleHoverStart}
+			onHoverStart={showLevel}
+			onTap={showLevel}
 			className={
 				"inset-shadow shadow-xs-turquoise border-secondary/10 from-neutral to-neutral-dark relative inline-block cursor-pointer overflow-hidden rounded-full border-2 border-solid bg-linear-to-br px-3 py-1 capitalize"
 			}
