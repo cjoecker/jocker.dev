@@ -80,7 +80,7 @@ const Skill = ({ skill, level }: SkillProps) => {
 			onHoverStart={showLevel}
 			onTap={showLevel}
 			className={
-				"inset-shadow shadow-xs-turquoise border-secondary/20 from-neutral to-neutral-dark relative inline-block cursor-pointer overflow-hidden rounded-full border-2 border-solid bg-linear-to-br px-3 py-1 capitalize"
+				"inset-shadow shadow-xs-turquoise border-secondary/20 from-neutral to-neutral-dark relative inline-block overflow-hidden rounded-full border-2 border-solid bg-linear-to-br px-3 py-1 capitalize"
 			}
 		>
 			<motion.div
