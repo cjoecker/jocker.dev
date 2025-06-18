@@ -27,6 +27,7 @@ export const DevSkills: SkillItem[] = [
 	{ skill: "GraphQL", level: 3 },
 	{ skill: "Prisma", level: 8 },
 	{ skill: "PostgreSQL", level: 8 },
+	{ skill: "DynamoDB", level: 8 },
 	{ skill: "Vercel AI SDK", level: 10 },
 	{ skill: "database management", level: 6 },
 	{ skill: "security best practices", level: 8 },
