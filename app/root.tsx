@@ -1,5 +1,5 @@
 import * as Sentry from "@sentry/react-router";
-import "@splidejs/splide/dist/css/splide.min.css?url";
+import "@splidejs/splide/dist/css/splide.min.css";
 import posthog from "posthog-js";
 import { useEffect } from "react";
 import {
@@ -27,7 +27,7 @@ import MeshBlue from "~/images/mesh-blue.svg";
 import MeshPurple from "~/images/mesh-purple.svg";
 import MeshTurquoise from "~/images/mesh-turquoise.svg";
 import i18nServer from "~/modules/i18n.server";
-import "~/styles/main.css?url";
+import "~/styles/main.css";
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
 	return [
