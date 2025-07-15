@@ -105,4 +105,6 @@ export default {
 	stuckOrJustHave:
 		"Stuck or just have questions for an expert? Book a free 30-min call with me, no strings attached!",
 	scheduleCall: "Schedule a Call!",
+	consolePrint:
+		"Do you also like to see people's code? Me too!\nLet's build amazing things together!",
 };

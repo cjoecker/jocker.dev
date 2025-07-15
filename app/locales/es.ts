@@ -109,4 +109,6 @@ export default {
 	stuckOrJustHave:
 		"¿Atascado o simplemente tienes preguntas para un experto? Agenda una llamada gratuita de 30 minutos conmigo, sin compromiso!",
 	scheduleCall: "Agendar llamada!",
+	consolePrint:
+		"A ti también te gusta ver el código de la gente? A mí también!\nConstruyamos cosas geniales juntos!",
 } satisfies typeof en;

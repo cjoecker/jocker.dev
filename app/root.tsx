@@ -2,6 +2,7 @@ import * as Sentry from "@sentry/react-router";
 import "@splidejs/splide/dist/css/splide.min.css";
 import posthog from "posthog-js";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import {
 	isRouteErrorResponse,
 	LinksFunction,
@@ -206,6 +207,7 @@ export default function Root() {
 	const locale = loaderData?.locale ?? fallbackLng;
 	setI18nLocale(locale);
 	useChangeLanguage(locale);
+	usePrintConsole();
 
 	return (
 		<html lang={locale}>
@@ -274,3 +276,27 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
 		</main>
 	);
 }
+
+const usePrintConsole = () => {
+	const isHydrated = useHydrated();
+	const { t } = useTranslation();
+	if (!isHydrated) {
+		return null;
+	}
+	const helloArt = `
+██╗  ██╗ ██████╗ ██╗      █████╗     ██╗
+██║  ██║██╔═══██╗██║     ██╔══██╗    ██║
+███████║██║   ██║██║     ███████║    ██║
+██╔══██║██║   ██║██║     ██╔══██║    ╚═╝
+██║  ██║╚██████╔╝███████╗██║  ██║    ██╗
+╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝    ╚═╝
+`;
+	console.info(
+		`%c${helloArt}`,
+		"color: #6f14c9; font-family: monospace; font-size: 12px",
+	);
+	console.info(
+		`%c${t("consolePrint")}`,
+		"color: #6f14c9; font-family: monospace; font-size: 12px",
+	);
+};

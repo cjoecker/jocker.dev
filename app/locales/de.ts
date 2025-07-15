@@ -108,4 +108,6 @@ export default {
 	stuckOrJustHave:
 		"Festgefahren oder einfach nur Fragen an einen Experten? Buche ein kostenloses 30-minütiges Gespräch mit mir, unverbindlich!",
 	scheduleCall: "Call vereinbaren!",
+	consolePrint:
+		"Magst du es auch, den Code von anderen Leuten anzuschauen? Ich auch!\nLass uns zusammen großartige Dinge bauen!",
 } satisfies typeof en;
