@@ -8,38 +8,37 @@ import {
 } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import KukaLogo from "~/images/kuka.svg";
-import MaibornWolffLogo from "~/images/maibornwolff.svg";
-import BmwLogo from "~/images/bmw.webp";
-import FraunhoferLogo from "~/images/frauenhofer.webp";
-import HealmingLogo from "~/images/healming.webp";
-import JaguarLogo from "~/images/jaguar.webp";
-import JochenSchweizerLogo from "~/images/jochen-schweizer.webp";
-import ManLogo from "~/images/man.webp";
-import MercedesLogo from "~/images/mercedes.webp";
-import PorscheLogo from "~/images/porsche.webp";
-import SchmalzLogo from "~/images/schmalz.webp";
-import TuevLogo from "~/images/tuev.webp";
-import UnitedLogo from "~/images/united.webp";
-import VwLogo from "~/images/vw.webp";
 
 import DoubleQuotesIcon from "../../images/double-quotes.svg";
 import { Section } from "../shared/section";
 import { getAltTextFromFileName } from "../shared/utils";
 
 import { colors } from "~/constants/colors";
+import { useNarrowView } from "~/hooks/use-narrow-view";
 import ArrowLeft from "~/images/arrow-left.svg";
 import ArrowRight from "~/images/arrow-right.svg";
+import BmwLogo from "~/images/bmw.webp";
 import DavidPhoto from "~/images/david.webp";
 import FloyLogo from "~/images/floy-logo.svg";
+import FraunhoferLogo from "~/images/frauenhofer.webp";
+import HealmindLogo from "~/images/healmind.webp";
+import JaguarLogo from "~/images/jaguar.webp";
+import JochenSchweizerLogo from "~/images/jochen-schweizer.webp";
+import KukaLogo from "~/images/kuka.svg";
+import MaibornWolffLogo from "~/images/maibornwolff.svg";
+import ManLogo from "~/images/man.webp";
+import MercedesLogo from "~/images/mercedes.webp";
 import NewspectiveLogo from "~/images/newspective-logo.svg";
 import PaulPhoto from "~/images/paul.webp";
 import PaulaPhoto from "~/images/paula.webp";
+import PorscheLogo from "~/images/porsche.webp";
 import QuantedLogo from "~/images/quanted-logo.png";
+import SchmalzLogo from "~/images/schmalz.webp";
 import SmartCube360Logo from "~/images/smart-cube-360.svg";
 import ThomasPhoto from "~/images/thomas.png";
-import { useNarrowView } from "~/hooks/use-narrow-view";
-import MeshPurple from "~/images/mesh-purple.svg";
+import TuevLogo from "~/images/tuev.webp";
+import UnitedLogo from "~/images/united.webp";
+import VwLogo from "~/images/vw.webp";
 
 export const testimonials: TestimonialsType[] = [
 	{
@@ -139,7 +138,9 @@ export function Testimonials() {
 		const interval = setInterval(() => {
 			if (autoplay) goToSlide("next");
 		}, 5000);
-		return () => clearInterval(interval);
+		return () => {
+			clearInterval(interval);
+		};
 	}, [autoplay, goToSlide]);
 
 	useEffect(() => {
@@ -149,7 +150,9 @@ export function Testimonials() {
 			animate(x, getTargetX(currentIndexRef.current), { duration: 0 });
 		});
 		observer.observe(element);
-		return () => observer.disconnect();
+		return () => {
+			observer.disconnect();
+		};
 	}, [x, getTargetX]);
 
 	const slideWidth = isNarrowView ? MOBILE_SLIDE : DESKTOP_SLIDE;
@@ -167,7 +170,9 @@ export function Testimonials() {
 						drag="x"
 						dragElastic={0}
 						dragMomentum={false}
-						onDragStart={() => setAutoplay(false)}
+						onDragStart={() => {
+							setAutoplay(false);
+						}}
 						onDragEnd={(_, { offset, velocity }) => {
 							const w = trackRef.current?.offsetWidth ?? 300;
 							const threshold = w * 0.15;
@@ -180,15 +185,17 @@ export function Testimonials() {
 							}
 						}}
 					>
-						{testimonials.map((testimonial) => (
-							<div
-								key={testimonial.testimonialKey}
-								className="shrink-0 px-2"
-								style={{ width: `${slideWidth}%` }}
-							>
-								<TestimonialCard testimonial={testimonial} />
-							</div>
-						))}
+						{testimonials.map((testimonial) => {
+							return (
+								<div
+									key={testimonial.testimonialKey}
+									className="shrink-0 px-2"
+									style={{ width: `${slideWidth}%` }}
+								>
+									<TestimonialCard testimonial={testimonial} />
+								</div>
+							);
+						})}
 					</motion.div>
 				</div>
 
@@ -331,34 +338,39 @@ function SlideDots({
 	const { t } = useTranslation();
 	return (
 		<div className="mt-2 text-center">
-			{testimonials.map((testimonial, index) => (
-				<button
-					key={testimonial.testimonialKey}
-					aria-label={`${t("seePage")} ${index + 1}`}
-					className="h-12 w-12 cursor-pointer"
-					onClick={() => {
-						onDotClick(index);
-					}}
-				>
-					<span
-						style={{
-							boxShadow:
-								currentSlideIndex === index
-									? `${colors.primary} 0px 0px 12px 6px`
-									: "unset",
+			{testimonials.map((testimonial, index) => {
+				return (
+					<button
+						key={testimonial.testimonialKey}
+						aria-label={`${t("seePage")} ${index + 1}`}
+						className="h-12 w-12 cursor-pointer"
+						onClick={() => {
+							onDotClick(index);
 						}}
-						className="bg-secondary inline-block h-3 w-3 rounded-full"
-					/>
-				</button>
-			))}
+					>
+						<span
+							style={{
+								boxShadow:
+									currentSlideIndex === index
+										? `${colors.primary} 0px 0px 12px 6px`
+										: "unset",
+							}}
+							className="bg-secondary inline-block h-3 w-3 rounded-full"
+						/>
+					</button>
+				);
+			})}
 		</div>
 	);
 }
 
-interface Logo { src: string; className?: string }
+interface Logo {
+	src: string;
+	className?: string;
+}
 
 const logos: Logo[] = [
-	{ src: HealmingLogo, className: "invert contrast-[100] brightness-200" },
+	{ src: HealmindLogo, className: "invert contrast-[100] brightness-200" },
 	{ src: JaguarLogo, className: "brightness-200" },
 	{ src: JochenSchweizerLogo, className: "brightness-[3]" },
 	{ src: ManLogo, className: "brightness-200" },
@@ -386,14 +398,14 @@ const LogoCarousel = () => {
 	});
 	const { isNarrowView } = useNarrowView();
 
-
 	const rows = isNarrowView ? 6 : 3;
 
 	const divider = Math.ceil(logos.length / rows);
 	const baseMagnitude = isNarrowView ? 350 : 200;
 	const rowsData = Array.from({ length: rows }, (_, i) => {
 		const magnitude = baseMagnitude - Math.floor(i / 2) * 50;
-		const range: [number, number] = i % 2 === 0 ? [-magnitude, magnitude] : [magnitude, -magnitude];
+		const range: [number, number] =
+			i % 2 === 0 ? [-magnitude, magnitude] : [magnitude, -magnitude];
 		return {
 			logos: [...logos.slice(i * divider), ...logos.slice(0, i * divider)],
 			parallaxRange: range,
@@ -404,9 +416,16 @@ const LogoCarousel = () => {
 		<div className="mt-24 w-full space-y-8">
 			<h3 className="mb-6 text-lg font-semibold">{t("otherCompanies")}</h3>
 			<div ref={containerRef} className="flex flex-col gap-3 overflow-hidden">
-				{rowsData.map((row, i) => (
-					<InfiniteRow key={i} logos={row.logos} scrollYProgress={scrollYProgress} parallaxRange={row.parallaxRange} />
-				))}
+				{rowsData.map((row, i) => {
+					return (
+						<InfiniteRow
+							key={i}
+							logos={row.logos}
+							scrollYProgress={scrollYProgress}
+							parallaxRange={row.parallaxRange}
+						/>
+					);
+				})}
 			</div>
 		</div>
 	);
@@ -425,15 +444,17 @@ const InfiniteRow = ({
 	return (
 		<div className="mask-swiper overflow-x-hidden py-3">
 			<motion.div style={{ x: parallaxX }} className="flex gap-12">
-				{[...logos, ...logos, ...logos].map((logo, i) => (
-					<img
-						key={i}
-						src={logo.src}
-						alt=""
-						draggable={false}
-						className={`h-12 w-32 object-contain opacity-60 grayscale brightness-150 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] select-none${logo.className ? ` ${logo.className}` : ""}`}
-					/>
-				))}
+				{[...logos, ...logos, ...logos].map((logo, i) => {
+					return (
+						<img
+							key={i}
+							src={logo.src}
+							alt=""
+							draggable={false}
+							className={`h-12 w-32 object-contain opacity-60 brightness-150 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] grayscale select-none${logo.className ? ` ${logo.className}` : ""}`}
+						/>
+					);
+				})}
 			</motion.div>
 		</div>
 	);
