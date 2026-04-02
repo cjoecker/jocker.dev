@@ -5,6 +5,7 @@ export default {
 	fullStackDeveloper: "Desarrollador Full-Stack.",
 	webDeveloper: "Desarrollador Web.",
 	fullStackDeveloperPrefix: "un",
+	otherCompanies: "Otras empresas en las que he trabajado",
 	iDontJustProgramFeatures:
 		"No solo programo funcionalidades. Te ayudo a crear aplicaciones escalables con experiencias de usuario increíbles que funcionan de maravilla.",
 	discoverMore: "¡Descubre Más!",

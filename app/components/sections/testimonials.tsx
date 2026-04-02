@@ -1,4 +1,11 @@
-import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
+import {
+	animate,
+	motion,
+	MotionValue,
+	useMotionValue,
+	useScroll,
+	useTransform,
+} from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -7,16 +14,31 @@ import { Section } from "../shared/section";
 import { getAltTextFromFileName } from "../shared/utils";
 
 import { colors } from "~/constants/colors";
+import { useNarrowView } from "~/hooks/use-narrow-view";
 import ArrowLeft from "~/images/arrow-left.svg";
 import ArrowRight from "~/images/arrow-right.svg";
+import BmwLogo from "~/images/bmw.webp";
 import DavidPhoto from "~/images/david.webp";
-import PaulPhoto from "~/images/paul.webp";
-import NewspectiveLogo from "~/images/newspective-logo.svg";
-import PaulaPhoto from "~/images/paula.webp";
-import QuantedLogo from "~/images/quanted-logo.png";
 import FloyLogo from "~/images/floy-logo.svg";
+import FraunhoferLogo from "~/images/frauenhofer.webp";
+import HealmindLogo from "~/images/healmind.webp";
+import JaguarLogo from "~/images/jaguar.webp";
+import JochenSchweizerLogo from "~/images/jochen-schweizer.webp";
+import KukaLogo from "~/images/kuka.svg";
+import MaibornWolffLogo from "~/images/maibornwolff.svg";
+import ManLogo from "~/images/man.webp";
+import MercedesLogo from "~/images/mercedes.webp";
+import NewspectiveLogo from "~/images/newspective-logo.svg";
+import PaulPhoto from "~/images/paul.webp";
+import PaulaPhoto from "~/images/paula.webp";
+import PorscheLogo from "~/images/porsche.webp";
+import QuantedLogo from "~/images/quanted-logo.png";
+import SchmalzLogo from "~/images/schmalz.webp";
 import SmartCube360Logo from "~/images/smart-cube-360.svg";
 import ThomasPhoto from "~/images/thomas.png";
+import TuevLogo from "~/images/tuev.webp";
+import UnitedLogo from "~/images/united.webp";
+import VwLogo from "~/images/vw.webp";
 
 export const testimonials: TestimonialsType[] = [
 	{
@@ -67,203 +89,386 @@ export interface TestimonialsType {
 	titleKey: string;
 }
 
+const MOBILE_SLIDE = 84;
+const MOBILE_OFFSET = 8;
+const DESKTOP_SLIDE = 78;
+const DESKTOP_OFFSET = 11;
+const SPRING = { type: "spring" as const, stiffness: 300, damping: 30 };
+
 export function Testimonials() {
 	const { t } = useTranslation();
 	const [autoplay, setAutoplay] = useState(true);
-	const splideRef = useRef(null);
 	const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-	const getIndex = useCallback(
-		(direction: "prev" | "next") => {
-			if (direction === "prev" && currentSlideIndex <= 0) {
-				return testimonials.length - 1;
-			} else if (
-				direction === "next" &&
-				currentSlideIndex >= testimonials.length - 1
-			) {
-				return 0;
-			} else if (direction === "prev") {
-				return currentSlideIndex - 1;
-			} else {
-				return currentSlideIndex + 1;
-			}
+	const { isNarrowView } = useNarrowView();
+	const trackRef = useRef<HTMLDivElement>(null);
+	const x = useMotionValue(0);
+	const currentIndexRef = useRef(0);
+
+	const getTargetX = useCallback(
+		(index: number) => {
+			const w = trackRef.current?.offsetWidth ?? 0;
+			const sw = isNarrowView ? MOBILE_SLIDE : DESKTOP_SLIDE;
+			const so = isNarrowView ? MOBILE_OFFSET : DESKTOP_OFFSET;
+			return w * (so / 100) - index * w * (sw / 100);
 		},
-		[currentSlideIndex],
+		[isNarrowView],
 	);
-	const goToPage = useCallback(
-		(page: number | "prev" | "next") => {
-			/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
-			if (page === "prev") {
-				(splideRef.current as any).go(getIndex("prev"));
-			} else if (page === "next") {
-				(splideRef.current as any).go(getIndex("next"));
-			} else {
-				(splideRef.current as any).go(page);
-			}
-			/* eslint-enable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
+
+	const goToSlide = useCallback(
+		(target: number | "prev" | "next") => {
+			setCurrentSlideIndex((prev) => {
+				let index: number;
+				if (target === "prev") {
+					index = prev <= 0 ? testimonials.length - 1 : prev - 1;
+				} else if (target === "next") {
+					index = prev >= testimonials.length - 1 ? 0 : prev + 1;
+				} else {
+					index = target;
+				}
+				currentIndexRef.current = index;
+				animate(x, getTargetX(index), SPRING);
+				return index;
+			});
 		},
-		[getIndex],
+		[x, getTargetX],
 	);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
-			if (autoplay) {
-				goToPage("next");
-			}
+			if (autoplay) goToSlide("next");
 		}, 5000);
 		return () => {
 			clearInterval(interval);
 		};
-	}, [autoplay, goToPage]);
+	}, [autoplay, goToSlide]);
+
+	useEffect(() => {
+		const element = trackRef.current;
+		if (!element) return;
+		const observer = new ResizeObserver(() => {
+			animate(x, getTargetX(currentIndexRef.current), { duration: 0 });
+		});
+		observer.observe(element);
+		return () => {
+			observer.disconnect();
+		};
+	}, [x, getTargetX]);
+
+	const slideWidth = isNarrowView ? MOBILE_SLIDE : DESKTOP_SLIDE;
 
 	return (
 		<Section titleKey="testimonials" className="relative mx-auto max-w-[900px]">
-			<Splide
-				ref={splideRef}
-				hasTrack={false}
+			<div
+				className="relative mx-auto max-w-5xl"
 				aria-label={t("testimonials")}
-				className="md:mask-swiper mx-auto max-w-5xl"
-				onMove={(_: never, newIndex: number) => {
-					setCurrentSlideIndex(newIndex);
-				}}
-				options={{
-					autoplay: false,
-					perPage: 1,
-					perMove: -1,
-					padding: "10vw",
-					arrows: false,
-					pagination: false,
-				}}
 			>
-				<SplideTrack className="mask-swiper-narrow">
-					{testimonials.map((testimonial) => {
-						return (
-							<SplideSlide key={testimonial.testimonialKey}>
+				<div ref={trackRef} className="overflow-hidden pb-6">
+					<motion.div
+						className="flex cursor-grab select-none active:cursor-grabbing"
+						style={{ x }}
+						drag="x"
+						dragElastic={0}
+						dragMomentum={false}
+						onDragStart={() => {
+							setAutoplay(false);
+						}}
+						onDragEnd={(_, { offset, velocity }) => {
+							const w = trackRef.current?.offsetWidth ?? 300;
+							const threshold = w * 0.15;
+							if (offset.x > threshold || velocity.x > 500) {
+								goToSlide("prev");
+							} else if (offset.x < -threshold || velocity.x < -500) {
+								goToSlide("next");
+							} else {
+								animate(x, getTargetX(currentIndexRef.current), SPRING);
+							}
+						}}
+					>
+						{testimonials.map((testimonial) => {
+							return (
 								<div
-									className={
-										"shadow-sm-turquoise border-secondary/10 from-neutral to-neutral-dark mx-4 my-6 flex h-full flex-1 cursor-grab flex-col rounded-xl border-2 border-solid bg-linear-to-br p-5 select-none"
-									}
+									key={testimonial.testimonialKey}
+									className="shrink-0 px-2"
+									style={{ width: `${slideWidth}%` }}
 								>
-									<img
-										loading="lazy"
-										width="150"
-										height={testimonial.companyHeight}
-										style={{
-											width: 150,
-											height: testimonial.companyHeight,
-										}}
-										className="z-10 mx-auto mt-2 object-contain"
-										alt={getAltTextFromFileName(testimonial.companyLogo)}
-										src={testimonial.companyLogo}
-									/>
-									<div className="flex flex-1 flex-col justify-center">
-										<img
-											loading="lazy"
-											width="20"
-											height="20"
-											className="mr-auto mb-2 ml-2"
-											alt="double quotes"
-											src={DoubleQuotesIcon}
-										/>
-										<div className="text-base">
-											{t(testimonial.testimonialKey)}
-										</div>
-									</div>
-									<div className="mx-auto my-2 flex justify-end text-left">
-										<img
-											loading="lazy"
-											width="80"
-											height="80"
-											className="my-auto"
-											alt={getAltTextFromFileName(testimonial.photo)}
-											src={testimonial.photo}
-										/>
-										<div className="my-auto flex flex-col justify-end">
-											<div className="text-md font-bold">
-												{testimonial.person}
-											</div>
-											<div className="text-base">{t(testimonial.titleKey)}</div>
-											<div className="text-sm">{t(testimonial.company)}</div>
-										</div>
-									</div>
+									<TestimonialCard testimonial={testimonial} />
 								</div>
-							</SplideSlide>
-						);
-					})}
-				</SplideTrack>
-			</Splide>
-			<div className="absolute top-0 flex h-full w-full flex-col">
-				<div className="mx-auto flex h-full w-full max-w-5xl justify-between">
-					<ChangeButton
-						orientation="left"
-						onClick={() => {
-							setAutoplay(false);
-							goToPage("prev");
-						}}
-					/>
-					<ChangeButton
-						orientation="right"
-						onClick={() => {
-							setAutoplay(false);
-							goToPage("next");
-						}}
-					/>
+							);
+						})}
+					</motion.div>
 				</div>
-				<div>
-					{testimonials.map((testimonial, index) => {
-						return (
-							<button
-								key={testimonial.testimonialKey}
-								aria-label={`${t("seePage")} ${index + 1}`}
-								className="h-12 w-12 cursor-pointer"
-								onClick={() => {
-									setAutoplay(false);
-									goToPage(index);
-								}}
-							>
-								<span
-									style={{
-										boxShadow:
-											currentSlideIndex === index
-												? `${colors.primary} 0px 0px 12px 6px`
-												: "unset",
-									}}
-									className="bg-secondary inline-block h-3 w-3 rounded-full"
-								/>
-							</button>
-						);
-					})}
-				</div>
+
+				<EdgeGradients />
+
+				<DesktopArrows
+					onPrev={() => {
+						setAutoplay(false);
+						goToSlide("prev");
+					}}
+					onNext={() => {
+						setAutoplay(false);
+						goToSlide("next");
+					}}
+				/>
 			</div>
-			<div></div>
+
+			<SlideDots
+				currentSlideIndex={currentSlideIndex}
+				onDotClick={(index) => {
+					setAutoplay(false);
+					goToSlide(index);
+				}}
+			/>
+			<LogoCarousel />
 		</Section>
 	);
 }
 
-export interface Props {
-	onClick: () => void;
-	orientation: "left" | "right";
+function TestimonialCard({ testimonial }: { testimonial: TestimonialsType }) {
+	const { t } = useTranslation();
+	return (
+		<div className="shadow-sm-turquoise border-secondary/10 from-neutral to-neutral-dark my-6 flex h-full flex-1 flex-col rounded-xl border-2 border-solid bg-linear-to-br p-5">
+			<img
+				loading="lazy"
+				width="150"
+				height={testimonial.companyHeight}
+				style={{ width: 150, height: testimonial.companyHeight }}
+				className="z-10 mx-auto mt-2 object-contain"
+				alt={getAltTextFromFileName(testimonial.companyLogo)}
+				src={testimonial.companyLogo}
+			/>
+			<div className="flex flex-1 flex-col justify-center">
+				<img
+					loading="lazy"
+					width="20"
+					height="20"
+					className="mr-auto mb-2 ml-2"
+					alt="double quotes"
+					src={DoubleQuotesIcon}
+				/>
+				<div className="text-base">{t(testimonial.testimonialKey)}</div>
+			</div>
+			<div className="mx-auto my-2 flex justify-end text-left">
+				<img
+					loading="lazy"
+					width="80"
+					height="80"
+					className="my-auto"
+					alt={getAltTextFromFileName(testimonial.photo)}
+					src={testimonial.photo}
+				/>
+				<div className="my-auto flex flex-col justify-end">
+					<div className="text-md font-bold">{testimonial.person}</div>
+					<div className="text-base">{t(testimonial.titleKey)}</div>
+					<div className="text-sm">{t(testimonial.company)}</div>
+				</div>
+			</div>
+		</div>
+	);
 }
 
-export const ChangeButton = ({ onClick, orientation }: Props) => {
-	const isLeft = orientation === "left";
+function EdgeGradients() {
 	return (
-		<button
-			className="h-full w-full max-w-[200px] cursor-pointer"
-			onClick={onClick}
-		>
-			<span
-				className={`bg-grey/80 flex h-12 w-12 cursor-pointer rounded-full ${
-					isLeft ? "mr-auto ml-4" : "mr-4 ml-auto"
-				}`}
+		<>
+			<div
+				className="pointer-events-none absolute inset-y-0 left-0 w-[12%]"
+				style={{
+					background: "linear-gradient(to right, var(--color-bg), transparent)",
+				}}
+			/>
+			<div
+				className="pointer-events-none absolute inset-y-0 right-0 w-[12%]"
+				style={{
+					background: "linear-gradient(to left, var(--color-bg), transparent)",
+				}}
+			/>
+		</>
+	);
+}
+
+function DesktopArrows({
+	onPrev,
+	onNext,
+}: {
+	onPrev: () => void;
+	onNext: () => void;
+}) {
+	return (
+		<div className="pointer-events-none absolute inset-0 hidden items-center justify-between md:flex">
+			<button
+				className="pointer-events-none h-full w-full max-w-[200px] cursor-pointer"
+				onClick={onPrev}
 			>
-				<img
-					alt="previous testimonial"
-					height={48}
-					width={48}
-					className="h-full w-full"
-					src={isLeft ? ArrowLeft : ArrowRight}
-				/>
-			</span>
-		</button>
+				<span className="bg-grey/80 pointer-events-auto mr-auto ml-4 flex h-12 w-12 cursor-pointer rounded-full">
+					<img
+						alt="previous testimonial"
+						height={48}
+						width={48}
+						className="h-full w-full"
+						src={ArrowLeft}
+					/>
+				</span>
+			</button>
+			<button
+				className="pointer-events-none h-full w-full max-w-[200px] cursor-pointer"
+				onClick={onNext}
+			>
+				<span className="bg-grey/80 pointer-events-auto mr-4 ml-auto flex h-12 w-12 cursor-pointer rounded-full">
+					<img
+						alt="next testimonial"
+						height={48}
+						width={48}
+						className="h-full w-full"
+						src={ArrowRight}
+					/>
+				</span>
+			</button>
+		</div>
+	);
+}
+
+function SlideDots({
+	currentSlideIndex,
+	onDotClick,
+}: {
+	currentSlideIndex: number;
+	onDotClick: (index: number) => void;
+}) {
+	const { t } = useTranslation();
+	return (
+		<div className="mt-2 text-center">
+			{testimonials.map((testimonial, index) => {
+				return (
+					<button
+						key={testimonial.testimonialKey}
+						aria-label={`${t("seePage")} ${index + 1}`}
+						className="h-12 w-12 cursor-pointer"
+						onClick={() => {
+							onDotClick(index);
+						}}
+					>
+						<span
+							style={{
+								boxShadow:
+									currentSlideIndex === index
+										? `${colors.primary} 0px 0px 12px 6px`
+										: "unset",
+							}}
+							className="bg-secondary inline-block h-3 w-3 rounded-full"
+						/>
+					</button>
+				);
+			})}
+		</div>
+	);
+}
+
+interface Logo {
+	src: string;
+	className?: string;
+	alt: string;
+}
+
+const logos: Logo[] = [
+	{
+		src: HealmindLogo,
+		alt: "Healmind",
+		className: "invert contrast-[100] brightness-200",
+	},
+	{ src: JaguarLogo, alt: "Jaguar", className: "brightness-200" },
+	{
+		src: JochenSchweizerLogo,
+		alt: "Jochen Schweizer",
+		className: "brightness-[3]",
+	},
+	{ src: ManLogo, alt: "MAN", className: "brightness-200" },
+	{
+		src: FraunhoferLogo,
+		alt: "Fraunhofer",
+		className: "invert contrast-[200]",
+	},
+	{ src: BmwLogo, alt: "BMW", className: "brightness-200" },
+	{ src: MercedesLogo, alt: "Mercedes-Benz", className: "brightness-200" },
+	{ src: PorscheLogo, alt: "Porsche", className: "brightness-200 invert" },
+	{ src: SchmalzLogo, alt: "Schmalz", className: "brightness-500" },
+	{ src: TuevLogo, alt: "TÜV", className: "invert brightness-75" },
+	{ src: UnitedLogo, alt: "United", className: "brightness-500" },
+	{ src: VwLogo, alt: "Volkswagen", className: "brightness-200 invert" },
+	{ src: KukaLogo, alt: "KUKA", className: "brightness-200" },
+	{ src: MaibornWolffLogo, alt: "MaibornWolff", className: "brightness-[3]" },
+	{ src: QuantedLogo, alt: "Quanted", className: "brightness-200" },
+	{ src: SmartCube360Logo, alt: "SmartCube360", className: "brightness-200" },
+	{ src: FloyLogo, alt: "Floy", className: "brightness-[3]" },
+];
+
+const LogoCarousel = () => {
+	const { t } = useTranslation();
+	const containerRef = useRef<HTMLDivElement>(null);
+	const { scrollYProgress } = useScroll({
+		target: containerRef,
+		offset: ["start end", "end start"],
+	});
+	const { isNarrowView } = useNarrowView();
+
+	const rows = isNarrowView ? 6 : 3;
+
+	const divider = Math.ceil(logos.length / rows);
+	const baseMagnitude = isNarrowView ? 350 : 200;
+	const rowsData = Array.from({ length: rows }, (_, i) => {
+		const magnitude = baseMagnitude - Math.floor(i / 2) * 50;
+		const range: [number, number] =
+			i % 2 === 0 ? [-magnitude, magnitude] : [magnitude, -magnitude];
+		return {
+			logos: [...logos.slice(i * divider), ...logos.slice(0, i * divider)],
+			parallaxRange: range,
+		};
+	});
+
+	return (
+		<div className="mt-24 w-full space-y-8">
+			<h3 className="mb-6 text-lg font-semibold">{t("otherCompanies")}</h3>
+			<div ref={containerRef} className="flex flex-col gap-3 overflow-hidden">
+				{rowsData.map((row, i) => {
+					return (
+						<InfiniteRow
+							key={i}
+							logos={row.logos}
+							scrollYProgress={scrollYProgress}
+							parallaxRange={row.parallaxRange}
+						/>
+					);
+				})}
+			</div>
+		</div>
+	);
+};
+
+const InfiniteRow = ({
+	logos,
+	scrollYProgress,
+	parallaxRange,
+}: {
+	logos: Logo[];
+	scrollYProgress: MotionValue<number>;
+	parallaxRange: [number, number];
+}) => {
+	const parallaxX = useTransform(scrollYProgress, [0, 1], parallaxRange);
+	return (
+		<div className="mask-swiper overflow-x-hidden py-3">
+			<motion.div style={{ x: parallaxX }} className="flex gap-12">
+				{[...logos, ...logos, ...logos].map((logo, i) => {
+					return (
+						<motion.img
+							key={i}
+							src={logo.src}
+							alt={`${logo.alt} logo`}
+							className={`h-12 w-32 object-contain opacity-60 brightness-150 drop-shadow-[0_0_8px_rgba(0,255,239,0.6)] grayscale select-none${logo.className ? ` ${logo.className}` : ""}`}
+							whileHover={{ scale: 1.2 }}
+							transition={{ type: "spring", stiffness: 300, damping: 20 }}
+						/>
+					);
+				})}
+			</motion.div>
+		</div>
 	);
 };

@@ -1,5 +1,4 @@
 import * as Sentry from "@sentry/react-router";
-import "@splidejs/splide/dist/css/splide.min.css";
 import posthog from "posthog-js";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";

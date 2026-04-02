@@ -93,6 +93,7 @@ export default {
 	mvpInOneMonth: "MVP in 1 month",
 	aiIntegrations: "AI Integrations",
 	iotPlatforms: "IoT Platforms",
+	otherCompanies: "Other companies I worked for",
 	cto: "CTO",
 	whatStoodOut:
 		"What stood out most about Christian is his end-to-end ownership. From architecting efficient backend APIs to building intuitive, pixel-perfect user interfaces, he approached every problem with both technical depth and the end user in mind.",
