@@ -101,7 +101,7 @@ export const ExperienceAndEducation = () => {
 };
 
 const WorkExperience = () => {
-	const workAndEducation = [...WorkExperienceData, ...education].sort(
+	const workAndEducation = [...WorkExperienceData, ...education].toSorted(
 		(a, b) => {
 			return b.startDate.getTime() - a.startDate.getTime();
 		},

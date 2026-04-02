@@ -10,7 +10,6 @@ import {
 	useLoaderData,
 } from "react-router";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
-import { useChangeLanguage } from "remix-i18next/react";
 import { useHydrated } from "remix-utils/use-hydrated";
 
 import { Route } from "./+types/root";
@@ -29,19 +28,19 @@ import MeshTurquoise from "~/images/mesh-turquoise.svg";
 import i18nServer from "~/modules/i18n.server";
 import "~/styles/main.css";
 
-export const meta: MetaFunction<typeof loader> = ({ data }) => {
+export const meta: MetaFunction<typeof loader> = ({ loaderData }) => {
 	return [
 		{
-			title: data?.pageTitle,
+			title: loaderData?.pageTitle,
 		},
 		{ charset: "utf-8" },
 		{
 			name: "description",
-			content: data?.pageDescription,
+			content: loaderData?.pageDescription,
 		},
 		{
 			name: "keywords",
-			content: data?.pageKeywords,
+			content: loaderData?.pageKeywords,
 		},
 		{
 			name: "viewport",
@@ -75,7 +74,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 			"script:ld+json": {
 				"@context": "http://schema.org",
 				"@type": "Organization",
-				name: data?.pageTitle,
+				name: loaderData?.pageTitle,
 				url: "https://jocker.dev",
 				logo: "https://jocker.dev/favicons/android-chrome-256x256.png",
 			},
@@ -205,7 +204,10 @@ export default function Root() {
 	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 	const locale = loaderData?.locale ?? fallbackLng;
 	setI18nLocale(locale);
-	useChangeLanguage(locale);
+	const { i18n } = useTranslation();
+	useEffect(() => {
+		void i18n.changeLanguage(locale);
+	}, [locale, i18n]);
 	usePrintConsole();
 
 	return (

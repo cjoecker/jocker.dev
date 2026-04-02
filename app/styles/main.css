@@ -1,6 +1,6 @@
 @import "tailwindcss" important;
 
-@config '../../tailwind.config.ts';
+@config "../../tailwind.config.ts";
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
 	input,

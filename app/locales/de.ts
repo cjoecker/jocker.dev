@@ -100,7 +100,7 @@ export default {
 	mvpInOneMonth: "MVP in 1 Monat",
 	aiIntegrations: "KI-Integrationen",
 	iotPlatforms: "IoT Plattformen",
-	free30MinConsultation: "Kostenlose 30-Minuten-Beratung",
+	digitalConsultation: "Digitale Strategieberatung",
 	getAFastElegant:
 		"Erhalten eine schnelle, elegante und zukunftssichere Cloud-Native-Anwendung, gebaut mit bewährten Cloud-Technologien.\n\nMit über {{years}} Jahren Erfahrung weiß ich, welche Tech am besten für deine Business-Bedürfnisse funktioniert.",
 	youWillGetASolid:
@@ -110,7 +110,7 @@ export default {
 	asAMechanicalEngineer:
 		"Als Maschinenbauingenieur mit jahrelanger Erfahrung in der Robotik ist die Anbindung von Geräten an die Cloud für mich selbstverständlich.\n\nDu kannst deine Geräte zuverlässig überwachen und steuern.",
 	stuckOrJustHave:
-		"Festgefahren oder einfach nur Fragen an einen Experten? Buche ein kostenloses 30-minütiges Gespräch mit mir, unverbindlich!",
+		"Stecken Sie fest oder haben Sie einfach Fragen an einen Experten? Meine digitale Strategieberatung bietet Ihnen die Klarheit und den konkreten Fahrplan, den Sie brauchen, um sicher zu skalieren.",
 	scheduleCall: "Call vereinbaren!",
 	consolePrint:
 		"Magst du es auch, den Code von anderen Leuten anzuschauen? Ich auch!\nLass uns zusammen großartige Dinge bauen!",

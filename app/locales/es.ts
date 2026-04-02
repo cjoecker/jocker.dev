@@ -6,6 +6,7 @@ export default {
 	webDeveloper: "Desarrollador Web.",
 	fullStackDeveloperPrefix: "un",
 	otherCompanies: "Otras empresas en las que he trabajado",
+	digitalConsultation: "Consultoría de Estrategia Digital",
 	iDontJustProgramFeatures:
 		"No solo programo funcionalidades. Te ayudo a crear aplicaciones escalables con experiencias de usuario increíbles que funcionan de maravilla.",
 	discoverMore: "¡Descubre Más!",
@@ -101,7 +102,6 @@ export default {
 	mvpInOneMonth: "MVP en 1 mes",
 	aiIntegrations: "Integraciones con IA",
 	iotPlatforms: "Plataformas IoT",
-	free30MinConsultation: "Consulta gratuita de 30 minutos",
 	getAFastElegant:
 		"Obtén una aplicación cloud-native rápida, elegante y preparada para el futuro, construida con tecnologías cloud probadas.\n\nCon más de {{years}} años de experiencia, sé qué tecnología funciona mejor para las necesidades de tu negocio.",
 	youWillGetASolid:
@@ -111,7 +111,7 @@ export default {
 	asAMechanicalEngineer:
 		"Como ingeniero mecánico con años en robótica, conectar dispositivos a la nube es para mi algo fácil.\n\nPodrás monitorear y controlar tus dispositivos de forma fiable y rápida.",
 	stuckOrJustHave:
-		"¿Atascado o simplemente tienes preguntas para un experto? Agenda una llamada gratuita de 30 minutos conmigo, sin compromiso!",
+		"¿Te has bloqueado o simplemente tienes preguntas para un experto? Mi consultoría de estrategia digital te ofrece la claridad y la hoja de ruta necesarias para escalar con total confianza.",
 	scheduleCall: "Agendar llamada!",
 	consolePrint:
 		"A ti también te gusta ver el código de la gente? A mí también!\nConstruyamos cosas geniales juntos!",

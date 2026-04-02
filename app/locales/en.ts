@@ -97,17 +97,17 @@ export default {
 	cto: "CTO",
 	whatStoodOut:
 		"What stood out most about Christian is his end-to-end ownership. From architecting efficient backend APIs to building intuitive, pixel-perfect user interfaces, he approached every problem with both technical depth and the end user in mind.",
-	free30MinConsultation: "Free 30-Min Consultation",
+	digitalConsultation: "Digital Strategy Consultation",
 	getAFastElegant:
 		"Get a fast, elegant, and future-proof cloud-native application built with proven cloud technologies.\n\nWith over {{years}} years of experience, I know what tech works best for your business needs.",
 	youWillGetASolid:
-		"You’ll get a solid MVP in just one month so you can test your most valuable features early.\n\nIt’s not a throwaway — your MVP can grow into the final product without needing to start over.",
+		"You’ll get a solid MVP in just one month so you can test your most valuable features early.\n\nIt’s not a throwaway. Tour MVP can grow into the final product without needing to start over.",
 	wantToAddAi:
 		"Want to add AI to your product? Or adapt your UX for new AI features? I got you.\n\nI also integrate real-time, context-aware data using MCP servers for smarter results.",
 	asAMechanicalEngineer:
-		"As a mechanical engineer with years in robotics, connecting devices to the cloud is second nature.\n\nYou’ll be able to monitor and control your devices reliably — fast.",
+		"As a mechanical engineer with years in robotics, connecting devices to the cloud is second nature.\n\nYou’ll be able to monitor and control your devices reliably, fast.",
 	stuckOrJustHave:
-		"Stuck or just have questions for an expert? Book a free 30-min call with me, no strings attached!",
+		"Stuck or just have questions for an expert? My Digital Strategy Consultation provides the clarity and actionable roadmap you need to scale with confidence.",
 	scheduleCall: "Schedule a Call!",
 	consolePrint:
 		"Do you also like to see people's code? Me too!\nLet's build amazing things together!",

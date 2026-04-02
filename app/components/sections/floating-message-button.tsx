@@ -20,7 +20,8 @@ const animationVariants: Variants = {
 		y: 0,
 		x: 0,
 		transition: {
-			type: "easeOut",
+			type: "tween",
+			ease: "easeOut",
 			duration: 0.3,
 		},
 	},
@@ -39,7 +40,8 @@ const animationVariants: Variants = {
 		y: -100,
 		x: [-20, 20, -15, 15, -10, 0],
 		transition: {
-			type: "easeInOut",
+			type: "tween",
+			ease: "easeInOut",
 			duration: 0.7,
 		},
 	},

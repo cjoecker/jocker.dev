@@ -11,7 +11,7 @@ export function useTranslationWithMarkdown() {
 			return (
 				<div className="markdown">
 					<Markdown remarkPlugins={[remarkGfm]}>
-						{t(key, options ?? {})}
+						{t(key, (options ?? {}) as Record<string, unknown>)}
 					</Markdown>
 				</div>
 			);

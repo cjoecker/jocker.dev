@@ -1,7 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useMouse } from "react-use";
 
 import CollapseIcon from "../../images/collapse.svg?url";
 import ExpandIcon from "../../images/expand.svg?url";
@@ -44,9 +43,8 @@ export const ServiceOfferData: ServiceOfferType[] = [
 	},
 	{
 		logo: StrategyImg,
-		titleKey: "free30MinConsultation",
+		titleKey: "digitalConsultation",
 		descriptionTranslationKey: "stuckOrJustHave",
-		isFree: true,
 	},
 ];
 
@@ -166,8 +164,9 @@ const CardContent = ({
 	const { t } = useTranslation();
 	const { tm } = useTranslationWithMarkdown();
 
-	const containerRef = useRef(null);
-	const { elX, elY } = useMouse(containerRef as never);
+	const containerRef = useRef<HTMLDivElement>(null);
+	const mouseX = useMotionValue(0);
+	const mouseY = useMotionValue(0);
 	const [isHovering, setIsHovering] = useState(false);
 	const { isNarrowView } = useNarrowView();
 
@@ -178,6 +177,12 @@ const CardContent = ({
 					if (!isNarrowView) {
 						setIsHovering(true);
 					}
+				}}
+				onMouseMove={(e) => {
+					if (!containerRef.current) return;
+					const rect = containerRef.current.getBoundingClientRect();
+					mouseX.set(e.clientX - rect.left - 300);
+					mouseY.set(e.clientY - rect.top - 250);
 				}}
 				onMouseLeave={() => {
 					setIsHovering(false);
@@ -199,7 +204,7 @@ const CardContent = ({
 						<motion.img
 							alt=""
 							aria-hidden="true"
-							style={{ x: elX - 300, y: elY - 250 }}
+							style={{ x: mouseX, y: mouseY }}
 							transition={{ duration: 0.7 }}
 							src={MeshPurpleTurquoise}
 							className="z-0 min-h-[500px] min-w-[600px]"
@@ -238,7 +243,7 @@ const CardContent = ({
 
 				<motion.img
 					layout={isExpandable ? "preserve-aspect" : false}
-					loading="lazy"
+					loading="eager"
 					alt={getAltTextFromFileName(offer.logo)}
 					width={"70"}
 					height={"70"}

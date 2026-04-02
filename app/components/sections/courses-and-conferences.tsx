@@ -232,7 +232,7 @@ export interface ConferenceType {
 }
 
 export const CoursesAndConferences = () => {
-	const sortedCoursesAndConferences = [...Courses, ...Conferences].sort(
+	const sortedCoursesAndConferences = [...Courses, ...Conferences].toSorted(
 		(a, b) => {
 			return b.date.getTime() - a.date.getTime();
 		},
