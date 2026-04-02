@@ -390,8 +390,9 @@ const LogoCarousel = () => {
 	const rows = isNarrowView ? 6 : 3;
 
 	const divider = Math.ceil(logos.length / rows);
+	const baseMagnitude = isNarrowView ? 350 : 200;
 	const rowsData = Array.from({ length: rows }, (_, i) => {
-		const magnitude = 200 - Math.floor(i / 2) * 50;
+		const magnitude = baseMagnitude - Math.floor(i / 2) * 50;
 		const range: [number, number] = i % 2 === 0 ? [-magnitude, magnitude] : [magnitude, -magnitude];
 		return {
 			logos: [...logos.slice(i * divider), ...logos.slice(0, i * divider)],
@@ -422,7 +423,7 @@ const InfiniteRow = ({
 }) => {
 	const parallaxX = useTransform(scrollYProgress, [0, 1], parallaxRange);
 	return (
-		<div className="overflow-x-hidden py-3">
+		<div className="mask-swiper overflow-x-hidden py-3">
 			<motion.div style={{ x: parallaxX }} className="flex gap-12">
 				{[...logos, ...logos, ...logos].map((logo, i) => (
 					<img
@@ -430,7 +431,7 @@ const InfiniteRow = ({
 						src={logo.src}
 						alt=""
 						draggable={false}
-						className={`h-10 w-auto opacity-60 grayscale brightness-150 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] select-none${logo.className ? ` ${logo.className}` : ""}`}
+						className={`h-12 w-32 object-contain opacity-60 grayscale brightness-150 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] select-none${logo.className ? ` ${logo.className}` : ""}`}
 					/>
 				))}
 			</motion.div>
