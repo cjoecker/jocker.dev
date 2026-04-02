@@ -25,10 +25,10 @@ export default defineConfig((config) => {
 		],
 		sentryConfig,
 		optimizeDeps: {
-			include: ["react-use", "@splidejs/react-splide"],
+			include: ["react-use"],
 		},
 		ssr: {
-			noExternal: ["react-use", "@splidejs/react-splide"],
+			noExternal: ["react-use"],
 		},
 	};
 });
