@@ -14,7 +14,7 @@ export default {
 	excellence: "Exzellenz",
 	cto: "CTO",
 	whatStoodOut:
-		"Was bei Christian am meisten herausstach, war seine Eigenverantwortung für den gesamten Prozess. Von der Architektur effizienter Backend-APIs bis hin zur Erstellung intuitiver, pixelgenauer Benutzeroberflächen ging er jedes Problem sowohl mit technischer Tiefe als auch mit Blick auf den Endnutzer an.",
+		"Was bei Christian am meisten herausstach, war seine Eigenverantwortung für den gesamten Prozess. Von der Architektur effizienter Backend-APIs bis hin zur Erstellung intuitiver, pixel-perfect Benutzeroberflächen ging er jedes Problem sowohl mit technischer Tiefe als auch mit Blick auf den Endnutzer an.",
 	sustainableArchitecture:
 		"Nachhaltige Architektur, sauberer Code und großartige UX sind meine Mantras",
 	accountable: "Zuverlässig",
