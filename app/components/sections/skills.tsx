@@ -13,6 +13,7 @@ export const DevSkills: SkillItem[] = [
 	{ skill: "TypeScript", level: 10 },
 	{ skill: "Javascript", level: 10 },
 	{ skill: "Remix / React Router", level: 9 },
+	{ skill: "TanStack Start", level: 8 },
 	{ skill: "Next.js", level: 8 },
 	{ skill: "Node.js", level: 8 },
 	{ skill: "Python", level: 6 },
