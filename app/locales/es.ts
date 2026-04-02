@@ -6,7 +6,7 @@ export default {
 	webDeveloper: "Desarrollador Web.",
 	fullStackDeveloperPrefix: "un",
 	iDontJustProgramFeatures:
-		"No solo programo funciones. Te ayudo a crear apps escalables con experiencias de usuario increíbles que realmente funcionan.",
+		"No solo programo funcionalidades. Te ayudo a crear aplicaciones escalables con experiencias de usuario increíbles que funcionan de maravilla.",
 	discoverMore: "¡Descubre Más!",
 	whatICanDoForYou: "Lo Que Puedo Hacer por Ti",
 	technicalSkills: "Conocimientos Técnicos",
