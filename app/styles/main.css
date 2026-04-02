@@ -50,6 +50,7 @@
 
 :root {
 	color-scheme: dark;
+	--color-bg: #0f0823;
 }
 
 html {
@@ -57,7 +58,7 @@ html {
 	height: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
-	background-color: #0f0823;
+	background-color: var(--color-bg);
 	position: relative;
 }
 body {

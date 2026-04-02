@@ -93,7 +93,6 @@ const MOBILE_SLIDE = 84;
 const MOBILE_OFFSET = 8;
 const DESKTOP_SLIDE = 78;
 const DESKTOP_OFFSET = 11;
-const BG_COLOR = "#130d18";
 const SPRING = { type: "spring" as const, stiffness: 300, damping: 30 };
 
 export function Testimonials() {
@@ -274,13 +273,13 @@ function EdgeGradients() {
 			<div
 				className="pointer-events-none absolute inset-y-0 left-0 w-[12%]"
 				style={{
-					background: `linear-gradient(to right, ${BG_COLOR}, transparent)`,
+					background: "linear-gradient(to right, var(--color-bg), transparent)",
 				}}
 			/>
 			<div
 				className="pointer-events-none absolute inset-y-0 right-0 w-[12%]"
 				style={{
-					background: `linear-gradient(to left, ${BG_COLOR}, transparent)`,
+					background: "linear-gradient(to left, var(--color-bg), transparent)",
 				}}
 			/>
 		</>
@@ -367,26 +366,39 @@ function SlideDots({
 interface Logo {
 	src: string;
 	className?: string;
+	alt: string;
 }
 
 const logos: Logo[] = [
-	{ src: HealmindLogo, className: "invert contrast-[100] brightness-200" },
-	{ src: JaguarLogo, className: "brightness-200" },
-	{ src: JochenSchweizerLogo, className: "brightness-[3]" },
-	{ src: ManLogo, className: "brightness-200" },
-	{ src: FraunhoferLogo, className: "invert contrast-[200]" },
-	{ src: BmwLogo, className: "brightness-200" },
-	{ src: MercedesLogo, className: "brightness-200" },
-	{ src: PorscheLogo, className: "brightness-200 invert" },
-	{ src: SchmalzLogo, className: "brightness-500" },
-	{ src: TuevLogo, className: "invert brightness-75" },
-	{ src: UnitedLogo, className: "brightness-500" },
-	{ src: VwLogo, className: "brightness-200 invert" },
-	{ src: KukaLogo, className: "brightness-200" },
-	{ src: MaibornWolffLogo, className: "brightness-[3]" },
-	{ src: QuantedLogo, className: "brightness-200" },
-	{ src: SmartCube360Logo, className: "brightness-200" },
-	{ src: FloyLogo, className: "brightness-[3]" },
+	{
+		src: HealmindLogo,
+		alt: "Healmind",
+		className: "invert contrast-[100] brightness-200",
+	},
+	{ src: JaguarLogo, alt: "Jaguar", className: "brightness-200" },
+	{
+		src: JochenSchweizerLogo,
+		alt: "Jochen Schweizer",
+		className: "brightness-[3]",
+	},
+	{ src: ManLogo, alt: "MAN", className: "brightness-200" },
+	{
+		src: FraunhoferLogo,
+		alt: "Fraunhofer",
+		className: "invert contrast-[200]",
+	},
+	{ src: BmwLogo, alt: "BMW", className: "brightness-200" },
+	{ src: MercedesLogo, alt: "Mercedes-Benz", className: "brightness-200" },
+	{ src: PorscheLogo, alt: "Porsche", className: "brightness-200 invert" },
+	{ src: SchmalzLogo, alt: "Schmalz", className: "brightness-500" },
+	{ src: TuevLogo, alt: "TÜV", className: "invert brightness-75" },
+	{ src: UnitedLogo, alt: "United", className: "brightness-500" },
+	{ src: VwLogo, alt: "Volkswagen", className: "brightness-200 invert" },
+	{ src: KukaLogo, alt: "KUKA", className: "brightness-200" },
+	{ src: MaibornWolffLogo, alt: "MaibornWolff", className: "brightness-[3]" },
+	{ src: QuantedLogo, alt: "Quanted", className: "brightness-200" },
+	{ src: SmartCube360Logo, alt: "SmartCube360", className: "brightness-200" },
+	{ src: FloyLogo, alt: "Floy", className: "brightness-[3]" },
 ];
 
 const LogoCarousel = () => {
@@ -446,12 +458,13 @@ const InfiniteRow = ({
 			<motion.div style={{ x: parallaxX }} className="flex gap-12">
 				{[...logos, ...logos, ...logos].map((logo, i) => {
 					return (
-						<img
+						<motion.img
 							key={i}
 							src={logo.src}
-							alt=""
-							draggable={false}
-							className={`h-12 w-32 object-contain opacity-60 brightness-150 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] grayscale select-none${logo.className ? ` ${logo.className}` : ""}`}
+							alt={`${logo.alt} logo`}
+							className={`h-12 w-32 object-contain opacity-60 brightness-150 drop-shadow-[0_0_8px_rgba(0,255,239,0.6)] grayscale select-none${logo.className ? ` ${logo.className}` : ""}`}
+							whileHover={{ scale: 1.2 }}
+							transition={{ type: "spring", stiffness: 300, damping: 20 }}
 						/>
 					);
 				})}
