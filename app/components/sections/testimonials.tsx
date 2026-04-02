@@ -1,6 +1,27 @@
-import { animate, motion, useMotionValue } from "framer-motion";
+import {
+	animate,
+	motion,
+	MotionValue,
+	useMotionValue,
+	useScroll,
+	useTransform,
+} from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import KukaLogo from "~/images/kuka.svg";
+import MaibornWolffLogo from "~/images/maibornwolff.svg";
+import BmwLogo from "~/images/bmw.webp";
+import FraunhoferLogo from "~/images/frauenhofer.webp";
+import HealmingLogo from "~/images/healming.webp";
+import JaguarLogo from "~/images/jaguar.webp";
+import JochenSchweizerLogo from "~/images/jochen-schweizer.webp";
+import ManLogo from "~/images/man.webp";
+import MercedesLogo from "~/images/mercedes.webp";
+import PorscheLogo from "~/images/porsche.webp";
+import SchmalzLogo from "~/images/schmalz.webp";
+import TuevLogo from "~/images/tuev.webp";
+import UnitedLogo from "~/images/united.webp";
+import VwLogo from "~/images/vw.webp";
 
 import DoubleQuotesIcon from "../../images/double-quotes.svg";
 import { Section } from "../shared/section";
@@ -18,6 +39,7 @@ import QuantedLogo from "~/images/quanted-logo.png";
 import SmartCube360Logo from "~/images/smart-cube-360.svg";
 import ThomasPhoto from "~/images/thomas.png";
 import { useNarrowView } from "~/hooks/use-narrow-view";
+import MeshPurple from "~/images/mesh-purple.svg";
 
 export const testimonials: TestimonialsType[] = [
 	{
@@ -134,7 +156,10 @@ export function Testimonials() {
 
 	return (
 		<Section titleKey="testimonials" className="relative mx-auto max-w-[900px]">
-			<div className="relative mx-auto max-w-5xl" aria-label={t("testimonials")}>
+			<div
+				className="relative mx-auto max-w-5xl"
+				aria-label={t("testimonials")}
+			>
 				<div ref={trackRef} className="overflow-hidden pb-6">
 					<motion.div
 						className="flex cursor-grab select-none active:cursor-grabbing"
@@ -188,6 +213,7 @@ export function Testimonials() {
 					goToSlide(index);
 				}}
 			/>
+			<LogoCarousel />
 		</Section>
 	);
 }
@@ -240,17 +266,27 @@ function EdgeGradients() {
 		<>
 			<div
 				className="pointer-events-none absolute inset-y-0 left-0 w-[12%]"
-				style={{ background: `linear-gradient(to right, ${BG_COLOR}, transparent)` }}
+				style={{
+					background: `linear-gradient(to right, ${BG_COLOR}, transparent)`,
+				}}
 			/>
 			<div
 				className="pointer-events-none absolute inset-y-0 right-0 w-[12%]"
-				style={{ background: `linear-gradient(to left, ${BG_COLOR}, transparent)` }}
+				style={{
+					background: `linear-gradient(to left, ${BG_COLOR}, transparent)`,
+				}}
 			/>
 		</>
 	);
 }
 
-function DesktopArrows({ onPrev, onNext }: { onPrev: () => void; onNext: () => void }) {
+function DesktopArrows({
+	onPrev,
+	onNext,
+}: {
+	onPrev: () => void;
+	onNext: () => void;
+}) {
 	return (
 		<div className="pointer-events-none absolute inset-0 hidden items-center justify-between md:flex">
 			<button
@@ -258,7 +294,13 @@ function DesktopArrows({ onPrev, onNext }: { onPrev: () => void; onNext: () => v
 				onClick={onPrev}
 			>
 				<span className="bg-grey/80 pointer-events-auto mr-auto ml-4 flex h-12 w-12 cursor-pointer rounded-full">
-					<img alt="previous testimonial" height={48} width={48} className="h-full w-full" src={ArrowLeft} />
+					<img
+						alt="previous testimonial"
+						height={48}
+						width={48}
+						className="h-full w-full"
+						src={ArrowLeft}
+					/>
 				</span>
 			</button>
 			<button
@@ -266,7 +308,13 @@ function DesktopArrows({ onPrev, onNext }: { onPrev: () => void; onNext: () => v
 				onClick={onNext}
 			>
 				<span className="bg-grey/80 pointer-events-auto mr-4 ml-auto flex h-12 w-12 cursor-pointer rounded-full">
-					<img alt="next testimonial" height={48} width={48} className="h-full w-full" src={ArrowRight} />
+					<img
+						alt="next testimonial"
+						height={48}
+						width={48}
+						className="h-full w-full"
+						src={ArrowRight}
+					/>
 				</span>
 			</button>
 		</div>
@@ -288,7 +336,9 @@ function SlideDots({
 					key={testimonial.testimonialKey}
 					aria-label={`${t("seePage")} ${index + 1}`}
 					className="h-12 w-12 cursor-pointer"
-					onClick={() => { onDotClick(index); }}
+					onClick={() => {
+						onDotClick(index);
+					}}
 				>
 					<span
 						style={{
@@ -304,3 +354,78 @@ function SlideDots({
 		</div>
 	);
 }
+
+interface Logo { src: string; className?: string }
+
+const logos: Logo[] = [
+	{ src: BmwLogo, className: "brightness-200" },
+	{ src: FraunhoferLogo, className: "brightness-200 invert" },
+	{ src: HealmingLogo, className: "invert contrast-80 brightness-100" },
+	{ src: JaguarLogo, className: "brightness-200" },
+	{ src: JochenSchweizerLogo, className: "brightness-[3]" },
+	{ src: ManLogo, className: "brightness-200" },
+	{ src: MercedesLogo, className: "brightness-200" },
+	{ src: PorscheLogo, className: "brightness-200 invert" },
+	{ src: SchmalzLogo, className: "brightness-200" },
+	{ src: TuevLogo, className: "invert brightness-75" },
+	{ src: UnitedLogo, className: "brightness-200" },
+	{ src: VwLogo, className: "brightness-200 invert" },
+	{ src: KukaLogo, className: "brightness-200" },
+	{ src: MaibornWolffLogo, className: "brightness-[3]" },
+	{ src: QuantedLogo, className: "brightness-200" },
+	{ src: SmartCube360Logo, className: "brightness-200" },
+	{ src: FloyLogo, className: "brightness-[3]" },
+];
+
+const LogoCarousel = () => {
+	const { t } = useTranslation();
+	const containerRef = useRef<HTMLDivElement>(null);
+	const { scrollYProgress } = useScroll({
+		target: containerRef,
+		offset: ["start end", "end start"],
+	});
+
+	const row1X = useTransform(scrollYProgress, [0, 1], [-200, 200]);
+	const row2X = useTransform(scrollYProgress, [0, 1], [200, -200]);
+	const row3X = useTransform(scrollYProgress, [0, 1], [-150, 150]);
+
+	const third = Math.ceil(logos.length / 3);
+	const row1Logos = logos.slice(0, third);
+	const row2Logos = [...logos.slice(third), ...logos.slice(0, third)];
+	const row3Logos = [...logos.slice(third * 2), ...logos.slice(0, third * 2)];
+
+	return (
+		<div className="mt-24 w-full space-y-8">
+			<h3 className="mb-6 text-lg font-semibold">{t("otherCompanies")}</h3>
+			<div ref={containerRef} className="flex flex-col gap-3 overflow-hidden">
+				<InfiniteRow logos={row1Logos} parallaxX={row1X} />
+				<InfiniteRow logos={row2Logos} parallaxX={row2X} />
+				<InfiniteRow logos={row3Logos} parallaxX={row3X} />
+			</div>
+		</div>
+	);
+};
+
+const InfiniteRow = ({
+	logos,
+	parallaxX,
+}: {
+	logos: Logo[];
+	parallaxX: MotionValue<number>;
+}) => {
+	return (
+		<div className="overflow-hidden">
+			<motion.div style={{ x: parallaxX }} className="flex gap-12">
+				{[...logos, ...logos, ...logos].map((logo, i) => (
+					<img
+						key={i}
+						src={logo.src}
+						alt=""
+						draggable={false}
+						className={`h-10 w-auto opacity-60 grayscale brightness-150 select-none${logo.className ? ` ${logo.className}` : ""}`}
+					/>
+				))}
+			</motion.div>
+		</div>
+	);
+};

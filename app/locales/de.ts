@@ -31,6 +31,7 @@ export default {
 	aboutMe: "Über Mich",
 	contact: "Kontakt",
 	facts: "Fakten",
+	otherCompanies: "Andere Unternehmen, für die ich tätig war",
 	yearsOfExperience: "Jahre Erfahrung",
 	developedApps: "Entwickelte Apps",
 	happyCustomers: "Zufriedene Kunden",
