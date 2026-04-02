@@ -93,6 +93,9 @@ export default {
 	mvpInOneMonth: "MVP in 1 month",
 	aiIntegrations: "AI Integrations",
 	iotPlatforms: "IoT Platforms",
+	cto: "CTO",
+	heDemonstrated:
+		"He demonstrated his exceptional full stack engineering abilities on our React/Nest.js PartnerPortal. Even in the short time he spent with us, he made major contributions and was astonishingly productive from day one.",
 	free30MinConsultation: "Free 30-Min Consultation",
 	getAFastElegant:
 		"Get a fast, elegant, and future-proof cloud-native application built with proven cloud technologies.\n\nWith over {{years}} years of experience, I know what tech works best for your business needs.",

@@ -10,9 +10,11 @@ import { colors } from "~/constants/colors";
 import ArrowLeft from "~/images/arrow-left.svg";
 import ArrowRight from "~/images/arrow-right.svg";
 import DavidPhoto from "~/images/david.webp";
+import PaulPhoto from "~/images/paul.webp";
 import NewspectiveLogo from "~/images/newspective-logo.svg";
 import PaulaPhoto from "~/images/paula.webp";
 import QuantedLogo from "~/images/quanted-logo.png";
+import FloyLogo from "~/images/floy-logo.svg";
 import SmartCube360Logo from "~/images/smart-cube-360.svg";
 import ThomasPhoto from "~/images/thomas.png";
 
@@ -34,6 +36,15 @@ export const testimonials: TestimonialsType[] = [
 		companyLogo: SmartCube360Logo,
 		companyHeight: 70,
 		titleKey: "ceoAndCoFounder",
+	},
+	{
+		testimonialKey: "heDemonstrated",
+		person: "Paul Brachmann",
+		photo: PaulPhoto,
+		company: "Floy® GmbH",
+		companyLogo: FloyLogo,
+		companyHeight: 30,
+		titleKey: "cto",
 	},
 	{
 		testimonialKey: "hePerfectlyEmbodies",
