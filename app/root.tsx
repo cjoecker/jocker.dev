@@ -1,5 +1,4 @@
 import * as Sentry from "@sentry/react-router";
-import posthog from "posthog-js";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import {
@@ -15,7 +14,7 @@ import { useHydrated } from "remix-utils/use-hydrated";
 import { Route } from "./+types/root";
 
 import { fallbackLng, setI18nLocale, supportedLngs } from "~/config/i18n";
-import { googleAnalyticsId, POSTHOG_IGNORE_KEY } from "~/constants/misc";
+import { googleAnalyticsId } from "~/constants/misc";
 import RalewayFont600Woff from "~/fonts/raleway-v28-latin-600.woff";
 import RalewayFont600Woff2 from "~/fonts/raleway-v28-latin-600.woff2";
 import RalewayFont800Woff from "~/fonts/raleway-v28-latin-800.woff";
@@ -182,22 +181,6 @@ export async function loader({ request }: Route.LoaderArgs) {
 	return { locale, pageTitle, pageDescription, pageKeywords };
 }
 
-function PosthogInit() {
-	const isHydrated = useHydrated();
-	useEffect(() => {
-		const isDev = !location.hostname.includes("jocker.dev");
-		const ignorePosthog = globalThis.localStorage.getItem(POSTHOG_IGNORE_KEY);
-		if (isHydrated && !isDev && !ignorePosthog) {
-			posthog.init("phc_zJ008UtaAYRQuW1Q9zLwe3LiC2nK573C1gxVsoHjKQ8", {
-				api_host: "https://eu.i.posthog.com",
-				person_profiles: "always",
-				persistence: "memory",
-			});
-		}
-	}, [isHydrated]);
-
-	return null;
-}
 
 export default function Root() {
 	const loaderData = useLoaderData<typeof loader>();
@@ -241,7 +224,6 @@ export default function Root() {
 				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
-				<PosthogInit />
 			</body>
 		</html>
 	);

@@ -28,7 +28,7 @@ export default defineConfig((config) => {
 			include: ["react-use"],
 		},
 		ssr: {
-			noExternal: ["react-use"],
+			noExternal: ["react-use", "posthog-js", "@posthog/react"],
 		},
 	};
 });
