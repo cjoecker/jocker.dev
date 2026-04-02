@@ -9,6 +9,11 @@ import { useFormatDates } from "~/hooks/use-format-dates";
 
 export const Courses: CourseType[] = [
 	{
+		name: "Agentic Engineering",
+		instructor: "Dex",
+		date: new Date("2026-01"),
+	},
+	{
 		name: "Improvisation Skills",
 		instructor: "SUBIT!",
 		date: new Date("2025-03"),
@@ -165,6 +170,18 @@ export const Courses: CourseType[] = [
 	},
 ];
 export const Conferences: ConferenceType[] = [
+	{
+		name: "Creative Mornings",
+		date: new Date("2026-03"),
+	},
+	{
+		name: "Entrepreneurship Fair - Universidad Europea",
+		date: new Date("2026-02"),
+	},
+	{
+		name: "Valencia Digital Summit",
+		date: new Date("2025-10"),
+	},
 	{
 		name: "Valencia Digital Summit",
 		date: new Date("2024-11"),
