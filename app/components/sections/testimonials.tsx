@@ -358,17 +358,17 @@ function SlideDots({
 interface Logo { src: string; className?: string }
 
 const logos: Logo[] = [
-	{ src: BmwLogo, className: "brightness-200" },
-	{ src: FraunhoferLogo, className: "brightness-200 invert" },
-	{ src: HealmingLogo, className: "invert contrast-80 brightness-100" },
+	{ src: HealmingLogo, className: "invert contrast-[100] brightness-200" },
 	{ src: JaguarLogo, className: "brightness-200" },
 	{ src: JochenSchweizerLogo, className: "brightness-[3]" },
 	{ src: ManLogo, className: "brightness-200" },
+	{ src: FraunhoferLogo, className: "invert contrast-[200]" },
+	{ src: BmwLogo, className: "brightness-200" },
 	{ src: MercedesLogo, className: "brightness-200" },
 	{ src: PorscheLogo, className: "brightness-200 invert" },
-	{ src: SchmalzLogo, className: "brightness-200" },
+	{ src: SchmalzLogo, className: "brightness-500" },
 	{ src: TuevLogo, className: "invert brightness-75" },
-	{ src: UnitedLogo, className: "brightness-200" },
+	{ src: UnitedLogo, className: "brightness-500" },
 	{ src: VwLogo, className: "brightness-200 invert" },
 	{ src: KukaLogo, className: "brightness-200" },
 	{ src: MaibornWolffLogo, className: "brightness-[3]" },
@@ -384,23 +384,28 @@ const LogoCarousel = () => {
 		target: containerRef,
 		offset: ["start end", "end start"],
 	});
+	const { isNarrowView } = useNarrowView();
 
-	const row1X = useTransform(scrollYProgress, [0, 1], [-200, 200]);
-	const row2X = useTransform(scrollYProgress, [0, 1], [200, -200]);
-	const row3X = useTransform(scrollYProgress, [0, 1], [-150, 150]);
 
-	const third = Math.ceil(logos.length / 3);
-	const row1Logos = logos.slice(0, third);
-	const row2Logos = [...logos.slice(third), ...logos.slice(0, third)];
-	const row3Logos = [...logos.slice(third * 2), ...logos.slice(0, third * 2)];
+	const rows = isNarrowView ? 6 : 3;
+
+	const divider = Math.ceil(logos.length / rows);
+	const rowsData = Array.from({ length: rows }, (_, i) => {
+		const magnitude = 200 - Math.floor(i / 2) * 50;
+		const range: [number, number] = i % 2 === 0 ? [-magnitude, magnitude] : [magnitude, -magnitude];
+		return {
+			logos: [...logos.slice(i * divider), ...logos.slice(0, i * divider)],
+			parallaxRange: range,
+		};
+	});
 
 	return (
 		<div className="mt-24 w-full space-y-8">
 			<h3 className="mb-6 text-lg font-semibold">{t("otherCompanies")}</h3>
 			<div ref={containerRef} className="flex flex-col gap-3 overflow-hidden">
-				<InfiniteRow logos={row1Logos} parallaxX={row1X} />
-				<InfiniteRow logos={row2Logos} parallaxX={row2X} />
-				<InfiniteRow logos={row3Logos} parallaxX={row3X} />
+				{rowsData.map((row, i) => (
+					<InfiniteRow key={i} logos={row.logos} scrollYProgress={scrollYProgress} parallaxRange={row.parallaxRange} />
+				))}
 			</div>
 		</div>
 	);
@@ -408,13 +413,16 @@ const LogoCarousel = () => {
 
 const InfiniteRow = ({
 	logos,
-	parallaxX,
+	scrollYProgress,
+	parallaxRange,
 }: {
 	logos: Logo[];
-	parallaxX: MotionValue<number>;
+	scrollYProgress: MotionValue<number>;
+	parallaxRange: [number, number];
 }) => {
+	const parallaxX = useTransform(scrollYProgress, [0, 1], parallaxRange);
 	return (
-		<div className="overflow-hidden">
+		<div className="overflow-x-hidden py-3">
 			<motion.div style={{ x: parallaxX }} className="flex gap-12">
 				{[...logos, ...logos, ...logos].map((logo, i) => (
 					<img
@@ -422,7 +430,7 @@ const InfiniteRow = ({
 						src={logo.src}
 						alt=""
 						draggable={false}
-						className={`h-10 w-auto opacity-60 grayscale brightness-150 select-none${logo.className ? ` ${logo.className}` : ""}`}
+						className={`h-10 w-auto opacity-60 grayscale brightness-150 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] select-none${logo.className ? ` ${logo.className}` : ""}`}
 					/>
 				))}
 			</motion.div>
