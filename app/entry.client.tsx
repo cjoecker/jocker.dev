@@ -1,8 +1,6 @@
-import { PostHogProvider } from "@posthog/react";
 import * as Sentry from "@sentry/react-router";
 import i18next from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import posthog from "posthog-js";
 import { startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
 import { I18nextProvider, initReactI18next } from "react-i18next";
@@ -10,18 +8,9 @@ import { HydratedRouter } from "react-router/dom";
 import { getInitialNamespaces } from "remix-i18next/client";
 
 import * as i18n from "~/config/i18n";
-import { POSTHOG_IGNORE_KEY, sentryConfig } from "~/constants/misc";
+import { sentryConfig } from "~/constants/misc";
 
 Sentry.init({ ...sentryConfig, integrations: [Sentry.replayIntegration()] });
-const isDev = !location.hostname.includes("jocker.dev");
-const ignorePosthog = globalThis.localStorage.getItem(POSTHOG_IGNORE_KEY);
-
-posthog.init("phc_zJ008UtaAYRQuW1Q9zLwe3LiC2nK573C1gxVsoHjKQ8", {
-	api_host: "https://eu.i.posthog.com",
-	person_profiles: "always",
-	persistence: "memory",
-	opt_out_capturing_by_default: Boolean(isDev || ignorePosthog),
-});
 
 async function hydrate() {
 	await i18next
@@ -40,13 +29,11 @@ async function hydrate() {
 	startTransition(() => {
 		hydrateRoot(
 			document,
-			<PostHogProvider client={posthog}>
-				<I18nextProvider i18n={i18next}>
-					<StrictMode>
-						<HydratedRouter />
-					</StrictMode>
-				</I18nextProvider>
-			</PostHogProvider>,
+			<I18nextProvider i18n={i18next}>
+				<StrictMode>
+					<HydratedRouter />
+				</StrictMode>
+			</I18nextProvider>,
 		);
 	});
 }
