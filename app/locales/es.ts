@@ -12,6 +12,9 @@ export default {
 	technicalSkills: "Conocimientos Técnicos",
 	coreValues: "Valores",
 	excellence: "Excelencia",
+	cto: "CTO",
+	whatStoodOut:
+		"Lo que más destacó de Christian es su sentido de propiedad integral. Desde el diseño de arquitecturas eficientes para APIs en el backend hasta la creación de interfaces de usuario intuitivas y con precisión de píxel (pixel-perfect), abordó cada problema con profundidad técnica y siempre pensando en el usuario final.",
 	sustainableArchitecture:
 		"La arquitectura sostenible, el código limpio y una gran UX son mis mantras",
 	accountable: "Fiable",

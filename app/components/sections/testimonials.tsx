@@ -38,7 +38,7 @@ export const testimonials: TestimonialsType[] = [
 		titleKey: "ceoAndCoFounder",
 	},
 	{
-		testimonialKey: "heDemonstrated",
+		testimonialKey: "whatStoodOut",
 		person: "Paul Brachmann",
 		photo: PaulPhoto,
 		company: "Floy® GmbH",

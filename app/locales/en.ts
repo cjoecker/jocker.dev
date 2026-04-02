@@ -94,8 +94,8 @@ export default {
 	aiIntegrations: "AI Integrations",
 	iotPlatforms: "IoT Platforms",
 	cto: "CTO",
-	heDemonstrated:
-		"He demonstrated his exceptional full stack engineering abilities on our React/Nest.js PartnerPortal. Even in the short time he spent with us, he made major contributions and was astonishingly productive from day one.",
+	whatStoodOut:
+		"What stood out most about Christian is his end-to-end ownership. From architecting efficient backend APIs to building intuitive, pixel-perfect user interfaces, he approached every problem with both technical depth and the end user in mind.",
 	free30MinConsultation: "Free 30-Min Consultation",
 	getAFastElegant:
 		"Get a fast, elegant, and future-proof cloud-native application built with proven cloud technologies.\n\nWith over {{years}} years of experience, I know what tech works best for your business needs.",
