@@ -1,11 +1,9 @@
 import { motion, useAnimationControls } from "framer-motion";
-import { useTranslation } from "react-i18next";
 
 import { Section } from "../shared/section";
 
 interface SkillItem {
 	skill: string;
-	translationKey?: string;
 	level: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 }
 
@@ -16,7 +14,6 @@ export const DevSkills: SkillItem[] = [
 	{ skill: "Javascript", level: 10 },
 	{
 		skill: "Agentic Development",
-		translationKey: "agenticDevelopment",
 		level: 9,
 	},
 	{ skill: "Remix / React Router", level: 9 },
@@ -39,7 +36,6 @@ export const DevSkills: SkillItem[] = [
 	{ skill: "Langfuse", level: 7 },
 	{
 		skill: "AI workflow automation",
-		translationKey: "aiWorkflowAutomation",
 		level: 7,
 	},
 	{ skill: "Vercel AI SDK", level: 10 },
@@ -117,8 +113,6 @@ const Skill = ({ skill, level }: SkillProps) => {
 };
 
 export const Skills = () => {
-	const { t } = useTranslation();
-
 	return (
 		<Section
 			titleKey="technicalSkills"
@@ -137,11 +131,7 @@ export const Skills = () => {
 					return (
 						<Skill
 							key={skillItem.skill}
-							skill={
-								skillItem.translationKey
-									? t(skillItem.translationKey)
-									: skillItem.skill
-							}
+							skill={skillItem.skill}
 							level={skillItem.level}
 						/>
 					);

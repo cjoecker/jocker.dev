@@ -7,8 +7,6 @@ export default {
 		"I don’t just code features. I help you build scalable solutions with amazing user experiences that hold up.",
 	discoverMore: "Discover More!",
 	whatICanDoForYou: "What I Can Do for You",
-	agenticDevelopment: "Agentic Development",
-	aiWorkflowAutomation: "AI workflow automation",
 	technicalSkills: "Technical Skills",
 	coreValues: "Core Values",
 	excellence: "Excellence",

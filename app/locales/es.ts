@@ -11,8 +11,6 @@ export default {
 		"No solo programo funcionalidades. Te ayudo a crear soluciones escalables con experiencias de usuario increíbles que perduran.",
 	discoverMore: "¡Descubre Más!",
 	whatICanDoForYou: "Lo Que Puedo Hacer por Ti",
-	agenticDevelopment: "Desarrollo agéntico",
-	aiWorkflowAutomation: "Automatización de flujos de trabajo con IA",
 	technicalSkills: "Conocimientos Técnicos",
 	coreValues: "Valores",
 	excellence: "Excelencia",

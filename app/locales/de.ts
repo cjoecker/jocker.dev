@@ -9,8 +9,6 @@ export default {
 		"Ich entwickle nicht einfach nur Features. Ich helfe dir, skalierbare Lösungen mit großartigen Nutzererlebnissen zu bauen, die langfristig überzeugen.",
 	discoverMore: "Mehr Entdecken!",
 	whatICanDoForYou: "Was Ich für Dich Tun Kann",
-	agenticDevelopment: "Agentische Entwicklung",
-	aiWorkflowAutomation: "KI-Workflow-Automatisierung",
 	technicalSkills: "Tech-Skills",
 	coreValues: "Kernwerte",
 	excellence: "Exzellenz",
