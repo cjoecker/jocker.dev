@@ -44,7 +44,7 @@ export default {
 	kukaSoftwareEngineer: "Ingeniero de Software - Comisionamiento Virtual",
 	kukaAreaManager: "Gerente de Área - Comisionamiento Virtual",
 	seniorSoftwareEngineer: "Ingeniero de Software Senior",
-	freelanceDeveloper: "Desarrollador Full-Stack",
+	freelanceDeveloper: "Ingeniero de Producto Freelance",
 	augsburgGermany: "Augsburgo, Alemania",
 	munichGermany: "Múnich, Alemania",
 	valenciaSpain: "Valencia, España",

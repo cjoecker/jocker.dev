@@ -42,7 +42,7 @@ export default {
 	kukaSoftwareEngineer: "Software-Ingenieur - Virtuelle Inbetriebnahme",
 	kukaAreaManager: "Teamleiter - Virtuelle Inbetriebnahme",
 	seniorSoftwareEngineer: "Senior Software-Ingenieur",
-	freelanceDeveloper: "Freelance Fullstack Entwickler",
+	freelanceDeveloper: "Freiberuflicher Produktingenieur",
 	augsburgGermany: "Augsburg, Deutschland",
 	munichGermany: "München, Deutschland",
 	valenciaSpain: "Valencia, Spanien",
