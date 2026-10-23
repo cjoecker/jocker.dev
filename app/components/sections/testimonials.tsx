@@ -373,7 +373,7 @@ const logos: Logo[] = [
 	{
 		src: HealmindLogo,
 		alt: "Healmind",
-		className: "invert contrast-[100] brightness-200",
+		className: "invert [&&]:brightness-75",
 	},
 	{ src: JaguarLogo, alt: "Jaguar", className: "brightness-200" },
 	{
@@ -385,7 +385,7 @@ const logos: Logo[] = [
 	{
 		src: FraunhoferLogo,
 		alt: "Fraunhofer",
-		className: "invert contrast-[200]",
+		className: "invert [&&]:brightness-75",
 	},
 	{ src: BmwLogo, alt: "BMW", className: "brightness-200" },
 	{ src: MercedesLogo, alt: "Mercedes-Benz", className: "brightness-200" },
