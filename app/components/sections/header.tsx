@@ -63,7 +63,7 @@ export const Header = () => {
 			>
 				<motion.h1
 					style={{ y: titleY }}
-					className="mx-2 mb-8 text-2xl font-bold sm:text-3xl"
+					className="mr-2 mb-8 text-2xl font-bold sm:text-3xl"
 				>
 					<span>{t("hiImChristian")}</span>
 					<AnimatedWord />
