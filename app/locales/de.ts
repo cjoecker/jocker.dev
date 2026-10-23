@@ -2,11 +2,11 @@ import type en from "./en";
 
 export default {
 	hiImChristian: "Hi, ich bin Christian Jöcker,",
-	fullStackDeveloper: "Fullstack Entwickler.",
-	webDeveloper: "Web Entwickler.",
-	fullStackDeveloperPrefix: "ein",
+	productEngineer: "Produktingenieur.",
+	softwareDeveloper: "Softwareentwickler.",
+	developerPrefix: "ein",
 	iDontJustProgramFeatures:
-		"Ich entwickle nicht einfach nur Features. Ich helfe dir, skalierbare Apps mit großartigen Nutzererlebnissen zu bauen, die wirklich überzeugen.",
+		"Ich entwickle nicht einfach nur Features. Ich helfe dir, skalierbare Lösungen mit großartigen Nutzererlebnissen zu bauen, die langfristig überzeugen.",
 	discoverMore: "Mehr Entdecken!",
 	whatICanDoForYou: "Was Ich für Dich Tun Kann",
 	technicalSkills: "Tech-Skills",
@@ -106,7 +106,7 @@ export default {
 	youWillGetASolid:
 		"Du erhältst ein solides MVP in nur einem Monat, damit du deine wichtigsten Features frühzeitig testen kannst.\n\nEs ist kein Wegwerfprodukt. Dein MVP kann zum finalen Produkt heranwachsen, ohne dass du von vorne anfangen musst.",
 	wantToAddAi:
-		"Du möchtest KI in dein Produkt integrieren? Oder deine UX für neue KI-Features anpassen? Ich helfe dir dabei.\n\nIch integriere auch Real-Time, Context-Aware Daten mithilfe von MCP-Servern für intelligentere Ergebnisse.",
+		"Du möchtest KI in dein Produkt integrieren? Oder einen Prozess mit KI automatisieren? Ich helfe dir dabei.\n\nIch kann auch deine bestehenden Apps für KI-Agenten zugänglich machen, indem ich einen MCP-Server für dich entwickle.",
 	asAMechanicalEngineer:
 		"Als Maschinenbauingenieur mit jahrelanger Erfahrung in der Robotik ist die Anbindung von Geräten an die Cloud für mich selbstverständlich.\n\nDu kannst deine Geräte zuverlässig überwachen und steuern.",
 	stuckOrJustHave:

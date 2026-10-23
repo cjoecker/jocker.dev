@@ -1,10 +1,10 @@
 export default {
 	hiImChristian: "Hi, I'm Christian Jöcker,",
-	fullStackDeveloper: "Full-Stack Developer.",
-	webDeveloper: "Web Developer.",
-	fullStackDeveloperPrefix: "a",
+	productEngineer: "Product Engineer.",
+	softwareDeveloper: "Software Developer.",
+	developerPrefix: "a",
 	iDontJustProgramFeatures:
-		"I don’t just code features. I help you build scalable apps with amazing user experiences that hold up.",
+		"I don’t just code features. I help you build scalable solutions with amazing user experiences that hold up.",
 	discoverMore: "Discover More!",
 	whatICanDoForYou: "What I Can Do for You",
 	technicalSkills: "Technical Skills",
@@ -103,7 +103,7 @@ export default {
 	youWillGetASolid:
 		"You’ll get a solid MVP in just one month so you can test your most valuable features early.\n\nIt’s not a throwaway. Tour MVP can grow into the final product without needing to start over.",
 	wantToAddAi:
-		"Want to add AI to your product? Or adapt your UX for new AI features? I got you.\n\nI also integrate real-time, context-aware data using MCP servers for smarter results.",
+		"Want to add AI to your product? Or automate a process with AI? I got you.\n\nI can also make your existing apps available to AI agents by building an MCP server for you.",
 	asAMechanicalEngineer:
 		"As a mechanical engineer with years in robotics, connecting devices to the cloud is second nature.\n\nYou’ll be able to monitor and control your devices reliably, fast.",
 	stuckOrJustHave:

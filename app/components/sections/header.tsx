@@ -135,7 +135,7 @@ function useParallax(scrollY: MotionValue<number>, multiplicator: number) {
 	});
 }
 
-const ANIMATED_WORDS: string[] = ["fullStackDeveloper", "webDeveloper"];
+const ANIMATED_WORDS: string[] = ["productEngineer", "softwareDeveloper"];
 const STAGGER_DURATION = 0.03;
 
 const READING_TIME = 2500;
@@ -182,7 +182,7 @@ function AnimatedWord() {
 	const words = animatedText.split(" ");
 	return (
 		<span className="flex flex-wrap" aria-label={ariaLabel}>
-			{`${t("fullStackDeveloperPrefix")}${SPACE_CHAR}`}
+			{`${t("developerPrefix")}${SPACE_CHAR}`}
 			{/* Words split for wrapping them on narrow screens */}
 			{words.map((word: string, wordIndex: number) => {
 				const wordWithSpaces =

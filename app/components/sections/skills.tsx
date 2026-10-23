@@ -12,6 +12,10 @@ export const DevSkills: SkillItem[] = [
 	{ skill: "Angular", level: 9 },
 	{ skill: "TypeScript", level: 10 },
 	{ skill: "Javascript", level: 10 },
+	{
+		skill: "Agentic Development",
+		level: 9,
+	},
 	{ skill: "Remix / React Router", level: 9 },
 	{ skill: "TanStack Start", level: 8 },
 	{ skill: "Next.js", level: 8 },
@@ -29,6 +33,11 @@ export const DevSkills: SkillItem[] = [
 	{ skill: "Prisma", level: 8 },
 	{ skill: "PostgreSQL", level: 8 },
 	{ skill: "DynamoDB", level: 8 },
+	{ skill: "Langfuse", level: 7 },
+	{
+		skill: "AI workflow automation",
+		level: 7,
+	},
 	{ skill: "Vercel AI SDK", level: 10 },
 	{ skill: "database management", level: 6 },
 	{ skill: "security best practices", level: 8 },
