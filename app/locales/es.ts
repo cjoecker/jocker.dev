@@ -2,15 +2,17 @@ import type en from "./en";
 
 export default {
 	hiImChristian: "Hey, soy Christian Jöcker,",
-	fullStackDeveloper: "Desarrollador Full-Stack.",
-	webDeveloper: "Desarrollador Web.",
-	fullStackDeveloperPrefix: "un",
+	productEngineer: "Ingeniero de Producto.",
+	softwareDeveloper: "Desarrollador de Software.",
+	developerPrefix: "un",
 	otherCompanies: "Otras empresas en las que he trabajado",
 	digitalConsultation: "Consultoría de Estrategia Digital",
 	iDontJustProgramFeatures:
-		"No solo programo funcionalidades. Te ayudo a crear aplicaciones escalables con experiencias de usuario increíbles que funcionan de maravilla.",
+		"No solo programo funcionalidades. Te ayudo a crear soluciones escalables con experiencias de usuario increíbles que perduran.",
 	discoverMore: "¡Descubre Más!",
 	whatICanDoForYou: "Lo Que Puedo Hacer por Ti",
+	agenticDevelopment: "Desarrollo agéntico",
+	aiWorkflowAutomation: "Automatización de flujos de trabajo con IA",
 	technicalSkills: "Conocimientos Técnicos",
 	coreValues: "Valores",
 	excellence: "Excelencia",
@@ -107,7 +109,7 @@ export default {
 	youWillGetASolid:
 		"Obtendrás un MVP sólido en tan solo un mes para que puedas testear tus features más valiosas desde el principio.\n\nNo es algo desechable. Tu MVP puede crecer hasta convertirse en el producto final sin necesidad de empezar de cero.",
 	wantToAddAi:
-		"¿Quieres añadir IA a tu producto? ¿O adaptar tu UX para nuevas funcionalidades de IA? Yo te ayudo.\n\nTambién integro datos en tiempo real y context-aware usando servidores MCP para resultados más inteligentes.",
+		"¿Quieres añadir IA a tu producto? ¿O automatizar un proceso con IA? Yo te ayudo.\n\nTambién puedo integrar datos en tiempo real y adaptados al contexto mediante servidores MCP para obtener resultados más inteligentes.",
 	asAMechanicalEngineer:
 		"Como ingeniero mecánico con años en robótica, conectar dispositivos a la nube es para mi algo fácil.\n\nPodrás monitorear y controlar tus dispositivos de forma fiable y rápida.",
 	stuckOrJustHave:

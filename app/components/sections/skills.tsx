@@ -1,9 +1,11 @@
 import { motion, useAnimationControls } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 import { Section } from "../shared/section";
 
 interface SkillItem {
 	skill: string;
+	translationKey?: string;
 	level: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 }
 
@@ -12,6 +14,11 @@ export const DevSkills: SkillItem[] = [
 	{ skill: "Angular", level: 9 },
 	{ skill: "TypeScript", level: 10 },
 	{ skill: "Javascript", level: 10 },
+	{
+		skill: "Agentic Development",
+		translationKey: "agenticDevelopment",
+		level: 9,
+	},
 	{ skill: "Remix / React Router", level: 9 },
 	{ skill: "TanStack Start", level: 8 },
 	{ skill: "Next.js", level: 8 },
@@ -29,6 +36,12 @@ export const DevSkills: SkillItem[] = [
 	{ skill: "Prisma", level: 8 },
 	{ skill: "PostgreSQL", level: 8 },
 	{ skill: "DynamoDB", level: 8 },
+	{ skill: "Langfuse", level: 7 },
+	{
+		skill: "AI workflow automation",
+		translationKey: "aiWorkflowAutomation",
+		level: 7,
+	},
 	{ skill: "Vercel AI SDK", level: 10 },
 	{ skill: "database management", level: 6 },
 	{ skill: "security best practices", level: 8 },
@@ -104,6 +117,8 @@ const Skill = ({ skill, level }: SkillProps) => {
 };
 
 export const Skills = () => {
+	const { t } = useTranslation();
+
 	return (
 		<Section
 			titleKey="technicalSkills"
@@ -122,7 +137,11 @@ export const Skills = () => {
 					return (
 						<Skill
 							key={skillItem.skill}
-							skill={skillItem.skill}
+							skill={
+								skillItem.translationKey
+									? t(skillItem.translationKey)
+									: skillItem.skill
+							}
 							level={skillItem.level}
 						/>
 					);
