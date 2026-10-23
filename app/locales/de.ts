@@ -106,7 +106,7 @@ export default {
 	youWillGetASolid:
 		"Du erhältst ein solides MVP in nur einem Monat, damit du deine wichtigsten Features frühzeitig testen kannst.\n\nEs ist kein Wegwerfprodukt. Dein MVP kann zum finalen Produkt heranwachsen, ohne dass du von vorne anfangen musst.",
 	wantToAddAi:
-		"Du möchtest KI in dein Produkt integrieren? Oder einen Prozess mit KI automatisieren? Ich helfe dir dabei.\n\nIch kann auch kontextbezogene Echtzeitdaten mithilfe von MCP-Servern integrieren, um intelligentere Ergebnisse zu erzielen.",
+		"Du möchtest KI in dein Produkt integrieren? Oder einen Prozess mit KI automatisieren? Ich helfe dir dabei.\n\nIch kann auch deine bestehenden Apps für KI-Agenten zugänglich machen, indem ich einen MCP-Server für dich entwickle.",
 	asAMechanicalEngineer:
 		"Als Maschinenbauingenieur mit jahrelanger Erfahrung in der Robotik ist die Anbindung von Geräten an die Cloud für mich selbstverständlich.\n\nDu kannst deine Geräte zuverlässig überwachen und steuern.",
 	stuckOrJustHave:

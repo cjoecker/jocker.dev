@@ -103,7 +103,7 @@ export default {
 	youWillGetASolid:
 		"You’ll get a solid MVP in just one month so you can test your most valuable features early.\n\nIt’s not a throwaway. Tour MVP can grow into the final product without needing to start over.",
 	wantToAddAi:
-		"Want to add AI to your product? Or automate a process with AI? I got you.\n\nI can also integrate real-time, context-aware data using MCP servers for smarter results.",
+		"Want to add AI to your product? Or automate a process with AI? I got you.\n\nI can also make your existing apps available to AI agents by building an MCP server for you.",
 	asAMechanicalEngineer:
 		"As a mechanical engineer with years in robotics, connecting devices to the cloud is second nature.\n\nYou’ll be able to monitor and control your devices reliably, fast.",
 	stuckOrJustHave:

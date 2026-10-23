@@ -107,7 +107,7 @@ export default {
 	youWillGetASolid:
 		"Obtendrás un MVP sólido en tan solo un mes para que puedas testear tus features más valiosas desde el principio.\n\nNo es algo desechable. Tu MVP puede crecer hasta convertirse en el producto final sin necesidad de empezar de cero.",
 	wantToAddAi:
-		"¿Quieres añadir IA a tu producto? ¿O automatizar un proceso con IA? Yo te ayudo.\n\nTambién puedo integrar datos en tiempo real y adaptados al contexto mediante servidores MCP para obtener resultados más inteligentes.",
+		"¿Quieres añadir IA a tu producto? ¿O automatizar un proceso con IA? Yo te ayudo.\n\nTambién puedo poner tus aplicaciones existentes a disposición de agentes de IA creando un servidor MCP para ti.",
 	asAMechanicalEngineer:
 		"Como ingeniero mecánico con años en robótica, conectar dispositivos a la nube es para mi algo fácil.\n\nPodrás monitorear y controlar tus dispositivos de forma fiable y rápida.",
 	stuckOrJustHave:
