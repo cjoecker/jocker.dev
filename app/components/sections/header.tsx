@@ -179,56 +179,68 @@ function AnimatedWord() {
 		showText();
 	}, []);
 
-	const words = animatedText.split(" ");
 	return (
-		<span className="flex flex-wrap" aria-label={ariaLabel}>
-			{`${t("developerPrefix")}${SPACE_CHAR}`}
-			{/* Words split for wrapping them on narrow screens */}
-			{words.map((word: string, wordIndex: number) => {
-				const wordWithSpaces =
-					wordIndex + 1 === words.length ? word : word + SPACE_CHAR;
-				// eslint-disable-next-line @typescript-eslint/no-misused-spread
-				const letters = [...wordWithSpaces];
-				const prevWordsLength = words
-					.slice(0, wordIndex)
-					.reduce((acc: number, curr: string) => {
-						return acc + curr.length;
-					}, 0);
-
+		<span className="grid grid-cols-1" aria-label={ariaLabel}>
+			{/* Overlapping titles reserve the tallest wrapped height in every language. */}
+			{ANIMATED_WORDS.map((titleKey, titleIndex) => {
+				const words = t(titleKey).split(" ");
 				return (
 					<span
 						aria-hidden={true}
-						className="flex flex-nowrap"
-						key={`${wordIndex}${word}${animatedText}`}
+						className={`col-start-1 row-start-1 flex flex-wrap content-start ${titleIndex === wordIndex ? "" : "invisible"}`}
+						key={titleKey}
 					>
-						{letters.map((letter, index) => {
+						{`${t("developerPrefix")}${SPACE_CHAR}`}
+						{/* Words split for wrapping them on narrow screens */}
+						{words.map((word: string, wordIndex: number) => {
+							const wordWithSpaces =
+								wordIndex + 1 === words.length ? word : word + SPACE_CHAR;
+							// eslint-disable-next-line @typescript-eslint/no-misused-spread
+							const letters = [...wordWithSpaces];
+							const prevWordsLength = words
+								.slice(0, wordIndex)
+								.reduce((acc: number, curr: string) => {
+									return acc + curr.length;
+								}, 0);
+
 							return (
-								<motion.div
-									initial={{
-										opacity: animationStarted ? 0 : 1,
-									}}
-									animate={controls}
-									variants={{
-										hidden: {
-											opacity: 0,
-											transition: {
-												// delay instead of stagger to allow word wrapping on narrow screens
-												delay:
-													(textLength - prevWordsLength - index - 1) *
-													STAGGER_DURATION,
-											},
-										},
-										visible: {
-											opacity: 1,
-											transition: {
-												delay: (prevWordsLength + index) * STAGGER_DURATION,
-											},
-										},
-									}}
-									key={`${index}${letter}${word}`}
+								<span
+									aria-hidden={true}
+									className="flex flex-nowrap"
+									key={`${wordIndex}${word}${animatedText}`}
 								>
-									{letter}
-								</motion.div>
+									{letters.map((letter, index) => {
+										return (
+											<motion.div
+												initial={{
+													opacity: animationStarted ? 0 : 1,
+												}}
+												animate={controls}
+												variants={{
+													hidden: {
+														opacity: 0,
+														transition: {
+															// delay instead of stagger to allow word wrapping on narrow screens
+															delay:
+																(textLength - prevWordsLength - index - 1) *
+																STAGGER_DURATION,
+														},
+													},
+													visible: {
+														opacity: 1,
+														transition: {
+															delay:
+																(prevWordsLength + index) * STAGGER_DURATION,
+														},
+													},
+												}}
+												key={`${index}${letter}${word}`}
+											>
+												{letter}
+											</motion.div>
+										);
+									})}
+								</span>
 							);
 						})}
 					</span>
